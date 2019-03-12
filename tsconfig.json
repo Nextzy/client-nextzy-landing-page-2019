@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "moduleResolution": "node",
+    //next js has their own folder. This is just for personal inspection
+    "outDir": "tsoutput"
+  },
+  "exclude": ["frontend/out", "frontend/.next", "tsoutput"]
+}
