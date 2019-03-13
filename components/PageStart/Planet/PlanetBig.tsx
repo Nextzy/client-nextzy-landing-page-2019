@@ -4,21 +4,8 @@ const PlanetBackground = '/static/images/Planet/asset_planent_halo_1.svg'
 const PlanetIn = '/static/images/Planet/asset_planet_2.png'
 const PlanetIn3 = '/static/images/Planet/asset_planet_3.png'
 
-const Container = styled.div`
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  overflow: hidden;
-  text-align: center;
-  background-color: #1a2740;
-`
 const Planet = styled.div`
-  position: relative;
+  /* position: relative;
   margin: 2rem;
   display: -webkit-box;
   display: -moz-box;
@@ -26,7 +13,7 @@ const Planet = styled.div`
   display: -webkit-flex;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 `
 const ImgPlanetBlinkOut = styled.img`
   width: 60%;
@@ -100,31 +87,14 @@ const ImgPlanetIn = styled.img`
   }
   z-index: 10;
 `
-
-const PlanetSmall = styled.div`
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  img {
-    width: 13%;
-    margin-left: -7rem;
-    margin-bottom: 2rem;
-  }
-  z-index: 11;
-`
 const PlanetBig = () => {
   return (
-    <Container>
-      <Planet>
-        <ImgPlanetBlinkOut src={PlanetBackground} />
-        <PlanetImgIn>
-          <ImgPlanetIn src={PlanetIn} alt="bg" />
-        </PlanetImgIn>
-        <PlanetSmall>
-          <img src={PlanetIn3} alt="bg" />
-        </PlanetSmall>
-      </Planet>
-    </Container>
+    <Planet>
+      <ImgPlanetBlinkOut src={PlanetBackground} />
+      <PlanetImgIn>
+        <ImgPlanetIn src={PlanetIn} alt="bg" />
+      </PlanetImgIn>
+    </Planet>
   )
 }
 
