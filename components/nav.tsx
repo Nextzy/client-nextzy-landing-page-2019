@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-
+import ContainerAll from '../components/common/ContainerAll'
 const links = [
   // { href: 'https://github.com/segmentio/create-next-app', label: 'Github', key: '' }
   { href: '#', label: 'OBJECT', key: '' },
@@ -13,11 +13,18 @@ const links = [
   link.key = `nav-link-${link.href}-${link.label}`
   return link
 })
+const Container = styled.div`
+  position: relative;
+  color: white;
+  width: 100%;
+`
 const NavBar = styled.nav`
   width: 100%;
   z-index: 99;
-  text-align: center;
   position: fixed;
+  text-align: left;
+  left: 0;
+  top: 0;
   ul {
     display: flex;
     justify-content: space-between;
@@ -42,24 +49,28 @@ const UlRight = styled.ul`
   text-align: right;
 `
 const Nav = () => (
-  <NavBar>
-    <ul>
-      <li>
-        <Link prefetch href="/">
-          <a>NEXTZY</a>
-        </Link>
-      </li>
-      <UlRight>
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <Link href={href}>
-              <a>{label}</a>
+  <Container>
+    <NavBar>
+      <ContainerAll>
+        <ul>
+          <li>
+            <Link prefetch href="/">
+              <a>NEXTZY</a>
             </Link>
           </li>
-        ))}
-      </UlRight>
-    </ul>
-  </NavBar>
+          <UlRight>
+            {links.map(({ key, href, label }) => (
+              <li key={key}>
+                <Link href={href}>
+                  <a>{label}</a>
+                </Link>
+              </li>
+            ))}
+          </UlRight>
+        </ul>
+      </ContainerAll>
+    </NavBar>
+  </Container>
 )
 
 export default Nav

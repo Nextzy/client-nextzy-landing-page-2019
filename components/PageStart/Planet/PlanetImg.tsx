@@ -1,22 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-const PlanetBackground = '/static/images/Planet/asset_planent_halo_1.svg'
-const PlanetIn = '/static/images/Planet/asset_planet_2.png'
-const PlanetIn3 = '/static/images/Planet/asset_planet_3.png'
-
 const Planet = styled.div`
-  /* position: relative;
-  margin: 2rem;
+  position: relative;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 `
 const ImgPlanetBlinkOut = styled.img`
-  width: 60%;
+  width: 100%;
   @keyframes fade {
     from {
       opacity: 1;
@@ -32,6 +27,9 @@ const ImgPlanetBlinkOut = styled.img`
   -webkit-animation: fade 3000ms infinite;
   -moz-animation: fade 3000ms infinite;
   -ms-animation: fade 3000ms infinite;
+`
+const ImgPlanetNotBG = styled.img`
+  width: 60%;
 `
 const PlanetImgIn = styled.div`
   position: absolute;
@@ -58,44 +56,29 @@ const PlanetImgIn = styled.div`
   -ms-animation: spin 100s infinite linear;
 `
 const ImgPlanetIn = styled.img`
-  width: 38%;
-  @keyframes heartbeat {
-    0% {
-      transform: scale(0.95);
-    }
-    20% {
-      transform: scale(1);
-    }
-    40% {
-      transform: scale(0.95);
-    }
-    60% {
-      transform: scale(1);
-    }
-    80% {
-      transform: scale(0.95);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  &:hover {
-    animation: heartbeat 5s infinite;
-    -webkit-animation: heartbeat 5s infinite;
-    -moz-animation: heartbeat 5s infinite;
-    -ms-animation: heartbeat 5s infinite;
-  }
+  width: 60%;
   z-index: 10;
 `
-const PlanetBig = () => {
-  return (
-    <Planet>
-      <ImgPlanetBlinkOut src={PlanetBackground} />
-      <PlanetImgIn>
-        <ImgPlanetIn src={PlanetIn} alt="bg" />
-      </PlanetImgIn>
-    </Planet>
-  )
+const PlanetBig = (props) => {
+  const { imgIn, imgOut } = props
+  const PlanetBackground = imgOut
+  const PlanetIn = imgIn || '/static/images/Planet/asset_planet_2.png'
+  if (imgOut) {
+    return (
+      <Planet>
+        <ImgPlanetBlinkOut src={PlanetBackground} />
+        <PlanetImgIn>
+          <ImgPlanetIn src={PlanetIn} alt="bg" />
+        </PlanetImgIn>
+      </Planet>
+    )
+  } else {
+    return (
+      <Planet>
+        <ImgPlanetNotBG src={PlanetIn} />
+      </Planet>
+    )
+  }
 }
 
 export default PlanetBig
