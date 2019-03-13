@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="445">
+  <defs>
+    <linearGradient id="prefix__asset_planet_halo_2-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#9FACE6"/>
+      <stop offset="100%" stop-color="#F0C9F4"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#prefix__asset_planet_halo_2-a)" fill-opacity=".1" fill-rule="evenodd">
+    <circle cx="220" cy="225" r="220"/>
+    <circle cx="220" cy="223" r="202"/>
+    <circle cx="220" cy="223" r="152"/>
+  </g>
+</svg>

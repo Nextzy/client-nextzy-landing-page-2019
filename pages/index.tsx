@@ -1,8 +1,8 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/nav'
-import PageStart from '../components/PageStart/index'
+import ScrollPage from '../components/scrollPage'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -12,14 +12,16 @@ const GlobalStyle = createGlobalStyle`
     display: none;
   }
 `
+const Container = styled.div`
+  width: 100%;
+`
 const Home = () => (
-  <div>
+  <Container>
     <GlobalStyle />
     <Head title="NEXTZY TECHNOLOGIES" />
     <Nav />
-    <PageStart />
-    <PageStart />
-  </div>
+    <ScrollPage />
+  </Container>
 )
 
 export default Home

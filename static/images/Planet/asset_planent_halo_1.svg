@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="875" height="875">
+  <defs>
+    <linearGradient id="prefix__asset_planent_halo_1-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#9FACE6"/>
+      <stop offset="100%" stop-color="#F0C9F4"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#prefix__asset_planent_halo_1-a)" fill-opacity=".1" fill-rule="evenodd">
+    <circle cx="438" cy="438" r="437"/>
+    <circle cx="438" cy="438" r="358"/>
+    <circle cx="438" cy="438" r="321"/>
+  </g>
+</svg>

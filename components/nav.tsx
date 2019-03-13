@@ -14,9 +14,10 @@ const links = [
   return link
 })
 const NavBar = styled.nav`
+  width: 100%;
+  z-index: 99;
   text-align: center;
-  /* position: absolute; */
-  color: white;
+  position: fixed;
   ul {
     display: flex;
     justify-content: space-between;
@@ -24,13 +25,21 @@ const NavBar = styled.nav`
   }
   li {
     display: flex;
-    padding: 6px 8px;
+    padding: 0.5rem 0.8rem;
   }
   a {
-    color: #067df7;
+    color: white;
     text-decoration: none;
     font-size: 13px;
+    transition: 500ms;
+    &:hover {
+      color: pink;
+      transform: scale(1.2);
+    }
   }
+`
+const UlRight = styled.ul`
+  text-align: right;
 `
 const Nav = () => (
   <NavBar>
@@ -40,7 +49,7 @@ const Nav = () => (
           <a>NEXTZY</a>
         </Link>
       </li>
-      <ul>
+      <UlRight>
         {links.map(({ key, href, label }) => (
           <li key={key}>
             <Link href={href}>
@@ -48,7 +57,7 @@ const Nav = () => (
             </Link>
           </li>
         ))}
-      </ul>
+      </UlRight>
     </ul>
   </NavBar>
 )
