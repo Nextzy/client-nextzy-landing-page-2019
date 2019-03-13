@@ -1,17 +1,41 @@
 import React from 'react'
 import Link from 'next/link'
+import styled from 'styled-components'
 
-const links = [{ href: 'https://github.com/segmentio/create-next-app', label: 'Github', key: '' }].map((link) => {
+const links = [
+  // { href: 'https://github.com/segmentio/create-next-app', label: 'Github', key: '' }
+  { href: '#', label: 'OBJECT', key: '' },
+  { href: '#', label: 'SERVICES', key: '' },
+  { href: '#', label: 'CLIENTS', key: '' },
+  { href: '#', label: 'WORK PROCESS', key: '' },
+  { href: '#', label: 'CONTACT', key: '' }
+].map((link) => {
   link.key = `nav-link-${link.href}-${link.label}`
   return link
 })
-
+const NavBar = styled.nav`
+  text-align: center;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 16px;
+  }
+  li {
+    display: flex;
+    padding: 6px 8px;
+  }
+  a {
+    color: #067df7;
+    text-decoration: none;
+    font-size: 13px;
+  }
+`
 const Nav = () => (
-  <nav>
+  <NavBar>
     <ul>
       <li>
         <Link prefetch href="/">
-          <a>Home</a>
+          <a>NEXTZY</a>
         </Link>
       </li>
       <ul>
@@ -25,7 +49,7 @@ const Nav = () => (
       </ul>
     </ul>
 
-    <style jsx>{`
+    {/* <style jsx>{`
       :global(body) {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
@@ -49,8 +73,8 @@ const Nav = () => (
         text-decoration: none;
         font-size: 13px;
       }
-    `}</style>
-  </nav>
+    `}</style> */}
+  </NavBar>
 )
 
 export default Nav
