@@ -41,9 +41,15 @@ const HoverLink = styled.div`
   text-decoration: none;
   font-size: 13px;
   transition: 500ms;
+  font-size: 0.8rem;
   &:hover {
     color: pink;
-    transform: scale(1.2);
+    font-size: 0.85rem;
+  }
+  a.active {
+    transition: 500ms;
+    color: pink;
+    font-size: 0.85rem;
   }
 `
 const UlRight = styled.ul`
@@ -62,9 +68,11 @@ const Nav = () => (
           <UlRight>
             {links.map(({ key, href, label }) => (
               <li key={key}>
-                <Link to={href} spy={true} smooth={true} offset={50} duration={500}>
-                  <HoverLink>{label}</HoverLink>
-                </Link>
+                <HoverLink>
+                  <Link to={href} activeClass="active" className={href} spy={true} smooth={true} duration={500}>
+                    {label}
+                  </Link>
+                </HoverLink>
               </li>
             ))}
           </UlRight>
