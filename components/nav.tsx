@@ -20,7 +20,7 @@ const Container = styled.div`
 `
 const NavBar = styled.nav`
   width: 100%;
-  z-index: 99;
+  z-index: 1000;
   position: fixed;
   text-align: left;
   left: 0;

@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 const Container = styled.div`
-  position: relative;
+  /* position: relative; */
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
+  z-index: 50;
 `
 // const BoxLeft = styled.div`
 //   flex-grow: 1;
@@ -21,8 +23,9 @@ const Container = styled.div`
 //   flex-grow: 1;
 // `
 const BoxCenter = styled.div`
+  position: relative;
   width: 768px;
-  margin: 2rem;
+  height: 100%;
 `
 const ContainerAll = (props) => {
   const { children } = props

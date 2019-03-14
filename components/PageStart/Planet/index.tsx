@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Fade from 'react-reveal/Fade'
+import Bounce from 'react-reveal/Bounce'
 import PlanetBig from './PlanetImg'
 const MainPlanetBig = styled.div`
-  position: absolute;
+  position: relative;
   transition: 5000ms;
   left: ${(props) => props.setPosition.x}px;
   top: ${(props) => props.setPosition.y}px;
+  z-index: 99;
 `
 
 const PlanetBigFunction = (props) => {
@@ -20,17 +21,12 @@ const PlanetBigFunction = (props) => {
   const mouseOut = () => {
     setPosition({ x: 0, y: 0 })
   }
-  const { positionFade, imgIn, imgOut } = props
+  const { imgIn, imgOut } = props
   return (
     <MainPlanetBig setPosition={usePosition} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
-      <Fade
-        left={positionFade === 'left' ? true : false}
-        right={positionFade === 'right' ? true : false}
-        bottom={positionFade === 'bottom' ? true : false}
-        top={positionFade === 'top' ? true : false}
-      >
+      <Bounce left>
         <PlanetBig imgIn={imgIn} imgOut={imgOut} />
-      </Fade>
+      </Bounce>
     </MainPlanetBig>
   )
 }
