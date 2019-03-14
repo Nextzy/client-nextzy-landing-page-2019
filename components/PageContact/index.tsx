@@ -1,26 +1,52 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import ContainerAll from '../common/ContainerAll'
+import Fade from 'react-reveal/Fade'
 const Container = styled.div`
+  background-color: #1a2740;
+  color: white;
+  height: 100vh;
+  width: 100%;
+`
+const TextNEXTZY = styled.div`
+  position: relative;
+  /* width: 100%; */
+  text-align: left;
+  font-family: Montserrat-Medium;
+  font-size: 2rem;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  display: inline-block;
+  float: left;
+`
+const ContainerPageSart = styled.div`
+  height: 100%;
+  width: 100%;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  align-items: center;
+  text-align: left;
   justify-content: center;
+  z-index: 50;
   flex-direction: column;
-  overflow: hidden;
-  text-align: center;
-  background-color: red;
-  color: white;
-  height: 100vh;
+  background-color: green;
 `
-const Home = () => {
-  const [height, setHight] = useState(0)
-  useEffect(() => {
-    setHight(JSON.stringify(screen.height))
-  })
-  return <Container height={height}>boat</Container>
+const PageContact = () => {
+  return (
+    <Container>
+      <ContainerAll>
+        <ContainerPageSart>
+          <TextNEXTZY>
+            <Fade right cascade>
+              <p>Page Contact</p>
+            </Fade>
+          </TextNEXTZY>
+        </ContainerPageSart>
+      </ContainerAll>
+    </Container>
+  )
 }
 
-export default Home
+export default PageContact

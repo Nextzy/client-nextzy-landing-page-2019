@@ -94,7 +94,7 @@ const BoxIconContact = styled.div`
   bottom: 0;
   /* width: 100%; */
 `
-const Home = () => {
+const PageStart = () => {
   return (
     <Container>
       <BoxPlanetBig>
@@ -135,4 +135,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default PageStart

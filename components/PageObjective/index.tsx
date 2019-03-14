@@ -33,14 +33,14 @@ const ContainerPageSart = styled.div`
   flex-direction: column;
   background-color: green;
 `
-const PageWorkProcess = () => {
+const PageObjective = () => {
   return (
     <Container>
       <ContainerAll>
         <ContainerPageSart>
           <TextNEXTZY>
             <Fade right cascade>
-              <p>Page Work Process</p>
+              <p>Page Objective</p>
             </Fade>
           </TextNEXTZY>
         </ContainerPageSart>
@@ -49,4 +49,4 @@ const PageWorkProcess = () => {
   )
 }
 
-export default PageWorkProcess
+export default PageObjective
