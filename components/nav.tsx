@@ -42,6 +42,7 @@ const HoverLink = styled.div`
   font-size: 13px;
   transition: 500ms;
   font-size: 0.8rem;
+  cursor: pointer;
   &:hover {
     color: pink;
     font-size: 0.85rem;

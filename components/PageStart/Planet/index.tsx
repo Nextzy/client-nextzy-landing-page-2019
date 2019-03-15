@@ -7,7 +7,7 @@ const MainPlanetBig = styled.div`
   transition: 5000ms;
   left: ${(props) => props.setPosition.x}px;
   top: ${(props) => props.setPosition.y}px;
-  z-index: 99;
+  z-index: 50;
 `
 
 const PlanetBigFunction = (props) => {

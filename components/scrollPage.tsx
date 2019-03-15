@@ -42,19 +42,9 @@ const ScrollPage = () => {
   }, [])
   return (
     <>
-      {/* <Link
-        activeClass="active"
-        to="pageclient"
-        spy={true}
-        smooth={true}
-        offset={50}
-        duration={500}
-        onSetActive={handleSetActive}
-      > */}
       <Element name="pagestart" className="element">
         <PageStart />
       </Element>
-      {/* </Link> */}
       <Element name="pageobject" className="element">
         <PageObjective />
       </Element>

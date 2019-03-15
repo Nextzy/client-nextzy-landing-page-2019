@@ -26,6 +26,7 @@ const BoxCenter = styled.div`
   position: relative;
   width: 768px;
   height: 100%;
+  z-index: 50;
 `
 const ContainerAll = (props) => {
   const { children } = props
