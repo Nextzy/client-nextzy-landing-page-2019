@@ -24,6 +24,7 @@ const NavBar = styled.nav`
   z-index: 1000;
   position: fixed;
   text-align: left;
+  font-family: 'Montserrat-Regular';
   left: 0;
   top: 0;
   ul {

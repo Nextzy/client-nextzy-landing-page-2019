@@ -15,48 +15,58 @@ const BoxPlanetBig = styled.div`
   right: -13rem;
   bottom: 6rem;
   width: 100%;
+  z-index: 50;
 `
 const BoxPlanetBigSub = styled.div`
   margin: 0 auto;
   width: 80%;
   float: right;
+  z-index: 50;
 `
 const BoxPlanetSmall = styled.div`
   position: absolute;
   bottom: 4rem;
   left: -4rem;
   width: 100%;
+  z-index: 50;
 `
 const BoxPlanetSmallSub = styled.div`
   margin: 0 auto;
   width: 35%;
+  z-index: 50;
 `
 const BoxMedium = styled.div`
   position: absolute;
   top: -5em;
   left: 0;
   width: 100%;
+  z-index: 50;
 `
 const BoxMediumSub = styled.div`
   margin: 0 auto;
   width: 30%;
+  z-index: 50;
 `
 const TextNEXTZY = styled.div`
   position: relative;
-  /* width: 100%; */
   text-align: left;
   font-family: Montserrat-Medium;
   font-size: 2rem;
   color: #ffffff;
   letter-spacing: -0.5px;
   display: inline-block;
-  float: left;
+  p {
+    margin: 0;
+    font-family: 'Montserrat-Medium';
+  }
 `
 const BoxBtnPage = styled.div`
-  /* margin-top: 15rem; */
-  width: 100%;
+  font-family: 'Montserrat-Regular';
+  margin-top: 3rem;
+  display: inline-block;
   position: relative;
   text-align: left;
+  z-index: 51;
   button {
     margin-top: 2rem;
     padding: 1rem 2rem 1rem 2rem;
@@ -73,7 +83,7 @@ const BoxBtnPage = styled.div`
     }
   }
 `
-const ContainerPageSart = styled.div`
+const ContainerPageStart = styled.div`
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -83,7 +93,7 @@ const ContainerPageSart = styled.div`
   display: flex;
   text-align: left;
   justify-content: center;
-  z-index: 50;
+  z-index: 51;
   flex-direction: column;
   /* background-color: blue; */
 `
@@ -91,13 +101,11 @@ const PageStart = () => {
   return (
     <Container>
       <ContainerAll>
-        <ContainerPageSart>
+        <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <p>
-                NEXTZY <br />
-                TECHNOLOGIES
-              </p>
+              <p>NEXTZY </p>
+              <p>TECHNOLOGIES</p>
             </Fade>
           </TextNEXTZY>
 
@@ -107,7 +115,7 @@ const PageStart = () => {
             <button>PRODUCTS</button>
             <button>CONTACT</button>
           </BoxBtnPage>
-        </ContainerPageSart>
+        </ContainerPageStart>
 
         <BoxPlanetBig>
           <BoxPlanetBigSub>
@@ -132,7 +140,7 @@ const PageStart = () => {
           </BoxMediumSub>
         </BoxMedium>
       </ContainerAll>
-      <ShootingStar />
+      {/* <ShootingStar /> */}
     </Container>
   )
 }

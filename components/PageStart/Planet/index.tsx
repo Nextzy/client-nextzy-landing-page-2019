@@ -24,7 +24,7 @@ const PlanetBigFunction = (props) => {
   const { imgIn, imgOut } = props
   return (
     <MainPlanetBig setPosition={usePosition} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
-      <Bounce left>
+      <Bounce right>
         <PlanetBig imgIn={imgIn} imgOut={imgOut} />
       </Bounce>
     </MainPlanetBig>
