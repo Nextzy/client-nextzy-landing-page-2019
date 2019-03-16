@@ -5,6 +5,7 @@ import Nav from '../components/nav'
 import GlobalStyle from '../components/common/GlobalStyle'
 import ScrollPage from '../components/scrollPage'
 import IconContact from '../components/IconContact'
+import ScrollActive from '../components/ScrollActive'
 
 const Container = styled.div`
   width: 100%;
@@ -16,7 +17,8 @@ const Home = () => (
 
     <Head title="NEXTZY TECHNOLOGIES" />
     <Nav />
-    {/* <IconContact /> */}
+    <IconContact />
+    <ScrollActive />
     <ScrollPage />
   </Container>
 )

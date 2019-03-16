@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1442" height="1073">
+  <defs>
+    <path id="prefix__background_galaxy-a" d="M0-4h1442v1077H0z"/>
+    <circle id="prefix__background_galaxy-d" cx="210" cy="-549" r="903"/>
+    <filter id="prefix__background_galaxy-c" width="109.4%" height="109.4%" x="-4.7%" y="-4.6%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="28"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <mask id="prefix__background_galaxy-b" fill="#fff">
+      <use xlink:href="#prefix__background_galaxy-a"/>
+    </mask>
+    <circle cx="576" cy="-92" r="978" fill="#1E2A46" fill-opacity=".7" mask="url(#prefix__background_galaxy-b)"/>
+    <g mask="url(#prefix__background_galaxy-b)" opacity=".7">
+      <use fill="#000" filter="url(#prefix__background_galaxy-c)" xlink:href="#prefix__background_galaxy-d"/>
+      <use fill="#152740" xlink:href="#prefix__background_galaxy-d"/>
+    </g>
+  </g>
+</svg>

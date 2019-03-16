@@ -9,6 +9,19 @@ const Container = styled.div`
   color: white;
   height: 100vh;
   width: 100%;
+  z-index: 1;
+`
+const ContainerBackground = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-image: url(/static/images/Background/background_galaxy.svg);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 10;
 `
 const BoxPlanetBig = styled.div`
   position: absolute;
@@ -51,7 +64,7 @@ const TextNEXTZY = styled.div`
   position: relative;
   text-align: left;
   font-family: Montserrat-Medium;
-  font-size: 2rem;
+  font-size: 60px;
   color: #ffffff;
   letter-spacing: -0.5px;
   display: inline-block;
@@ -67,9 +80,15 @@ const BoxBtnPage = styled.div`
   position: relative;
   text-align: left;
   z-index: 51;
+  font-size: 24px;
+  color: #ffffff;
   button {
+    font-size: 14px;
+    color: #ffffff;
+    letter-spacing: 1.25px;
+    line-height: 16px;
     margin-top: 2rem;
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 0.8rem 2.5rem 0.8rem 2.5rem;
     margin-right: 1.5rem;
     border-radius: 25px;
     color: white;
@@ -100,6 +119,7 @@ const ContainerPageStart = styled.div`
 const PageStart = () => {
   return (
     <Container>
+      <ContainerBackground />
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>

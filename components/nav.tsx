@@ -25,6 +25,10 @@ const NavBar = styled.nav`
   position: fixed;
   text-align: left;
   font-family: 'Montserrat-Regular';
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 1.25px;
+  line-height: 16px;
   left: 0;
   top: 0;
   ul {
@@ -64,7 +68,7 @@ const Nav = () => (
         <ul>
           <li>
             <Link to="pagestart" spy={true} smooth={true} offset={50} duration={500}>
-              NEXTZY
+              <img src="/static/images/logo/logo_nextzy_white.svg" />
             </Link>
           </li>
           <UlRight>
