@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-scroll'
 const BoxSlideActive = styled.div`
+  z-index: 1000;
   position: fixed;
   height: 100vh;
   color: white;

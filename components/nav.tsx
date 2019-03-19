@@ -2,7 +2,7 @@ import React from 'react'
 // import Link from 'next/link'
 import styled from 'styled-components'
 import { Link } from 'react-scroll'
-import ContainerAll from '../components/common/ContainerAll'
+import ContainerAll from './layout/ContainerAll'
 const links = [
   // { href: 'https://github.com/segmentio/create-next-app', label: 'Github', key: '' }
   { href: 'pageobject', label: 'OBJECT', key: '' },

@@ -24,7 +24,7 @@ const Container = styled.div`
 // `
 const BoxCenter = styled.div`
   position: relative;
-  width: 768px;
+  width: 980px;
   height: 100%;
   z-index: 50;
 `

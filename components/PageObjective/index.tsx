@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ContainerAll from '../common/ContainerAll'
+import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 const Container = styled.div`
   background-color: #1a2740;
@@ -36,7 +36,7 @@ const ContainerPageSart = styled.div`
 const PageObjective = () => {
   return (
     <Container>
-      <ContainerAll>
+      {/* <ContainerAll> */}
         <ContainerPageSart>
           <TextNEXTZY>
             <Fade right cascade>
@@ -44,7 +44,7 @@ const PageObjective = () => {
             </Fade>
           </TextNEXTZY>
         </ContainerPageSart>
-      </ContainerAll>
+      {/* </ContainerAll> */}
     </Container>
   )
 }
