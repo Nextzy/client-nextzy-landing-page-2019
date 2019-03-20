@@ -36,15 +36,15 @@ const ContainerPageSart = styled.div`
 const PageObjective = (): React.FunctionComponent<{}> => {
   return (
     <Container>
-      {/* <ContainerAll> */}
-      <ContainerPageSart>
-        <TextNEXTZY>
-          <Fade right cascade>
-            <p>OUR OBJECTIVE</p>
-          </Fade>
-        </TextNEXTZY>
-      </ContainerPageSart>
-      {/* </ContainerAll> */}
+      <ContainerAll>
+        <ContainerPageSart>
+          <TextNEXTZY>
+            <Fade right cascade>
+              <p>OUR OBJECTIVE</p>
+            </Fade>
+          </TextNEXTZY>
+        </ContainerPageSart>
+      </ContainerAll>
     </Container>
   )
 }

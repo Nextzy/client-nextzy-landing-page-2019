@@ -116,7 +116,7 @@ const ContainerPageStart = styled.div`
   flex-direction: column;
   /* background-color: blue; */
 `
-const PageStart = () => {
+const PageStart = (): React.FC => {
   return (
     <Container>
       <ContainerBackground />

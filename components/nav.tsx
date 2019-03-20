@@ -5,7 +5,7 @@ import { Link } from 'react-scroll'
 import ContainerAll from './layout/ContainerAll'
 const links = [
   // { href: 'https://github.com/segmentio/create-next-app', label: 'Github', key: '' }
-  { href: 'pageobject', label: 'OBJECT', key: '' },
+  { href: 'pageobject', label: 'OBJECTIVE', key: '' },
   { href: 'pageservices', label: 'SERVICES', key: '' },
   { href: 'pageclient', label: 'CLIENTS', key: '' },
   { href: 'pageworkprocess', label: 'WORK PROCESS', key: '' },

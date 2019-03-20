@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { Element, Events, scrollSpy, animateScroll as scroll } from 'react-scroll'
-import PageStart from './PageStart/index'
-import PageObjective from './PageObjective/index'
-import PageService from './PageService/index'
-import PageClient from './PageClient/index'
-import PageWorkProcess from './PageWorkProcess/index'
-import PageContact from './PageContact/index'
+import PageStart from './PageStart'
+import PageObjective from './PageObjective'
+import PageService from './PageService'
+import PageClient from './PageClient'
+import PageWorkProcess from './PageWorkProcess'
+import PageContact from './PageContact'
 const scrollToTop = (): void => {
   scroll.scrollToTop()
 }
