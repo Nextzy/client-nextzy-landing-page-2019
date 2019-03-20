@@ -59,7 +59,7 @@ const ImgPlanetIn = styled.img`
   width: 60%;
   z-index: 10;
 `
-const PlanetBig = (props) => {
+const PlanetBig = (props): React.FC => {
   const { imgIn, imgOut } = props
   const PlanetBackground = imgOut
   const PlanetIn = imgIn || '/static/images/Planet/asset_planet_2.png'

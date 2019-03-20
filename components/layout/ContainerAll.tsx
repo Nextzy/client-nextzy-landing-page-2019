@@ -28,7 +28,7 @@ const BoxCenter = styled.div`
   height: 100%;
   z-index: 50;
 `
-const ContainerAll = (props) => {
+const ContainerAll = (props): React.FC => {
   const { children } = props
   return (
     <Container>

@@ -33,7 +33,7 @@ const ContainerPageSart = styled.div`
   flex-direction: column;
   background-color: green;
 `
-const PageContact = () => {
+const PageContact = (): React.FC => {
   return (
     <Container>
       <ContainerAll>

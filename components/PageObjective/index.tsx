@@ -33,17 +33,17 @@ const ContainerPageSart = styled.div`
   flex-direction: column;
   background-color: green;
 `
-const PageObjective = () => {
+const PageObjective = (): React.FunctionComponent<{}> => {
   return (
     <Container>
       {/* <ContainerAll> */}
-        <ContainerPageSart>
-          <TextNEXTZY>
-            <Fade right cascade>
-              <p>Page Objective</p>
-            </Fade>
-          </TextNEXTZY>
-        </ContainerPageSart>
+      <ContainerPageSart>
+        <TextNEXTZY>
+          <Fade right cascade>
+            <p>OUR OBJECTIVE</p>
+          </Fade>
+        </TextNEXTZY>
+      </ContainerPageSart>
       {/* </ContainerAll> */}
     </Container>
   )

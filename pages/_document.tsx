@@ -2,7 +2,7 @@ import * as React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 export default class extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx): React.FC {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
 

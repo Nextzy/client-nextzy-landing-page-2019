@@ -61,7 +61,7 @@ const HoverLink = styled.div`
 const UlRight = styled.ul`
   text-align: right;
 `
-const Nav = () => (
+const Nav = (): React.FC => (
   <Container>
     <NavBar>
       <ContainerAll>

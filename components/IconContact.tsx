@@ -15,7 +15,7 @@ const BoxIconContact = styled.div`
     filter: brightness(0) invert(1);
   }
 `
-const IconContact = () => (
+const IconContact = (): React.FC => (
   <BoxIconContact>
     <div>
       <img src="/static/images/icon/ic_github.svg" />

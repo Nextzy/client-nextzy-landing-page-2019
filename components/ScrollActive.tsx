@@ -27,7 +27,7 @@ const BoxSlideActive = styled.div`
     filter: brightness(0) invert(1);
   }
 `
-const ScrollActive = () => (
+const ScrollActive = (): React.FC => (
   <BoxSlideActive>
     <Link to="pageobject" activeClass="active" className="pageobject" spy={true} smooth={true} duration={500}>
       <div />

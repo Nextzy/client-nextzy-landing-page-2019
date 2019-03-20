@@ -6,27 +6,27 @@ import PageService from './PageService/index'
 import PageClient from './PageClient/index'
 import PageWorkProcess from './PageWorkProcess/index'
 import PageContact from './PageContact/index'
-const scrollToTop = () => {
+const scrollToTop = (): void => {
   scroll.scrollToTop()
 }
-const scrollToBottom = () => {
+const scrollToBottom = (): void => {
   scroll.scrollToBottom()
 }
-const scrollTo = () => {
+const scrollTo = (): void => {
   scroll.scrollTo(100)
 }
-const scrollMore = () => {
+const scrollMore = (): void => {
   scroll.scrollMore(100)
 }
-const handleSetActive = (to) => {
+const handleSetActive = (to): void => {
   console.log(to)
 }
-const handleScroll = (e) => {
+const handleScroll = (e): void => {
   let scrollTop = e
   // let itemTranslate = Math.min(0, scrollTop / 3 - 60)
   console.log('scroll', scrollTop)
 }
-const ScrollPage = () => {
+const ScrollPage = (): React.FC => {
   useEffect(() => {
     Events.scrollEvent.register('begin', function(to, element) {
       console.log('begin', to, element)

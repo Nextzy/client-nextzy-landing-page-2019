@@ -11,7 +11,7 @@ const Container = styled.div`
   width: 100%;
   overflow: hidden;
 `
-const Home = () => (
+const Home = (): React.FC => (
   <Container>
     <GlobalStyle />
 

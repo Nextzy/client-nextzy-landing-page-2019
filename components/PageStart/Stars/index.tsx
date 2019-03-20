@@ -126,7 +126,7 @@ const BodyShootingStar = styled.div`
   }
 `
 
-const ShootingStar = () => {
+const ShootingStar = (): React.FC => {
   return (
     <ContainerShootingStar>
       <BodyShootingStar>
