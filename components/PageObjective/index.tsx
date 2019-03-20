@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
-import Fade from 'react-reveal/Fade'
+import { SectionHeader } from '../common/Text'
+
 const Container = styled.div`
   background-color: #1a2740;
   color: white;
@@ -19,7 +20,7 @@ const TextNEXTZY = styled.div`
   display: inline-block;
   float: left;
 `
-const ContainerPageSart = styled.div`
+const ContainerPageObjective = styled.div`
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -31,19 +32,18 @@ const ContainerPageSart = styled.div`
   justify-content: center;
   z-index: 50;
   flex-direction: column;
-  background-color: green;
+  background-color: #1a2740;
+  border: 1px solid green;
 `
 const PageObjective = (): React.FunctionComponent<{}> => {
   return (
     <Container>
       <ContainerAll>
-        <ContainerPageSart>
+        <ContainerPageObjective>
           <TextNEXTZY>
-            <Fade right cascade>
-              <p>OUR OBJECTIVE</p>
-            </Fade>
+            <SectionHeader title="OUR OBJECTIVE" />
           </TextNEXTZY>
-        </ContainerPageSart>
+        </ContainerPageObjective>
       </ContainerAll>
     </Container>
   )

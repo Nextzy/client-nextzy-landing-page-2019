@@ -13,9 +13,11 @@ module.exports = {
     }
   },
   rules: {
+    semi: [1, 'never'],
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/explicit-member-accessibility': 'off'
+    '@typescript-eslint/member-delimiter-style': 'off',
+    'react/prop-types': 'off'
   },
   settings: {
     react: {
