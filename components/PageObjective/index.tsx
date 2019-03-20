@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import { SectionHeader } from '../common/Text'
-
+import { Pair } from './Menu'
 const Container = styled.div`
   background-color: #1a2740;
   color: white;
@@ -42,6 +42,7 @@ const PageObjective = (): React.FunctionComponent<{}> => {
         <ContainerPageObjective>
           <TextNEXTZY>
             <SectionHeader title="OUR OBJECTIVE" />
+            <Pair />
           </TextNEXTZY>
         </ContainerPageObjective>
       </ContainerAll>
