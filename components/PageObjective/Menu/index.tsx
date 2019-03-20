@@ -48,14 +48,23 @@ const MenuList = (props): React.FC => {
 const DescriptionHolder = styled.div`
   font-size: 24px;
 `
-
+// ```DEVELOP QUALITY SOFTWARE FOR CUSTOMERS
+//  Technology is a key to improve everyone businesses. It accelerates their growth by leaps and bounds. We always choose the best technologies and deliver the best software to our customers.
+// - Pixel Perfect Design
+// - Cutting-edge Technologies
+// - Lightning Speed Development
+// EMPOWERING EVERYONE IN THE TEAM
+// Quality software needs talented people. We, therefore, open our team members to the opportunities to develop themselves on top of software development skills.
+// SHARE THE EXPERTISE TO CREATE A COMMUNITY.
+// Better developer communities will positively affect our team members, both directly and indirectly.
+// ```
 const Description = (props): React.FC => {
   return (
     <DescriptionHolder>
       <div>Develop quality software for customers</div>
       <p>
-        Technology is the key to improving businesses grow with leaps and bounds. We choose to use the best technology
-        to deliver the best software to our customers.
+        Technology is a key to improve businesses. It accelerates their growth by leaps and bounds. We always choose the
+        best technologies and deliver the best software to our customers.
       </p>
       <ul>
         <ol>Cutting-Edge Technologies</ol>
