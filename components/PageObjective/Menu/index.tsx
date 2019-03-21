@@ -93,37 +93,84 @@ const DescriptionHolder = styled.div`
   font-size: 24px;
 `
 
+const Header = styled.div`
+  font-size: 34px;
+`
+
+const Body = styled.p`
+  font-size: 16px;
+  letter-spacing: 0.5;
+  line-height: 1.5;
+`
+
+const OrderedList = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+`
+
+const OrderedItemContainer = styled.div`
+  font-size: 16px;
+  width: 250px;
+  margin-bottom: 3rem;
+`
+
+const OrderedItemDivider = styled.img`
+  width: 50px;
+  height: 2px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`
+
+const Highlight = styled.strong`
+  color: #2a7aff;
+`
+interface OrderedItemProps {
+  number: string
+  name: string
+}
+const OrderedItem = (props): React.FC<OrderedItemProps> => {
+  return (
+    <OrderedItemContainer>
+      <div>{props.number}</div>
+      <OrderedItemDivider src="/static/images/divider/Color.svg" />
+      <div>{props.name}</div>
+    </OrderedItemContainer>
+  )
+}
+
 const DescriptionPane = ({ activeMenu }): React.FC => {
   if (activeMenu === 'develop') {
     return (
       <DescriptionHolder>
-        <div>Develop quality software for customers</div>
-        <p>
+        <Header>
+          Develop <Highlight>quality software</Highlight> for customers
+        </Header>
+        <Body>
           Technology is a key to improve businesses. It accelerates their growth by leaps and bounds. We always choose
           the best technologies and deliver the best software to our customers.
-        </p>
-        <ul>
-          <ol>Cutting-Edge Technologies</ol>
-          <ol>Pixel Perfect Design</ol>
-          <ol>Lightning Speed Development</ol>
-        </ul>
+        </Body>
+        <OrderedList>
+          <OrderedItem number="01" name="Cutting-Edge Technologies" />
+          <OrderedItem number="02" name="Pixel Perfect Design" />
+          <OrderedItem number="03" name="Lightning Speed Development" />
+        </OrderedList>
       </DescriptionHolder>
     )
   } else if (activeMenu === 'empowering') {
     return (
       <DescriptionHolder>
-        <div>Empowering everyone in the team</div>
-        <p>
+        <Header>Empowering everyone in the team</Header>
+        <Body>
           Quality software needs talented people. We, therefore, open our team members to the opportunities to develop
           themselves on top of software development skills.
-        </p>
+        </Body>
       </DescriptionHolder>
     )
   } else if (activeMenu === 'share') {
     return (
       <DescriptionHolder>
-        <div>Share the expertise to create a community</div>
-        <p>Better developer communities will positively affect our team members, both directly and indirectly.</p>
+        <Header>Share the expertise to create a community</Header>
+        <Body>Better developer communities will positively affect our team members, both directly and indirectly.</Body>
       </DescriptionHolder>
     )
   } else {

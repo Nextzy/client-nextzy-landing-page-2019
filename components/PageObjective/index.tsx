@@ -33,7 +33,6 @@ const ContainerPageObjective = styled.div`
   z-index: 50;
   flex-direction: column;
   background-color: #1a2740;
-  border: 1px solid green;
 `
 const PageObjective = (): React.FunctionComponent<{}> => {
   return (
