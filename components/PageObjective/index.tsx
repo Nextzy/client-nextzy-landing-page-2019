@@ -29,7 +29,7 @@ const ContainerPageObjective = styled.div`
   display: -webkit-flex;
   display: flex;
   text-align: left;
-  justify-content: center;
+  margin-top: 10rem;
   z-index: 50;
   flex-direction: column;
   background-color: #1a2740;
