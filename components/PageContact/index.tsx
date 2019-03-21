@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
+import { SectionHeader } from '../common/Text'
 const Container = styled.div`
   background-color: #1a2740;
   color: white;
@@ -31,7 +32,7 @@ const ContainerPageSart = styled.div`
   justify-content: center;
   z-index: 50;
   flex-direction: column;
-  background-color: green;
+  border: 1px solid green;
 `
 const PageContact = (): React.FC => {
   return (
@@ -40,7 +41,7 @@ const PageContact = (): React.FC => {
         <ContainerPageSart>
           <TextNEXTZY>
             <Fade right cascade>
-              <p>Page Contact</p>
+              <SectionHeader title="Page Contact" />
             </Fade>
           </TextNEXTZY>
         </ContainerPageSart>

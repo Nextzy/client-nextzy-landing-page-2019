@@ -95,6 +95,7 @@ const BoxBtnPage = styled.div`
     background-color: transparent;
     border: 0px solid transparent;
     box-shadow: inset 0 0 0 2px #fff;
+    cursor: pointer;
     /* transition: background 500ms; */
     &:hover {
       background-image: linear-gradient(-136deg, #f7618b 0%, #2a7aff 100%);
