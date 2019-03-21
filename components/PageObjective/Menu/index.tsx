@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import Swing from 'react-reveal/Swing'
 const menuArray = [
   {
     key: 'develop',
@@ -23,7 +24,7 @@ const Row = styled.div`
   width: 385px;
   user-select: none;
   cursor: pointer;
-  color: ${(props) => (props.selected ? 'white' : 'grey')};
+  color: ${(props) => (props.selected ? '#FFFFFF' : '#ABABAB')};
   :hover {
     color: white;
   }
@@ -33,6 +34,10 @@ const RightAlignIcon = styled.img``
 
 const RowWrapper = styled.div`
   margin-bottom: 0.5rem;
+`
+
+const BottomLiner = styled.img`
+  opacity: ${(props) => (props.selected ? 1 : 0.3)};
 `
 interface MenuProps {
   name: string
@@ -47,9 +52,12 @@ const Menu = (props): React.FC<MenuProps> => {
     <>
       <RowWrapper>
         <Row {...props}>
-          {props.name} <RightAlignIcon src={src} />
+          {props.name}{' '}
+          <Swing when={props.selected}>
+            <RightAlignIcon src={src} />
+          </Swing>
         </Row>
-        <img src="/static/images/divider/Color.svg" />
+        <BottomLiner {...props} src="/static/images/divider/Color.svg" />
       </RowWrapper>
     </>
   )
