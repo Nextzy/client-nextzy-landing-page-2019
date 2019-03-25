@@ -80,7 +80,9 @@ const BoxBtnPage = styled.div`
   position: relative;
   text-align: left;
   z-index: 51;
-  font-size: 24px;
+  font-size: 18px;
+  letter-spacing: 0.5;
+  line-height: 1.5;
   color: #ffffff;
   button {
     font-size: 14px;

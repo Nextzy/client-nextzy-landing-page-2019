@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
+import Timeline from './Timeline/index'
 const Container = styled.div`
   background-color: #1a2740;
   color: white;
@@ -19,6 +20,13 @@ const TextNEXTZY = styled.div`
   letter-spacing: -0.5px;
   display: inline-block;
   float: left;
+`
+const TextDescription = styled.div`
+  padding-top: 2rem;
+  font-family: 'Montserrat-Regular';
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
 `
 const ContainerPageSart = styled.div`
   height: 100%;
@@ -41,9 +49,15 @@ const PageWorkProcess = (): React.FC => {
         <ContainerPageSart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="Page Work Process" />
+              <SectionHeader title="HOW WE WORK (WORKING PROCESS)" />
             </Fade>
           </TextNEXTZY>
+          <TextDescription>
+            To deliver the best software our customers. We, therefore, pay attention to the process of software
+            development to meet the requirement of customers rapidly. You could see the sequence of operations and
+            origresses during development continuously.
+          </TextDescription>
+          <Timeline />
         </ContainerPageSart>
       </ContainerAll>
     </Container>

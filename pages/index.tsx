@@ -14,7 +14,6 @@ const Container = styled.div`
 const Home = (): React.FC => (
   <Container>
     <GlobalStyle />
-
     <Head title="NEXTZY TECHNOLOGIES" />
     <Nav />
     <IconContact />
