@@ -32,12 +32,20 @@ const ContainerPageObjective = styled.div`
   margin-top: 10rem;
   z-index: 50;
   flex-direction: column;
-  background-color: #1a2740;
 `
+
+const BackgroundImage = styled.img`
+  position: absolute;
+  left: 80%;
+  z-index: -4;
+  user-select: none;
+`
+
 const PageObjective = (): React.FunctionComponent<{}> => {
   return (
     <Container>
       <ContainerAll>
+        <BackgroundImage src="/static/images/Background/background_circle_1.svg" alt="backgroundja" />
         <ContainerPageObjective>
           <TextNEXTZY>
             <SectionHeader title="OUR OBJECTIVE" />
