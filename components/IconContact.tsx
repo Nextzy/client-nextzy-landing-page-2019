@@ -15,6 +15,17 @@ const BoxIconContact = styled.div`
     filter: brightness(0) invert(1);
   }
 `
+const VerizontalPrefixParagraph = styled.div`
+  display: inline-block;
+  :before {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid white;
+    width: 2rem;
+    transform: rotate(90deg);
+    right: -4px;
+  }
+`
 const IconContact = (): React.FC => (
   <BoxIconContact>
     <div>
@@ -29,6 +40,7 @@ const IconContact = (): React.FC => (
     <div>
       <img src="/static/images/icon/ic_email.svg" />
     </div>
+    <VerizontalPrefixParagraph />
   </BoxIconContact>
 )
 
