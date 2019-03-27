@@ -29,16 +29,16 @@ const VerizontalPrefixParagraph = styled.div`
 const IconContact = (): React.FC => (
   <BoxIconContact>
     <div>
-      <img src="/static/images/icon/ic_github.svg" />
+      <img src="/static/images/Icon/ic_github.svg" />
     </div>
     <div>
-      <img src="/static/images/icon/ic_facebook.svg" />
+      <img src="/static/images/Icon/ic_facebook.svg" />
     </div>
     <div>
-      <img src="/static/images/icon/ic_linkedin.svg" />
+      <img src="/static/images/Icon/ic_linkedin.svg" />
     </div>
     <div>
-      <img src="/static/images/icon/ic_email.svg" />
+      <img src="/static/images/Icon/ic_email.svg" />
     </div>
     <VerizontalPrefixParagraph />
   </BoxIconContact>
