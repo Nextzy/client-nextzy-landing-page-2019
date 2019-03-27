@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ItemTimeline from './ItemTimeline'
+import Fade from 'react-reveal/Fade'
 const MainTimeline = styled.div`
   margin-top: 1rem;
   color: #fff;
@@ -42,14 +43,16 @@ const DataProcess = [
 const Timeline = (): React.FC => {
   return (
     <MainTimeline>
-      <BoxTimelineScroll>
-        <TimelineBox>
-          <ProgressBar />
-          {DataProcess.map((item, idx) => {
-            return <ItemTimeline data={item} id={idx + 1} key={idx + 1} />
-          })}
-        </TimelineBox>
-      </BoxTimelineScroll>
+      <Fade right cascade>
+        <BoxTimelineScroll>
+          <TimelineBox>
+            <ProgressBar />
+            {DataProcess.map((item, idx) => {
+              return <ItemTimeline data={item} id={idx + 1} key={idx + 1} />
+            })}
+          </TimelineBox>
+        </BoxTimelineScroll>
+      </Fade>
     </MainTimeline>
   )
 }

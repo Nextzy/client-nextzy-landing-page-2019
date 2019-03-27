@@ -7,9 +7,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.13",
     "@zeit/next-typescript": "^1.1.1",
-    "lax.js": "^1.2.0",
+    "install": "^0.12.2",
     "next": "^8.0.3",
+    "npm": "^6.9.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-reveal": "^1.2.2",

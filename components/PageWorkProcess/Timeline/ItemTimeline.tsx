@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Bounce from 'react-reveal/Bounce'
 
 const Entry = styled.div`
   display: inline-block;
@@ -14,6 +15,44 @@ const Entry = styled.div`
   letter-spacing: 0.13px;
   line-height: 20.73px;
 
+  /* ::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 6px;
+    background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
+    position: absolute;
+    left: 50%;
+    top: -28px;
+    margin-left: -6px;
+  }
+  ${({ position }) =>
+    position
+      ? `::before {
+    content: '';
+    display: block;
+    background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
+    width: 2px;
+    height: 25px;
+    position: absolute;
+    left: 50%;
+    top: -13px;
+    margin-left: -2px;
+  }`
+      : `::before {
+    content: '';
+    display: block;
+    background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
+    width: 2px;
+    height: 25px;
+    position: absolute;
+    left: 50%;
+    top: -58px;
+    margin-left: -2px;
+  }`} */
+`
+const NodeEntry = styled.div`
   ::after {
     content: '';
     display: block;
@@ -87,9 +126,24 @@ const CheckReturnText = (id, name) => {
   }
 }
 const ItemTimeline = (props): React.FC => {
+  const [userShow, setShow] = useState(false)
   const { id } = props
   const { name } = props.data
-  return <Entry position={id % 2 === 0}>{CheckReturnText(id, name)}</Entry>
+  setTimeout(() => {
+    setShow(true)
+  }, 500 * id)
+  if (userShow) {
+    return (
+      <Entry position={id % 2 === 0}>
+        <Bounce top={id % 2 === 0 ? false : true} bottom={id % 2 === 0 ? true : false} cascade>
+          <NodeEntry position={id % 2 === 0} />
+          {CheckReturnText(id, name)}
+        </Bounce>
+      </Entry>
+    )
+  } else {
+    return null
+  }
 }
 
 export default ItemTimeline

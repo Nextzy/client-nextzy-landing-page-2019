@@ -1,6 +1,5 @@
 import React from 'react'
 import App, { Container } from 'next/app'
-
 interface MyAppProp extends App {
   Component: any
   pageProps: any
@@ -8,7 +7,6 @@ interface MyAppProp extends App {
 class MyApp extends App<MyAppProp> {
   public static async getInitialProps({ Component, ctx }: any) {
     let pageProps = {}
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
