@@ -18,7 +18,7 @@ const Home = (): React.FC => {
       <Head title="NEXTZY TECHNOLOGIES" />
       <Nav />
       <IconContact />
-      <ScrollActive />
+      {/* <ScrollActive /> */}
       <ScrollPage />
     </Container>
   )

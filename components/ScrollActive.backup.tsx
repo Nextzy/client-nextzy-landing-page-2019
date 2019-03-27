@@ -29,11 +29,21 @@ const BoxSlideActive = styled.div`
 `
 const ScrollActive = (): React.FC => (
   <BoxSlideActive>
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
+    <Link to="pageobject" activeClass="active" className="pageobject" spy={true} smooth={true} duration={500}>
+      <div />
+    </Link>
+    <Link to="pageservices" activeClass="active" className="pageservices" spy={true} smooth={true} duration={500}>
+      <div />
+    </Link>
+    <Link to="pageclient" activeClass="active" className="pageclient" spy={true} smooth={true} duration={500}>
+      <div />
+    </Link>
+    <Link to="pageworkprocess" activeClass="active" className="pageworkprocess" spy={true} smooth={true} duration={500}>
+      <div />
+    </Link>
+    <Link to="pagecontact" activeClass="active" className="pagecontact" spy={true} smooth={true} duration={500}>
+      <div />
+    </Link>
   </BoxSlideActive>
 )
 

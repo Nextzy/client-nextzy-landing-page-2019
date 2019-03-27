@@ -18,6 +18,8 @@ const BackgroundImage = styled.img`
 const ScrollPage = (): React.FC => {
   return (
     <ReactFullpage
+      navigation
+      navigationPosition={'left'}
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
