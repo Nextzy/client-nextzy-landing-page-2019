@@ -6,6 +6,7 @@ import PageService from './PageService'
 import PageClient from './PageClient'
 import PageWorkProcess from './PageWorkProcess'
 import PageContact from './PageContact'
+import styled from 'styled-components'
 const scrollToTop = (): void => {
   scroll.scrollToTop()
 }
@@ -26,6 +27,15 @@ const handleScroll = (e): void => {
   // let itemTranslate = Math.min(0, scrollTop / 3 - 60)
   console.log('scroll', scrollTop)
 }
+
+const BackgroundImage = styled.img`
+  position: absolute;
+  z-index: 49;
+  width: 1000px;
+  left: -30%;
+  margin-top: 528px;
+`
+
 const ScrollPage = (): React.FC => {
   useEffect(() => {
     Events.scrollEvent.register('begin', function(to, element) {
@@ -45,6 +55,7 @@ const ScrollPage = (): React.FC => {
       <Element name="pagestart" className="element">
         <PageStart />
       </Element>
+      <BackgroundImage src="/static/images/Background/background_circle_2.svg" alt="backgroundja" />
       <Element name="pageobject" className="element">
         <PageObjective />
       </Element>
