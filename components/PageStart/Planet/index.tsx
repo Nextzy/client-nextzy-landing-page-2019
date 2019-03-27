@@ -21,11 +21,10 @@ const PlanetBigFunction = (props): React.FC => {
   const mouseOut = () => {
     setPosition({ x: 0, y: 0 })
   }
-  const { imgIn, imgOut } = props
   return (
     <MainPlanetBig setPosition={usePosition} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
       <Bounce right>
-        <PlanetBig imgIn={imgIn} imgOut={imgOut} />
+        <PlanetBig {...props} />
       </Bounce>
     </MainPlanetBig>
   )

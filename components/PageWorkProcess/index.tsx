@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
 import Timeline from './Timeline/index'
+import lax from 'lax.js'
+
 const Container = styled.div`
   background-color: #1a2740;
   color: white;
@@ -42,26 +45,47 @@ const ContainerPageSart = styled.div`
   flex-direction: column;
   border: green solid 1px;
 `
-const PageWorkProcess = (): React.FC => {
-  return (
-    <Container>
-      <ContainerAll>
-        <ContainerPageSart>
-          <TextNEXTZY>
-            <Fade right cascade>
-              <SectionHeader title="HOW WE WORK (WORKING PROCESS)" />
-            </Fade>
-          </TextNEXTZY>
-          <TextDescription>
-            To deliver the best software our customers. We, therefore, pay attention to the process of software
-            development to meet the requirement of customers rapidly. You could see the sequence of operations and
-            origresses during development continuously.
-          </TextDescription>
-          <Timeline />
-        </ContainerPageSart>
-      </ContainerAll>
-    </Container>
-  )
+
+class PageWorkProcess extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+  // const PageWorkProcess = (): React.FC => {
+  // useEffect(() => {
+  //   ReactDOM.findDOMNode(this)
+  //   const el = ReactDOM.findDOMNode(this)
+  //   lax.addElement(this.el)
+  // })
+  // componentDidMount() {
+  //   this.el = ReactDOM.findDOMNode(this)
+  //   lax.addElement(this.el)
+  //   console.log('el', this.el)
+  // }
+  // componentWillUnmount() {
+  //   lax.removeElement(this.el)
+  // }
+  render() {
+    return (
+      <Container>
+        <ContainerAll>
+          <ContainerPageSart>
+            <TextNEXTZY>
+              <Fade right cascade>
+                <SectionHeader title="HOW WE WORK (WORKING PROCESS)" />
+              </Fade>
+            </TextNEXTZY>
+            <TextDescription data-lax-preset="leftToRight fadeInOut">
+              To deliver the best software our customers. We, therefore, pay attention to the process of software
+              development to meet the requirement of customers rapidly. You could see the sequence of operations and
+              origresses during development continuously.
+            </TextDescription>
+            <Timeline />
+          </ContainerPageSart>
+        </ContainerAll>
+      </Container>
+    )
+  }
 }
 
 export default PageWorkProcess

@@ -5,7 +5,8 @@ import ShootingStar from './ShootingStar/index'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 const Container = styled.div`
-  background-color: #1a2740;
+  /* background-color: #1a2740; */
+  background-color: #1e3151;
   color: white;
   height: 100vh;
   width: 100%;
@@ -48,14 +49,14 @@ const BoxPlanetSmallSub = styled.div`
   width: 35%;
   z-index: 50;
 `
-const BoxMedium = styled.div`
+const BoxMediumTop = styled.div`
   position: absolute;
   top: -5em;
-  left: 0;
+  left: -2rem;
   width: 100%;
   z-index: 50;
 `
-const BoxMediumSub = styled.div`
+const BoxMediumTopSub = styled.div`
   margin: 0 auto;
   width: 30%;
   z-index: 50;
@@ -108,10 +109,6 @@ const BoxBtnPage = styled.div`
 const ContainerPageStart = styled.div`
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   text-align: left;
   justify-content: center;
@@ -143,25 +140,30 @@ const PageStart = (): React.FC => {
         <BoxPlanetBig>
           <BoxPlanetBigSub>
             <Planet
-              positionFade="left"
-              imgIn="/static/images/Planet/asset_planet_2.png"
-              imgOut="/static/images/Planet/asset_planet_halo_1.svg"
+              imgCore="/static/images/Planet/planet_center_core.png"
+              imgShadow="/static/images/Planet/planet_center_shadow.png"
+              imgHole="/static/images/Planet/planet_center_hole.png"
+              background="/static/images/Planet/asset_planet_halo_1.svg"
+              effectSpin={'spinout'}
             />
             <BoxPlanetSmall>
               <BoxPlanetSmallSub>
-                <Planet positionFade="left" imgIn="/static/images/Planet/asset_planet_3.png" />
+                <Planet />
               </BoxPlanetSmallSub>
             </BoxPlanetSmall>
           </BoxPlanetBigSub>
         </BoxPlanetBig>
-        <BoxMedium>
-          <BoxMediumSub>
+        <BoxMediumTop>
+          <BoxMediumTopSub>
             <Planet
-              imgIn="/static/images/Planet/asset_planet_1.png"
-              imgOut="/static/images/Planet/asset_planet_halo_2.svg"
+              imgCore="/static/images/Planet/asset_planet_top_core.png"
+              imgShadow="/static/images/Planet/asset_planet_top_shadow.png"
+              imgHole="/static/images/Planet/asset_planet_top_line.png"
+              background="/static/images/Planet/asset_planet_halo_2.svg"
+              effectSpin={'spinin'}
             />
-          </BoxMediumSub>
-        </BoxMedium>
+          </BoxMediumTopSub>
+        </BoxMediumTop>
       </ContainerAll>
       {/* <ShootingStar /> */}
     </Container>

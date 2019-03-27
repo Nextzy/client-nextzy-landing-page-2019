@@ -1,19 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 const Planet = styled.div`
   position: relative;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   align-items: center;
   justify-content: center;
 `
-const ImgPlanetBlinkOut = styled.img`
-  width: 100%;
-  @keyframes fade {
-    from {
+const EarthFade = keyframes`
+  from {
       opacity: 1;
     }
     50% {
@@ -22,27 +16,36 @@ const ImgPlanetBlinkOut = styled.img`
     to {
       opacity: 1;
     }
-  }
-  animation: fade 3000ms infinite;
-  -webkit-animation: fade 3000ms infinite;
-  -moz-animation: fade 3000ms infinite;
-  -ms-animation: fade 3000ms infinite;
+`
+const ImgPlanetBlinkOut = styled.img`
+  width: 100%;
+  animation: ${EarthFade} 3000ms infinite;
 `
 const ImgPlanetNotBG = styled.img`
   width: 60%;
 `
-const PlanetImgIn = styled.div`
+const PlanetImgShadow = styled.div`
   position: absolute;
+  z-index: 11;
   height: 100%;
   top: 0;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   align-items: center;
   justify-content: center;
-  @keyframes spin {
+`
+const ImgPlanetShadow = styled.img`
+  width: 70%;
+  z-index: 11;
+`
+const PlanetImgHole = styled.div`
+  position: absolute;
+  z-index: 12;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @keyframes EarthSpin {
     from {
       transform: rotate(0deg);
     }
@@ -50,32 +53,58 @@ const PlanetImgIn = styled.div`
       transform: rotate(360deg);
     }
   }
-  animation: spin 100s infinite linear;
-  -webkit-animation: spin 100s infinite linear;
-  -moz-animation: spin 100s infinite linear;
-  -ms-animation: spin 100s infinite linear;
+  ${({ effectSpin }) => (effectSpin === 'spinout' ? 'animation: EarthSpin 100s infinite linear' : '')};
 `
-const ImgPlanetIn = styled.img`
-  width: 60%;
+
+const ImgPlanetHole = styled.img`
+  width: 70%;
+  z-index: 12;
+`
+const PlanetImgCore = styled.div`
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @keyframes EarthSpinIn {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  ${({ effectSpin }) => (effectSpin === 'spinin' ? 'animation: EarthSpinIn 10s infinite linear' : '')};
+`
+const ImgPlanetCore = styled.img`
+  width: 70%;
   z-index: 10;
 `
 const PlanetBig = (props): React.FC => {
-  const { imgIn, imgOut } = props
-  const PlanetBackground = imgOut
-  const PlanetIn = imgIn || '/static/images/Planet/asset_planet_2.png'
-  if (imgOut) {
+  const { imgCore, imgShadow, imgHole, background, effectSpin } = props
+  const PlanetBackground = background
+  const PlanetCore = imgCore || '/static/images/Planet/asset_planet_3.png'
+  if (imgShadow) {
     return (
       <Planet>
         <ImgPlanetBlinkOut src={PlanetBackground} />
-        <PlanetImgIn>
-          <ImgPlanetIn src={PlanetIn} alt="bg" />
-        </PlanetImgIn>
+        <PlanetImgCore effectSpin={effectSpin}>
+          <ImgPlanetCore src={imgCore} alt="bg" />
+        </PlanetImgCore>
+        <PlanetImgShadow>
+          <ImgPlanetShadow src={imgShadow} alt="bg" />
+        </PlanetImgShadow>
+        <PlanetImgHole effectSpin={effectSpin}>
+          <ImgPlanetHole src={imgHole} alt="bg" />
+        </PlanetImgHole>
       </Planet>
     )
   } else {
     return (
       <Planet>
-        <ImgPlanetNotBG src={PlanetIn} />
+        <ImgPlanetNotBG src={PlanetCore} />
       </Planet>
     )
   }
