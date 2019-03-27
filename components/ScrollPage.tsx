@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PageStart from './PageStart'
 import PageObjective from './PageObjective'
 import PageService from './PageService'
@@ -7,6 +7,8 @@ import PageWorkProcess from './PageWorkProcess'
 import PageContact from './PageContact'
 import styled from 'styled-components'
 import ReactFullpage from '@fullpage/react-fullpage'
+import Nav from './nav'
+import ScrollActive from './ScrollActive'
 const BackgroundImage = styled.img`
   position: absolute;
   z-index: 49;
@@ -16,35 +18,49 @@ const BackgroundImage = styled.img`
 `
 
 const ScrollPage = (): React.FC => {
+  const [useActive, setActive] = useState(0)
+  const [useFullPageApi, setFullPageApi] = useState({})
+  const onLeave = (origin, destination, direction) => {
+    const { index } = destination
+    setActive(index || 0)
+  }
   return (
-    <ReactFullpage
-      navigation
-      navigationPosition={'left'}
-      render={({ state, fullpageApi }) => {
-        return (
-          <ReactFullpage.Wrapper>
-            <div className="section">
-              <PageStart />
-            </div>
-            <div className="section">
-              <PageObjective />
-            </div>
-            <div className="section">
-              <PageService />
-            </div>
-            <div className="section">
-              <PageClient />
-            </div>
-            <div className="section">
-              <PageWorkProcess />
-            </div>
-            <div className="section">
-              <PageContact />
-            </div>
-          </ReactFullpage.Wrapper>
-        )
-      }}
-    />
+    <>
+      <ScrollActive indexActive={useActive} />
+      <Nav indexActive={useActive} fullpageApi={useFullPageApi} />
+      <ReactFullpage
+        navigation
+        navigationPosition={'left'}
+        onLeave={onLeave}
+        render={({ state, fullpageApi }) => {
+          setFullPageApi(fullpageApi)
+          return (
+            <>
+              <ReactFullpage.Wrapper>
+                <div className="section">
+                  <PageStart />
+                </div>
+                <div className="section">
+                  <PageObjective />
+                </div>
+                <div className="section">
+                  <PageService />
+                </div>
+                <div className="section">
+                  <PageClient />
+                </div>
+                <div className="section">
+                  <PageWorkProcess />
+                </div>
+                <div className="section">
+                  <PageContact />
+                </div>
+              </ReactFullpage.Wrapper>
+            </>
+          )
+        }}
+      />
+    </>
   )
 }
 

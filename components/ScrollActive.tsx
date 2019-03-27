@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-scroll'
 const BoxSlideActive = styled.div`
   z-index: 1000;
   position: fixed;
@@ -18,23 +17,22 @@ const BoxSlideActive = styled.div`
     /* border: 1px solid #fff; */
     box-shadow: inset 0 0 0 1px #fff;
   }
-  a.active > div {
+  div:nth-child(${({ indexActive }) => (indexActive === 0 ? '' : indexActive)}) {
     background-image: linear-gradient(-136deg, #f7618b 0%, #2a7aff 100%);
     box-shadow: inset 0 0 0 1px transparent;
   }
-  img {
-    color: white;
-    filter: brightness(0) invert(1);
-  }
 `
-const ScrollActive = (): React.FC => (
-  <BoxSlideActive>
-    <div />
-    <div />
-    <div />
-    <div />
-    <div />
-  </BoxSlideActive>
-)
+const ScrollActive = (props): React.FC => {
+  const { indexActive } = props
+  return (
+    <BoxSlideActive indexActive={indexActive}>
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+    </BoxSlideActive>
+  )
+}
 
 export default ScrollActive
