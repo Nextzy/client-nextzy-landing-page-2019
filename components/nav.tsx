@@ -1,21 +1,17 @@
 import React from 'react'
-// import Link from 'next/link'
 import styled from 'styled-components'
-import { Link } from 'react-scroll'
 import ContainerAll from './layout/ContainerAll'
 const links = [
-  // { href: 'https://github.com/segmentio/create-next-app', label: 'Github', key: '' }
-  { href: 'pageobject', label: 'OBJECTIVE', key: '' },
-  { href: 'pageservices', label: 'SERVICES', key: '' },
-  { href: 'pageclient', label: 'CLIENTS', key: '' },
-  { href: 'pageworkprocess', label: 'WORK PROCESS', key: '' },
-  { href: 'pagecontact', label: 'CONTACT', key: '' }
-].map((link) => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  { href: 'pageobject', label: 'OBJECTIVE', key: 1 },
+  { href: 'pageservices', label: 'SERVICES', key: 2 },
+  { href: 'pageclient', label: 'CLIENTS', key: 3 },
+  { href: 'pageworkprocess', label: 'WORK PROCESS', key: 4 },
+  { href: 'pagecontact', label: 'CONTACT', key: 5 }
+]
 const Container = styled.div`
-  position: relative;
+  /* position: relative; */
+  z-index: 1000;
+  position: fixed;
   color: white;
   width: 100%;
 `
@@ -52,40 +48,38 @@ const HoverLink = styled.div`
     color: pink;
     font-size: 0.85rem;
   }
-  a.active {
-    transition: 500ms;
+  ${({ indexActive }) =>
+    indexActive
+      ? `transition: 500ms;
     color: pink;
-    font-size: 0.85rem;
-  }
+    font-size: 0.85rem;`
+      : ''}
 `
 const UlRight = styled.ul`
   text-align: right;
 `
-const Nav = (): React.FC => (
-  <Container>
-    <NavBar>
-      <ContainerAll>
-        <ul>
-          <li>
-            <Link to="pagestart" spy={true} smooth={true} offset={50} duration={500}>
+const Nav = (props): React.FC => {
+  const { fullpageApi, indexActive } = props
+  return (
+    <Container>
+      <NavBar>
+        <ContainerAll>
+          <ul>
+            <li onClick={() => fullpageApi.moveTo(1)}>
               <img src="/static/images/logo/logo_nextzy_white.svg" />
-            </Link>
-          </li>
-          <UlRight>
-            {links.map(({ key, href, label }) => (
-              <li key={key}>
-                <HoverLink>
-                  <Link to={href} activeClass="active" className={href} spy={true} smooth={true} duration={500}>
-                    {label}
-                  </Link>
-                </HoverLink>
-              </li>
-            ))}
-          </UlRight>
-        </ul>
-      </ContainerAll>
-    </NavBar>
-  </Container>
-)
+            </li>
+            <UlRight>
+              {links.map(({ key, href, label }) => (
+                <li key={key} onClick={() => fullpageApi.moveTo(key + 1)}>
+                  <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
+                </li>
+              ))}
+            </UlRight>
+          </ul>
+        </ContainerAll>
+      </NavBar>
+    </Container>
+  )
+}
 
 export default Nav
