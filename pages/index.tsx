@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import GlobalStyle from '../components/common/GlobalStyle'
-import ScrollPage from '../components/XcrollPage'
+import ScrollPage from '../components/ScrollPage'
 import IconContact from '../components/IconContact'
 import ScrollActive from '../components/ScrollActive'
 
