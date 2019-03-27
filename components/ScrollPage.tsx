@@ -29,8 +29,6 @@ const ScrollPage = (): React.FC => {
       <ScrollActive indexActive={useActive} />
       <Nav indexActive={useActive} fullpageApi={useFullPageApi} />
       <ReactFullpage
-        navigation
-        navigationPosition={'left'}
         onLeave={onLeave}
         render={({ state, fullpageApi }) => {
           setFullPageApi(fullpageApi)
