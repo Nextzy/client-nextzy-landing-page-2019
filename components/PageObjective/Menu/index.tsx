@@ -46,8 +46,8 @@ interface MenuProps {
 
 const Menu = (props): React.FC<MenuProps> => {
   const src = props.selected
-    ? '/static/images/icon/collapse/ic_collapse_right_white.svg'
-    : '/static/images/icon/collapse/ic_collapse_right_gray.svg'
+    ? '/static/images/Icon/collapse/ic_collapse_right_white.svg'
+    : '/static/images/Icon/collapse/ic_collapse_right_gray.svg'
   return (
     <>
       <RowWrapper>
@@ -57,7 +57,7 @@ const Menu = (props): React.FC<MenuProps> => {
             <RightAlignIcon src={src} />
           </Swing>
         </Row>
-        <BottomLiner {...props} src="/static/images/divider/Color.svg" />
+        <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
       </RowWrapper>
     </>
   )
