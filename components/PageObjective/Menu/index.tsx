@@ -132,7 +132,7 @@ const OrderedItem = (props): React.FC<OrderedItemProps> => {
   return (
     <OrderedItemContainer>
       <div>{props.number}</div>
-      <OrderedItemDivider src="/static/images/divider/Color.svg" />
+      <OrderedItemDivider src="/static/images/Divider/Color.svg" />
       <div>{props.name}</div>
     </OrderedItemContainer>
   )
