@@ -59,19 +59,19 @@ const NodeEntry = styled.div`
     width: 10px;
     height: 10px;
     border-radius: 6px;
-    background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
+    background: ${({ color }) => color};
     position: absolute;
     left: 50%;
     top: -28px;
     margin-left: -6px;
   }
-  ${({ position }) =>
+  ${({ position, color }) =>
     position
       ? `::before {
     content: '';
     display: block;
-    background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
-    width: 2px;
+    background: ${color};
+    width: 1px;
     height: 25px;
     position: absolute;
     left: 50%;
@@ -81,8 +81,8 @@ const NodeEntry = styled.div`
       : `::before {
     content: '';
     display: block;
-    background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
-    width: 2px;
+    background: ${color};
+    width: 1px;
     height: 25px;
     position: absolute;
     left: 50%;
@@ -100,19 +100,20 @@ const BoxText = styled.div`
   ${({ position }) => (position ? ` top: 20px` : ` top: -105px;`)}
 `
 const CircleNumber = styled.div`
-  background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
+  background: ${({ color }) => color};
   padding: 0 8px 0 8px;
   border-radius: 15px;
   display: inline-block;
 `
 const TextDescription = styled.div`
-  /* ${({ position }) => (position ? ` padding-bottom:20.3px;` : ` margin: 0 0 20.3px 0;`)} */
+  position: relative;
+  ${({ position }) => (position ? ` top:1rem;` : ` top:-1rem;`)}
 `
-const CheckReturnText = (id, name) => {
+const CheckReturnText = (id, name, color) => {
   if (id % 2 === 0) {
     return (
       <BoxText position={id % 2 === 0}>
-        <CircleNumber>{id}</CircleNumber>
+        <CircleNumber color={color}>{id}</CircleNumber>
         <TextDescription position={id % 2 === 0}>{name}</TextDescription>
       </BoxText>
     )
@@ -120,7 +121,7 @@ const CheckReturnText = (id, name) => {
     return (
       <BoxText position={id % 2 === 0}>
         <TextDescription position={id % 2 === 0}>{name}</TextDescription>
-        <CircleNumber>{id}</CircleNumber>
+        <CircleNumber color={color}>{id}</CircleNumber>
       </BoxText>
     )
   }
@@ -128,7 +129,7 @@ const CheckReturnText = (id, name) => {
 const ItemTimeline = (props): React.FC => {
   const [userShow, setShow] = useState(false)
   const { id } = props
-  const { name } = props.data
+  const { name, color } = props.data
   setTimeout(() => {
     setShow(true)
   }, 500 * id)
@@ -136,8 +137,8 @@ const ItemTimeline = (props): React.FC => {
     return (
       <Entry position={id % 2 === 0}>
         <Bounce top={id % 2 === 0 ? false : true} bottom={id % 2 === 0 ? true : false} cascade>
-          <NodeEntry position={id % 2 === 0} />
-          {CheckReturnText(id, name)}
+          <NodeEntry color={color} position={id % 2 === 0} />
+          {CheckReturnText(id, name, color)}
         </Bounce>
       </Entry>
     )

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 const BoxSlideActive = styled.div`
+  /* ${media.lessThan('768px')`background: green;`} */
   z-index: 1000;
   position: fixed;
   height: 100vh;

@@ -16,7 +16,7 @@ const BoxTimelineScroll = styled.div`
   width: 100%;
 `
 const ProgressBar = styled.div`
-  height: 2px;
+  height: 1px;
   background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
   width: 100%;
   position: relative;
@@ -26,19 +26,19 @@ const ProgressBar = styled.div`
 const TimelineBox = styled.div`
   /* overflow-x: scroll; */
   white-space: nowrap;
-  padding: 100px 0 30px 0;
+  padding: 120px 0 50px 0;
   position: relative;
 `
 const DataProcess = [
-  { name: 'Analysis' },
-  { name: 'Createing the production' },
-  { name: 'Estimation and proposal' },
-  { name: 'Project preparation' },
-  { name: 'Design System' },
-  { name: 'Development' },
-  { name: 'Test release' },
-  { name: 'Production Release' },
-  { name: 'Maintenance' }
+  { name: 'Analysis', color: '#f36392' },
+  { name: 'Createing the production', color: '#f36392' },
+  { name: 'Estimation and proposal', color: '#d666a1' },
+  { name: 'Project preparation', color: '#c667a8' },
+  { name: 'Design System', color: '#a56bb8' },
+  { name: 'Development', color: '#7a70cd' },
+  { name: 'Test release', color: '#6672d7' },
+  { name: 'Production Release', color: '#4775e5' },
+  { name: 'Maintenance', color: '#2c77ee' }
 ]
 const Timeline = (): React.FC => {
   return (

@@ -41,7 +41,7 @@ const PageContact = (): React.FC => {
         <ContainerPageSart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="Page Contact" />
+              <SectionHeader title="CONTACT" />
             </Fade>
           </TextNEXTZY>
         </ContainerPageSart>
