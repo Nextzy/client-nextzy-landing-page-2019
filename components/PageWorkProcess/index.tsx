@@ -6,7 +6,8 @@ import { SectionHeader } from '../common/Text'
 import Timeline from './Timeline/index'
 
 const Container = styled.div`
-  background-color: #1a2740;
+  background-color: #102131;
+
   color: white;
   height: 100vh;
   width: 100%;

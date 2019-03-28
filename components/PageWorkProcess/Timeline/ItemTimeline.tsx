@@ -72,7 +72,7 @@ const NodeEntry = styled.div`
     display: block;
     background: ${color};
     width: 1px;
-    height: 25px;
+    height: 35px;
     position: absolute;
     left: 50%;
     top: -13px;
@@ -83,7 +83,7 @@ const NodeEntry = styled.div`
     display: block;
     background: ${color};
     width: 1px;
-    height: 25px;
+    height: 35px;
     position: absolute;
     left: 50%;
     top: -58px;
@@ -97,7 +97,14 @@ const BoxText = styled.div`
   left: 0;
   text-align: center;
   top: 1.5rem;
-  ${({ position }) => (position ? ` top: 20px` : ` top: -105px;`)}
+  ${({ position }) =>
+    position
+      ? ` 
+  top: 30px;
+  margin-left:-1px;`
+      : ` 
+  top: -105px;
+  margin-left:-1px;`}
 `
 const CircleNumber = styled.div`
   background: ${({ color }) => color};

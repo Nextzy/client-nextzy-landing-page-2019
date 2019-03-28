@@ -4,7 +4,7 @@ import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
 const Container = styled.div`
-  background-color: #1a2740;
+  background-color: #102131;
   color: white;
   height: 100vh;
   width: 100%;

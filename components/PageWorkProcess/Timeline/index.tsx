@@ -26,7 +26,7 @@ const ProgressBar = styled.div`
 const TimelineBox = styled.div`
   /* overflow-x: scroll; */
   white-space: nowrap;
-  padding: 120px 0 50px 0;
+  padding: 120px 0 100px 0;
   position: relative;
 `
 const DataProcess = [

@@ -37,6 +37,20 @@ const NavBar = styled.nav`
     padding: 0.5rem 0.8rem;
   }
 `
+const BackgroundNav = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: background-color 500ms linear;
+  ${({ active }) =>
+    active
+      ? `
+  opacity: 0.8;
+  background-color: #1F2B44;`
+      : `opacity: 1;`}
+`
 const HoverLink = styled.div`
   color: white;
   text-decoration: none;
@@ -63,6 +77,7 @@ const Nav = (props): React.FC => {
   return (
     <Container>
       <NavBar>
+        <BackgroundNav active={indexActive !== 0} />
         <ContainerAll>
           <ul>
             <li onClick={() => fullpageApi.moveTo(1)}>
