@@ -10,6 +10,7 @@ import ReactFullpage from '@fullpage/react-fullpage'
 import Nav from './nav'
 import ScrollActive from './ScrollActive'
 import IconContact from './IconContact'
+import ModalMap from './common/ModalMap'
 const BackgroundImage = styled.img`
   position: absolute;
   z-index: 49;
@@ -30,6 +31,7 @@ const ScrollPage = (): React.FC => {
       <ScrollActive indexActive={useActive} />
       <Nav indexActive={useActive} fullpageApi={useFullPageApi} />
       <IconContact indexActive={useActive} />
+      {/* <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} /> */}
       <ReactFullpage
         onLeave={onLeave}
         render={({ state, fullpageApi }) => {

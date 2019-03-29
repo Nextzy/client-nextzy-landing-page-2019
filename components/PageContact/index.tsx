@@ -27,37 +27,11 @@ const ContainerPageSart = styled.div`
   width: 100%;
   display: flex;
   text-align: left;
-  justify-content: center;
+  justify-content: start;
   z-index: 50;
   flex-direction: column;
   border: 1px solid green;
-`
-const MenuSelectMap = styled.div`
-  position: absolute;
-  font-family: 'Montserrat-Regular';
-  font-size: 16px;
-  color: #ffffff;
-  letter-spacing: 0.15px;
-  line-height: 24px;
-  right: 3rem;
-  display: flex;
-  flex-direction: row;
-  div {
-    margin: 1rem;
-    transition: 500ms;
-    cursor: pointer;
-    opacity: 0.5;
-    &:hover {
-      opacity: 1;
-    }
-  }
-`
-const MenuSelectMapHr = styled.hr`
-  transition: width 0.5s ease, margin-left 0.5s ease;
-  border: 0;
-  height: 2px;
-  width: 80%;
-  background-image: linear-gradient(-90deg, #2a7aff, #f7618b);
+  padding-top: 8rem;
 `
 const BackGroundMap = styled.div`
   position: absolute;
@@ -66,6 +40,9 @@ const BackGroundMap = styled.div`
   width: 100%;
   height: 100%;
   background-image: url('/static/images/Map/map.png');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 `
 const PageContact = (): React.FC => {
   return (
@@ -79,8 +56,8 @@ const PageContact = (): React.FC => {
           </TextNEXTZY>
           <MenuAndContent />
         </ContainerPageSart>
-        <BackGroundMap />
       </ContainerAll>
+      <BackGroundMap />
     </Container>
   )
 }
