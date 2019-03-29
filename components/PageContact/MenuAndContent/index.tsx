@@ -42,23 +42,23 @@ const Description = styled.div`
   text-align: left;
   line-height: 28px;
 `
-const ChangeContentDescription = (menu) => {
+const ChangeContentDescription: React.FunctionComponent<{}> = (menu: any) => {
   switch (menu) {
     case 'BANGKOK':
       return (
-        <Description>
-          <Fade right cascade>
+        <Fade right>
+          <Description>
             <p>219 / 23 Asoke Towers 7th, Soi Sukhumvit 21 Rd.</p>
             <p>Klongtoey Nua, Wattana, Bangkok 10110, Thailand.</p>
-          </Fade>
-        </Description>
+          </Description>
+        </Fade>
       )
     case 'CHAINGMAI':
       return (
         <Description>
-          <Fade right cascade>
-            <p>เลขที่ 17/1 ซอยศิริมังคลาจารย์ 7 </p>
-            <p>ตำบลสุเทพ อำเภอเมือง เชียงใหม่ 50200</p>
+          <Fade right>
+            <p>17 / 1 Cube No.7 Sirimangkalajarn Lane 7</p>
+            <p>Suthep, Muang, Chiang Mai 50200, Thailand.</p>
           </Fade>
         </Description>
       )
@@ -68,6 +68,8 @@ const ChangeContentDescription = (menu) => {
 }
 const MenuAndContent = (props): React.FC => {
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
+  const { setMap, setModal } = props
+  setMap(useActiveMenu)
   return (
     <>
       <MenuSelectMap>
@@ -86,8 +88,7 @@ const MenuAndContent = (props): React.FC => {
           </Description>
         </BoxContentInSide>
         <BoxContentMap>
-          <Flag />
-          Nextzy Technologies
+          <Flag name="Nextzy Technologies" onClick={() => setModal({ visible: true, map: useActiveMenu })} />
         </BoxContentMap>
       </BoxContent>
     </>

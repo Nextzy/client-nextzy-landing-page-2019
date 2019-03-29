@@ -34,13 +34,17 @@ const BoxBtnMapIn = styled.div`
   }
 `
 const Flag = (props): React.FC => {
+  const { name, onClick } = props
   return (
-    <BoxBtnMap>
-      <ImgBtnMap src="/static/images/Planet/asset_planet_halo_1.svg" alt="Nextzy" />
-      <BoxBtnMapIn>
-        <img src="/static/images/Map/flag.png" alt="Nextzy" />
-      </BoxBtnMapIn>
-    </BoxBtnMap>
+    <>
+      <BoxBtnMap onClick={onClick}>
+        <ImgBtnMap src="/static/images/Planet/asset_planet_halo_1.svg" alt="Nextzy" />
+        <BoxBtnMapIn>
+          <img src="/static/images/Map/flag.png" alt="Nextzy" />
+        </BoxBtnMapIn>
+      </BoxBtnMap>
+      {name}
+    </>
   )
 }
 

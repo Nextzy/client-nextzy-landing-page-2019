@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
-import Swing from 'react-reveal/Swing'
+import Map from './MenuAndContent/Map'
 import { SectionHeader } from '../common/Text'
 import MenuAndContent from './MenuAndContent/index'
 const Container = styled.div`
@@ -39,12 +39,14 @@ const BackGroundMap = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/static/images/Map/map.png');
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `
-const PageContact = (): React.FC => {
+const PageContact = (props): React.FC => {
+  const { setModal } = props
+  const [useMap, setMap] = useState('')
   return (
     <Container>
       <ContainerAll>
@@ -54,10 +56,10 @@ const PageContact = (): React.FC => {
               <SectionHeader title="CONTACT" />
             </Fade>
           </TextNEXTZY>
-          <MenuAndContent />
+          <MenuAndContent setMap={setMap} setModal={setModal} />
         </ContainerPageSart>
       </ContainerAll>
-      <BackGroundMap />
+      <Map map={useMap} />
     </Container>
   )
 }

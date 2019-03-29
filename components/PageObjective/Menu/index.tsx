@@ -52,7 +52,7 @@ const Menu = (props): React.FC<MenuProps> => {
     <>
       <RowWrapper>
         <Row {...props}>
-          {props.name}{' '}
+          {props.name}
           <Swing when={props.selected}>
             <RightAlignIcon src={src} />
           </Swing>

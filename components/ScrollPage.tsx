@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PageStart from './PageStart'
 import PageObjective from './PageObjective'
 import PageService from './PageService'
@@ -22,6 +22,8 @@ const BackgroundImage = styled.img`
 const ScrollPage = (): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
+  const [useModal, setModal] = useState({ visible: false, map: '' })
+  const { visible } = useModal
   const onLeave = (origin, destination, direction) => {
     const { index } = destination
     setActive(index || 0)
@@ -31,7 +33,9 @@ const ScrollPage = (): React.FC => {
       <ScrollActive indexActive={useActive} />
       <Nav indexActive={useActive} fullpageApi={useFullPageApi} />
       <IconContact indexActive={useActive} />
-      {/* <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} /> */}
+      {visible ? (
+        <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} stateModal={useModal} setModal={setModal} />
+      ) : null}
       <ReactFullpage
         onLeave={onLeave}
         render={({ state, fullpageApi }) => {
@@ -55,7 +59,7 @@ const ScrollPage = (): React.FC => {
                   <PageWorkProcess />
                 </div> */}
                 <div className="section">
-                  <PageContact />
+                  <PageContact setModal={setModal} />
                 </div>
               </ReactFullpage.Wrapper>
             </>
