@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 const BoxSlideActive = styled.div`
-  /* ${media.lessThan('768px')`background: green;`} */
-  z-index: 1000;
+  ${media.greaterThan('1024px')`
+  z-index: 500;
   position: fixed;
   height: 100vh;
   color: white;
@@ -23,6 +23,7 @@ const BoxSlideActive = styled.div`
     background-image: linear-gradient(-136deg, #f7618b 0%, #2a7aff 100%);
     box-shadow: inset 0 0 0 1px transparent;
   }
+  `}
 `
 const ScrollActive = (props): React.FC => {
   const { indexActive } = props

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import styled, { keyframes } from 'styled-components'
-import Zoom from 'react-reveal/Zoom'
+import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 const ContainerMap = styled.div`
   position: absolute;
   left: 0;
@@ -23,15 +23,21 @@ const ContainerMap = styled.div`
 `
 
 const Map = (props): React.FC => {
+  const [useMapOut, setMapOut] = useState('')
   const { map } = props
+  if (useMapOut !== map) {
+    setTimeout(() => {
+      setMapOut(map)
+    }, 800)
+  }
   return (
-    <ContainerMap {...props}>
-      <Zoom left when={map === 'BANGKOK'}>
+    <ContainerMap {...props} useMapOut={useMapOut}>
+      <Fade when={map === 'BANGKOK'}>
         <img src="/static/images/Map/map-bkk.png" alt="map" />
-      </Zoom>
-      <Zoom left when={map === 'CHAINGMAI'}>
+      </Fade>
+      <Fade when={map === 'CHAINGMAI'}>
         <img src="/static/images/Map/map-cnx.png" alt="map" />
-      </Zoom>
+      </Fade>
     </ContainerMap>
   )
 }
