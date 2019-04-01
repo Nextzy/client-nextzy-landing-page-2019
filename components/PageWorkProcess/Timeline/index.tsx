@@ -20,7 +20,7 @@ const ProgressBar = styled.div`
   background-image: linear-gradient(-136deg, #2a7aff 0%, #f7618b 100%);
   width: 100%;
   position: relative;
-  top: -22px;
+  top: -10px;
   left: 0;
 `
 const TimelineBox = styled.div`

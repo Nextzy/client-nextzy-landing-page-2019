@@ -25,6 +25,7 @@ const BoxSlideActive = styled.div`
   }
   `}
 `
+const SlideDown = styled.div``
 const ScrollActive = (props): React.FC => {
   const { indexActive } = props
   return (
