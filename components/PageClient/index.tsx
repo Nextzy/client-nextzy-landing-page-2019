@@ -36,10 +36,12 @@ const ContainerPageObjective = styled.div`
   z-index: 50;
   flex-direction: column;
 `
-const handleSelectProduct = (props): React.FC => {
-  console.log('props', props)
-}
+
 const Home = (): React.FC => {
+  const [activeProduct, setActive] = useState('first')
+  const handleSelectProduct = (key): void => {
+    setActive(key)
+  }
   return (
     <Container>
       <ContainerAll>
@@ -48,7 +50,7 @@ const Home = (): React.FC => {
           <TextNEXTZY>
             <Fade right cascade>
               <SectionHeader title="Page Products" />
-              <Product />
+              <Product activeProduct={activeProduct} />
             </Fade>
           </TextNEXTZY>
         </ContainerPageObjective>

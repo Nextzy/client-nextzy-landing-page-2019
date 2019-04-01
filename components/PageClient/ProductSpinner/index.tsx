@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, Component } from 'react'
 import styled from 'styled-components'
 
 const Circle = styled.div`
   svg {
     position: absolute;
-    right: 90%;
-    top: 30%;
-    height: 65%;
+    right: 80%;
+    top: 28%;
+    height: 80%;
     z-index: 1;
     user-select: none;
-    transition: 5000ms;
   }
+
   .cls-1 {
     fill: #fff;
   }
@@ -59,7 +59,13 @@ const Circle = styled.div`
 `
 
 export const Spinner = (props): React.FC => {
-  const [selected, setSelect] = useState('second')
+  const [selected, setSelected] = useState('first')
+
+  const setSelect = (key): void => {
+    setSelected(key)
+    props.onSelectProduct(key)
+  }
+
   return (
     <Circle>
       <svg id="Layer_1" data-name="Layer 1" viewBox="0 0 840 840">
@@ -153,7 +159,6 @@ export const Spinner = (props): React.FC => {
           cy="692.81"
           r="8.16"
           onClick={() => {
-            props.onSelectProduct(selected)
             setSelect('seventh')
           }}
           onMouseEnter={() => setSelect('seventh')}
