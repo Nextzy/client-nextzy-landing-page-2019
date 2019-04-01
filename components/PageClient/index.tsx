@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
@@ -36,12 +36,14 @@ const ContainerPageObjective = styled.div`
   z-index: 50;
   flex-direction: column;
 `
-
+const handleSelectProduct = (props): React.FC => {
+  console.log('props', props)
+}
 const Home = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
-        <Spinner />
+        <Spinner onSelectProduct={handleSelectProduct} />
         <ContainerPageObjective>
           <TextNEXTZY>
             <Fade right cascade>
