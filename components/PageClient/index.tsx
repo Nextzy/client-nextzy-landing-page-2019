@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
+import { Product } from './ProductsMenu'
+import { Spinner } from './ProductSpinner'
 const Container = styled.div`
   background-color: #102131;
   color: white;
@@ -20,7 +22,8 @@ const TextNEXTZY = styled.div`
   display: inline-block;
   float: left;
 `
-const ContainerPageSart = styled.div`
+
+const ContainerPageObjective = styled.div`
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -29,22 +32,26 @@ const ContainerPageSart = styled.div`
   display: -webkit-flex;
   display: flex;
   text-align: left;
-  justify-content: center;
+  margin-top: 10rem;
   z-index: 50;
   flex-direction: column;
-  border: 1px solid green;
 `
+const handleSelectProduct = (props): React.FC => {
+  console.log('props', props)
+}
 const Home = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
-        <ContainerPageSart>
+        <Spinner onSelectProduct={handleSelectProduct} />
+        <ContainerPageObjective>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="Page Client" />
+              <SectionHeader title="Page Products" />
+              <Product />
             </Fade>
           </TextNEXTZY>
-        </ContainerPageSart>
+        </ContainerPageObjective>
       </ContainerAll>
     </Container>
   )
