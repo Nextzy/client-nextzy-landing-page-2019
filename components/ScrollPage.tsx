@@ -9,6 +9,7 @@ import styled from 'styled-components'
 import ReactFullpage from '@fullpage/react-fullpage'
 import Nav from './nav'
 import ScrollActive from './ScrollActive'
+import SlideDown from './SlideDown'
 import IconContact from './IconContact'
 import ModalMap from './common/ModalMap'
 const BackgroundImage = styled.img`
@@ -30,7 +31,8 @@ const ScrollPage = (): React.FC => {
   }
   return (
     <>
-      <ScrollActive indexActive={useActive} />
+      <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} />
+      <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
       <Nav indexActive={useActive} fullpageApi={useFullPageApi} />
       <IconContact indexActive={useActive} />
       {visible ? (
