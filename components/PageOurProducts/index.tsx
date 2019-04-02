@@ -35,7 +35,7 @@ const ContainerPageObjective = styled.div`
 const DataTest = [
   {
     id: 1,
-    rotate: 63,
+    rotate: 61,
     positionSVG: { cx: '561.37', cy: '104.12' },
     fixselected: 'first',
     transformText: 'translate(590.63 92) rotate(-61)',
@@ -48,7 +48,7 @@ const DataTest = [
   },
   {
     id: 2,
-    rotate: 49,
+    rotate: 48,
     positionSVG: { cx: '647.47', cy: '162.74' },
     fixselected: 'second',
     transformText: 'translate(684.55 160.29) rotate(-48)',
@@ -80,7 +80,7 @@ const DataTest = [
   },
   {
     id: 6,
-    rotate: -45,
+    rotate: -40,
     positionSVG: { cx: '647.47', cy: '629.24' },
     fixselected: 'sixth',
     transformText: 'translate(657 665) rotate(40)',
