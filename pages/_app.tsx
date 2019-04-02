@@ -5,7 +5,7 @@ interface MyAppProp extends App {
   pageProps: any
 }
 class MyApp extends App<MyAppProp> {
-  public static async getInitialProps({ Component, ctx }: any) {
+  public static async getInitialProps({ Component, ctx }): void {
     let pageProps = {}
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
@@ -14,7 +14,7 @@ class MyApp extends App<MyAppProp> {
     return { pageProps }
   }
 
-  public render() {
+  public render(): void {
     const { Component, pageProps } = this.props
     return (
       <Container>

@@ -67,7 +67,7 @@ const BoxModal = styled.div`
     
   }
 `
-const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map) => {
+const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map): void => {
   if (!useModalOut) {
     setModalOut(true)
     setTimeout(() => {
@@ -76,9 +76,10 @@ const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map) => {
   }
 }
 const ModalMap = (props): React.FC => {
-  const { stateModal, setModal } = props
+  const { stateModal, setModal, fullpageApi } = props
   const { visible, map } = stateModal
   const [useModalOut, setModalOut] = useState(false)
+  fullpageApi.setAllowScrolling(useModalOut)
   return (
     <ContainerModal visible={visible}>
       <VisibleBackground

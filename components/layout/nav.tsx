@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ContainerAll from './layout/ContainerAll'
+import ContainerAll from './ContainerAll'
 const links = [
   { href: 'pageobject', label: 'OBJECTIVE', key: 1 },
   { href: 'pageservices', label: 'SERVICES', key: 2 },

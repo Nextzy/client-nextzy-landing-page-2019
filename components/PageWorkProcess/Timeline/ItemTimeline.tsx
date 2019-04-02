@@ -83,7 +83,7 @@ const TextDescription = styled.div`
   position: relative;
   ${({ position }) => (position ? ` top:1rem;` : ` top:-1rem;`)}
 `
-const CheckReturnText = (id, name, color) => {
+const CheckReturnText = (id, name, color): void => {
   if (id % 2 === 0) {
     return (
       <BoxText position={id % 2 === 0}>

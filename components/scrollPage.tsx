@@ -7,7 +7,7 @@ import PageWorkProcess from './PageWorkProcess'
 import PageContact from './PageContact'
 import styled from 'styled-components'
 import ReactFullpage from '@fullpage/react-fullpage'
-import Nav from './nav'
+import Nav from './layout/nav'
 import ScrollActive from './ScrollActive'
 import SlideDown from './SlideDown'
 import IconContact from './IconContact'
@@ -25,7 +25,7 @@ const ScrollPage = (): React.FC => {
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useModal, setModal] = useState({ visible: false, map: '' })
   const { visible } = useModal
-  const onLeave = (origin, destination, direction) => {
+  const onLeave = (origin, destination, direction): void => {
     const { index } = destination
     setActive(index || 0)
   }
@@ -45,7 +45,7 @@ const ScrollPage = (): React.FC => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                {/* <div className="section">
+                <div className="section">
                   <PageStart />
                 </div>
                 <div className="section">
@@ -53,16 +53,16 @@ const ScrollPage = (): React.FC => {
                 </div>
                 <div className="section">
                   <PageService />
-                </div> */}
+                </div>
                 <div className="section">
                   <PageClient />
                 </div>
-                {/* <div className="section">
+                <div className="section">
                   <PageWorkProcess />
                 </div>
                 <div className="section">
                   <PageContact setModal={setModal} />
-                </div> */}
+                </div>
               </ReactFullpage.Wrapper>
             </>
           )

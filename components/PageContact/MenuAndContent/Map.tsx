@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 const ContainerMap = styled.div`
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   width: 100%;
@@ -31,14 +31,16 @@ const Map = (props): React.FC => {
     }, 800)
   }
   return (
-    <ContainerMap {...props} useMapOut={useMapOut}>
-      <Fade when={map === 'BANGKOK'}>
-        <img src="/static/images/Map/map-bkk.png" alt="map" />
-      </Fade>
-      <Fade when={map === 'CHAINGMAI'}>
-        <img src="/static/images/Map/map-cnx.png" alt="map" />
-      </Fade>
-    </ContainerMap>
+    <>
+      <ContainerMap {...props} useMapOut={useMapOut}>
+        <Fade when={map === 'BANGKOK'}>
+          <img src="/static/images/Map/map-bkk.png" alt="map" />
+        </Fade>
+        <Fade when={map === 'CHAINGMAI'}>
+          <img src="/static/images/Map/map-cnx.png" alt="map" />
+        </Fade>
+      </ContainerMap>
+    </>
   )
 }
 
