@@ -116,7 +116,7 @@ const ProductContainer = styled.div`
   height: 80%;
 `
 export const Product = (props): React.FC => {
-  const [activeDevice, setActive] = useState('IOS')
+  const [activeDevice, setActive] = useState('first')
   const { activeProduct, productData } = props
 
   const onSelectDevice = (key): void => {
