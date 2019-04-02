@@ -132,7 +132,8 @@ const ContainerPageStart = styled.div`
   z-index: 51;
   flex-direction: column;
 `
-const PageStart = (): React.FC => {
+const PageStart = (props): React.FC => {
+  const { fullpageApi } = props
   return (
     <Container>
       <ContainerBackground />
@@ -148,8 +149,8 @@ const PageStart = (): React.FC => {
           <BoxBtnPage>
             <p>We are pirates</p>
             <p>We sail and hunt the best mobile and web solution.</p>
-            <ButtonProducts>PRODUCTS</ButtonProducts>
-            <ButtonContact>CONTACT</ButtonContact>
+            <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
+            <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
           </BoxBtnPage>
         </ContainerPageStart>
 

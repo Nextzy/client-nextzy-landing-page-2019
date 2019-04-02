@@ -47,7 +47,7 @@ const ScrollPage = (): React.FC => {
             <>
               <ReactFullpage.Wrapper>
                 <div className="section">
-                  <PageStart />
+                  <PageStart fullpageApi={useFullPageApi} />
                 </div>
                 <div className="section">
                   <PageObjective />
