@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react'
+import React, { useState, Component, Fragment } from 'react'
 import styled from 'styled-components'
 
 const Circle = styled.div`
@@ -9,6 +9,8 @@ const Circle = styled.div`
     height: 80%;
     z-index: 1;
     user-select: none;
+    transition: 500ms all;
+    transform: rotate(${({ setRotate }) => setRotate || 0}deg);
   }
 
   .cls-1 {
@@ -59,15 +61,18 @@ const Circle = styled.div`
 `
 
 export const Spinner = (props): React.FC => {
-  const [selected, setSelected] = useState('first')
-
+  const { createSelect } = props
+  const [useSelected, setSelected] = useState('first')
   const setSelect = (key): void => {
     setSelected(key)
     props.onSelectProduct(key)
   }
-
+  const setPositionCircle = (useSelected): void => {
+    const getRotate = createSelect.find((f) => f.fixselected === useSelected)
+    return getRotate.rotate
+  }
   return (
-    <Circle>
+    <Circle setRotate={setPositionCircle(useSelected)}>
       <svg id="Layer_1" data-name="Layer 1" viewBox="0 0 840 840">
         <defs>
           <mask id="mask" x="0" y="0" width="748" height="814" maskUnits="userSpaceOnUse">
@@ -105,16 +110,43 @@ export const Spinner = (props): React.FC => {
         <g className="cls-3">
           <path className="cls-4" d="M872,193H124v814H872Z" transform="translate(-124 -193)" />
         </g>
-        <circle
-          className={selected === 'first' ? 'cls-active' : 'cls-5'}
+        {createSelect.map((item) => {
+          const { positionSVG, fixselected, transformText } = item
+          return (
+            <Fragment key={item.id}>
+              <circle
+                className={useSelected === fixselected ? 'cls-active' : 'cls-5'}
+                cx={positionSVG.cx}
+                cy={positionSVG.cy}
+                r="8.16"
+                onClick={() => setSelect(fixselected)}
+                onMouseEnter={() => setSelect(fixselected)}
+              />
+              <g
+                className={useSelected === fixselected ? '' : 'cls-6'}
+                onClick={() => setSelect(fixselected)}
+                onMouseEnter={() => setSelect(fixselected)}
+              >
+                <text className={useSelected === fixselected ? 'text-active' : 'cls-7'} transform={transformText}>
+                  0
+                  <tspan className="cls-8" x="35" y="0">
+                    {item.id}
+                  </tspan>
+                </text>
+              </g>
+            </Fragment>
+          )
+        })}
+        {/* <circle
+          className={useSelected === fixselected ? 'cls-active' : 'cls-5'}
           cx="559.11"
           cy="104.13"
           r="8.16"
-          onClick={() => setSelect('first')}
-          onMouseEnter={() => setSelect('first')}
+          onClick={() => setSelect(fixselected)}
+          onMouseEnter={() => setSelect(fixselected)}
         />
         <circle
-          className={selected === 'second' ? 'cls-active' : 'cls-5'}
+          className={useSelected === 'second' ? 'cls-active' : 'cls-5'}
           cx="650.89"
           cy="166.91"
           r="8.16"
@@ -122,7 +154,7 @@ export const Spinner = (props): React.FC => {
           onMouseEnter={() => setSelect('second')}
         />
         <circle
-          className={selected === 'third' ? 'cls-active' : 'cls-5'}
+          className={useSelected === 'third' ? 'cls-active' : 'cls-5'}
           cx="715.08"
           cy="258.12"
           r="8.16"
@@ -130,7 +162,7 @@ export const Spinner = (props): React.FC => {
           onMouseEnter={() => setSelect('third')}
         />
         <circle
-          className={selected === 'fourth' ? 'cls-active' : 'cls-5'}
+          className={useSelected === 'fourth' ? 'cls-active' : 'cls-5'}
           cx="748"
           cy="390"
           r="8.16"
@@ -138,7 +170,7 @@ export const Spinner = (props): React.FC => {
           onMouseEnter={() => setSelect('fourth')}
         />
         <circle
-          className={selected === 'fifth' ? 'cls-active' : 'cls-5'}
+          className={useSelected === 'fifth' ? 'cls-active' : 'cls-5'}
           cx="715.08"
           cy="532.9"
           r="8.16"
@@ -146,7 +178,7 @@ export const Spinner = (props): React.FC => {
           onMouseEnter={() => setSelect('fifth')}
         />
         <circle
-          className={selected === 'sixth' ? 'cls-active' : 'cls-5'}
+          className={useSelected === 'sixth' ? 'cls-active' : 'cls-5'}
           cx="650.89"
           cy="627.49"
           r="8.16"
@@ -154,7 +186,7 @@ export const Spinner = (props): React.FC => {
           onMouseEnter={() => setSelect('sixth')}
         />
         <circle
-          className={selected === 'seventh' ? 'cls-active' : 'cls-5'}
+          className={useSelected === 'seventh' ? 'cls-active' : 'cls-5'}
           cx="550.94"
           cy="692.81"
           r="8.16"
@@ -162,26 +194,26 @@ export const Spinner = (props): React.FC => {
             setSelect('seventh')
           }}
           onMouseEnter={() => setSelect('seventh')}
-        />
-        <g
-          className={selected === 'first' ? '' : 'cls-6'}
+        /> */}
+        {/* <g
+          className={useSelected === 'first' ? '' : 'cls-6'}
           onClick={() => setSelect('first')}
           onMouseEnter={() => setSelect('first')}
         >
-          <text className={selected === 'first' ? 'text-active' : 'cls-7'} transform="translate(590.63 92) rotate(-61)">
+          <text className={useSelected === 'first' ? 'text-active' : 'cls-7'} transform="translate(590.63 92) rotate(-61)">
             0
             <tspan className="cls-8" x="35" y="0">
               1
             </tspan>
           </text>
-        </g>
-        <g
-          className={selected === 'second' ? '' : 'cls-6'}
+        </g> */}
+        {/* <g
+          className={useSelected === 'second' ? '' : 'cls-6'}
           onClick={() => setSelect('second')}
           onMouseEnter={() => setSelect('second')}
         >
           <text
-            className={selected === 'second' ? 'text-active' : 'cls-7'}
+            className={useSelected === 'second' ? 'text-active' : 'cls-7'}
             transform="translate(684.55 160.29) rotate(-50)"
           >
             0
@@ -191,12 +223,12 @@ export const Spinner = (props): React.FC => {
           </text>
         </g>
         <g
-          className={selected === 'third' ? '' : 'cls-6'}
+          className={useSelected === 'third' ? '' : 'cls-6'}
           onClick={() => setSelect('third')}
           onMouseEnter={() => setSelect('third')}
         >
           <text
-            className={selected === 'third' ? 'text-active' : 'cls-7'}
+            className={useSelected === 'third' ? 'text-active' : 'cls-7'}
             transform="translate(750 267.82) rotate(-30)"
           >
             0
@@ -206,11 +238,11 @@ export const Spinner = (props): React.FC => {
           </text>
         </g>
         <g
-          className={selected === 'fourth' ? '' : 'cls-6'}
+          className={useSelected === 'fourth' ? '' : 'cls-6'}
           onClick={() => setSelect('fourth')}
           onMouseEnter={() => setSelect('fourth')}
         >
-          <text className={selected === 'fourth' ? 'text-active' : 'cls-7'} transform="translate(768 409) rotate(0)">
+          <text className={useSelected === 'fourth' ? 'text-active' : 'cls-7'} transform="translate(768 409) rotate(0)">
             0
             <tspan className="cls-8" x="35" y="0">
               4
@@ -218,11 +250,11 @@ export const Spinner = (props): React.FC => {
           </text>
         </g>
         <g
-          className={selected === 'fifth' ? '' : 'cls-6'}
+          className={useSelected === 'fifth' ? '' : 'cls-6'}
           onClick={() => setSelect('fifth')}
           onMouseEnter={() => setSelect('fifth')}
         >
-          <text className={selected === 'fifth' ? 'text-active' : 'cls-7'} transform="translate(735 560) rotate(10)">
+          <text className={useSelected === 'fifth' ? 'text-active' : 'cls-7'} transform="translate(735 560) rotate(10)">
             0
             <tspan className="cls-8" x="35" y="0">
               5
@@ -230,11 +262,11 @@ export const Spinner = (props): React.FC => {
           </text>
         </g>
         <g
-          className={selected === 'sixth' ? '' : 'cls-6'}
+          className={useSelected === 'sixth' ? '' : 'cls-6'}
           onClick={() => setSelect('sixth')}
           onMouseEnter={() => setSelect('sixth')}
         >
-          <text className={selected === 'sixth' ? 'text-active' : 'cls-7'} transform="translate(657 660) rotate(40)">
+          <text className={useSelected === 'sixth' ? 'text-active' : 'cls-7'} transform="translate(657 660) rotate(40)">
             0
             <tspan className="cls-8" x="35" y="0">
               6
@@ -242,17 +274,17 @@ export const Spinner = (props): React.FC => {
           </text>
         </g>
         <g
-          className={selected === 'seventh' ? '' : 'cls-6'}
+          className={useSelected === 'seventh' ? '' : 'cls-6'}
           onClick={() => setSelect('seventh')}
           onMouseEnter={() => setSelect('seventh')}
         >
-          <text className={selected === 'seventh' ? 'text-active' : 'cls-7'} transform="translate(555 720) rotate(50)">
+          <text className={useSelected === 'seventh' ? 'text-active' : 'cls-7'} transform="translate(555 720) rotate(50)">
             0
             <tspan className="cls-8" x="35" y="0">
               7
             </tspan>
           </text>
-        </g>
+        </g> */}
       </svg>
     </Circle>
   )
