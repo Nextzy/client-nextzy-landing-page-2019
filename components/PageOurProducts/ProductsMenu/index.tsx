@@ -14,6 +14,7 @@ const Title = styled.div`
 const ContentDetail = styled.div`
   font-size: 16px;
   line-height: 1.5;
+  margin-top: 24px;
 `
 
 const BoxBtnPage = styled.div`
@@ -31,15 +32,14 @@ const BoxBtnPage = styled.div`
     color: #ffffff;
     letter-spacing: 1.25px;
     line-height: 16px;
-    margin-top: 2rem;
+    margin-top: 24px;
     padding: 0.8rem 2.5rem 0.8rem 2.5rem;
-    margin-right: 1.5rem;
+    margin-right: 16px;
     border-radius: 25px;
     color: white;
     background-color: transparent;
     border: 0px solid transparent;
     box-shadow: inset 0 0 0 2px #fff;
-    cursor: pointer;
   }
 `
 
@@ -50,12 +50,13 @@ const ImgContainer = styled.div`
 
 const ProductImgfirst = styled.img`
   margin-left: -3rem;
+  margin-top: 56px;
   position: absolute;
   transform: translateX(-70%);
   webkit-transform: translateX(-70%);
 
   &.slide-out {
-    height: 400px;
+    height: 519.51px;
     animation: slide-out-first 0.6s forwards;
     -webkit-animation: slide-out-first 0.6s forwards;
   }
@@ -80,15 +81,14 @@ const ProductImgfirst = styled.img`
 `
 
 const ProductImgSecond = styled.img`
-  padding: 1rem;
   z-index: -1;
   transform: translateX(-70%);
   webkit-transform: translateX(-70%);
 
   &.slide-out {
-    margin-top: 2.5rem;
-    margin-left: 10rem;
-    height: 320px;
+    margin-top: 114.61px;
+    margin-left: 15rem;
+    height: 435.08px;
     animation: slide-out-second 1.3s forwards;
     -webkit-animation: slide-out-second 1.3s forwards;
   }
@@ -115,39 +115,42 @@ const ProductImgSecond = styled.img`
 const ProductContainer = styled.div`
   height: 80%;
 `
-
 export const Product = (props): React.FC => {
-  const [activeDevice, setActive] = useState('IOS')
-  const { activeProduct } = props
+  const [activeDevice, setActive] = useState('first')
+  const { activeProduct, productData } = props
 
   const onSelectDevice = (key): void => {
     setActive(key)
   }
+
   return (
     <ProductDeatil>
-      {activeProduct === 'first' && (
-        <ProductContainer>
-          <Fade right cascade distance={'10%'}>
-            <Title> MY AIS Application </Title>
-          </Fade>
-          <Fade right cascade distance={'20%'}>
-            <ContentDetail>
-              An application that answers all your needs with convenient access to all AIS services 24 hours a day. The
-              super convenient new way to make your digital life easier than ever with AIS services you can manage it
-              whenever wherever you like!
-            </ContentDetail>
-          </Fade>
-          <BoxBtnPage>
-            <button>WEB</button>
-            <button>IOS</button>
-            <button>ANDROID</button>
-          </BoxBtnPage>
-          <ImgContainer>
-            <ProductImgfirst className="slide-out" src="/static/images/Products/product_iphone_login.png" />
-            <ProductImgSecond className="slide-out" src="/static/images/Products/product_iphone_app.png" />
-          </ImgContainer>
-        </ProductContainer>
-      )}
+      {productData.map((product) => {
+        const { menu, fixselected } = product
+        return (
+          activeProduct === fixselected && (
+            <ProductContainer key={product.id}>
+              <Fade right cascade distance={'10%'}>
+                <Title> {menu.title} </Title>
+              </Fade>
+              <Fade right cascade distance={'20%'}>
+                <ContentDetail>{menu.descrition} </ContentDetail>
+              </Fade>
+              {menu.devices.map((device, i) => {
+                return (
+                  <BoxBtnPage key={i}>
+                    <button>{device}</button>
+                  </BoxBtnPage>
+                )
+              })}
+              <ImgContainer>
+                <ProductImgfirst className="slide-out" src="/static/images/Products/product_iphone_login.png" />
+                <ProductImgSecond className="slide-out" src="/static/images/Products/product_iphone_app.png" />
+              </ImgContainer>
+            </ProductContainer>
+          )
+        )
+      })}
     </ProductDeatil>
   )
 }

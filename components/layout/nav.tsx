@@ -4,9 +4,10 @@ import ContainerAll from './ContainerAll'
 const links = [
   { href: 'pageobject', label: 'OBJECTIVE', key: 1 },
   { href: 'pageservices', label: 'SERVICES', key: 2 },
-  { href: 'pageclient', label: 'CLIENTS', key: 3 },
-  { href: 'pageworkprocess', label: 'WORK PROCESS', key: 4 },
-  { href: 'pagecontact', label: 'CONTACT', key: 5 }
+  { href: 'pageourproducts', label: 'OUR PRODUCTS', key: 3 },
+  { href: 'pageclient', label: 'CLIENTS', key: 4 },
+  { href: 'pageworkprocess', label: 'WORK PROCESS', key: 5 },
+  { href: 'pagecontact', label: 'CONTACT', key: 6 }
 ]
 const Container = styled.div`
   /* position: relative; */

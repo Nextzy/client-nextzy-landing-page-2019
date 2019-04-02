@@ -3,6 +3,7 @@ import PageStart from './PageStart'
 import PageObjective from './PageObjective'
 import PageService from './PageService'
 import PageClient from './PageClient'
+import PageOurProduct from './PageOurProducts'
 import PageWorkProcess from './PageWorkProcess'
 import PageContact from './PageContact'
 import styled from 'styled-components'
@@ -53,6 +54,9 @@ const ScrollPage = (): React.FC => {
                 </div>
                 <div className="section">
                   <PageService />
+                </div>
+                <div className="section">
+                  <PageOurProduct />
                 </div>
                 <div className="section">
                   <PageClient />
