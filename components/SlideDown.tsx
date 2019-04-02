@@ -14,7 +14,36 @@ const BoxSlideActive = styled.div`
   color: #FFFFFF;
   letter-spacing: 1.25px;
   line-height: 16px;
+  display:block;
+  cursor: pointer;
+  
+  @keyframes AnimationArrow {
+    50% {
+      animation-timing-function: ease-in;
+      bottom:5rem;
+
+    }
+  }
+  @keyframes AnimationArrow {
+    50% {
+      animation-timing-function: ease-out;
+      bottom:4rem;
+    }
+  }
+  ${({ indexActive }) =>
+    indexActive === 0
+      ? `
+  bottom: 5rem;
+  animation: AnimationArrow 1s infinite ease-in;
+  animation: AnimationArrow 1s infinite ease-out;
+  `
+      : `
+      
+      bottom: 150%;
+
   `}
+  `}
+  display:none;
 `
 const BoxIcon = styled.div`
   position: absolute;
@@ -23,12 +52,11 @@ const BoxIcon = styled.div`
   transform: translate(-50%, -50%);
   width: 80px;
   height: 60px;
-  cursor: pointer;
 `
 const BoxArrow = styled.div`
   position: absolute;
   top: 28px;
-  width: 42%;
+  width: 25%;
   height: 3px;
   background-color: #fff;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
@@ -39,8 +67,8 @@ const BoxArrow = styled.div`
     position: absolute;
     width: 60%;
     height: 3px;
-    top: -6px;
-    right: 20px;
+    top: -3px;
+    right: 10px;
     background-color: #fff;
     transform: rotate(-45deg);
   }
@@ -50,8 +78,8 @@ const BoxArrow = styled.div`
     position: absolute;
     width: 60%;
     height: 3px;
-    top: 6px;
-    right: 20px;
+    top: 3px;
+    right: 10px;
     background-color: #fff;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     transform: rotate(45deg);
@@ -59,12 +87,13 @@ const BoxArrow = styled.div`
 `
 const BoxText = styled.div`
   position: relative;
-  left: 6rem;
+  left: 3.5rem;
 `
 const SlideDown = (props): React.FC => {
-  const { indexActive } = props
+  const { indexActive, fullpageApi } = props
+  // console.log('indexActive', indexActive, fullpageApi)
   return (
-    <BoxSlideActive indexActive={indexActive}>
+    <BoxSlideActive indexActive={indexActive} onClick={() => fullpageApi.moveTo(2)}>
       <BoxIcon>
         <BoxArrow />
       </BoxIcon>

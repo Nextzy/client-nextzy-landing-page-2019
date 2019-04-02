@@ -42,7 +42,7 @@ const Description = styled.div`
   text-align: left;
   line-height: 28px;
 `
-const ChangeContentDescription: React.FunctionComponent<{}> = (menu: any) => {
+const ChangeContentDescription = (menu): void => {
   switch (menu) {
     case 'BANGKOK':
       return (

@@ -7,7 +7,7 @@ export default class extends Document {
     const originalRenderPage = ctx.renderPage
 
     try {
-      ctx.renderPage = () =>
+      ctx.renderPage = (): void =>
         originalRenderPage({
           enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />)
         })
@@ -27,7 +27,7 @@ export default class extends Document {
     }
   }
 
-  render() {
+  render(): void {
     return (
       <html>
         <Head>

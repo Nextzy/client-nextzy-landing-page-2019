@@ -5,6 +5,7 @@ import Fade from 'react-reveal/Fade'
 import Map from './MenuAndContent/Map'
 import { SectionHeader } from '../common/Text'
 import MenuAndContent from './MenuAndContent/index'
+import Footer from '../layout/Footer'
 const Container = styled.div`
   background-color: #102131;
   color: white;
@@ -44,6 +45,32 @@ const BackGroundMap = styled.div`
     height: 100%;
   }
 `
+const BoxFooter = styled.div`
+  width: 100%;
+  text-align: center;
+  background: #1f2b44;
+  font-family: 'Montserrat-Regular';
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  padding: 1rem;
+`
+const BoxShowMapAndFooter = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`
+const FlexMap = styled.div`
+  flex: 0.95;
+`
+const FlexFooter = styled.div`
+  flex: 0.05;
+`
 const PageContact = (props): React.FC => {
   const { setModal } = props
   const [useMap, setMap] = useState('')
@@ -59,7 +86,14 @@ const PageContact = (props): React.FC => {
           <MenuAndContent setMap={setMap} setModal={setModal} />
         </ContainerPageSart>
       </ContainerAll>
-      <Map map={useMap} />
+      <BoxShowMapAndFooter>
+        <FlexMap>
+          <Map map={useMap} />
+        </FlexMap>
+        <FlexFooter>
+          <Footer />
+        </FlexFooter>
+      </BoxShowMapAndFooter>
     </Container>
   )
 }
