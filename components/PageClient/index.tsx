@@ -36,7 +36,7 @@ const DataTest = [
   {
     id: 1,
     rotate: 63,
-    positionSVG: { cx: '559.11', cy: '104.13' },
+    positionSVG: { cx: '561.37', cy: '104.12' },
     fixselected: 'first',
     transformText: 'translate(590.63 92) rotate(-61)',
     menu: { title: 'MY AIS Application', descrition: 'An' }
@@ -44,7 +44,7 @@ const DataTest = [
   {
     id: 2,
     rotate: 49,
-    positionSVG: { cx: '650.89', cy: '166.91' },
+    positionSVG: { cx: '647.47', cy: '162.74' },
     fixselected: 'second',
     transformText: 'translate(684.55 160.29) rotate(-50)',
     menu: { title: 'MY AIS Application', descrition: 'An' }
@@ -52,7 +52,7 @@ const DataTest = [
   {
     id: 3,
     rotate: 28,
-    positionSVG: { cx: '715.08', cy: '258.12' },
+    positionSVG: { cx: '721.4', cy: '265.02' },
     fixselected: 'third',
     transformText: 'translate(750 267.82) rotate(-30)',
     menu: { title: 'MY AIS Application', descrition: 'An' }
@@ -60,15 +60,15 @@ const DataTest = [
   {
     id: 4,
     rotate: 0,
-    positionSVG: { cx: '748', cy: '390' },
+    positionSVG: { cx: '749.23', cy: '406.21' },
     fixselected: 'fourth',
-    transformText: 'translate(768 409) rotate(0)',
+    transformText: 'translate(768 425) rotate(0)',
     menu: { title: 'MY AIS Application', descrition: 'An' }
   },
   {
     id: 5,
     rotate: -20,
-    positionSVG: { cx: '715.08', cy: '532.9' },
+    positionSVG: { cx: '716.17', cy: '535.86' },
     fixselected: 'fifth',
     transformText: 'translate(735 560) rotate(10)',
     menu: { title: 'MY AIS Application', descrition: 'An' }
@@ -76,7 +76,7 @@ const DataTest = [
   {
     id: 6,
     rotate: -45,
-    positionSVG: { cx: '650.89', cy: '627.49' },
+    positionSVG: { cx: '647.47', cy: '629.24' },
     fixselected: 'sixth',
     transformText: 'translate(657 660) rotate(40)',
     menu: { title: 'MY AIS Application', descrition: 'An' }
@@ -84,7 +84,7 @@ const DataTest = [
   {
     id: 7,
     rotate: -60,
-    positionSVG: { cx: '550.94', cy: '692.81' },
+    positionSVG: { cx: '565.99', cy: '685.43' },
     fixselected: 'seventh',
     transformText: 'translate(555 720) rotate(50)',
     menu: { title: 'MY AIS Application', descrition: 'An' }
