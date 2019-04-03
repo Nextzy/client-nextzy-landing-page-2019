@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ContainerAll from './ContainerAll'
+import Hamburger from '../common/Hamburger'
 const links = [
   { href: 'pageobject', label: 'OBJECTIVE', key: 1 },
   { href: 'pageservices', label: 'SERVICES', key: 2 },
@@ -90,6 +91,7 @@ const Nav = (props): React.FC => {
                   <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
                 </li>
               ))}
+              <Hamburger />
             </UlRight>
           </ul>
         </ContainerAll>
