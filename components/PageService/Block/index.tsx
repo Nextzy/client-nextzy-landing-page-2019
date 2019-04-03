@@ -2,7 +2,8 @@ import React from 'react'
 import { Header, Body, Highlight } from '../../common/Text'
 import styled from 'styled-components'
 const Container = styled.div`
-  padding: auto 0;
+  margin: 60px;
+  margin-top: 160px;
   display: flex;
   flex-wrap: wrap;
   background-image: url('static/images/Frame/table_service.svg');
