@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import Swing from 'react-reveal/Swing'
+import { Header, Body, Highlight } from '../../common/Text'
 const menuArray = [
   {
     key: 'develop',
@@ -93,16 +94,6 @@ const DescriptionHolder = styled.div`
   font-size: 24px;
 `
 
-const Header = styled.div`
-  font-size: 34px;
-`
-
-const Body = styled.p`
-  font-size: 16px;
-  letter-spacing: 0.5;
-  line-height: 1.5;
-`
-
 const OrderedList = styled.div`
   display: flex;
   flex-flow: row wrap;
@@ -121,9 +112,6 @@ const OrderedItemDivider = styled.img`
   margin-bottom: 1rem;
 `
 
-const Highlight = styled.strong`
-  color: #2a7aff;
-`
 interface OrderedItemProps {
   number: string
   name: string
