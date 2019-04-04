@@ -2,18 +2,17 @@ import React from 'react'
 import { Header, Body, Highlight } from '../../common/Text'
 import styled from 'styled-components'
 const Container = styled.div`
-  margin: 60px;
   display: flex;
   flex-wrap: wrap;
-  background-image: url('static/images/Frame/table_service.svg');
+  /* background-image: url('static/images/Frame/table_service.svg');
   background-size: auto 750px;
   background-repeat: no-repeat;
-  background-position: center;
-  height: 750px;
+  background-position: center; */
+  height: 843px;
 `
 
 const PrescriptionContainer = styled.div`
-  width: 615px;
+  width: 696px;
 `
 
 const Prescription = (): React.FC => {
@@ -31,21 +30,49 @@ const Prescription = (): React.FC => {
   )
 }
 const Lego = styled.div`
-  font-size: 16px;
+  display: flex;
+  font-size: 24px;
   width: 210px;
-  height: 210px;
+  height: 190px;
+  padding-left: 20px;
+  padding-bottom: 60px;
+  text-align: left;
+  vertical-align: bottom;
+  border: 1px solid #f7618b;
+`
+
+const LegoSpan = styled.span`
+  align-self: flex-end;
 `
 const Frame = styled.img``
 const LegoBlocks = (): React.FC => (
   <Container>
     <Prescription />
-    <Lego>Web Application Development</Lego>
-    <Lego>Mobile Application Development</Lego>
-    <Lego>Web Service Development</Lego>
-    <Lego>Blockchain Development</Lego>
-    <Lego>UI and UX Design Services</Lego>
-    <Lego>DevOps Services</Lego>
-    <Lego>QA Services</Lego>
+    <Lego>
+      <LegoSpan>Web Application Development</LegoSpan>
+    </Lego>
+    <Lego>
+      <LegoSpan>Mobile Application Development</LegoSpan>
+    </Lego>
+    <Lego>
+      <LegoSpan>Web Service Development</LegoSpan>
+    </Lego>
+    <Lego>
+      <LegoSpan>Blockchain Development</LegoSpan>
+    </Lego>
+    <Lego>
+      <LegoSpan>
+        UI and UX <br />
+        Design
+        <br /> Services
+      </LegoSpan>
+    </Lego>
+    <Lego>
+      <LegoSpan>DevOps Services</LegoSpan>
+    </Lego>
+    <Lego>
+      <LegoSpan>QA Services</LegoSpan>
+    </Lego>
   </Container>
 )
 export default LegoBlocks
