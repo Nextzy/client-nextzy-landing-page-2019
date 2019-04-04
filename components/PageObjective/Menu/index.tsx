@@ -5,15 +5,15 @@ import Swing from 'react-reveal/Swing'
 import { Header, Body, Highlight } from '../../common/Text'
 const menuArray = [
   {
-    key: 'develop',
+    key: 'objective-develop',
     name: 'Develop quality software'
   },
   {
-    key: 'empowering',
+    key: 'objective-empowering',
     name: 'Empowering everyone in the team'
   },
   {
-    key: 'share',
+    key: 'objective-share',
     name: 'Share the expertise'
   }
 ]
@@ -52,7 +52,7 @@ const Menu = (props): React.FC<MenuProps> => {
     : '/static/images/Icon/collapse/ic_collapse_right_gray.svg'
   return (
     <>
-      <RowWrapper id={props.key}>
+      <RowWrapper>
         <Row {...props}>
           {props.name}
           <Swing when={props.selected}>
@@ -70,7 +70,7 @@ const MenuListWrapper = styled.div`
 `
 
 const MenuList = (props): React.FC => {
-  const [selectedKey, setSelected] = useState('develop')
+  const [selectedKey, setSelected] = useState('objective-develop')
   const onClick = (key): void => {
     setSelected(key)
     props.onMenuClick(key)
@@ -80,6 +80,7 @@ const MenuList = (props): React.FC => {
     <MenuListWrapper>
       {menuArray.map(({ key, name }) => (
         <Menu
+          id={key}
           key={key}
           onClick={() => onClick(key)}
           onMouseEnter={() => onClick(key)}
@@ -128,7 +129,7 @@ const OrderedItem = (props): React.FC<OrderedItemProps> => {
 }
 
 const DescriptionPane = ({ activeMenu }): React.FC => {
-  if (activeMenu === 'develop') {
+  if (activeMenu === 'objective-develop') {
     return (
       <DescriptionHolder>
         <Header>
@@ -145,7 +146,7 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
         </OrderedList>
       </DescriptionHolder>
     )
-  } else if (activeMenu === 'empowering') {
+  } else if (activeMenu === 'objective-empowering') {
     return (
       <DescriptionHolder>
         <Header>
@@ -157,7 +158,7 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
         </Body>
       </DescriptionHolder>
     )
-  } else if (activeMenu === 'share') {
+  } else if (activeMenu === 'objective-share') {
     return (
       <DescriptionHolder>
         <Header>
@@ -176,7 +177,7 @@ const PairWrapper = styled.div`
   margin-top: 3rem;
 `
 export const Pair = (props): React.FC => {
-  const [activeMenu, setActive] = useState('develop')
+  const [activeMenu, setActive] = useState('objective-develop')
   return (
     <PairWrapper>
       <MenuList onMenuClick={setActive} />
