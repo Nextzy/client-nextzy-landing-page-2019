@@ -74,6 +74,9 @@ const HoverLink = styled.div`
 const UlRight = styled.ul`
   text-align: right;
 `
+const ImgLogo = styled.img`
+  cursor: pointer;
+`
 const Nav = (props): React.FC => {
   const { fullpageApi, indexActive } = props
   return (
@@ -83,7 +86,7 @@ const Nav = (props): React.FC => {
         <ContainerAll>
           <ul>
             <li onClick={() => fullpageApi.moveTo(1)}>
-              <img src="/static/images/logo/logo_nextzy_white.svg" />
+              <ImgLogo src="/static/images/logo/logo_nextzy_white.svg" />
             </li>
             <UlRight>
               {links.map(({ key, href, label }) => (

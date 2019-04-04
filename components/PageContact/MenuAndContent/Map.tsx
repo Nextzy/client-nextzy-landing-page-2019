@@ -18,7 +18,7 @@ const ContainerMap = styled.div`
     visibility: ${({ map }) => (map === 'BANGKOK' ? 'visible' : 'hidden')};
   }
   img:nth-child(2) {
-    visibility: ${({ map }) => (map === 'CHAINGMAI' ? 'visible' : 'hidden')};
+    visibility: ${({ map }) => (map === 'CHIANGMAI' ? 'visible' : 'hidden')};
   }
 `
 
@@ -36,7 +36,7 @@ const Map = (props): React.FC => {
         <Fade when={map === 'BANGKOK'}>
           <img src="/static/images/Map/map-bkk.png" alt="map" />
         </Fade>
-        <Fade when={map === 'CHAINGMAI'}>
+        <Fade when={map === 'CHIANGMAI'}>
           <img src="/static/images/Map/map-cnx.png" alt="map" />
         </Fade>
       </ContainerMap>
