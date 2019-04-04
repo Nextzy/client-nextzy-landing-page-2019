@@ -6,7 +6,7 @@ const ButtonMenu = styled.div`
   color: #ffffff;
   letter-spacing: 0.15px;
   line-height: 24px;
-  margin: 1rem;
+  /* margin: 1rem; */
   transition: 500ms;
   opacity: 1;
   display: inline-block;

@@ -34,7 +34,7 @@ const BoxContentMap = styled.div`
 `
 
 const Description = styled.div`
-  margin: 2rem 1rem 1rem 1rem;
+  /* margin: 2rem 1rem 1rem 1rem; */
   font-family: 'Montserrat-Regular';
   font-size: 16px;
   color: #ffffff;
@@ -47,20 +47,22 @@ const ChangeContentDescription = (menu): void => {
     case 'BANGKOK':
       return (
         <Fade right>
+          <Title name="BANGKOK BRANCH ADDRESS" />
           <Description>
             <p>219 / 23 Asoke Towers 7th, Soi Sukhumvit 21 Rd.</p>
             <p>Klongtoey Nua, Wattana, Bangkok 10110, Thailand.</p>
           </Description>
         </Fade>
       )
-    case 'CHAINGMAI':
+    case 'CHIANGMAI':
       return (
-        <Description>
-          <Fade right>
+        <Fade right>
+          <Title name="CHIANGMAI BRANCH ADDRESS" />
+          <Description>
             <p>17 / 1 Cube No.7 Sirimangkalajarn Lane 7</p>
             <p>Suthep, Muang, Chiang Mai 50200, Thailand.</p>
-          </Fade>
-        </Description>
+          </Description>
+        </Fade>
       )
     default:
       return null
@@ -74,11 +76,11 @@ const MenuAndContent = (props): React.FC => {
     <>
       <MenuSelectMap>
         <Menu name="BANGKOK" menu={useActiveMenu} setMenu={setActiveMenu} />
-        <Menu name="CHAINGMAI" menu={useActiveMenu} setMenu={setActiveMenu} />
+        <Menu name="CHIANGMAI" menu={useActiveMenu} setMenu={setActiveMenu} />
       </MenuSelectMap>
       <BoxContent>
         <BoxContentInSide>
-          <Title name="BANGKOK BRANCH ADDRESS" />
+          {/* <Title name="BANGKOK BRANCH ADDRESS" /> */}
           {ChangeContentDescription(useActiveMenu)}
           <br />
           <Title name="PHONES" />

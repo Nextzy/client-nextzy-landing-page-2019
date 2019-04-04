@@ -24,6 +24,7 @@ const BackgroundImage = styled.img`
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
+  const [useCountPage, setCountPage] = useState(0)
   const [useModal, setModal] = useState({ visible: false, map: '' })
   const { visible } = useModal
   const onLeave = (origin, destination, direction): void => {
@@ -33,7 +34,7 @@ const ScrollPage = ({ goto }): React.FC => {
 
   return (
     <>
-      <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} />
+      <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
       <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
       <Nav indexActive={useActive} fullpageApi={useFullPageApi} />
       <IconContact indexActive={useActive} />
@@ -43,7 +44,9 @@ const ScrollPage = ({ goto }): React.FC => {
       <ReactFullpage
         onLeave={onLeave}
         render={({ state, fullpageApi }) => {
+          const { sectionCount } = state
           setFullPageApi(fullpageApi)
+          setCountPage(sectionCount || 0)
           if (goto && fullpageApi && state.initialized && !state.destination) {
             //first load in query
             const currentLink = links.filter((link) => link.href === goto)[0]
