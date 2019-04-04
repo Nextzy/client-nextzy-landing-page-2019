@@ -28,3 +28,20 @@ export const SectionHeader = (props): React.FC<SectionHeaderProps> => {
     </Fade>
   )
 }
+
+export const Header = styled.div`
+  font-size: 34px;
+  letter-spacing: 0.25px;
+`
+
+export const Body = styled.p`
+  font-size: 16px;
+  margin: 24px 0px 40px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+`
+
+export const Highlight = styled.span`
+  color: #2a7aff;
+  line-height: 42px;
+`

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import Swing from 'react-reveal/Swing'
+import { Header, Body, Highlight } from '../../common/Text'
 const menuArray = [
   {
     key: 'develop',
@@ -20,6 +21,7 @@ const menuArray = [
 const Row = styled.div`
   display: flex;
   font-size: 20px;
+  letter-spacing: 0.25px;
   justify-content: space-between;
   width: 385px;
   user-select: none;
@@ -33,7 +35,7 @@ const Row = styled.div`
 const RightAlignIcon = styled.img``
 
 const RowWrapper = styled.div`
-  margin-bottom: 0.5rem;
+  margin-bottom: 30px;
 `
 
 const BottomLiner = styled.img`
@@ -50,7 +52,7 @@ const Menu = (props): React.FC<MenuProps> => {
     : '/static/images/Icon/collapse/ic_collapse_right_gray.svg'
   return (
     <>
-      <RowWrapper>
+      <RowWrapper id={props.key}>
         <Row {...props}>
           {props.name}
           <Swing when={props.selected}>
@@ -89,19 +91,7 @@ const MenuList = (props): React.FC => {
   )
 }
 
-const DescriptionHolder = styled.div`
-  font-size: 24px;
-`
-
-const Header = styled.div`
-  font-size: 34px;
-`
-
-const Body = styled.p`
-  font-size: 16px;
-  letter-spacing: 0.5;
-  line-height: 1.5;
-`
+const DescriptionHolder = styled.div``
 
 const OrderedList = styled.div`
   display: flex;
@@ -110,8 +100,10 @@ const OrderedList = styled.div`
 
 const OrderedItemContainer = styled.div`
   font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
   width: 250px;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 `
 
 const OrderedItemDivider = styled.img`
@@ -121,9 +113,6 @@ const OrderedItemDivider = styled.img`
   margin-bottom: 1rem;
 `
 
-const Highlight = styled.strong`
-  color: #2a7aff;
-`
 interface OrderedItemProps {
   number: string
   name: string
@@ -159,7 +148,9 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
   } else if (activeMenu === 'empowering') {
     return (
       <DescriptionHolder>
-        <Header>Empowering everyone in the team</Header>
+        <Header>
+          <Highlight>Empowering</Highlight> everyone in the team
+        </Header>
         <Body>
           Quality software needs talented people. We, therefore, open our team members to the opportunities to develop
           themselves on top of software development skills.
@@ -169,7 +160,9 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
   } else if (activeMenu === 'share') {
     return (
       <DescriptionHolder>
-        <Header>Share the expertise to create a community</Header>
+        <Header>
+          <Highlight>Share the expertise</Highlight> to create a community
+        </Header>
         <Body>Better developer communities will positively affect our team members, both directly and indirectly.</Body>
       </DescriptionHolder>
     )
