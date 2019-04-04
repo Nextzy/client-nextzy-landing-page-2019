@@ -3,7 +3,6 @@ import { Header, Body, Highlight } from '../../common/Text'
 import styled from 'styled-components'
 const Container = styled.div`
   margin: 60px;
-  margin-top: 160px;
   display: flex;
   flex-wrap: wrap;
   background-image: url('static/images/Frame/table_service.svg');
@@ -13,7 +12,9 @@ const Container = styled.div`
   height: 750px;
 `
 
-const PrescriptionContainer = styled.div``
+const PrescriptionContainer = styled.div`
+  width: 615px;
+`
 
 const Prescription = (): React.FC => {
   return (
@@ -31,8 +32,8 @@ const Prescription = (): React.FC => {
 }
 const Lego = styled.div`
   font-size: 16px;
-  width: 150px;
-  height: 150px;
+  width: 210px;
+  height: 210px;
 `
 const Frame = styled.img``
 const LegoBlocks = (): React.FC => (
