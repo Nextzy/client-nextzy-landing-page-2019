@@ -8,14 +8,17 @@ const Container = styled.div`
   width: 100%;
   overflow: hidden;
 `
-const Home = (): React.FC => {
+const Home = ({ goto }): React.FC => {
   return (
     <Container>
       <GlobalStyle />
       <Head title="NEXTZY TECHNOLOGIES" />
-      <ScrollPage />
+      <ScrollPage goto={goto} />
     </Container>
   )
 }
 
+Home.getInitialProps = async ({ query: { goto } }) => {
+  return { goto }
+}
 export default Home

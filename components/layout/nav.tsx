@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import ContainerAll from './ContainerAll'
 import Hamburger from '../common/Hamburger'
-const links = [
+import { addPath } from '../decorate-url'
+import Router from 'next/router'
+export const links = [
   { href: 'pageobject', label: 'OBJECTIVE', key: 1 },
   { href: 'pageservices', label: 'SERVICES', key: 2 },
   // { href: 'pageourproducts', label: 'OUR PRODUCTS', key: 3 },
@@ -37,6 +39,7 @@ const NavBar = styled.nav`
   li {
     display: flex;
     padding: 0.5rem 0.8rem;
+    cursor: pointer;
   }
 `
 const BackgroundNav = styled.div`
@@ -82,12 +85,23 @@ const Nav = (props): React.FC => {
         <BackgroundNav active={indexActive !== 0} />
         <ContainerAll>
           <ul>
-            <li onClick={() => fullpageApi.moveTo(1)}>
+            <li
+              onClick={() => {
+                Router.replace('/', '/')
+                fullpageApi.moveTo(1)
+              }}
+            >
               <img src="/static/images/logo/logo_nextzy_white.svg" />
             </li>
             <UlRight>
               {links.map(({ key, href, label }) => (
-                <li key={key} onClick={() => fullpageApi.moveTo(key + 1)}>
+                <li
+                  key={key}
+                  onClick={() => {
+                    addPath(key)
+                    fullpageApi.moveTo(key + 1)
+                  }}
+                >
                   <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
                 </li>
               ))}

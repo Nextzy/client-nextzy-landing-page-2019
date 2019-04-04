@@ -8,7 +8,7 @@ import PageWorkProcess from './PageWorkProcess'
 import PageContact from './PageContact'
 import styled from 'styled-components'
 import ReactFullpage from '@fullpage/react-fullpage'
-import Nav from './layout/nav'
+import Nav, { links } from './layout/nav'
 import ScrollActive from './ScrollActive'
 import SlideDown from './SlideDown'
 import IconContact from './IconContact'
@@ -21,7 +21,7 @@ const BackgroundImage = styled.img`
   margin-top: 528px;
 `
 
-const ScrollPage = (): React.FC => {
+const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useModal, setModal] = useState({ visible: false, map: '' })
@@ -30,6 +30,7 @@ const ScrollPage = (): React.FC => {
     const { index } = destination
     setActive(index || 0)
   }
+
   return (
     <>
       <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} />
@@ -43,6 +44,11 @@ const ScrollPage = (): React.FC => {
         onLeave={onLeave}
         render={({ state, fullpageApi }) => {
           setFullPageApi(fullpageApi)
+          if (goto && fullpageApi && state.initialized && !state.destination) {
+            //first load in query
+            const currentLink = links.filter((link) => link.href === goto)[0]
+            fullpageApi.moveTo(currentLink.key + 1)
+          }
           return (
             <>
               <ReactFullpage.Wrapper>
