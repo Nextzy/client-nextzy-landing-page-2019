@@ -8,6 +8,7 @@ const Container = styled.div`
   background-size: auto 750px;
   background-repeat: no-repeat;
   background-position: center; */
+  align-content: flex-start;
   height: 843px;
 `
 
@@ -33,7 +34,7 @@ const Lego = styled.div`
   display: flex;
   font-size: 24px;
   width: 210px;
-  height: 190px;
+  height: 198px;
   padding-left: 20px;
   padding-bottom: 60px;
   text-align: left;
