@@ -36,7 +36,7 @@ const Lego = styled.div`
   font-size: 24px;
   width: 210px;
   height: ${(props) => (props.thickBottomBorder ? '191px' : '198px')};
-  padding-left: 20px;
+  padding-left: 25px;
   padding-bottom: 60px;
   text-align: left;
   vertical-align: bottom;
@@ -61,9 +61,6 @@ const Lego = styled.div`
     height: 7rem;
     width: 210px;
     margin-top: 198px;
-  }
-  :hover {
-    box-shadow: 0 0 8px 3px white inset;
   }
 `
 

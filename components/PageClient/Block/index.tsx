@@ -37,10 +37,6 @@ const Lego = styled.div`
     width: 210px;
     margin-top: -60px;
   }
-
-  :hover {
-    box-shadow: 0 0 8px 3px white inset;
-  }
 `
 
 const LegoDecorator = styled.div``
