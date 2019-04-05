@@ -79,23 +79,23 @@ const LegoWrapper = (props): React.FC => {
 const LegoBlocks = (): React.FC => (
   <Container>
     <Prescription />
-    <LegoWrapper topLeftExtended color={'#f7618b'}>
+    <LegoWrapper topLeftExtended color={'#6062D0'}>
       Web Application Development
     </LegoWrapper>
-    <LegoWrapper thickBottomBorder color={'#f7618b'}>
+    <LegoWrapper thickBottomBorder color={'#AB5AA9'}>
       Mobile Application Development
     </LegoWrapper>
-    <LegoWrapper color={'#f7618b'}>Web Service Development</LegoWrapper>
-    <LegoWrapper thickBottomBorder color={'#f7618b'}>
+    <LegoWrapper color={'#9E5CAF'}>Web Service Development</LegoWrapper>
+    <LegoWrapper thickBottomBorder color={'#6C62CB'}>
       Blockchain Development
     </LegoWrapper>
-    <LegoWrapper color={'#f7618b'}>
+    <LegoWrapper color={'#5065DB'}>
       UI and UX <br />
       Design
       <br /> Services
     </LegoWrapper>
-    <LegoWrapper color={'#f7618b'}>DevOps Services</LegoWrapper>
-    <LegoWrapper bottomRightExtended thickBottomBorder color={'#f7618b'}>
+    <LegoWrapper color={'#835FBE'}>DevOps Services</LegoWrapper>
+    <LegoWrapper bottomRightExtended thickBottomBorder color={'#6F62CA'}>
       QA Services
     </LegoWrapper>
   </Container>
