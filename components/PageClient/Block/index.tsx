@@ -23,7 +23,7 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-left: 1px solid ${(props) => props.color};
-    height: 420px;
+    height: 330px;
     width: 210px;
     margin-top: -60px;
     margin-left: -1px;
@@ -33,7 +33,7 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-right: 1px solid ${(props) => props.color};
-    height: 420px;
+    height: 330px;
     width: 210px;
     margin-top: -60px;
   }
