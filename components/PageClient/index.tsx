@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
+import LegoBlocks from './Block'
 const Container = styled.div`
+  padding-top: 200px;
   background-color: #102131;
   color: white;
   height: 100vh;
@@ -20,7 +22,7 @@ const TextNEXTZY = styled.div`
   display: inline-block;
   float: left;
 `
-const ContainerPageSart = styled.div`
+const ContainerPageStart = styled.div`
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -31,20 +33,20 @@ const ContainerPageSart = styled.div`
   text-align: left;
   justify-content: center;
   z-index: 50;
-  flex-direction: column;
-  border: 1px solid green;
+  /* flex-direction: column; */
 `
 const PageClient = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
-        <ContainerPageSart>
+        <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
               <SectionHeader title="Page Client" />
             </Fade>
+            <LegoBlocks />
           </TextNEXTZY>
-        </ContainerPageSart>
+        </ContainerPageStart>
       </ContainerAll>
     </Container>
   )
