@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header, Body, Highlight } from '../../common/Text'
 import styled from 'styled-components'
+import Bounce from 'react-reveal/Bounce'
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -41,6 +42,7 @@ const Lego = styled.div`
   vertical-align: bottom;
   border: 1px solid ${(props) => props.color};
   border-bottom: ${(props) => (props.thickBottomBorder ? '8px' : '1px')} solid ${(props) => props.color};
+
   :before {
     display: ${(props) => (props.topLeftExtended ? 'block' : 'none')};
     content: '';
@@ -60,6 +62,9 @@ const Lego = styled.div`
     width: 210px;
     margin-top: 198px;
   }
+  :hover {
+    box-shadow: 0 0 8px 3px white inset;
+  }
 `
 
 const LegoDecorator = styled.div``
@@ -70,9 +75,11 @@ const LegoSpan = styled.span`
 const LegoWrapper = (props): React.FC => {
   return (
     <LegoDecorator>
-      <Lego {...props}>
-        <LegoSpan>{props.children}</LegoSpan>
-      </Lego>
+      <Bounce duration={800}>
+        <Lego {...props}>
+          <LegoSpan>{props.children}</LegoSpan>
+        </Lego>
+      </Bounce>
     </LegoDecorator>
   )
 }
