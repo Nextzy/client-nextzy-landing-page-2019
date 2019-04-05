@@ -34,46 +34,70 @@ const Lego = styled.div`
   display: flex;
   font-size: 24px;
   width: 210px;
-  height: 198px;
+  height: ${(props) => (props.thickBottomBorder ? '191px' : '198px')};
   padding-left: 20px;
   padding-bottom: 60px;
   text-align: left;
   vertical-align: bottom;
-  border: 1px solid #f7618b;
+  border: 1px solid ${(props) => props.color};
+  border-bottom: ${(props) => (props.thickBottomBorder ? '8px' : '1px')} solid ${(props) => props.color};
+  :before {
+    display: ${(props) => (props.topLeftExtended ? 'block' : 'none')};
+    content: '';
+    position: absolute;
+    border-left: 2px solid ${(props) => props.color};
+    height: 7rem;
+    width: 0px;
+    margin-top: -3.5rem;
+    margin-left: -21px;
+  }
+  :after {
+    display: ${(props) => (props.bottomRightExtended ? 'block' : 'none')};
+    content: '';
+    position: absolute;
+    border-right: 1px solid ${(props) => props.color};
+    height: 7rem;
+    width: 210px;
+    margin-top: 198px;
+  }
 `
+
+const LegoDecorator = styled.div``
 
 const LegoSpan = styled.span`
   align-self: flex-end;
 `
-const Frame = styled.img``
+const LegoWrapper = (props): React.FC => {
+  return (
+    <LegoDecorator>
+      <Lego {...props}>
+        <LegoSpan>{props.children}</LegoSpan>
+      </Lego>
+    </LegoDecorator>
+  )
+}
 const LegoBlocks = (): React.FC => (
   <Container>
     <Prescription />
-    <Lego>
-      <LegoSpan>Web Application Development</LegoSpan>
-    </Lego>
-    <Lego>
-      <LegoSpan>Mobile Application Development</LegoSpan>
-    </Lego>
-    <Lego>
-      <LegoSpan>Web Service Development</LegoSpan>
-    </Lego>
-    <Lego>
-      <LegoSpan>Blockchain Development</LegoSpan>
-    </Lego>
-    <Lego>
-      <LegoSpan>
-        UI and UX <br />
-        Design
-        <br /> Services
-      </LegoSpan>
-    </Lego>
-    <Lego>
-      <LegoSpan>DevOps Services</LegoSpan>
-    </Lego>
-    <Lego>
-      <LegoSpan>QA Services</LegoSpan>
-    </Lego>
+    <LegoWrapper topLeftExtended color={'#f7618b'}>
+      Web Application Development
+    </LegoWrapper>
+    <LegoWrapper thickBottomBorder color={'#f7618b'}>
+      Mobile Application Development
+    </LegoWrapper>
+    <LegoWrapper color={'#f7618b'}>Web Service Development</LegoWrapper>
+    <LegoWrapper thickBottomBorder color={'#f7618b'}>
+      Blockchain Development
+    </LegoWrapper>
+    <LegoWrapper color={'#f7618b'}>
+      UI and UX <br />
+      Design
+      <br /> Services
+    </LegoWrapper>
+    <LegoWrapper color={'#f7618b'}>DevOps Services</LegoWrapper>
+    <LegoWrapper bottomRightExtended thickBottomBorder color={'#f7618b'}>
+      QA Services
+    </LegoWrapper>
   </Container>
 )
 export default LegoBlocks
