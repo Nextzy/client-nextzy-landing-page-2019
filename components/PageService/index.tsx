@@ -33,7 +33,6 @@ const ContainerPageStart = styled.div`
   justify-content: center;
   z-index: 50;
   flex-direction: column;
-  border: 1px solid green;
 `
 
 const PageService = (): React.FC => {

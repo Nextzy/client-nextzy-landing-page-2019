@@ -45,7 +45,7 @@ const Lego = styled.div`
     display: ${(props) => (props.topLeftExtended ? 'block' : 'none')};
     content: '';
     position: absolute;
-    border-left: 2px solid ${(props) => props.color};
+    border-left: 1px solid ${(props) => props.color};
     height: 7rem;
     width: 0px;
     margin-top: -3.5rem;
