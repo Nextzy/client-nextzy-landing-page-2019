@@ -62,14 +62,14 @@ const LegoWrapper = (props): React.FC => {
 }
 const LegoBlocks = (): React.FC => (
   <Container>
-    <LegoWrapper color={'#6062D0'} src="myAis" leftExtended />
-    <LegoWrapper color={'#AB5AA9'} src="nu_mobile" />
-    <LegoWrapper color={'#9E5CAF'} src="omisego" leftExtended />
-    <LegoWrapper color={'#6C62CB'} src="iteamstudio" rightExtended />
-    <LegoWrapper color={'#5065DB'} src="onedaycat" leftExtended />
-    <LegoWrapper color={'#835FBE'} src="true" rightExtended />
-    <LegoWrapper color={'#6F62CA'} src="nitto" />
-    <LegoWrapper color={'#6F62CA'} src="youex" rightExtended />
+    <LegoWrapper color={'#DE6C90'} src="myAis" leftExtended />
+    <LegoWrapper color={'#9C649A'} src="nu_mobile" />
+    <LegoWrapper color={'#8466A7'} src="omisego" leftExtended />
+    <LegoWrapper color={'#6A6ABA'} src="iteamstudio" rightExtended />
+    <LegoWrapper color={'#A26FB1'} src="onedaycat" leftExtended />
+    <LegoWrapper color={'#8572C2'} src="true" rightExtended />
+    <LegoWrapper color={'#6875D4'} src="nitto" />
+    <LegoWrapper color={'#5079E5'} src="youex" rightExtended />
   </Container>
 )
 export default LegoBlocks
