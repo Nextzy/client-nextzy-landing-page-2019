@@ -4,9 +4,9 @@ import styled from 'styled-components'
 const Line = styled.div`
   svg {
     position: absolute;
-    right: 70%;
+    left: 0;
     top: 28%;
-    height: 80%;
+    height: 70%;
     z-index: 1;
     user-select: none;
   }
@@ -24,9 +24,17 @@ const Line = styled.div`
   .d {
     fill: url(#b);
   }
-  .e,
+  .indicator-active,
   .text-active {
     fill: #f7618b;
+  }
+  .indicator-unactive {
+    fill: #7a6666;
+  }
+
+  .indicator-active,
+  .indicator-unactive {
+    transition: 500ms all;
   }
   .f,
   .text-active {
@@ -63,8 +71,16 @@ export const LineSpinner = (props): React.FC => {
   }
   const setPositionText = (useSelected): void => {
     const getRotate = createSelect.find((f) => f.fixselected === useSelected)
-    return getRotate.transformRotate
+    const transformRotate = 205.5 - getRotate.transformTextMobile
+    return transformRotate
   }
+
+  const setPositionIndicator = (useSelected): void => {
+    const getRotate = createSelect.find((f) => f.fixselected === useSelected)
+    const transformIndicator = 197 - getRotate.indicatorPosition
+    return transformIndicator
+  }
+
   return (
     <Line>
       <svg viewBox="0 0 78.29 396">
@@ -89,17 +105,22 @@ export const LineSpinner = (props): React.FC => {
         <g className="c">
           <rect className="d" x="7.5" width="1" height="396" />
         </g>
-        <circle className="e" cx="8" cy="197.5" r="8" />
-
         {createSelect.map((item) => {
-          const { fixselected, transformTextMobile, transformRotate } = item
-          const transform = `translate(36 ${transformTextMobile + setPositionText(useSelected)})`
+          const { fixselected, transformTextMobile, transformRotate, indicatorPosition } = item
+          const textTransform = `translate(36 ${transformTextMobile + setPositionText(useSelected)})`
+          const indicatorTransform = indicatorPosition + setPositionIndicator(useSelected)
           return (
             <Fragment key={item.id}>
+              <circle
+                className={useSelected === fixselected ? 'indicator-active' : 'indicator-unactive'}
+                cx="8"
+                cy={indicatorTransform}
+                r={useSelected === fixselected ? 8 : 5}
+              />
               <g className="f">
                 <text
                   className={useSelected === fixselected ? 'text-active' : 'text-unactive'}
-                  transform={transform}
+                  transform={textTransform}
                   onClick={() => setSelect(fixselected)}
                 >
                   0{item.id}
