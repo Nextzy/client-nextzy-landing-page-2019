@@ -60,6 +60,10 @@ const Circle = styled.div`
     font-family: Montserrat-Regular, Montserrat Regular;
     transition: all 0.2s ease-in;
   }
+
+  @media (max-width: 720px) {
+    display: none;
+  }
 `
 
 export const Spinner = (props): React.FC => {

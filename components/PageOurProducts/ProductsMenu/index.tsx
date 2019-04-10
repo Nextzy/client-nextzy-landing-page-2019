@@ -41,6 +41,9 @@ const BoxBtnPage = styled.div`
     border: 0px solid transparent;
     box-shadow: inset 0 0 0 2px #fff;
   }
+  @media (max-width: 720px) {
+    display: none;
+  }
 `
 
 const ImgContainer = styled.div`
