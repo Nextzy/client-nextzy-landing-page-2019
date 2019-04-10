@@ -157,7 +157,7 @@ const PageStart = (props): React.FC => {
 
         <PlanetAll />
       </ContainerAll>
-      {/* <ShootingStar /> */}
+      <ShootingStar />
       <StarFix />
     </Container>
   )
