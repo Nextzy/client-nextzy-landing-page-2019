@@ -39,10 +39,10 @@ const DataTest = [
   {
     id: 1,
     rotate: 61,
+    indicatorPosition: 23,
     positionSVG: { cx: '561.37', cy: '104.12' },
     fixselected: 'first',
     transformTextMobile: 31.5,
-    transformRotate: 180,
     transformText: 'translate(590.63 92) rotate(-61)',
     menu: {
       title: 'MY AIS',
@@ -54,10 +54,10 @@ const DataTest = [
   {
     id: 2,
     rotate: 48,
+    indicatorPosition: 81,
     positionSVG: { cx: '647.47', cy: '162.74' },
     fixselected: 'second',
     transformTextMobile: 87.5,
-    transformRotate: 124,
     transformText: 'translate(684.55 160.29) rotate(-48)',
     menu: {
       title: 'MY CHANNEL',
@@ -69,10 +69,10 @@ const DataTest = [
   {
     id: 3,
     rotate: 28,
+    indicatorPosition: 137,
     positionSVG: { cx: '721.4', cy: '265.02' },
     fixselected: 'third',
     transformTextMobile: 143.5,
-    transformRotate: 68,
     transformText: 'translate(755 275) rotate(-28)',
     menu: {
       title: 'NU MOBILE',
@@ -84,10 +84,10 @@ const DataTest = [
   {
     id: 4,
     rotate: 0,
+    indicatorPosition: 197.5,
     positionSVG: { cx: '749.23', cy: '406.21' },
     fixselected: 'fourth',
-    transformTextMobile: 211.5,
-    transformRotate: 0,
+    transformTextMobile: 205.5,
     transformText: 'translate(768 425) rotate(0)',
     menu: {
       title: 'YOUEX',
@@ -98,10 +98,10 @@ const DataTest = [
   {
     id: 5,
     rotate: -20,
+    indicatorPosition: 259,
     positionSVG: { cx: '716.17', cy: '535.86' },
     fixselected: 'fifth',
     transformTextMobile: 267.5,
-    transformRotate: -56,
     transformText: 'translate(735 565) rotate(20)',
     menu: {
       title: 'TRUE MONEY WALLET CAMPAIGN',
@@ -113,20 +113,20 @@ const DataTest = [
   {
     id: 6,
     rotate: -40,
+    indicatorPosition: 317,
     positionSVG: { cx: '647.47', cy: '629.24' },
     fixselected: 'sixth',
     transformTextMobile: 325.5,
-    transformRotate: -114,
     transformText: 'translate(657 665) rotate(40)',
     menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
   },
   {
     id: 7,
     rotate: -60,
+    indicatorPosition: 375,
     positionSVG: { cx: '565.99', cy: '685.43' },
     fixselected: 'seventh',
     transformTextMobile: 383.5,
-    transformRotate: -172,
     transformText: 'translate(555 720) rotate(60)',
     menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
   }

@@ -14,7 +14,7 @@ const Container = styled.div`
 `
 
 const PrescriptionContainer = styled.div`
-  width: 696px;
+  width: 711px;
 `
 
 const Prescription = (): React.FC => {
@@ -51,7 +51,7 @@ const Lego = styled.div`
     height: 7rem;
     width: 0px;
     margin-top: -3.5rem;
-    margin-left: -21px;
+    margin-left: -26px;
   }
   :after {
     display: ${(props) => (props.bottomRightExtended ? 'block' : 'none')};
