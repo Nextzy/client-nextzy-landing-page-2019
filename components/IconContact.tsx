@@ -6,7 +6,9 @@ const BoxIconContact = styled.div`
   z-index: 500;
   color: white;
   transition: 500ms;
-  ${({ indexActive }) =>
+  right: 5rem;
+  bottom: 1rem;
+  /* ${({ indexActive }) =>
     indexActive
       ? `
   right: 5rem;
@@ -15,7 +17,7 @@ const BoxIconContact = styled.div`
       : `
   right: 8rem;
   bottom: 5rem;
-  `}
+ `} */
   div {
     margin: 0.5rem 0 0.5rem 0;
   }

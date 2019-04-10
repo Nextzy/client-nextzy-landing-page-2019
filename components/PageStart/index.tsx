@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Planet from './Planet/index'
 import ShootingStar from './ShootingStar/index'
+import StarFix from './Stars/index'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import PlanetAll from './PlanetAll'
@@ -157,6 +158,7 @@ const PageStart = (props): React.FC => {
         <PlanetAll />
       </ContainerAll>
       {/* <ShootingStar /> */}
+      <StarFix />
     </Container>
   )
 }

@@ -29,7 +29,7 @@ const SlideDown = styled.div``
 const createItemActive = (countPage, fullpageApi): void => {
   let dataActive = []
   for (let i = 0; i < countPage; i++) {
-    dataActive.push(<div onClick={() => fullpageApi.moveTo(i + 1)} />)
+    dataActive.push(<div key={i + 1} onClick={() => fullpageApi.moveTo(i + 1)} />)
   }
   return dataActive
 }
