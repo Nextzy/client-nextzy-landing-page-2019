@@ -25,7 +25,8 @@ const CreateStar = (): void => {
     let top = positionAndSizeStar[i].top
     let left = positionAndSizeStar[i].left
     let animationDelay = positionAndSizeStar[i].animationDelay
-    arrStar.push(<Star key={'star' + i} top={top} left={left} animationDelay={animationDelay} />)
+    let size = positionAndSizeStar[i].size
+    arrStar.push(<Star key={'star' + i} top={top} left={left} size={size} animationDelay={animationDelay} />)
   }
   return <>{arrStar}</>
 }

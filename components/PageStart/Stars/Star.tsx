@@ -8,7 +8,9 @@ const BoxStar = styled.div`
   left: ${({ left }) => left || '25'}%;
   width: ${({ size }) => size || '50'}px;
   height: ${({ size }) => size || '50'}px;
-  animation: glitter ${({ animationDelay }) => animationDelay || '4.5'}s linear 0s infinite normal;
+
+  ${({ animationDelay }) =>
+    animationDelay === 0 ? '' : `animation: glitter ${animationDelay}s linear 0s infinite normal;`}
   img {
     width: 100%;
     height: 100%;
