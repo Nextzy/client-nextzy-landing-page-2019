@@ -9,6 +9,7 @@
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.13",
     "@zeit/next-typescript": "^1.1.1",
+    "fullpage.js": "^3.0.4",
     "install": "^0.12.2",
     "next": "^8.0.3",
     "npm": "^6.9.0",

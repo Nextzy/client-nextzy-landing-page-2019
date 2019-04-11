@@ -4,10 +4,10 @@ import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
 import Timeline from './Timeline/index'
+import TimelineVertical from './TimelineVertical/index'
 
 const Container = styled.div`
   background-color: #102131;
-
   color: white;
   height: 100vh;
   width: 100%;
@@ -56,7 +56,8 @@ const PageWorkProcess = (): React.FC => {
             development to meet the requirement of customers rapidly. You could see the sequence of operations and
             origresses during development continuously.
           </TextDescription>
-          <Timeline />
+          {/* <Timeline /> */}
+          <TimelineVertical />
         </ContainerPageSart>
       </ContainerAll>
     </Container>

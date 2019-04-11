@@ -40,6 +40,7 @@ export default class extends Document {
           <meta name="format-detection" content="telephone=no" />
 
           <link rel="shortcut icon" href="/static/favicon.ico" />
+          <script src="/static/script/scrolloverflow.min.js" />
         </Head>
         <body>
           <Main />
