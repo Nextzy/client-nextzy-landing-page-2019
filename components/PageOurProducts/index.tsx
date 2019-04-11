@@ -49,7 +49,8 @@ const DataTest = [
       title: 'MY AIS',
       descrition:
         'An application that answers all your needs with convenient access to all AIS services 24 hours a day. The super convenient new way to make your digital life easier than ever with AIS services you can manage it whenever wherever you like!',
-      devices: ['WEB', 'IOS', 'ANDROID']
+      devices: ['WEB', 'IOS', 'ANDROID'],
+      imgUrl: ['product_myais_1.png', 'product_myais_2.png']
     }
   },
   {
@@ -64,7 +65,8 @@ const DataTest = [
       title: 'MY CHANNEL',
       descrition:
         'An application for AIS Shop stuff for use in providing services such as a product information viewing and an after-sales service.',
-      devices: ['WEB', 'IOS', 'ANDROID', 'Back-end']
+      devices: ['WEB', 'IOS', 'ANDROID', 'Back-end'],
+      imgUrl: ['product_channel_2.png', 'product_channel_1.png']
     }
   },
   {
@@ -79,7 +81,8 @@ const DataTest = [
       title: 'NU MOBILE',
       descrition:
         'An application for accessing all services of NU Mobile. The brand new telecommunication corp with a new mobile SIM.',
-      devices: ['WEB', 'IOS', 'ANDROID', 'Back-end']
+      devices: ['WEB', 'IOS', 'ANDROID', 'Back-end'],
+      imgUrl: ['product_nu_2.png', 'product_nu_1.png']
     }
   },
   {
@@ -93,7 +96,8 @@ const DataTest = [
     menu: {
       title: 'YOUEX',
       descrition: 'An application that will help you make friends and will not be lonely anymore.',
-      devices: ['ANDROID']
+      devices: ['ANDROID'],
+      imgUrl: ['product_you_ex_2.png', 'product_you_ex_1.png']
     }
   },
   {
@@ -108,7 +112,8 @@ const DataTest = [
       title: 'TRUE MONEY WALLET CAMPAIGN',
       descrition:
         'Activities and games that users of True Money Wallet can have fun and enjoy it through the application directly.',
-      devices: ['WEB', 'Back-end']
+      devices: ['WEB', 'Back-end'],
+      imgUrl: ['product_true_2.png', 'product_true_1.png']
     }
   },
   {
