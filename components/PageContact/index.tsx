@@ -7,6 +7,7 @@ import { SectionHeader } from '../common/Text'
 import MenuAndContent from './MenuAndContent/index'
 import Footer from '../layout/Footer'
 const Container = styled.div`
+  padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
   height: 100vh;

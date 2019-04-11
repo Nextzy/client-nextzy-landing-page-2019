@@ -7,6 +7,7 @@ import Timeline from './Timeline/index'
 import TimelineVertical from './TimelineVertical/index'
 
 const Container = styled.div`
+  padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
   height: 100vh;
