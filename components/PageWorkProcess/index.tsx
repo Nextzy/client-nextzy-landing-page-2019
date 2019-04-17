@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
 import Timeline from './Timeline/index'
 import TimelineVertical from './TimelineVertical/index'
+import { getWidthContext } from '../../utils/getWidthScreen'
 
 const Container = styled.div`
   padding: 5rem 0 5rem 0;
@@ -53,18 +54,8 @@ const DataProcess = [
   { name: 'Maintenance', color: '#2c77ee' }
 ]
 const PageWorkProcess = (): React.FC => {
-  const [useScreen, setScreen] = useState(0)
-  const setSideScreen = (): void => {
-    setScreen(window.innerWidth)
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', setSideScreen.bind(this))
-    setSideScreen()
-    return () => {
-      window.removeEventListener('resize', setSideScreen.bind(this), false)
-    }
-  }, [])
+  const getScreenContext = useContext(getWidthContext)
+  const useScreen = getScreenContext
   return (
     <Container>
       <ContainerAll>
@@ -79,7 +70,11 @@ const PageWorkProcess = (): React.FC => {
             development to meet the requirement of customers rapidly. You could see the sequence of operations and
             origresses during development continuously.
           </TextDescription>
-          {useScreen <= 980 ? <TimelineVertical DataProcess={DataProcess} /> : <Timeline DataProcess={DataProcess} />}
+          {useScreen && useScreen <= 980 ? (
+            <TimelineVertical DataProcess={DataProcess} />
+          ) : (
+            <Timeline DataProcess={DataProcess} />
+          )}
         </ContainerPageSart>
       </ContainerAll>
     </Container>

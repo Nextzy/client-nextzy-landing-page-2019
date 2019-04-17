@@ -59,7 +59,6 @@ const ScrollPage = ({ goto }): React.FC => {
         render={({ state, fullpageApi }) => {
           const { sectionCount } = state
           if (fullpageApi) {
-            console.log('fullpageapi', fullpageApi)
             // fullpageApi.scrollOverflowReset = true
           }
           setFullPageApi(fullpageApi)
