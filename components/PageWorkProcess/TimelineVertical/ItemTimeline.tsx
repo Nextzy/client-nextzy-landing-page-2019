@@ -2,101 +2,123 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Bounce from 'react-reveal/Bounce'
 
-const Entry = styled.div`
-  display: inline-block;
-  vertical-align: top;
-  padding: 13px;
-  text-align: center;
+const ContainerNull = styled.div`
   position: relative;
-  width: 80px;
+  background-color: inherit;
+  width: 50%;
+  padding: 60px 0 60px 0;
+`
+const ContainerBoxLeft = styled.div`
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  text-align: right;
   font-family: 'Montserrat-Regular';
   font-size: 10px;
   color: #ffffff;
-  letter-spacing: 0.13px;
-  line-height: 20.73px;
-`
-const AnimationNodeEntry = styled.div`
-  background-color: blue;
-  position: relative;
-`
-const NodeEntry = styled.div`
-  ::after {
+  padding: 60px 0 60px 0;
+  &:before {
     content: '';
     display: block;
+    background: ${({ color }) => color};
+    width: 1px;
+    top: 0;
+    height: 20px;
+    right: 20px;
+    position: absolute;
+    transform: rotate(90deg);
+  }
+  &:after {
+    content: '';
+    position: absolute;
     width: 10px;
     height: 10px;
-    border-radius: 6px;
+    border-radius: 50%;
+    top: 5px;
+    right: -3px;
+    z-index: 1;
     background: ${({ color }) => color};
-    position: absolute;
-    left: 50%;
-    top: -28px;
-    margin-left: -6px;
   }
-  ${({ position, color }) =>
-    position
-      ? `::before {
-    content: '';
-    display: block;
-    background: ${color};
-    width: 1px;
-    height: 35px;
+  div {
     position: absolute;
-    left: 50%;
-    top: -13px;
-    margin-left: -2px;
-  }`
-      : `::before {
-    content: '';
-    display: block;
-    background: ${color};
-    width: 1px;
-    height: 35px;
-    position: absolute;
-    left: 50%;
-    top: -58px;
-    margin-left: -2px;
-  }`}
+    color: white;
+    right: 20px;
+    top: 0;
+  }
 `
-const BoxText = styled.div`
-  position: absolute;
-  color: white;
-  width: 100%;
-  left: 0;
-  text-align: center;
-  top: 1.5rem;
-  ${({ position }) =>
-    position
-      ? ` 
-  top: 30px;
-  margin-left:-1px;`
-      : ` 
-  top: -105px;
-  margin-left:-1px;`}
+const ContainerBoxRight = styled.div`
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  text-align: right;
+  font-family: 'Montserrat-Regular';
+  font-size: 10px;
+  color: #ffffff;
+  padding: 60px 0 60px 0;
+  &:before {
+    content: '';
+    display: block;
+    background: ${({ color }) => color};
+    width: 1px;
+    top: 0;
+    height: 20px;
+    right: -20px;
+    position: absolute;
+    transform: rotate(90deg);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 5px;
+    right: -3px;
+    z-index: 1;
+    background: ${({ color }) => color};
+  }
+  div {
+    position: absolute;
+    color: white;
+    right: -30px;
+    top: 0;
+  }
 `
 const CircleNumber = styled.div`
   background: ${({ color }) => color};
-  padding: 0 8px 0 8px;
+  padding: 5px 8px 5px 8px;
   border-radius: 15px;
   display: inline-block;
 `
-const TextDescription = styled.div`
-  position: relative;
-  ${({ position }) => (position ? ` top:1rem;` : ` top:-1rem;`)}
+const TextDescriptionLeft = styled.div`
+  margin-right: 2rem;
+  margin-top: 0.3rem;
+  width: 100px;
+`
+const TextDescriptionRight = styled.div`
+  text-align: left;
+  margin-right: -7rem;
+  margin-top: 0.3rem;
+  width: 100px;
 `
 const CheckReturnText = (id, name, color): void => {
   if (id % 2 === 0) {
     return (
-      <BoxText position={id % 2 === 0}>
-        <CircleNumber color={color}>{id}</CircleNumber>
-        <TextDescription position={id % 2 === 0}>{name}</TextDescription>
-      </BoxText>
+      <ContainerBoxLeft color={color}>
+        <div>
+          <CircleNumber color={color}>{id}</CircleNumber>
+          <TextDescriptionLeft>{name}</TextDescriptionLeft>
+        </div>
+      </ContainerBoxLeft>
     )
   } else {
     return (
-      <BoxText position={id % 2 === 0}>
-        <TextDescription position={id % 2 === 0}>{name}</TextDescription>
-        <CircleNumber color={color}>{id}</CircleNumber>
-      </BoxText>
+      <ContainerBoxRight color={color}>
+        <div>
+          <CircleNumber color={color}>{id}</CircleNumber>
+          <TextDescriptionRight>{name}</TextDescriptionRight>
+        </div>
+      </ContainerBoxRight>
     )
   }
 }
@@ -109,17 +131,12 @@ const ItemTimeline = (props): React.FC => {
   }, 500 * id)
   if (userShow) {
     return (
-      <Entry position={id % 2 === 0}>
-        <Bounce top={id % 2 === 0 ? false : true} bottom={id % 2 === 0 ? true : false} cascade>
-          <AnimationNodeEntry>
-            <NodeEntry color={color} position={id % 2 === 0} />
-            {CheckReturnText(id, name, color)}
-          </AnimationNodeEntry>
-        </Bounce>
-      </Entry>
+      <Bounce right={id % 2 === 0 ? false : true} left={id % 2 === 0 ? true : false}>
+        {CheckReturnText(id, name, color)}
+      </Bounce>
     )
   } else {
-    return null
+    return <ContainerNull />
   }
 }
 
