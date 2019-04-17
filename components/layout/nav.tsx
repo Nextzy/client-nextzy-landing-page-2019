@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ContainerAll from './ContainerAll'
 import Hamburger from '../common/Hamburger'
-import { addPath } from '../decorate-url'
+import { addPath } from '../../utils/decorate-url'
 import Router from 'next/router'
 export const links = [
   { href: 'pageobject', label: 'OBJECTIVE', key: 1 },

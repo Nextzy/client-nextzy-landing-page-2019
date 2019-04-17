@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
@@ -36,13 +36,35 @@ const ContainerPageSart = styled.div`
   width: 100%;
   display: flex;
   text-align: left;
-  justify-content: center;
+  justify-content: top;
   z-index: 50;
   flex-direction: column;
-  border: green solid 1px;
+  /* border: green solid 1px; */
 `
-
+const DataProcess = [
+  { name: 'Analysis', color: '#f36392' },
+  { name: 'Createing the production', color: '#f36392' },
+  { name: 'Estimation and proposal', color: '#d666a1' },
+  { name: 'Project preparation', color: '#c667a8' },
+  { name: 'Design System', color: '#a56bb8' },
+  { name: 'Development', color: '#7a70cd' },
+  { name: 'Test release', color: '#6672d7' },
+  { name: 'Production Release', color: '#4775e5' },
+  { name: 'Maintenance', color: '#2c77ee' }
+]
 const PageWorkProcess = (): React.FC => {
+  const [useScreen, setScreen] = useState(0)
+  const setSideScreen = (): void => {
+    setScreen(window.innerWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', setSideScreen.bind(this))
+    setSideScreen()
+    return () => {
+      window.removeEventListener('resize', setSideScreen.bind(this), false)
+    }
+  }, [])
   return (
     <Container>
       <ContainerAll>
@@ -57,8 +79,7 @@ const PageWorkProcess = (): React.FC => {
             development to meet the requirement of customers rapidly. You could see the sequence of operations and
             origresses during development continuously.
           </TextDescription>
-          {/* <Timeline /> */}
-          <TimelineVertical />
+          {useScreen <= 980 ? <TimelineVertical DataProcess={DataProcess} /> : <Timeline DataProcess={DataProcess} />}
         </ContainerPageSart>
       </ContainerAll>
     </Container>

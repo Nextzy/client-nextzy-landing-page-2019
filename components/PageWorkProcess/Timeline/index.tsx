@@ -25,22 +25,13 @@ const ProgressBar = styled.div`
 `
 const TimelineBox = styled.div`
   /* overflow-x: scroll; */
+  margin-top: 5rem;
   white-space: nowrap;
   padding: 120px 0 100px 0;
   position: relative;
 `
-const DataProcess = [
-  { name: 'Analysis', color: '#f36392' },
-  { name: 'Createing the production', color: '#f36392' },
-  { name: 'Estimation and proposal', color: '#d666a1' },
-  { name: 'Project preparation', color: '#c667a8' },
-  { name: 'Design System', color: '#a56bb8' },
-  { name: 'Development', color: '#7a70cd' },
-  { name: 'Test release', color: '#6672d7' },
-  { name: 'Production Release', color: '#4775e5' },
-  { name: 'Maintenance', color: '#2c77ee' }
-]
-const Timeline = (): React.FC => {
+const Timeline = (props): React.FC => {
+  const { DataProcess } = props
   return (
     <MainTimeline>
       <Fade right cascade>
