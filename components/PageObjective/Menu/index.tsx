@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import Fade from 'react-reveal/Fade'
 import Swing from 'react-reveal/Swing'
 import { Header, Body, Highlight } from '../../common/Text'
+import { getWidthContext } from '../../../utils/getWidthScreen'
 const menuArray = [
   {
     key: 'objective-develop',
@@ -30,9 +32,12 @@ const Row = styled.div`
   :hover {
     color: white;
   }
+  ${media.lessThan('980px')`
+    color:white;
+  `}
 `
 
-const RightAlignIcon = styled.img``
+const SuffixIcon = styled.img``
 
 const RowWrapper = styled.div`
   margin-bottom: 30px;
@@ -46,17 +51,27 @@ interface MenuProps {
   callback: object
 }
 
-const Menu = (props): React.FC<MenuProps> => {
-  const src = props.selected
+const getArrow = ({ props, getScreenContext }): string => {
+  if (getScreenContext <= 768) {
+    return props.selected
+      ? '/static/images/Icon/collapse/ic_collapse_down_white.svg'
+      : '/static/images/Icon/collapse/ic_collapse_up_white.svg'
+  }
+  return props.selected
     ? '/static/images/Icon/collapse/ic_collapse_right_white.svg'
     : '/static/images/Icon/collapse/ic_collapse_right_gray.svg'
+}
+
+const Menu = (props): React.FC<MenuProps> => {
+  const getScreenContext = useContext(getWidthContext)
+  const src = getArrow({ props, getScreenContext })
   return (
     <>
       <RowWrapper>
         <Row {...props}>
           {props.name}
           <Swing when={props.selected}>
-            <RightAlignIcon src={src} />
+            <SuffixIcon src={src} />
           </Swing>
         </Row>
         <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
@@ -67,12 +82,16 @@ const Menu = (props): React.FC<MenuProps> => {
 
 const MenuListWrapper = styled.div`
   margin-right: 4rem;
+  ${media.lessThan('980px')`
+    margin: 0 auto;
+  `}
 `
 
 const MenuList = (props): React.FC => {
   const [selectedKey, setSelected] = useState('objective-develop')
   const onClick = (key): void => {
-    setSelected(key)
+    console.log('key=', key, 'selectedKey=', selectedKey, 'selectedKey === key', selectedKey === key)
+    setSelected(selectedKey === key ? '' : key)
     props.onMenuClick(key)
   }
 
@@ -168,19 +187,26 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
       </DescriptionHolder>
     )
   } else {
-    return 'No such menu'
+    return null
   }
 }
 
 const PairWrapper = styled.div`
   display: flex;
   margin-top: 3rem;
+  ${media.lessThan('980px')`
+    flex-direction: column;
+  `}
 `
 export const Pair = (props): React.FC => {
   const [activeMenu, setActive] = useState('objective-develop')
+  const onMenuClick = (key): void => {
+    console.log('key=', key, 'activeMenu=', activeMenu, 'activeMenu === key', activeMenu === key)
+    setActive(activeMenu === key ? '' : key)
+  }
   return (
     <PairWrapper>
-      <MenuList onMenuClick={setActive} />
+      <MenuList onMenuClick={onMenuClick} />
       <Fade duration={500} spy={activeMenu}>
         <DescriptionPane activeMenu={activeMenu} />
       </Fade>
