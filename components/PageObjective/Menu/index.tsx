@@ -91,7 +91,8 @@ const MenuList = (props): React.FC => {
   const [selectedKey, setSelected] = useState('objective-develop')
   const onClick = (key): void => {
     console.log('key=', key, 'selectedKey=', selectedKey, 'selectedKey === key', selectedKey === key)
-    // setSelected(selectedKey === key ? '' : key)
+    const theKey = selectedKey === key ? '' : key
+    // setSelected(theKey)
     setSelected(key)
     props.onMenuClick(key)
   }
@@ -201,14 +202,9 @@ const PairWrapper = styled.div`
 `
 export const Pair = (props): React.FC => {
   const [activeMenu, setActive] = useState('objective-develop')
-  const onMenuClick = (key): void => {
-    console.log('key=', key, 'activeMenu=', activeMenu, 'activeMenu === key', activeMenu === key)
-    // setActive(activeMenu === key ? '' : key)
-    setActive(key)
-  }
   return (
     <PairWrapper>
-      <MenuList onMenuClick={onMenuClick} />
+      <MenuList onMenuClick={setActive} />
       <Fade duration={500} spy={activeMenu}>
         <DescriptionPane activeMenu={activeMenu} />
       </Fade>
