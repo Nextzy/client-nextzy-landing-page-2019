@@ -102,7 +102,7 @@ const Nav = (props): React.FC => {
             <UlRight>
               {getScreenContext && getScreenContext <= 980 ? null : (
                 <>
-                  {links.map(({ key, href, label, show }) =>
+                  {links.map(({ key, label, show }) =>
                     show ? (
                       <li
                         key={key}

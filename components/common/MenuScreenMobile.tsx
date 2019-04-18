@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { links } from '../layout/nav'
+import { addPath } from '../../utils/decorate-url'
 const ContainerMenuMobile = styled.div`
   font-family: 'Montserrat-Regular';
   font-size: 14px;
@@ -27,6 +28,11 @@ const SelectMenu = styled.div`
   display: block;
   border-bottom: 2px solid rgba(51, 69, 83, 0.8);
   transition: 0.3s;
+  ${({ indexActive }) =>
+    indexActive
+      ? `color: #f7618b;
+    font-size: 18px;`
+      : ''}
   &:hover {
     color: #f7618b;
     font-size: 18px;
@@ -59,13 +65,21 @@ const CloseButton = styled.a`
 `
 const MenuScreenMobile = (props): void => {
   const { useMenu, setMenu, fullpageApi, indexActive } = props
-
+  const funcLinkMenu = (key = 1): void => {
+    addPath(key)
+    fullpageApi.moveTo(key + 1)
+    setMenu(!useMenu)
+  }
   return (
     <ContainerMenuMobile visible={useMenu}>
       <CloseButton onClick={() => setMenu(!useMenu)}>&times;</CloseButton>
       <BoxMenu>
-        {links.map(({ key, href, label }) => {
-          return <SelectMenu key={key}>{label}</SelectMenu>
+        {links.map(({ key, label }) => {
+          return (
+            <SelectMenu key={key} indexActive={indexActive === key} onClick={() => funcLinkMenu(key)}>
+              {label}
+            </SelectMenu>
+          )
         })}
         <SelectMenu>BLOGS</SelectMenu>
         <SelectMenuBottom>CAREER</SelectMenuBottom>
