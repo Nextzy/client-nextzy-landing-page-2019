@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
@@ -6,6 +6,7 @@ import { SectionHeader } from '../common/Text'
 import { Product } from './ProductsMenu'
 import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
+import { getWidthContext } from '../../utils/getWidthScreen'
 
 const Container = styled.div`
   padding: 5rem 0 5rem 0;
@@ -142,11 +143,16 @@ const Home = (): React.FC => {
   const handleSelectProduct = (key): void => {
     setActive(key)
   }
+  const getScreenContext = useContext(getWidthContext)
+  const useScreen = getScreenContext
   return (
     <Container>
       <ContainerAll>
-        <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-        <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+        {useScreen && useScreen <= 980 ? (
+          <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+        ) : (
+          <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+        )}
         <ContainerPageObjective>
           <TextNEXTZY>
             <Fade right cascade>

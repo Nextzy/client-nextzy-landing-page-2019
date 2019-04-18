@@ -56,10 +56,6 @@ const Line = styled.div`
   text {
     transition: 500ms all;
   }
-
-  @media (min-width: 719px) {
-    display: none;
-  }
 `
 
 export const LineSpinner = (props): React.FC => {
@@ -112,10 +108,10 @@ export const LineSpinner = (props): React.FC => {
           return (
             <Fragment key={item.id}>
               <circle
-                className={useSelected === fixselected ? 'indicator-active' : 'indicator-unactive'}
+                className={fixselected === 'fourth' ? 'indicator-active' : 'indicator-unactive'}
                 cx="8"
-                cy={indicatorTransform}
-                r={useSelected === fixselected ? 8 : 5}
+                cy={indicatorPosition}
+                r={fixselected === 'fourth' ? 8 : 5}
               />
               <g className="f">
                 <text
