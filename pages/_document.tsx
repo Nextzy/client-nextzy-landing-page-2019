@@ -38,7 +38,7 @@ export default class extends Document {
           <meta name="HandheldFriendly" content="True" />
           <meta name="MobileOptimized" content="640" />
           <meta name="format-detection" content="telephone=no" />
-
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUaFWBarfQMY2d9lHM-VCWTQAbTQd6MNw" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <script src="/static/script/scrolloverflow.min.js" />
         </Head>

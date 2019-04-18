@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-
+import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 const ContainerModal = styled.div`
   position: absolute;
   left: 0;
@@ -67,6 +67,21 @@ const BoxModal = styled.div`
     
   }
 `
+const office = {
+  bangkok: {
+    lat: 13.7456,
+    lng: 100.5623,
+    key: 'Asoke Tower',
+    address: '219 / 23 Asoke Towers 7th, Soi Sukhumvit 21 Rd.\nKlongtoey Nua, Wattana, Bangkok 10110, Thailand.'
+  },
+  chiangmai: {
+    lat: 18.795211,
+    lng: 98.9724383,
+    key: 'Cube No.7',
+    address: '17 / 1 Cube No.7 Sirimangkalajarn Lane 7\nSuthep, Muang, Chiang Mai 50200, Thailand.'
+  }
+}
+
 const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map): void => {
   if (!useModalOut) {
     setModalOut(true)
@@ -75,18 +90,35 @@ const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map): void => {
     }, 800)
   }
 }
+
 const ModalMap = (props): React.FC => {
   const { stateModal, setModal, fullpageApi } = props
   const { visible, map } = stateModal
   const [useModalOut, setModalOut] = useState(false)
   fullpageApi.setAllowScrolling(useModalOut)
+
+  const mapLat = map === 'BANGKOK' ? office.bangkok.lat : office.chiangmai.lat
+  const mapLng = map === 'BANGKOK' ? office.bangkok.lng : office.chiangmai.lng
+  const mapKey = map === 'BANGKOK' ? office.bangkok.key : office.chiangmai.key
+
+  const GoogleMapContainer = withGoogleMap((props) => (
+    <GoogleMap defaultZoom={17} defaultCenter={{ lat: mapLat, lng: mapLng }}>
+      <Marker position={{ lat: mapLat, lng: mapLng }} defaultAnimation={2} />
+    </GoogleMap>
+  ))
   return (
     <ContainerModal visible={visible}>
       <VisibleBackground
         useModalOut={useModalOut}
         onClick={() => FunctionSetModalOut(useModalOut, setModalOut, setModal, map)}
       />
-      <BoxModal useModalOut={useModalOut}>ออก</BoxModal>
+      <BoxModal useModalOut={useModalOut}>
+        <GoogleMapContainer
+          containerElement={<div style={{ width: '100%', height: `100%` }} />}
+          mapElement={<div style={{ width: '100%', height: `100%` }} />}
+          key={mapKey}
+        />
+      </BoxModal>
     </ContainerModal>
   )
 }

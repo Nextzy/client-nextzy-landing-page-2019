@@ -16,6 +16,7 @@
     "npm": "^6.9.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-google-maps": "^9.4.5",
     "react-reveal": "^1.2.2",
     "react-spring": "^8.0.18",
     "styled-components": "^4.1.3",
