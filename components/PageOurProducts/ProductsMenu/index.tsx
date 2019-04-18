@@ -90,7 +90,7 @@ const ProductImgSecond = styled.img`
 
   &.slide-out {
     margin-top: 114.61px;
-    margin-left: 15rem;
+    margin-left: 16rem;
     height: 435.08px;
     animation: slide-out-second 1.3s forwards;
     -webkit-animation: slide-out-second 1.3s forwards;
@@ -146,10 +146,12 @@ export const Product = (props): React.FC => {
                   </BoxBtnPage>
                 )
               })}
-              <ImgContainer>
-                <ProductImgfirst className="slide-out" src="/static/images/Products/product_iphone_login.png" />
-                <ProductImgSecond className="slide-out" src="/static/images/Products/product_iphone_app.png" />
-              </ImgContainer>
+              {menu.imgUrl && menu.imgUrl.length > 0 && (
+                <ImgContainer>
+                  <ProductImgfirst className="slide-out" src={`/static/images/Products/${menu.imgUrl[0]}`} />
+                  <ProductImgSecond className="slide-out" src={`/static/images/Products/${menu.imgUrl[1]}`} />
+                </ImgContainer>
+              )}
             </ProductContainer>
           )
         )
