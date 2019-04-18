@@ -7,15 +7,14 @@ import Router from 'next/router'
 import { getWidthContext } from '../../utils/getWidthScreen'
 
 export const links = [
-  { href: 'pageobject', label: 'OBJECTIVE', key: 1 },
-  { href: 'pageservices', label: 'SERVICES', key: 2 },
-  // { href: 'pageourproducts', label: 'OUR PRODUCTS', key: 3 },
-  { href: 'pageclient', label: 'CLIENTS', key: 4 },
-  { href: 'pageworkprocess', label: 'WORK PROCESS', key: 5 },
-  { href: 'pagecontact', label: 'CONTACT', key: 6 }
+  { href: 'pageobject', label: 'OBJECTIVE', key: 1, show: true },
+  { href: 'pageservices', label: 'SERVICES', key: 2, show: true },
+  { href: 'pageourproducts', label: 'OUR PRODUCTS', key: 3, show: false },
+  { href: 'pageclient', label: 'CLIENTS', key: 4, show: true },
+  { href: 'pageworkprocess', label: 'WORK PROCESS', key: 5, show: true },
+  { href: 'pagecontact', label: 'CONTACT', key: 6, show: true }
 ]
 const Container = styled.div`
-  /* position: relative; */
   z-index: 1000;
   position: fixed;
   color: white;
@@ -62,18 +61,19 @@ const HoverLink = styled.div`
   color: white;
   text-decoration: none;
   font-size: 13px;
-  transition: 500ms;
+  transition: 200ms;
   font-size: 0.8rem;
   cursor: pointer;
   &:hover {
-    color: pink;
-    font-size: 0.85rem;
+    color: #f7618b;
+    transform: scale(1.1);
   }
   ${({ indexActive }) =>
     indexActive
       ? `transition: 500ms;
-    color: pink;
-    font-size: 0.85rem;`
+    color: #F7618B;
+    transform: scale(1.1);    
+    `
       : ''}
 `
 const UlRight = styled.ul`
@@ -102,20 +102,22 @@ const Nav = (props): React.FC => {
             <UlRight>
               {getScreenContext && getScreenContext <= 980 ? null : (
                 <>
-                  {links.map(({ key, href, label }) => (
-                    <li
-                      key={key}
-                      onClick={() => {
-                        addPath(key)
-                        fullpageApi.moveTo(key + 1)
-                      }}
-                    >
-                      <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
-                    </li>
-                  ))}
+                  {links.map(({ key, href, label, show }) =>
+                    show ? (
+                      <li
+                        key={key}
+                        onClick={() => {
+                          addPath(key)
+                          fullpageApi.moveTo(key + 1)
+                        }}
+                      >
+                        <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
+                      </li>
+                    ) : null
+                  )}
                 </>
               )}
-              <Hamburger />
+              <Hamburger {...props} />
             </UlRight>
           </ul>
         </ContainerAll>

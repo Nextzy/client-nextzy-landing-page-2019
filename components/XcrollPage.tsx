@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import PageStart from './PageStart'
 import PageObjective from './PageObjective'
 import PageService from './PageService'
@@ -13,54 +13,41 @@ import ScrollActive from './ScrollActive'
 import SlideDown from './SlideDown'
 import IconContact from './IconContact'
 import ModalMap from './common/ModalMap'
-const BackgroundImage = styled.img`
-  position: absolute;
-  z-index: 49;
-  width: 1000px;
-  left: -30%;
-  margin-top: 528px;
-`
-// const pluginWrapper = (): void => {
-//   require('fullpage.js/vendors/scrolloverflow')
-//   // require('./statics/fullpage.scrollHorizontally.min')
-// }
-const fullpageOptions = {
-  scrollOverflow: true
-}
+import MenuScreenMobile from './common/MenuScreenMobile'
+import { getWidthContext } from '../utils/getWidthScreen'
 
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useCountPage, setCountPage] = useState(0)
   const [useModal, setModal] = useState({ visible: false, map: '' })
+  const [useMenu, setMenu] = useState(false)
   const { visible } = useModal
+  const getScreenContext = useContext(getWidthContext)
   const onLeave = (origin, destination, direction): void => {
     const { index } = destination
     setActive(index || 0)
   }
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     require('fullpage.js/vendors/scrolloverflow')
-  //   }
-  // }, [])
+  const visibleMenu = (): void => {
+    setMenu(!useMenu)
+  }
   return (
     <>
       <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
       <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
-      <Nav indexActive={useActive} fullpageApi={useFullPageApi} />
+      <Nav indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
+      {getScreenContext && getScreenContext <= 980 ? (
+        <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
+      ) : null}
       <IconContact indexActive={useActive} />
       {visible ? (
         <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} stateModal={useModal} setModal={setModal} />
       ) : null}
       <ReactFullpage
         onLeave={onLeave}
-        // pluginWrapper={pluginWrapper()}
-        {...fullpageOptions}
+        scrollOverflow={true}
         render={({ state, fullpageApi }) => {
           const { sectionCount } = state
-          if (fullpageApi) {
-            // fullpageApi.scrollOverflowReset = true
-          }
           setFullPageApi(fullpageApi)
           setCountPage(sectionCount || 0)
 
@@ -72,9 +59,9 @@ const ScrollPage = ({ goto }): React.FC => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                <div className="section">
+                {/* <div className="section">
                   <PageStart fullpageApi={useFullPageApi} />
-                </div>
+                </div> */}
                 <div className="section">
                   <PageObjective />
                 </div>

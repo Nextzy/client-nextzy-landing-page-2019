@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
-
+import Fade from 'react-reveal/Fade'
+import { getWidthContext } from '../../utils/getWidthScreen'
+import MenuScreenMobile from './MenuScreenMobile'
 const Container = styled.div`
   position: relative;
   padding: 7px 0 7px 80px;
   transform: scaleX(-1);
-  filter: FlipH;
 `
 const IconHamburger = styled.div`
   position: absolute;
@@ -59,17 +60,87 @@ const IconHamburger = styled.div`
   `
       : ''}
 `
-
+const BoxRotate = styled.div`
+  transform: scaleX(-1);
+  width: 200%;
+  position: absolute;
+  top: 55px;
+  right: -20px;
+`
+const BoxSelectMenu = styled.div`
+  padding: 5px;
+  background: white;
+  color: gray;
+  text-align: left;
+  border-radius: 5px;
+  &:before {
+    content: ' ';
+    position: absolute;
+    top: -10px;
+    z-index: 1;
+    left: 55px;
+    width: 0;
+    height: 0;
+    border-left: solid transparent;
+    border-right: solid transparent;
+    border-bottom: solid white;
+    border-width: 10px;
+  }
+`
+const DivMenu = styled.div`
+  opacity: 0.87;
+  font-family: 'Montserrat-Medium';
+  font-size: 14px;
+  color: #323c5a;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  cursor: pointer;
+  margin: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.7rem;
+`
+const DivBottom = styled.div`
+  opacity: 0.87;
+  font-family: 'Montserrat-Medium';
+  font-size: 14px;
+  color: #323c5a;
+  letter-spacing: 1.25px;
+  line-height: 16px;
+  cursor: pointer;
+  margin: 1rem;
+`
+const BoxHandleClick = styled.div`
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+`
 const Hamburger = (props): void => {
-  const [useHamburger, setHamburger] = useState(false)
-
+  const { useMenu, setMenu } = props
+  const getScreenContext = useContext(getWidthContext)
+  const setVisibleMenu = (): void => {
+    setMenu(!useMenu)
+  }
   return (
-    <Container onClick={() => setHamburger(!useHamburger)}>
-      <IconHamburger setActive={useHamburger}>
+    <Container>
+      <BoxHandleClick onClick={setVisibleMenu} />
+      <IconHamburger setActive={useMenu} onClick={setVisibleMenu}>
         <span />
       </IconHamburger>
+
+      {getScreenContext && getScreenContext <= 980 ? null : (
+        <BoxRotate>
+          <Fade top cascade when={useMenu}>
+            <BoxSelectMenu open={useMenu}>
+              <DivMenu>BLOGS</DivMenu>
+              <DivBottom>CAREER</DivBottom>
+            </BoxSelectMenu>
+          </Fade>
+        </BoxRotate>
+      )}
     </Container>
   )
 }
-
 export default Hamburger
