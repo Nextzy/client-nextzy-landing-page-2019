@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import ContainerAll from './ContainerAll'
-import Hamburger from '../common/Hamburger'
+import media from 'styled-media-query'
+import ContainerAll from '../layout/ContainerAll'
+import Hamburger from './Hamburger'
 import { addPath } from '../../utils/decorate-url'
 import Router from 'next/router'
 import { getWidthContext } from '../../utils/getWidthScreen'
@@ -36,6 +37,9 @@ const NavBar = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 4px 16px;
+    ${media.lessThan('medium')`
+    padding: 0;
+  `}
   }
   li {
     display: flex;

@@ -20,7 +20,6 @@ const PreLoadingPage = (): void => {
   const [useLoading, setLoading] = useState(true)
   useEffect(() => {
     setTimeout(() => {
-      console.log('start')
       setLoading(false)
     }, 500)
   }, [])

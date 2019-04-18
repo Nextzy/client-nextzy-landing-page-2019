@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
+import media from 'styled-media-query'
 import { SectionHeader } from '../common/Text'
 import Timeline from './Timeline/index'
 import TimelineVertical from './TimelineVertical/index'
@@ -11,7 +12,9 @@ const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
+  ${media.greaterThan('medium')`
   height: 100vh;
+  `}
   width: 100%;
 `
 const TextNEXTZY = styled.div`
@@ -33,7 +36,7 @@ const TextDescription = styled.div`
   line-height: 28px;
 `
 const ContainerPageSart = styled.div`
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   display: flex;
   text-align: left;

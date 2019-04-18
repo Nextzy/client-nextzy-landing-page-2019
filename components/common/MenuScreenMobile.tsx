@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
-import { links } from '../layout/nav'
+import { links } from './nav'
 import { addPath } from '../../utils/decorate-url'
 const ContainerMenuMobile = styled.div`
   font-family: 'Montserrat-Regular';

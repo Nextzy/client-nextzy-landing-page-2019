@@ -9,7 +9,7 @@ const Container = styled.div`
   display: -webkit-flex;
   display: flex;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   align-items: center;
   justify-content: center;
   z-index: 50;
@@ -27,12 +27,12 @@ const BoxCenter = styled.div`
   position: relative;
   width: 980px;
   /* width: 70%; */
-  height: 100%;
+  /* height: 100%; */
   z-index: 50;
   ${media.lessThan('medium')`
     /* screen width is less than 768px (medium) */
     /* width: 100vw; */
-  width: 70vw;
+  width: 90vw;
 
   `}
 `

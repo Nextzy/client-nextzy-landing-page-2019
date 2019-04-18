@@ -1,4 +1,4 @@
-import { links } from '../components/layout/nav'
+import { links } from '../components/common/nav'
 import Router from 'next/router'
 export const addPath = (index): void => {
   const currentLink = links.filter((link) => link.key === index)[0]
