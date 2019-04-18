@@ -59,9 +59,9 @@ const ScrollPage = ({ goto }): React.FC => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                {/* <div className="section">
+                <div className="section">
                   <PageStart fullpageApi={useFullPageApi} />
-                </div> */}
+                </div>
                 <div className="section">
                   <PageObjective />
                 </div>

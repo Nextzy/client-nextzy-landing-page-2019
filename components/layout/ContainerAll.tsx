@@ -32,6 +32,8 @@ const BoxCenter = styled.div`
   ${media.lessThan('medium')`
     /* screen width is less than 768px (medium) */
     /* width: 100vw; */
+  width: 70vw;
+
   `}
 `
 const ContainerAll = (props): React.FC => {

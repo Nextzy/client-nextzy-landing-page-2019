@@ -4,7 +4,7 @@ import Head from '../components/head'
 import GlobalStyle from '../components/common/GlobalStyle'
 import ScrollPage from '../components/XcrollPage'
 import { getWidthScreen, getWidthContext } from '../utils/getWidthScreen'
-
+import PreLoadingPage from '../components/common/PreLoadingPage'
 const Container = styled.div`
   width: 100%;
   overflow: hidden;
@@ -16,6 +16,7 @@ const Home = ({ goto }): React.FC => {
       <Container>
         <GlobalStyle />
         <Head title="NEXTZY TECHNOLOGIES" />
+        <PreLoadingPage />
         <ScrollPage goto={goto} />
       </Container>
     </getWidthContext.Provider>

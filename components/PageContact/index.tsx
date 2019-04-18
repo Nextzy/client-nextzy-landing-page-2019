@@ -32,7 +32,7 @@ const ContainerPageSart = styled.div`
   justify-content: start;
   z-index: 50;
   flex-direction: column;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   padding-top: 8rem;
 `
 const BackGroundMap = styled.div`
