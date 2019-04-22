@@ -153,6 +153,7 @@ const PageStart = (props): React.FC => {
             <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
             <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
           </BoxBtnPage>
+          {/* <SlideDownMobile indexActive={0} fullpageApi={fullpageApi} /> */}
         </ContainerPageStart>
 
         <PlanetAll />

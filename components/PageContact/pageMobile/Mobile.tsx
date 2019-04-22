@@ -25,7 +25,7 @@ const ContainerPageStart = styled.div`
   justify-content: top;
   z-index: 50;
   flex-direction: column;
-  padding-top: 0;
+  padding-top: 2rem;
 `
 const BoxShowMap = styled.div`
   position: relative;
