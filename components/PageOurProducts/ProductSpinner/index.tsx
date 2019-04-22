@@ -5,7 +5,7 @@ const Circle = styled.div`
   svg {
     position: absolute;
     right: 80%;
-    top: 28%;
+    top: 20%;
     height: 80%;
     z-index: 1;
     user-select: none;

@@ -36,6 +36,9 @@ const ContainerPageObjective = styled.div`
   z-index: 50;
   flex-direction: column;
 `
+const ContainerObject = styled.div`
+  min-height: 100vh;
+`
 
 const DataTest = [
   {
@@ -148,19 +151,21 @@ const Home = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
-        {useScreen && useScreen <= 980 ? (
-          <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-        ) : (
-          <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-        )}
-        <ContainerPageObjective>
-          <TextNEXTZY>
-            <Fade right cascade>
-              <SectionHeader title="Page Products" />
-              <Product activeProduct={activeProduct} productData={DataTest} />
-            </Fade>
-          </TextNEXTZY>
-        </ContainerPageObjective>
+        <ContainerObject>
+          {useScreen && useScreen <= 980 ? (
+            <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+          ) : (
+            <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+          )}
+          <ContainerPageObjective>
+            <TextNEXTZY>
+              <Fade right cascade>
+                <SectionHeader title="Page Products" />
+                <Product activeProduct={activeProduct} productData={DataTest} />
+              </Fade>
+            </TextNEXTZY>
+          </ContainerPageObjective>
+        </ContainerObject>
       </ContainerAll>
     </Container>
   )
