@@ -5,7 +5,7 @@ import { SectionHeader } from '../../common/Text'
 import MenuAndContent from '../pageMobile/MenuAndContent/index'
 import Map from '../pageMobile/MenuAndContent/Map'
 import ContainerAll from '../../layout/ContainerAll'
-
+import Flag from './MenuAndContent/Flag'
 const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */
@@ -17,7 +17,7 @@ const TextNEXTZY = styled.div`
   display: inline-block;
   float: left;
 `
-const ContainerPageSart = styled.div`
+const ContainerPageStart = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
@@ -25,34 +25,45 @@ const ContainerPageSart = styled.div`
   justify-content: top;
   z-index: 50;
   flex-direction: column;
-  padding-top: 5rem;
+  padding-top: 0;
 `
-const BoxShowMapAndFooter = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
+const BoxShowMap = styled.div`
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 420px;
   display: flex;
   flex-direction: column;
 `
+const BoxFlag = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 111px;
+  width: 70%;
+`
 const OnMobile = (props): React.FC => {
-  const { setModal, useMap, setMap } = props
+  const { useMap, setModal, setMap } = props
+  const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
+  if (useMap !== useActiveMenu) {
+    setMap(useActiveMenu)
+  }
   return (
     <>
       <ContainerAll>
-        <ContainerPageSart>
+        <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
               <SectionHeader title="CONTACT" />
             </Fade>
           </TextNEXTZY>
-          <MenuAndContent setMap={setMap} setModal={setModal} />
-        </ContainerPageSart>
+          <MenuAndContent {...props} useActiveMenu={useActiveMenu} setActiveMenu={setActiveMenu} />
+        </ContainerPageStart>
       </ContainerAll>
-      <BoxShowMapAndFooter>
+      <BoxShowMap>
         <Map map={useMap} />
-      </BoxShowMapAndFooter>
+        <BoxFlag>
+          <Flag name="Nextzy Technologies" onClick={() => setModal({ visible: true, map: useActiveMenu })} />
+        </BoxFlag>
+      </BoxShowMap>
     </>
   )
 }

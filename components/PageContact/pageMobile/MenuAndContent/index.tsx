@@ -4,44 +4,43 @@ import Fade from 'react-reveal/Fade'
 import Menu from './Menu'
 import Title from './Title'
 import Flag from './Flag'
+import { IconContactPageContact } from '../../../IconContact'
 const MenuSelectMap = styled.div`
-  position: absolute;
-  right: 3rem;
+  position: relative;
+  margin-top: 64px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 100%;
 `
 const BoxContent = styled.div`
-  margin-top: 2rem;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
 `
 const BoxContentInSide = styled.div`
-  margin-top: 5rem;
-  flex: 0.5;
-`
-const BoxContentMap = styled.div`
-  font-family: 'Montserrat-Regular';
-  font-size: 16px;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  text-align: left;
-  line-height: 28px;
-  flex: 0.5;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
+  margin-top: 64px;
+  flex: 1;
 `
 
 const Description = styled.div`
-  /* margin: 2rem 1rem 1rem 1rem; */
   font-family: 'Montserrat-Regular';
-  font-size: 16px;
+  font-size: 13px;
   color: #ffffff;
-  letter-spacing: 0.5px;
-  text-align: left;
-  line-height: 28px;
+  letter-spacing: 0.25px;
+  text-align: center;
+  line-height: 20px;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  margin-bottom: 64px;
+`
+const BoxMap = styled.div`
+  width: 100%;
+  height: 420px;
+  background-color: blue;
 `
 const ChangeContentDescription = (menu): void => {
   switch (menu) {
@@ -51,7 +50,8 @@ const ChangeContentDescription = (menu): void => {
           <Title name="BANGKOK BRANCH ADDRESS" />
           <Description>
             <p>219 / 23 Asoke Towers 7th, Soi Sukhumvit 21 Rd.</p>
-            <p>Klongtoey Nua, Wattana, Bangkok 10110, Thailand.</p>
+            <p>Klongtoey Nua, Wattana, Bangkok 10110, </p>
+            <p>Thailand.</p>
           </Description>
         </Fade>
       )
@@ -71,10 +71,7 @@ const ChangeContentDescription = (menu): void => {
 }
 const MenuAndContent = (props): React.FC => {
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
-  const { useMap, setMap, setModal } = props
-  if (useMap !== useActiveMenu) {
-    setMap(useActiveMenu)
-  }
+  const { useMap, setMap } = props
   return (
     <>
       <MenuSelectMap>
@@ -83,18 +80,15 @@ const MenuAndContent = (props): React.FC => {
       </MenuSelectMap>
       <BoxContent>
         <BoxContentInSide>
-          {/* <Title name="BANGKOK BRANCH ADDRESS" /> */}
           {ChangeContentDescription(useActiveMenu)}
           <br />
-          <Title name="PHONES" />
+          <Title name="CONTACT" />
           <Description>
             <p>02-664-3364</p>
             <p>FAX: 02-664-0886</p>
           </Description>
+          <IconContactPageContact />
         </BoxContentInSide>
-        <BoxContentMap>
-          <Flag name="Nextzy Technologies" onClick={() => setModal({ visible: true, map: useActiveMenu })} />
-        </BoxContentMap>
       </BoxContent>
     </>
   )

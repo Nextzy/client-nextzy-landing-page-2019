@@ -7,15 +7,18 @@ const ButtonMenu = styled.div`
   letter-spacing: 0.15px;
   line-height: 24px;
   /* margin: 1rem; */
+  width: 100%;
+  text-align: center;
   transition: 500ms;
   opacity: 1;
-  display: inline-block;
 `
 const MenuSelectMapHr = styled.hr`
   transition: width 0.5s ease, margin-left 0.5s ease;
   border: 0;
-  height: 2px;
-  width: 105%;
+  margin-top: 24px;
+  margin-bottom: 25px;
+  height: 1px;
+  width: 80%;
   background-image: linear-gradient(-90deg, #2a7aff, #f7618b);
 `
 const Menu = (props): React.FC => {

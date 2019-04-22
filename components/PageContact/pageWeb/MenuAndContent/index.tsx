@@ -21,17 +21,8 @@ const BoxContentInSide = styled.div`
   flex: 0.5;
 `
 const BoxContentMap = styled.div`
-  font-family: 'Montserrat-Regular';
-  font-size: 16px;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  text-align: left;
-  line-height: 28px;
+  margin-top: 5rem;
   flex: 0.5;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
 `
 
 const Description = styled.div`
@@ -72,9 +63,6 @@ const ChangeContentDescription = (menu): void => {
 const MenuAndContent = (props): React.FC => {
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
   const { useMap, setMap, setModal } = props
-  if (useMap !== useActiveMenu) {
-    setMap(useActiveMenu)
-  }
   return (
     <>
       <MenuSelectMap>
@@ -83,7 +71,6 @@ const MenuAndContent = (props): React.FC => {
       </MenuSelectMap>
       <BoxContent>
         <BoxContentInSide>
-          {/* <Title name="BANGKOK BRANCH ADDRESS" /> */}
           {ChangeContentDescription(useActiveMenu)}
           <br />
           <Title name="PHONES" />

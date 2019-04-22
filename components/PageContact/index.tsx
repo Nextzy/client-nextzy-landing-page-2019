@@ -1,14 +1,17 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Footer from '../layout/Footer'
 import OnWeb from './pageWeb/Web'
 import OnMobile from './pageMobile/Mobile'
 const Container = styled.div`
-  padding: 5rem 0 0 0;
+  padding: 3rem 0 0 0;
   background-color: #102131;
   color: white;
-  height: 100vh;
+  ${media.greaterThan('980px')`
+  height:100vh;
+  `}
   width: 100%;
 `
 const BoxFooter = styled.div`
@@ -18,7 +21,6 @@ const BoxFooter = styled.div`
   width: 100%;
 `
 const PageContact = (props): React.FC => {
-  const { setModal } = props
   const [useMap, setMap] = useState('BANGKOK')
   const useScreen = useContext(getWidthContext)
   return (

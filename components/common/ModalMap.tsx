@@ -82,25 +82,23 @@ const office = {
   }
 }
 
-const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map): void => {
-  if (!useModalOut) {
-    setModalOut(true)
-    setTimeout(() => {
-      setModal({ visible: false, map })
-    }, 800)
-  }
-}
-
 const ModalMap = (props): React.FC => {
-  const { stateModal, setModal, fullpageApi } = props
-  const { visible, map } = stateModal
+  const { useModal, setModal, fullpageApi } = props
+  const { visible, map } = useModal
   const [useModalOut, setModalOut] = useState(false)
   fullpageApi.setAllowScrolling(useModalOut)
 
   const mapLat = map === 'BANGKOK' ? office.bangkok.lat : office.chiangmai.lat
   const mapLng = map === 'BANGKOK' ? office.bangkok.lng : office.chiangmai.lng
   const mapKey = map === 'BANGKOK' ? office.bangkok.key : office.chiangmai.key
-
+  const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map): void => {
+    if (!useModalOut) {
+      setModalOut(true)
+      setTimeout(() => {
+        setModal({ visible: false, map })
+      }, 800)
+    }
+  }
   const GoogleMapContainer = withGoogleMap((props) => (
     <GoogleMap defaultZoom={17} defaultCenter={{ lat: mapLat, lng: mapLng }}>
       <Marker position={{ lat: mapLat, lng: mapLng }} defaultAnimation={2} />

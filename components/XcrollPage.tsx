@@ -41,7 +41,7 @@ const ScrollPage = ({ goto }): React.FC => {
       ) : null}
       <IconContact indexActive={useActive} />
       {visible ? (
-        <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} stateModal={useModal} setModal={setModal} />
+        <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} useModal={useModal} setModal={setModal} />
       ) : null}
       <ReactFullpage
         onLeave={onLeave}
@@ -59,7 +59,7 @@ const ScrollPage = ({ goto }): React.FC => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                {/* <div className="section">
+                <div className="section">
                   <PageStart fullpageApi={useFullPageApi} />
                 </div>
                 <div className="section">
@@ -76,7 +76,7 @@ const ScrollPage = ({ goto }): React.FC => {
                 </div>
                 <div className="section">
                   <PageWorkProcess />
-                </div> */}
+                </div>
                 <div className="section">
                   <PageContact setModal={setModal} />
                 </div>
