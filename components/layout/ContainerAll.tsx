@@ -25,8 +25,8 @@ const Container = styled.div`
 // `
 const BoxCenter = styled.div`
   position: relative;
-  width: 980px;
-  /* width: 70%; */
+  /* width: 980px; */
+  width: 80%;
   /* height: 100%; */
   z-index: 50;
   ${media.lessThan('medium')`

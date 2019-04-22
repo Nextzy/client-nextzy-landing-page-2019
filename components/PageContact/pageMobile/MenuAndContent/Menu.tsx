@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 const ButtonMenu = styled.div`
   font-family: 'Montserrat-Regular';
   font-size: 16px;
@@ -24,10 +25,12 @@ const MenuSelectMapHr = styled.hr`
 const Menu = (props): React.FC => {
   const { name, menu, setMenu } = props
   return (
-    <ButtonMenu active={menu === name} onClick={() => setMenu(name)}>
-      {name}
-      <MenuSelectMapHr active={menu === name} />
-    </ButtonMenu>
+    <Fade right cascade>
+      <ButtonMenu active={menu === name} onClick={() => setMenu(name)}>
+        {name}
+        <MenuSelectMapHr active={menu === name} />
+      </ButtonMenu>
+    </Fade>
   )
 }
 

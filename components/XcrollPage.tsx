@@ -59,7 +59,7 @@ const ScrollPage = ({ goto }): React.FC => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                <div className="section">
+                {/* <div className="section">
                   <PageStart fullpageApi={useFullPageApi} />
                 </div>
                 <div className="section">
@@ -76,7 +76,7 @@ const ScrollPage = ({ goto }): React.FC => {
                 </div>
                 <div className="section">
                   <PageWorkProcess />
-                </div>
+                </div> */}
                 <div className="section">
                   <PageContact setModal={setModal} />
                 </div>

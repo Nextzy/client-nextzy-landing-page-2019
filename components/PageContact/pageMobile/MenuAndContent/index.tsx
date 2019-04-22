@@ -11,6 +11,7 @@ const MenuSelectMap = styled.div`
   flex-direction: row;
 `
 const BoxContent = styled.div`
+  margin-top: 2rem;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -70,8 +71,10 @@ const ChangeContentDescription = (menu): void => {
 }
 const MenuAndContent = (props): React.FC => {
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
-  const { setMap, setModal } = props
-  setMap(useActiveMenu)
+  const { useMap, setMap, setModal } = props
+  if (useMap !== useActiveMenu) {
+    setMap(useActiveMenu)
+  }
   return (
     <>
       <MenuSelectMap>
