@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import ItemTimeline from './ItemTimeline'
 import Fade from 'react-reveal/Fade'
 const MainTimeline = styled.div`
-  margin-top: 1rem;
+  margin-top: 3rem;
   color: #fff;
   position: relative;
   /* overflow-y: hidden; */
