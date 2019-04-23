@@ -32,9 +32,9 @@ const ScrollPage = ({ goto }): React.FC => {
     const { index } = destination
     setActive(index || 0)
   }
-  const visibleMenu = (): void => {
-    setMenu(!useMenu)
-  }
+  // const visibleMenu = (): void => {
+  //   setMenu(!useMenu)
+  // }
   return (
     <ContainerBackground>
       <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />

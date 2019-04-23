@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Bounce from 'react-reveal/Bounce'
 
@@ -104,9 +104,13 @@ const ItemTimeline = (props): React.FC => {
   const [userShow, setShow] = useState(false)
   const { id } = props
   const { name, color } = props.data
-  setTimeout(() => {
-    setShow(true)
-  }, 500 * id)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true)
+    }, 500 * id)
+  }, [])
+
   if (userShow) {
     return (
       <Entry position={id % 2 === 0}>

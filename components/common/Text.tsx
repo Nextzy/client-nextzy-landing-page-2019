@@ -17,7 +17,7 @@ const HorizontalPrefixParagraph = styled.p`
     right: 100%;
     margin-right: 1rem;
   }
-  ${media.lessThan(Config.sizeMobile)`
+  ${media.lessThan(`${Config.sizeMobile}px`)`
     margin-left: 8rem;
   `}
 `

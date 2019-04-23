@@ -10,7 +10,7 @@ const Container = styled.div`
   padding: 3rem 0 0 0;
   background-color: #102131;
   color: white;
-  ${media.greaterThan(Config.sizeMobile)`
+  ${media.greaterThan(`${Config.sizeMobile}px`)`
   height:100vh;
   `}
   width: 100%;
@@ -24,13 +24,17 @@ const BoxFooter = styled.div`
 const PageContact = (props): React.FC => {
   const [useMap, setMap] = useState('BANGKOK')
   const useScreen = useContext(getWidthContext)
+  const handleComponents = (): void => {
+    if (!useScreen || useScreen === 0) return null
+    if (useScreen <= Config.sizeMobile) {
+      return <OnMobile {...props} useMap={useMap} setMap={setMap} />
+    } else {
+      return <OnWeb {...props} useMap={useMap} setMap={setMap} />
+    }
+  }
   return (
     <Container>
-      {useScreen && useScreen <= Config.sizeMobile ? (
-        <OnMobile {...props} useMap={useMap} setMap={setMap} />
-      ) : (
-        <OnWeb {...props} useMap={useMap} setMap={setMap} />
-      )}
+      {handleComponents()}
       <BoxFooter>
         <Footer />
       </BoxFooter>

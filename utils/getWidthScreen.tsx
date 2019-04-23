@@ -6,9 +6,11 @@ const getWidthScreen = (): void => {
   }
 
   useEffect(() => {
-    window.addEventListener('resize', setSideScreen.bind(this))
     setSideScreen()
-    return () => window.removeEventListener('resize', setSideScreen)
+    window.addEventListener('resize', setSideScreen)
+    return () => {
+      window.removeEventListener('resize', setSideScreen)
+    }
   }, [])
   return useScreen
 }

@@ -12,7 +12,7 @@ const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
-  ${media.greaterThan(Config.sizeMobile)`
+  ${media.greaterThan(`${Config.sizeMobile}px`)`
   height: 100vh;
   `}
   width: 100%;
@@ -57,8 +57,15 @@ const DataProcess = [
   { name: 'Maintenance', color: '#2c77ee' }
 ]
 const PageWorkProcess = (): React.FC => {
-  const getScreenContext = useContext(getWidthContext)
-  const useScreen = getScreenContext
+  const useScreen = useContext(getWidthContext)
+  const handleComponents = (): void => {
+    if (!useScreen || useScreen === 0) return null
+    if (useScreen <= Config.sizeMobile) {
+      return <TimelineVertical DataProcess={DataProcess} />
+    } else {
+      return <Timeline DataProcess={DataProcess} />
+    }
+  }
   return (
     <Container>
       <ContainerAll>
@@ -73,11 +80,7 @@ const PageWorkProcess = (): React.FC => {
             development to meet the requirement of customers rapidly. You could see the sequence of operations and
             origresses during development continuously.
           </TextDescription>
-          {useScreen && useScreen <= Config.sizeMobile ? (
-            <TimelineVertical DataProcess={DataProcess} />
-          ) : (
-            <Timeline DataProcess={DataProcess} />
-          )}
+          {handleComponents()}
         </ContainerPageSart>
       </ContainerAll>
     </Container>

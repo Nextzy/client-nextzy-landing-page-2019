@@ -38,14 +38,14 @@ const NavBar = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 0;
-    ${media.greaterThan(Config.sizeMobile)`
+    ${media.greaterThan(`${Config.sizeMobile}px`)`
     padding: 4px 16px;
   `}
   }
   li {
     display: flex;
     padding: 0.5rem 0;
-    ${media.greaterThan(Config.sizeMobile)`
+    ${media.greaterThan(`${Config.sizeMobile}px`)`
     padding: 0.5rem 0.8rem;
   `}
     cursor: pointer;

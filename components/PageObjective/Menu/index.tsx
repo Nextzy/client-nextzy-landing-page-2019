@@ -33,7 +33,7 @@ const Row = styled.div`
   :hover {
     color: white;
   }
-  ${media.lessThan(Config.sizeMobile)`
+  ${media.lessThan(`${Config.sizeMobile}px`)`
     color:white;
   `}
 `

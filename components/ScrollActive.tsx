@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Config from '../constants/Constants'
 const BoxSlideActive = styled.div`
-  ${media.greaterThan('1024px')`
+  ${media.greaterThan(`${Config.sizeMobile}px`)`
   z-index: 500;
   position: fixed;
   height: 100vh;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 const ContainerMap = styled.div`
@@ -25,11 +25,14 @@ const ContainerMap = styled.div`
 const Map = (props): React.FC => {
   const [useMapOut, setMapOut] = useState('')
   const { map } = props
-  if (useMapOut !== map) {
-    setTimeout(() => {
-      setMapOut(map)
-    }, 800)
-  }
+
+  useEffect(() => {
+    if (useMapOut !== map) {
+      setTimeout(() => {
+        setMapOut(map)
+      }, 800)
+    }
+  }, [])
   return (
     <>
       <ContainerMap {...props} useMapOut={useMapOut}>

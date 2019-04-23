@@ -7,9 +7,9 @@ import Config from '../../constants/Constants'
 const Container = styled.div`
   position: relative;
   padding: 7px 0 7px 30px;
-  ${media.greaterThan(Config.sizeMobile)`
+  ${media.greaterThan(`${Config.sizeMobile}px`)`
   padding: 7px 0 7px 80px;
-  `}
+  `};
   transform: scaleX(-1);
 `
 const IconHamburger = styled.div`

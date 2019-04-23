@@ -12,13 +12,18 @@ const Container = styled.div`
   width: 100%;
   z-index: 1;
 `
+
 const PageStart = (props): React.FC => {
   const useScreen = useContext(getWidthContext)
-  return (
-    <Container>
-      {useScreen && useScreen <= Config.sizeMobile ? <PageMobile {...props} /> : <PageWeb {...props} />}
-    </Container>
-  )
+  const handleComponents = (): void => {
+    if (!useScreen || useScreen === 0) return null
+    if (useScreen <= Config.sizeMobile) {
+      return <PageMobile {...props} />
+    } else {
+      return <PageWeb {...props} />
+    }
+  }
+  return <Container>{handleComponents()}</Container>
 }
 
 export default PageStart

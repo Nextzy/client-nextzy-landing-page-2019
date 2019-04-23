@@ -26,7 +26,7 @@ const BoxCenter = styled.div`
   width: 80%;
   /* height: 100%; */
   z-index: 50;
-  ${media.lessThan(Config.sizeMobile)`
+  ${media.lessThan(`${Config.sizeMobile}px`)`
     /* screen width is less than 768px (medium) */
     /* width: 100vw; */
   width: 90vw;

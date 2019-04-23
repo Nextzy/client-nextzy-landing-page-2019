@@ -7,7 +7,7 @@ const BoxFooter = styled.div`
   text-align: center;
   background: #1f2b44;
   padding: 1rem 0rem 1rem 0rem;
-  ${media.greaterThan(Config.sizeMobile)`
+  ${media.greaterThan(`${Config.sizeMobile}px`)`
   font-family: 'Montserrat-Regular';
   font-size: 16px;
   color: #ffffff;
