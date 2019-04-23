@@ -24,10 +24,6 @@ const TextNEXTZY = styled.div`
 const ContainerPageObjective = styled.div`
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   text-align: left;
   margin-top: 10rem;

@@ -4,10 +4,6 @@ import media from 'styled-media-query'
 import Config from '../../constants/Constants'
 const Container = styled.div`
   /* position: relative; */
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
   width: 100%;
   /* height: 100%; */
