@@ -1,63 +1,38 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Planet from './Planet/index'
-// import { useSpring, animated } from 'react-spring'
-const Container = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  /* z-index: -1; */
-`
+import Planet from '../Planet/index'
 const BoxPlanetBig = styled.div`
   position: absolute;
-  right: -13rem;
-  bottom: 6rem;
+  right: -12rem;
+  bottom: 0;
   width: 100%;
   z-index: 50;
 `
 const BoxPlanetBigSub = styled.div`
   margin: 0 auto;
-  width: 80%;
+  width: 150%;
   float: right;
-  z-index: 50;
-`
-const BoxPlanetSmall = styled.div`
-  position: absolute;
-  bottom: 4rem;
-  left: -4rem;
-  width: 100%;
-  z-index: 50;
-`
-const BoxPlanetSmallSub = styled.div`
-  margin: 0 auto;
-  width: 35%;
   z-index: 50;
 `
 const BoxMediumTop = styled.div`
   position: absolute;
-  top: -5em;
-  left: -2rem;
+  top: 2rem;
+  left: -6.5rem;
   width: 100%;
   z-index: 50;
 `
 const BoxMediumTopSub = styled.div`
   margin: 0 auto;
-  width: 30%;
+  width: 70%;
   z-index: 50;
 `
 
 const PageStart = (): React.FC => {
-  const [useOrderEarth, setOrderEarth] = useState({ state1: true, state2: false, state3: false })
-  const { state1, state2, state3 } = useOrderEarth
+  const [useOrderEarth, setOrderEarth] = useState({ state1: true, state2: false })
+  const { state1, state2 } = useOrderEarth
   useEffect(() => {
-    // useLayoutEffect(() => {
     setTimeout(() => {
-      setOrderEarth({ state1: true, state2: true, state3: false })
-      setTimeout(() => {
-        setOrderEarth({ state1: true, state2: true, state3: true })
-      }, 800)
+      setOrderEarth({ state1: true, state2: true })
     }, 800)
   }, [])
   return (
@@ -73,9 +48,6 @@ const PageStart = (): React.FC => {
               effectSpin={'spinout'}
             />
           ) : null}
-          <BoxPlanetSmall>
-            <BoxPlanetSmallSub>{state3 ? <Planet /> : null}</BoxPlanetSmallSub>
-          </BoxPlanetSmall>
         </BoxPlanetBigSub>
       </BoxPlanetBig>
       <BoxMediumTop>

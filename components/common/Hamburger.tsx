@@ -1,12 +1,15 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import media from 'styled-media-query'
 import { getWidthContext } from '../../utils/getWidthScreen'
-import MenuScreenMobile from './MenuScreenMobile'
 import Config from '../../constants/Constants'
 const Container = styled.div`
   position: relative;
+  padding: 7px 0 7px 30px;
+  ${media.greaterThan(Config.sizeMobile)`
   padding: 7px 0 7px 80px;
+  `}
   transform: scaleX(-1);
 `
 const IconHamburger = styled.div`

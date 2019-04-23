@@ -32,7 +32,7 @@ const ContainerPageObjective = styled.div`
   width: 100%;
   display: flex;
   text-align: left;
-  margin-top: 10rem;
+  margin-top: 2rem;
   z-index: 50;
   flex-direction: column;
 `
@@ -141,7 +141,8 @@ const DataTest = [
     menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
   }
 ]
-const Home = (): React.FC => {
+const Home = (props): React.FC => {
+  const { indexActive } = props
   const [activeProduct, setActive] = useState('first')
   const handleSelectProduct = (key): void => {
     setActive(key)

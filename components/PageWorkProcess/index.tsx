@@ -12,7 +12,7 @@ const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
-  ${media.greaterThan('medium')`
+  ${media.greaterThan(Config.sizeMobile)`
   height: 100vh;
   `}
   width: 100%;

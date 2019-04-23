@@ -37,14 +37,17 @@ const NavBar = styled.nav`
   ul {
     display: flex;
     justify-content: space-between;
-    padding: 4px 16px;
-    ${media.lessThan(Config.sizeMobile)`
     padding: 0;
+    ${media.greaterThan(Config.sizeMobile)`
+    padding: 4px 16px;
   `}
   }
   li {
     display: flex;
+    padding: 0.5rem 0;
+    ${media.greaterThan(Config.sizeMobile)`
     padding: 0.5rem 0.8rem;
+  `}
     cursor: pointer;
   }
 `

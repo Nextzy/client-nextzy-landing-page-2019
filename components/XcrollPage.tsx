@@ -17,6 +17,9 @@ import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
 
+const ContainerBackground = styled.div`
+  background-color: #102131;
+`
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
@@ -33,7 +36,7 @@ const ScrollPage = ({ goto }): React.FC => {
     setMenu(!useMenu)
   }
   return (
-    <>
+    <ContainerBackground>
       <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
       <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
       <Nav indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
@@ -70,7 +73,7 @@ const ScrollPage = ({ goto }): React.FC => {
                   <PageService />
                 </div>
                 <div className="section">
-                  <PageOurProduct />
+                  <PageOurProduct indexActive={useActive} />
                 </div>
                 <div className="section">
                   <PageClient />
@@ -86,7 +89,7 @@ const ScrollPage = ({ goto }): React.FC => {
           )
         }}
       />
-    </>
+    </ContainerBackground>
   )
 }
 

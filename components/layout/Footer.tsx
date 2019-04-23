@@ -20,7 +20,7 @@ const BoxFooter = styled.div`
   letter-spacing: 0.4px;
   line-height: 16px;
 `
-const Footer = (props): React.FC => {
+const Footer = (): React.FC => {
   return <BoxFooter>© 2019 Nextzy Technologies Co., Ltd.</BoxFooter>
 }
 
