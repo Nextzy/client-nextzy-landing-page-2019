@@ -5,6 +5,7 @@ import Fade from 'react-reveal/Fade'
 import Swing from 'react-reveal/Swing'
 import { Header, Body, Highlight } from '../../common/Text'
 import { getWidthContext } from '../../../utils/getWidthScreen'
+import Config from '../../../constants/Constants'
 const menuArray = [
   {
     key: 'objective-develop',
@@ -32,7 +33,7 @@ const Row = styled.div`
   :hover {
     color: white;
   }
-  ${media.lessThan('980px')`
+  ${media.lessThan(Config.sizeMobile)`
     color:white;
   `}
 `
@@ -52,7 +53,7 @@ interface MenuProps {
 }
 
 const getArrow = ({ props, getScreenContext }): string => {
-  if (getScreenContext <= 768) {
+  if (getScreenContext <= Config.sizeMobile) {
     return props.selected
       ? '/static/images/Icon/collapse/ic_collapse_down_white.svg'
       : '/static/images/Icon/collapse/ic_collapse_up_white.svg'
@@ -82,7 +83,7 @@ const Menu = (props): React.FC<MenuProps> => {
 
 const MenuListWrapper = styled.div`
   margin-right: 4rem;
-  ${media.lessThan('980px')`
+  ${media.lessThan(Config.sizeMobile)`
     margin: 0 auto;
   `}
 `
@@ -196,7 +197,7 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
 const PairWrapper = styled.div`
   display: flex;
   margin-top: 3rem;
-  ${media.lessThan('980px')`
+  ${media.lessThan(Config.sizeMobile)`
     flex-direction: column;
   `}
 `

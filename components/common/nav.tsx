@@ -6,6 +6,7 @@ import Hamburger from './Hamburger'
 import { addPath } from '../../utils/decorate-url'
 import Router from 'next/router'
 import { getWidthContext } from '../../utils/getWidthScreen'
+import Config from '../../constants/Constants'
 
 export const links = [
   { href: 'pageobject', label: 'OBJECTIVE', key: 1, show: true },
@@ -37,7 +38,7 @@ const NavBar = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 4px 16px;
-    ${media.lessThan('medium')`
+    ${media.lessThan(Config.sizeMobile)`
     padding: 0;
   `}
   }
@@ -104,7 +105,7 @@ const Nav = (props): React.FC => {
               <ImgLogo src="/static/images/logo/logo_nextzy_white.svg" />
             </li>
             <UlRight>
-              {getScreenContext && getScreenContext <= 980 ? null : (
+              {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
                 <>
                   {links.map(({ key, label, show }) =>
                     show ? (

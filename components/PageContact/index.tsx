@@ -5,11 +5,12 @@ import { getWidthContext } from '../../utils/getWidthScreen'
 import Footer from '../layout/Footer'
 import OnWeb from './pageWeb/Web'
 import OnMobile from './pageMobile/Mobile'
+import Config from '../../constants/Constants'
 const Container = styled.div`
   padding: 3rem 0 0 0;
   background-color: #102131;
   color: white;
-  ${media.greaterThan('980px')`
+  ${media.greaterThan(Config.sizeMobile)`
   height:100vh;
   `}
   width: 100%;
@@ -25,7 +26,7 @@ const PageContact = (props): React.FC => {
   const useScreen = useContext(getWidthContext)
   return (
     <Container>
-      {useScreen && useScreen <= 980 ? (
+      {useScreen && useScreen <= Config.sizeMobile ? (
         <OnMobile {...props} useMap={useMap} setMap={setMap} />
       ) : (
         <OnWeb {...props} useMap={useMap} setMap={setMap} />

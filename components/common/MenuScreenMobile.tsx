@@ -54,7 +54,7 @@ const CloseButton = styled.a`
   transition: 0.3s;
   position: absolute;
   top: 10px;
-  right: 25px;
+  right: 40px;
   font-size: 36px;
   font-weight: normal;
   color: white;

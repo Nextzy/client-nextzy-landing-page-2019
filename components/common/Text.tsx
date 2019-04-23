@@ -2,7 +2,7 @@ import React from 'react'
 import Fade from 'react-reveal/Fade'
 import styled from 'styled-components'
 import media from 'styled-media-query'
-
+import Config from '../../constants/Constants'
 const HorizontalPrefixParagraph = styled.p`
   display: inline-block;
   position: relative;
@@ -17,7 +17,7 @@ const HorizontalPrefixParagraph = styled.p`
     right: 100%;
     margin-right: 1rem;
   }
-  ${media.lessThan('980px')`
+  ${media.lessThan(Config.sizeMobile)`
     margin-left: 8rem;
   `}
 `

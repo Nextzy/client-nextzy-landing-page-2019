@@ -15,6 +15,7 @@ import IconContact from './IconContact'
 import ModalMap from './common/ModalMap'
 import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
+import Config from '../constants/Constants'
 
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
@@ -36,7 +37,7 @@ const ScrollPage = ({ goto }): React.FC => {
       <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
       <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
       <Nav indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
-      {getScreenContext && getScreenContext <= 980 ? (
+      {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}
       <IconContact indexActive={useActive} />

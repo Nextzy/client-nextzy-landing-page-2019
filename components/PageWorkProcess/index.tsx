@@ -7,7 +7,7 @@ import { SectionHeader } from '../common/Text'
 import Timeline from './Timeline/index'
 import TimelineVertical from './TimelineVertical/index'
 import { getWidthContext } from '../../utils/getWidthScreen'
-
+import Config from '../../constants/Constants'
 const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
@@ -73,7 +73,7 @@ const PageWorkProcess = (): React.FC => {
             development to meet the requirement of customers rapidly. You could see the sequence of operations and
             origresses during development continuously.
           </TextDescription>
-          {useScreen && useScreen <= 980 ? (
+          {useScreen && useScreen <= Config.sizeMobile ? (
             <TimelineVertical DataProcess={DataProcess} />
           ) : (
             <Timeline DataProcess={DataProcess} />

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { getWidthContext } from '../utils/getWidthScreen'
-
+import Config from '../constants/Constants'
 const BoxIconContact = styled.div`
   position: fixed;
   z-index: 500;
@@ -37,7 +37,7 @@ const VerizontalPrefixParagraph = styled.div`
 const IconContact = (props): React.FC => {
   const { indexActive } = props
   const getScreenContext = useContext(getWidthContext)
-  if (getScreenContext && getScreenContext <= 980) {
+  if (getScreenContext && getScreenContext <= Config.sizeMobile) {
     return null
   } else {
     return (
@@ -93,7 +93,7 @@ const BoxIconContactPageContact = styled.div`
 const IconContactPageContact = (props): React.FC => {
   const { indexActive } = props
   const getScreenContext = useContext(getWidthContext)
-  if (getScreenContext && getScreenContext <= 980) {
+  if (getScreenContext && getScreenContext <= Config.sizeMobile) {
     return (
       <BoxIconContactPageContact>
         <div onClick={() => (window.location = 'https://github.com/')}>

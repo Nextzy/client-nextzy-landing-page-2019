@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Config from '../../constants/Constants'
 const Container = styled.div`
   /* position: relative; */
   display: -webkit-box;
@@ -29,7 +30,7 @@ const BoxCenter = styled.div`
   width: 80%;
   /* height: 100%; */
   z-index: 50;
-  ${media.lessThan('medium')`
+  ${media.lessThan(Config.sizeMobile)`
     /* screen width is less than 768px (medium) */
     /* width: 100vw; */
   width: 90vw;

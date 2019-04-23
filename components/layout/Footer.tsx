@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Config from '../../constants/Constants'
 const BoxFooter = styled.div`
   width: 100%;
   text-align: center;
   background: #1f2b44;
   padding: 1rem 0rem 1rem 0rem;
-  ${media.greaterThan('768px')`
+  ${media.greaterThan(Config.sizeMobile)`
   font-family: 'Montserrat-Regular';
   font-size: 16px;
   color: #ffffff;

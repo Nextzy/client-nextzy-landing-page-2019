@@ -7,7 +7,7 @@ import { Product } from './ProductsMenu'
 import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
 import { getWidthContext } from '../../utils/getWidthScreen'
-
+import Config from '../../constants/Constants'
 const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
@@ -152,7 +152,7 @@ const Home = (): React.FC => {
     <Container>
       <ContainerAll>
         <ContainerObject>
-          {useScreen && useScreen <= 980 ? (
+          {useScreen && useScreen <= Config.sizeMobile ? (
             <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
           ) : (
             <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />

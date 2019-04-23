@@ -62,22 +62,8 @@ const ButtonProducts = styled.button`
   color: white;
   background-color: transparent;
   border: 0px solid transparent;
-  /* background-size: 100%; */
-  /* background-image: linear-gradient(-136deg, #f7618b 0%, #2a7aff 100%); */
   background-image: linear-gradient(to right, #f7618b, #2a7aff);
   z-index: 1;
-  /* &:before {
-    position: absolute;
-    content: '';
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom, hsl(344, 100%, 50%), hsl(31, 100%, 40%));
-    z-index: -1;
-    transition: opacity 0.5s linear;
-    opacity: 0;
-  } */
   &:hover::before {
     opacity: 1;
   }
@@ -153,7 +139,6 @@ const PageStart = (props): React.FC => {
             <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
             <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
           </BoxBtnPage>
-          {/* <SlideDownMobile indexActive={0} fullpageApi={fullpageApi} /> */}
         </ContainerPageStart>
 
         <PlanetAll />

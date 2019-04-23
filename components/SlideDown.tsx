@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { getWidthContext } from '../utils/getWidthScreen'
-
+import Config from '../constants/Constants'
 const BoxSlideActive = styled.div`
   z-index: 500;
   position: fixed;
@@ -186,7 +186,7 @@ const SlideDownMobile = (props): React.FC => {
 const SlideDown = (props): void => {
   const { indexActive, fullpageApi } = props
   const useScreen = useContext(getWidthContext)
-  if (useScreen && useScreen <= 980) {
+  if (useScreen && useScreen <= Config.sizeMobile) {
     return <SlideDownMobile {...props} />
   } else {
     return <SlideDownWeb {...props} />
