@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Fade from 'react-reveal/Fade'
@@ -86,6 +86,15 @@ const MenuMobile = (props): React.FC<MenuProps> => {
   const useScreen = useContext(getWidthContext)
   const src = getArrow({ props, useScreen })
   const { activeMenu, selected, name } = props
+  useEffect(() => {
+    const theRef = document.getElementById(activeMenu)
+    if (activeMenu && theRef) {
+      theRef.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }, [activeMenu])
   return (
     <>
       <RowWrapper>
