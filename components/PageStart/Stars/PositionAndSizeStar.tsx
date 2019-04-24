@@ -1,4 +1,4 @@
-const positionAndSizeStar = [
+const PositionAndSizeStar = [
   { left: 5, top: 5, size: 40, animationDelay: 0 },
   { left: 9, top: 25, size: 80, animationDelay: 4.5 },
   { left: 1, top: 75, size: 50, animationDelay: 0 },
@@ -13,4 +13,4 @@ const positionAndSizeStar = [
   { left: 62, top: 6, size: 25, animationDelay: 0 },
   { left: 90, top: 5, size: 25, animationDelay: 4 }
 ]
-export default positionAndSizeStar
+export default PositionAndSizeStar

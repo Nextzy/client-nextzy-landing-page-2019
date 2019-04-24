@@ -20,11 +20,11 @@ const ContainerBackground = styled.div`
 const TextNEXTZY = styled.div`
   position: relative;
   text-align: left;
-  font-family: Montserrat-Medium;
   font-size: 60px;
   color: #ffffff;
   letter-spacing: -0.5px;
   display: inline-block;
+  font-weight: 10;
   p {
     margin: 0;
     font-family: 'Montserrat-Medium';
