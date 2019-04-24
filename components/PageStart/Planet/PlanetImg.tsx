@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled, { keyframes } from 'styled-components'
 const Planet = styled.div`
   position: relative;
@@ -28,6 +28,7 @@ const PlanetImgShadow = styled.div`
   position: absolute;
   z-index: 11;
   height: 100%;
+  width: 90%;
   top: 0;
   display: flex;
   align-items: center;
@@ -41,6 +42,7 @@ const PlanetImgHole = styled.div`
   position: absolute;
   z-index: 12;
   height: 100%;
+  width: 90%;
   top: 0;
   display: flex;
   align-items: center;
@@ -64,6 +66,7 @@ const PlanetImgCore = styled.div`
   position: absolute;
   z-index: 10;
   height: 100%;
+  width: 90%;
   top: 0;
   display: flex;
   align-items: center;
@@ -83,12 +86,16 @@ const ImgPlanetCore = styled.img`
   z-index: 10;
 `
 const PlanetBig = (props): React.FC => {
+  const planetRef = useRef()
   const { imgCore, imgShadow, imgHole, background, effectSpin } = props
   const PlanetBackground = background
   const PlanetCore = imgCore || '/static/images/Planet/asset_planet_3.png'
+  // useEffect(() => {
+  //   console.log('window', planetRef.current.offsetWidth, planetRef.current.offsetHeight)
+  // }, [])
   if (imgShadow) {
     return (
-      <Planet>
+      <Planet ref={planetRef}>
         <ImgPlanetBlinkOut src={PlanetBackground} />
         <PlanetImgCore effectSpin={effectSpin}>
           <ImgPlanetCore src={imgCore} alt="bg" />
@@ -103,7 +110,7 @@ const PlanetBig = (props): React.FC => {
     )
   } else {
     return (
-      <Planet>
+      <Planet ref={planetRef}>
         <ImgPlanetNotBG src={PlanetCore} />
       </Planet>
     )

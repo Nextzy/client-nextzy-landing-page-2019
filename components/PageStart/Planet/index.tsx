@@ -12,10 +12,10 @@ const MainPlanetBig = styled.div`
 
 const PlanetBigFunction = (props): React.FC => {
   const [usePosition, setPosition] = useState({ x: 0, y: 0 })
-  const mouseOver = () => {
+  const mouseOver = (): void => {
     setPosition({ x: Math.random() * 300, y: Math.random() * 300 })
   }
-  const mouseOut = () => {
+  const mouseOut = (): void => {
     setPosition({ x: 0, y: 0 })
   }
   return (

@@ -15,9 +15,6 @@ const ContainerStar = styled.div`
   justify-content: center;
   overflow: hidden;
 `
-const rand = (): void => {
-  return Math.random()
-}
 const CreateStar = (): void => {
   let limit = positionAndSizeStar.length
   let arrStar = []
