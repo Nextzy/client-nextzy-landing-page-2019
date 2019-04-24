@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import ContainerAll from '../layout/ContainerAll'
 import { SectionHeader } from '../common/Text'
 import { Pair } from './Menu'
+import Config from '../../constants/Constants'
 const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
   height: 100vh;
   width: 100%;
+  height: 200%;
 `
 const TextNEXTZY = styled.div`
   position: relative;
@@ -22,13 +25,16 @@ const TextNEXTZY = styled.div`
   float: left;
 `
 const ContainerPageObjective = styled.div`
-  height: 100%;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   text-align: left;
   margin-top: 10rem;
   z-index: 50;
   flex-direction: column;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+      margin-top: 3rem;
+  `}
 `
 
 const BackgroundImage = styled.img`

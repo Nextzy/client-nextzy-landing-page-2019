@@ -36,6 +36,9 @@ export const SectionHeader = (props): React.FC<SectionHeaderProps> => {
 export const Header = styled.div`
   font-size: 34px;
   letter-spacing: 0.25px;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+  font-size: 28px;
+  `}
 `
 
 export const Body = styled.p`
@@ -43,9 +46,15 @@ export const Body = styled.p`
   margin: 24px 0px 40px;
   letter-spacing: 0.5px;
   line-height: 28px;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+     font-size: 16px;
+  `}
 `
 
 export const Highlight = styled.span`
   color: #2a7aff;
   line-height: 42px;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+    
+  `}
 `

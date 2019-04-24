@@ -247,11 +247,9 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
 const PairWrapper = styled.div`
   display: flex;
   margin-top: 3rem;
-  justify-content: center;
 
   ${media.lessThan(`${Config.sizeMobile}px`)`
     justify-content: center;
-    height: 800px;
   `}
 `
 
