@@ -34,7 +34,8 @@ const Row = styled.div`
     color: white;
   }
   ${media.lessThan(`${Config.sizeMobile}px`)`
-    color:white;
+    color: white;
+    width: 400px;
   `}
 `
 
@@ -96,7 +97,7 @@ const MenuMobile = (props): React.FC<MenuProps> => {
         </Row>
         <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
         {selected ? (
-          <Fade duration={500} spy={activeMenu}>
+          <Fade duration={500} when={selected}>
             <DescriptionPane activeMenu={activeMenu} />
           </Fade>
         ) : null}
@@ -105,11 +106,12 @@ const MenuMobile = (props): React.FC<MenuProps> => {
   )
 }
 
-const MenuListWrapper = styled.div`
+const MenuListWebWrapper = styled.div`
   margin-right: 4rem;
-  ${media.lessThan(Config.sizeMobile)`
-    margin: 0 auto;
-  `}
+`
+const MenuListMobileWrapper = styled.div`
+  margin-right: 0;
+  /* margin: 0 auto; */
 `
 
 const MenuListWeb = (props): React.FC => {
@@ -120,7 +122,7 @@ const MenuListWeb = (props): React.FC => {
   }
 
   return (
-    <MenuListWrapper>
+    <MenuListWebWrapper>
       {menuArray.map(({ key, name }) => (
         <MenuWeb
           id={key}
@@ -131,21 +133,19 @@ const MenuListWeb = (props): React.FC => {
           name={name}
         />
       ))}
-    </MenuListWrapper>
+    </MenuListWebWrapper>
   )
 }
 
 const MenuListMobile = (props): React.FC => {
   const [selectedKey, setSelected] = useState('objective-develop')
   const onClick = (key): void => {
-    console.log('key=', key, 'selectedKey=', selectedKey, 'selectedKey === key', selectedKey === key)
     const theKey = selectedKey === key ? '' : key
     setSelected(theKey)
-    // setSelected(key)
   }
 
   return (
-    <MenuListWrapper>
+    <MenuListMobileWrapper>
       {menuArray.map(({ key, name }) => (
         <MenuMobile
           id={key}
@@ -156,11 +156,15 @@ const MenuListMobile = (props): React.FC => {
           name={name}
         />
       ))}
-    </MenuListWrapper>
+    </MenuListMobileWrapper>
   )
 }
 
-const DescriptionHolder = styled.div``
+const DescriptionHolder = styled.div`
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+      width: 400px;
+  `}
+`
 
 const OrderedList = styled.div`
   display: flex;
@@ -243,10 +247,14 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
 const PairWrapper = styled.div`
   display: flex;
   margin-top: 3rem;
-  ${media.lessThan(Config.sizeMobile)`
-    flex-direction: column;
+  justify-content: center;
+
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+    justify-content: center;
+    height: 800px;
   `}
 `
+
 export const Pair = (props): React.FC => {
   const [activeMenu, setActive] = useState('objective-develop')
   const useScreen = useContext(getWidthContext)
