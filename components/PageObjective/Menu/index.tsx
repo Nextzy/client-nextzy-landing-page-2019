@@ -52,8 +52,8 @@ interface MenuProps {
   callback: object
 }
 
-const getArrow = ({ props, getScreenContext }): string => {
-  if (getScreenContext <= Config.sizeMobile) {
+const getArrow = ({ props, useScreen }): string => {
+  if (useScreen <= Config.sizeMobile) {
     return props.selected
       ? '/static/images/Icon/collapse/ic_collapse_down_white.svg'
       : '/static/images/Icon/collapse/ic_collapse_up_white.svg'
@@ -63,9 +63,9 @@ const getArrow = ({ props, getScreenContext }): string => {
     : '/static/images/Icon/collapse/ic_collapse_right_gray.svg'
 }
 
-const Menu = (props): React.FC<MenuProps> => {
-  const getScreenContext = useContext(getWidthContext)
-  const src = getArrow({ props, getScreenContext })
+const MenuWeb = (props): React.FC<MenuProps> => {
+  const useScreen = useContext(getWidthContext)
+  const src = getArrow({ props, useScreen })
   return (
     <>
       <RowWrapper>
@@ -81,6 +81,30 @@ const Menu = (props): React.FC<MenuProps> => {
   )
 }
 
+const MenuMobile = (props): React.FC<MenuProps> => {
+  const useScreen = useContext(getWidthContext)
+  const src = getArrow({ props, useScreen })
+  const { activeMenu, selected, name } = props
+  return (
+    <>
+      <RowWrapper>
+        <Row {...props}>
+          {name}
+          <Swing when={selected}>
+            <SuffixIcon src={src} />
+          </Swing>
+        </Row>
+        <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
+        {selected ? (
+          <Fade duration={500} spy={activeMenu}>
+            <DescriptionPane activeMenu={activeMenu} />
+          </Fade>
+        ) : null}
+      </RowWrapper>
+    </>
+  )
+}
+
 const MenuListWrapper = styled.div`
   margin-right: 4rem;
   ${media.lessThan(Config.sizeMobile)`
@@ -88,12 +112,9 @@ const MenuListWrapper = styled.div`
   `}
 `
 
-const MenuList = (props): React.FC => {
+const MenuListWeb = (props): React.FC => {
   const [selectedKey, setSelected] = useState('objective-develop')
   const onClick = (key): void => {
-    console.log('key=', key, 'selectedKey=', selectedKey, 'selectedKey === key', selectedKey === key)
-    const theKey = selectedKey === key ? '' : key
-    // setSelected(theKey)
     setSelected(key)
     props.onMenuClick(key)
   }
@@ -101,11 +122,36 @@ const MenuList = (props): React.FC => {
   return (
     <MenuListWrapper>
       {menuArray.map(({ key, name }) => (
-        <Menu
+        <MenuWeb
           id={key}
           key={key}
           onClick={() => onClick(key)}
           onMouseEnter={() => onClick(key)}
+          selected={selectedKey === key}
+          name={name}
+        />
+      ))}
+    </MenuListWrapper>
+  )
+}
+
+const MenuListMobile = (props): React.FC => {
+  const [selectedKey, setSelected] = useState('objective-develop')
+  const onClick = (key): void => {
+    console.log('key=', key, 'selectedKey=', selectedKey, 'selectedKey === key', selectedKey === key)
+    const theKey = selectedKey === key ? '' : key
+    setSelected(theKey)
+    // setSelected(key)
+  }
+
+  return (
+    <MenuListWrapper>
+      {menuArray.map(({ key, name }) => (
+        <MenuMobile
+          id={key}
+          key={key}
+          onClick={() => onClick(key)}
+          activeMenu={selectedKey}
           selected={selectedKey === key}
           name={name}
         />
@@ -203,12 +249,24 @@ const PairWrapper = styled.div`
 `
 export const Pair = (props): React.FC => {
   const [activeMenu, setActive] = useState('objective-develop')
-  return (
-    <PairWrapper>
-      <MenuList onMenuClick={setActive} />
-      <Fade duration={500} spy={activeMenu}>
-        <DescriptionPane activeMenu={activeMenu} />
-      </Fade>
-    </PairWrapper>
-  )
+  const useScreen = useContext(getWidthContext)
+
+  if (!useScreen || useScreen === 0) return null
+
+  if (useScreen <= Config.sizeMobile) {
+    return (
+      <PairWrapper>
+        <MenuListMobile />
+      </PairWrapper>
+    )
+  } else {
+    return (
+      <PairWrapper>
+        <MenuListWeb onMenuClick={setActive} />
+        <Fade duration={500} spy={activeMenu}>
+          <DescriptionPane activeMenu={activeMenu} />
+        </Fade>
+      </PairWrapper>
+    )
+  }
 }
