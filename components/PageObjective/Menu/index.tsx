@@ -86,15 +86,6 @@ const MenuMobile = (props): React.FC<MenuProps> => {
   const useScreen = useContext(getWidthContext)
   const src = getArrow({ props, useScreen })
   const { activeMenu, selected, name } = props
-  useEffect(() => {
-    const theRef = document.getElementById(activeMenu)
-    if (activeMenu && theRef) {
-      theRef.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  }, [activeMenu])
   return (
     <>
       <RowWrapper>
