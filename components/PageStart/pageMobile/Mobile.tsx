@@ -136,8 +136,8 @@ const PageStartMobile = (props): React.FC => {
 
         <PlanetAll />
       </ContainerAll>
-      {/* <ShootingStar />
-      <StarFix /> */}
+      <ShootingStar />
+      <StarFix />
     </>
   )
 }

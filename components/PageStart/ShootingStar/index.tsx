@@ -1,132 +1,66 @@
 import React from 'react'
 import styled from 'styled-components'
-const ContainerShootingStar = styled.div`
+
+const Container = styled.div`
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   position: absolute;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-`
-const BodyShootingStar = styled.div`
-  z-index: 10;
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
   width: 100%;
   height: 100%;
-  transform: rotateZ(145deg);
-  top: -9rem;
-  @keyframes tail {
-    0% {
-      width: 0;
+  z-index: 10;
+  transform: rotate(145deg);
+  @keyframes particleAnimation {
+    from {
+      left: -100px;
     }
-    30% {
-      width: 200px;
-    }
-    100% {
-      width: 0;
+    to {
+      left: calc(100% + 100px);
     }
   }
-  @keyframes shining {
-    0% {
-      width: 0;
-    }
-    30% {
-      width: 100px;
-    }
-    100% {
-      width: 0;
-    }
-  }
-  @keyframes shooting {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(70vh);
-    }
-  }
-  div {
+
+  .p {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 4px;
-    opacity: 0.3;
-    background: linear-gradient(-45deg, #fff, rgba(0, 0, 555, 0));
-    filter: drop-shadow(0 0 6px #699bff);
-    /* animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite; */
-    animation: tail 3000ms, shooting 3000ms;
+    left: 0px;
+    top: 50px;
+    width: 1px;
+    height: 1px;
+    background-color: white;
+    animation-name: particleAnimation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
   }
-  div::before,
-  div::after {
+  .p::before {
     position: absolute;
+    display: block;
     content: '';
-    top: calc(50%-1px);
-    right: 0;
-    height: 2px;
-    opacity: 0.3;
-    background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #fff, rgba(0, 0, 255, 0));
-    transform: translateX(50%) rotateZ(45deg);
-    animation: shining 3000ms ease-in-out infinite;
+    width: 100px;
+    right: 1px;
+    top: 0px;
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
   }
-  div::after {
-    transform: translateX(50%) rotateZ(-45deg);
+  .p-1 {
+    animation-duration: 3s;
   }
-  /* star 1 */
-  div:nth-child(1) {
-    top: 99%;
-    left: 30%;
-    animation-delay: 1000ms;
+  .p-2 {
+    animation-duration: 5s;
+    top: 60%;
   }
-  div:nth-child(1)::before,
-  div:nth-child(1)::after {
-    animation-delay: 1000ms;
-  }
-  /* star 2 */
-  div:nth-child(2) {
-    top: 80%;
-    left: 50%;
-    animation-delay: 1500ms;
-  }
-  div:nth-child(2)::before,
-  div:nth-child(2)::after {
-    animation-delay: 1500ms;
-  }
-  /* star 3  */
-  div:nth-child(3) {
-    top: 30%;
-    left: 20%;
-    animation-delay: 2000ms;
-  }
-  div:nth-child(3)::before,
-  div:nth-child(3)::after {
-    animation-delay: 2000ms;
-  }
-  /* star 4 */
-  div:nth-child(4) {
-    top: 45%;
-    left: 60%;
-    animation-delay: 3000ms;
-  }
-  div:nth-child(4)::before,
-  div:nth-child(4)::after {
-    animation-delay: 3000ms;
+  .p-3 {
+    animation-duration: 8s;
+    top: 90%;
   }
 `
 const ShootingStar = (): React.FC => {
   return (
-    <ContainerShootingStar>
-      <BodyShootingStar>
-        <div />
-        <div />
-        <div />
-        <div />
-      </BodyShootingStar>
-    </ContainerShootingStar>
+    <Container>
+      <div className="p p-1" />
+      <div className="p p-2" />
+      <div className="p p-3" />
+    </Container>
   )
 }
 
