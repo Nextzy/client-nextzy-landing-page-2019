@@ -37,14 +37,15 @@ const BoxShowMapAndFooter = styled.div`
   flex-direction: column;
 `
 const OnWeb = (props): React.FC => {
-  const { setModal, useMap, setMap } = props
+  const { setModal, useMap, setMap, visibleMap } = props
+
   return (
     <>
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="CONTACT" />
+              <SectionHeader title="CONTACT" onVisibleMap={visibleMap} />
             </Fade>
           </TextNEXTZY>
           <MenuAndContent setMap={setMap} setModal={setModal} />

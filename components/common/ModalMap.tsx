@@ -17,7 +17,7 @@ const VisibleBackground = styled.div`
   width: 100%;
   height: 100%;
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.7);
+  // background-color: rgba(0, 0, 0, 0.7);
   @keyframes fadein {
     from {
       opacity: 0;
@@ -84,7 +84,7 @@ const office = {
 
 const ModalMap = (props): React.FC => {
   const { useModal, setModal, fullpageApi } = props
-  const { visible, map } = useModal
+  const { visible, map, isShowMap } = useModal
   const [useModalOut, setModalOut] = useState(false)
   fullpageApi.setAllowScrolling(useModalOut)
 
@@ -93,9 +93,11 @@ const ModalMap = (props): React.FC => {
   const mapKey = map === 'BANGKOK' ? office.bangkok.key : office.chiangmai.key
   const FunctionSetModalOut = (useModalOut, setModalOut, setModal, map): void => {
     if (!useModalOut) {
+      setModal({ isShowMap: false, visible: true, map })
+
       setModalOut(true)
       setTimeout(() => {
-        setModal({ visible: false, map })
+        setModal({ isShowMap: false, visible: false, map })
       }, 800)
     }
   }

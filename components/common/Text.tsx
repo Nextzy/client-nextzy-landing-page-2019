@@ -7,7 +7,8 @@ const HorizontalPrefixParagraph = styled.p`
   display: inline-block;
   position: relative;
   line-height: 0.3;
-  font-size: 24px;
+  // font-size: 24px;
+  transition: 700ms all;
   :before {
     content: '';
     position: absolute;
@@ -17,18 +18,25 @@ const HorizontalPrefixParagraph = styled.p`
     right: 100%;
     margin-right: 1rem;
   }
+
   ${media.lessThan(`${Config.sizeMobile}px`)`
     margin-left: 8rem;
   `}
+  ${({ isVisibleMap }) => (isVisibleMap ? `font-size: 45px; margin-top: 6%` : `font-size: 24px; margin-top: 0`)}
 `
 interface SectionHeaderProps {
   title: string
 }
 
 export const SectionHeader = (props): React.FC<SectionHeaderProps> => {
+  const { title, onVisibleMap } = props
+  const isVisibleMap = onVisibleMap ? true : false
+
   return (
     <Fade right cascade>
-      <HorizontalPrefixParagraph>{props.title}</HorizontalPrefixParagraph>
+      <HorizontalPrefixParagraph isVisibleMap={isVisibleMap} title={title}>
+        {props.title}
+      </HorizontalPrefixParagraph>
     </Fade>
   )
 }

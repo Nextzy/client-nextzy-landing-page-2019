@@ -61,7 +61,10 @@ const OnMobile = (props): React.FC => {
       <BoxShowMap>
         <Map map={useMap} />
         <BoxFlag>
-          <Flag name="Nextzy Technologies" onClick={() => setModal({ visible: true, map: useActiveMenu })} />
+          <Flag
+            name="Nextzy Technologies"
+            onClick={() => setModal({ visible: true, map: useActiveMenu, isShowMap: true })}
+          />
         </BoxFlag>
       </BoxShowMap>
     </>

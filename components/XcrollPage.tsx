@@ -24,9 +24,9 @@ const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useCountPage, setCountPage] = useState(0)
-  const [useModal, setModal] = useState({ visible: false, map: '' })
+  const [useModal, setModal] = useState({ visible: false, map: '', isShowMap: false })
   const [useMenu, setMenu] = useState(false)
-  const { visible } = useModal
+  const { visible, isShowMap } = useModal
   const getScreenContext = useContext(getWidthContext)
   const onLeave = (origin, destination, direction): void => {
     const { index } = destination
@@ -82,7 +82,7 @@ const ScrollPage = ({ goto }): React.FC => {
                   <PageWorkProcess />
                 </div>
                 <div className="section">
-                  <PageContact setModal={setModal} />
+                  <PageContact setModal={setModal} visibleMap={isShowMap} />
                 </div>
               </ReactFullpage.Wrapper>
             </>

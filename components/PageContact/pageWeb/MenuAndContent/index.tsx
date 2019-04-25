@@ -80,7 +80,10 @@ const MenuAndContent = (props): React.FC => {
           </Description>
         </BoxContentInSide>
         <BoxContentMap>
-          <Flag name="Nextzy Technologies" onClick={() => setModal({ visible: true, map: useActiveMenu })} />
+          <Flag
+            name="Nextzy Technologies"
+            onClick={() => setModal({ visible: true, map: useActiveMenu, isShowMap: true })}
+          />
         </BoxContentMap>
       </BoxContent>
     </>
