@@ -4,10 +4,13 @@ import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
 import { Product } from './ProductsMenu'
+import { ProductContentWeb } from './ProductContentWeb'
+import { ProductContentMobile } from './ProductContentMobile'
 import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
+
 const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
@@ -147,8 +150,16 @@ const Home = (props): React.FC => {
   const handleSelectProduct = (key): void => {
     setActive(key)
   }
-  const getScreenContext = useContext(getWidthContext)
-  const useScreen = getScreenContext
+  const useScreen = useContext(getWidthContext)
+
+  const handleComponents = (): void => {
+    if (useScreen <= Config.sizeMobile) {
+      return <ProductContentMobile activeProduct={activeProduct} productData={DataTest} />
+    } else {
+      return <ProductContentWeb activeProduct={activeProduct} productData={DataTest} />
+    }
+  }
+
   return (
     <Container>
       <ContainerAll>
@@ -162,7 +173,7 @@ const Home = (props): React.FC => {
             <TextNEXTZY>
               <Fade right cascade>
                 <SectionHeader title="Page Products" />
-                <Product activeProduct={activeProduct} productData={DataTest} />
+                {handleComponents()}
               </Fade>
             </TextNEXTZY>
           </ContainerPageObjective>

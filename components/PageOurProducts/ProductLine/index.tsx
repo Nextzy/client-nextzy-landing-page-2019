@@ -5,7 +5,7 @@ const Line = styled.div`
   svg {
     position: absolute;
     left: 0;
-    top: 28%;
+    top: 20%;
     height: 70%;
     z-index: 1;
     user-select: none;
