@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import Bounce from 'react-reveal/Bounce'
-import PlanetBig from './PlanetImg'
-const MainPlanetBig = styled.div`
+import PlanetImg from './PlanetImg'
+const MainPlanet = styled.div`
   position: relative;
   transition: 5000ms;
   left: ${(props) => props.setPosition.x}px;
@@ -11,6 +11,7 @@ const MainPlanetBig = styled.div`
 `
 
 const PlanetBigFunction = (props): React.FC => {
+  const refPlanet = useRef()
   const [usePosition, setPosition] = useState({ x: 0, y: 0 })
   const mouseOver = (): void => {
     setPosition({ x: Math.random() * 300, y: Math.random() * 300 })
@@ -19,11 +20,11 @@ const PlanetBigFunction = (props): React.FC => {
     setPosition({ x: 0, y: 0 })
   }
   return (
-    <MainPlanetBig setPosition={usePosition} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
+    <MainPlanet ref={refPlanet} setPosition={usePosition} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
       <Bounce right>
-        <PlanetBig {...props} />
+        <PlanetImg {...props} />
       </Bounce>
-    </MainPlanetBig>
+    </MainPlanet>
   )
 }
 
