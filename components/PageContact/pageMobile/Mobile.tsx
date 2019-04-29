@@ -46,6 +46,12 @@ const OnMobile = (props): React.FC => {
   if (useMap !== useActiveMenu) {
     setMap(useActiveMenu)
   }
+
+  const FunctionShowModal = () => {
+    setTimeout(() => {
+      setModal({ visible: true, map: useActiveMenu, isShowMap: true })
+    }, 200)
+  }
   return (
     <>
       <ContainerAll>
@@ -61,10 +67,7 @@ const OnMobile = (props): React.FC => {
       <BoxShowMap>
         <Map map={useMap} />
         <BoxFlag>
-          <Flag
-            name="Nextzy Technologies"
-            onClick={() => setModal({ visible: true, map: useActiveMenu, isShowMap: true })}
-          />
+          <Flag name="Nextzy Technologies" onClick={() => FunctionShowModal()} />
         </BoxFlag>
       </BoxShowMap>
     </>
