@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Bounce from 'react-reveal/Bounce'
 import Fade from 'react-reveal/Fade'
+import media from 'styled-media-query'
+import Config from '../../../constants/Constants'
 
 const Container = styled.div`
   display: flex;
@@ -9,6 +11,9 @@ const Container = styled.div`
   align-content: flex-start;
   height: 843px;
   margin-top: 100px;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+     justify-content: center;
+  `}
 `
 
 const Lego = styled.div`
