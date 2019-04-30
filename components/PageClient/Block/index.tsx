@@ -55,7 +55,6 @@ const LegoImg = styled.img`
 const LegoWrapper = (props): React.FC => {
   const [userShow, setShow] = useState(false)
   const { id } = props
-  console.log('id', id)
   useEffect(() => {
     setTimeout(() => {
       setShow(true)
@@ -63,7 +62,6 @@ const LegoWrapper = (props): React.FC => {
   }, [])
 
   if (userShow) {
-    console.log('shoow')
     return (
       <LegoDecorator>
         <Bounce duration={800}>
