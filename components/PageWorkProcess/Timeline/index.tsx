@@ -13,8 +13,8 @@ const MainTimeline = styled.div`
   }
 `
 const BoxTimelineScroll = styled.div`
-  /* width: 100%; */
-  width: 954px;
+  width: 100%;
+  /* width: 954px; */
 `
 const ProgressBar = styled.div`
   height: 1px;

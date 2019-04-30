@@ -8,7 +8,8 @@ const Entry = styled.div`
   padding: 13px;
   text-align: center;
   position: relative;
-  width: 80px;
+  /* width: 80px; */
+  width: 9%;
   font-family: 'Montserrat-Regular';
   font-size: 10px;
   color: #ffffff;

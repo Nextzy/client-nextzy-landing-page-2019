@@ -38,7 +38,7 @@ const ChangeContentDescription = (menu): void => {
   switch (menu) {
     case 'BANGKOK':
       return (
-        <Fade right>
+        <Fade right cascade>
           <Title name="BANGKOK BRANCH ADDRESS" />
           <Description>
             <p>219 / 23 Asoke Towers 7th, Soi Sukhumvit 21 Rd.</p>
@@ -46,9 +46,10 @@ const ChangeContentDescription = (menu): void => {
           </Description>
         </Fade>
       )
+
     case 'CHIANGMAI':
       return (
-        <Fade right>
+        <Fade right cascade>
           <Title name="CHIANGMAI BRANCH ADDRESS" />
           <Description>
             <p>17 / 1 Cube No.7 Sirimangkalajarn Lane 7</p>
@@ -56,6 +57,7 @@ const ChangeContentDescription = (menu): void => {
           </Description>
         </Fade>
       )
+
     default:
       return null
   }
