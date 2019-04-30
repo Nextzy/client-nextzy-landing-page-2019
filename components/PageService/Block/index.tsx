@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header, Body, Highlight } from '../../common/Text'
 import styled from 'styled-components'
 import Bounce from 'react-reveal/Bounce'
+import Fade from 'react-reveal/Fade'
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +11,8 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-position: center; */
   align-content: flex-start;
-  height: 843px;
+  /* height: 843px; */
+  /* min-height: 1500px; */
 `
 
 const PrescriptionContainer = styled.div`
@@ -64,44 +66,65 @@ const Lego = styled.div`
   }
 `
 
+const LegoNull = styled.div`
+  min-height: 198px;
+  width: 210px;
+`
+
 const LegoDecorator = styled.div``
 
 const LegoSpan = styled.span`
   align-self: flex-end;
 `
 const LegoWrapper = (props): React.FC => {
-  return (
-    <LegoDecorator>
-      <Bounce duration={800}>
-        <Lego {...props}>
-          <LegoSpan>{props.children}</LegoSpan>
-        </Lego>
-      </Bounce>
-    </LegoDecorator>
-  )
+  const [userShow, setShow] = useState(false)
+  const { id } = props
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true)
+    }, 450 * id)
+  }, [])
+
+  if (userShow) {
+    return (
+      <LegoDecorator>
+        <Bounce duration={800}>
+          <Lego {...props}>
+            <LegoSpan>{props.children}</LegoSpan>
+          </Lego>
+        </Bounce>
+      </LegoDecorator>
+    )
+  } else return <LegoNull />
 }
 const LegoBlocks = (): React.FC => (
   <Container>
-    <Prescription />
-    <LegoWrapper topLeftExtended color={'#6062D0'}>
-      Web Application Development
-    </LegoWrapper>
-    <LegoWrapper thickBottomBorder color={'#AB5AA9'}>
-      Mobile Application Development
-    </LegoWrapper>
-    <LegoWrapper color={'#9E5CAF'}>Web Service Development</LegoWrapper>
-    <LegoWrapper thickBottomBorder color={'#6C62CB'}>
-      Blockchain Development
-    </LegoWrapper>
-    <LegoWrapper color={'#5065DB'}>
-      UI and UX <br />
-      Design
-      <br /> Services
-    </LegoWrapper>
-    <LegoWrapper color={'#835FBE'}>DevOps Services</LegoWrapper>
-    <LegoWrapper bottomRightExtended thickBottomBorder color={'#6F62CA'}>
-      QA Services
-    </LegoWrapper>
+    <Fade top cascade>
+      <Prescription />
+      <LegoWrapper id="1" topLeftExtended color={'#6062D0'}>
+        Web Application Development
+      </LegoWrapper>
+      <LegoWrapper id="2" thickBottomBorder color={'#AB5AA9'}>
+        Mobile Application Development
+      </LegoWrapper>
+      <LegoWrapper id="3" color={'#9E5CAF'}>
+        Web Service Development
+      </LegoWrapper>
+      <LegoWrapper id="4" thickBottomBorder color={'#6C62CB'}>
+        Blockchain Development
+      </LegoWrapper>
+      <LegoWrapper id="5" color={'#5065DB'}>
+        UI and UX <br />
+        Design
+        <br /> Services
+      </LegoWrapper>
+      <LegoWrapper id="6" color={'#835FBE'}>
+        DevOps Services
+      </LegoWrapper>
+      <LegoWrapper id="7" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
+        QA Services
+      </LegoWrapper>
+    </Fade>
   </Container>
 )
 export default LegoBlocks

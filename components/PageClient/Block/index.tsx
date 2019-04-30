@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Bounce from 'react-reveal/Bounce'
+import Fade from 'react-reveal/Fade'
+
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -41,31 +43,50 @@ const Lego = styled.div`
 
 const LegoDecorator = styled.div``
 
+const LegoNull = styled.div`
+  min-height: 210px;
+  width: 210px;
+`
+
 const LegoImg = styled.img`
   align-self: center;
   justify-self: center;
 `
 const LegoWrapper = (props): React.FC => {
-  return (
-    <LegoDecorator>
-      <Bounce duration={800}>
-        <Lego {...props}>
-          <LegoImg src={`static/images/logo/logo_${props.src}.svg`} />
-        </Lego>
-      </Bounce>
-    </LegoDecorator>
-  )
+  const [userShow, setShow] = useState(false)
+  const { id } = props
+  console.log('id', id)
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true)
+    }, 450 * id)
+  }, [])
+
+  if (userShow) {
+    console.log('shoow')
+    return (
+      <LegoDecorator>
+        <Bounce duration={800}>
+          <Lego {...props}>
+            <LegoImg src={`static/images/logo/logo_${props.src}.svg`} />
+          </Lego>
+        </Bounce>
+      </LegoDecorator>
+    )
+  } else return <LegoNull />
 }
 const LegoBlocks = (): React.FC => (
   <Container>
-    <LegoWrapper color={'#DE6C90'} src="myAis" leftExtended />
-    <LegoWrapper color={'#9C649A'} src="nu_mobile" />
-    <LegoWrapper color={'#8466A7'} src="omisego" leftExtended />
-    <LegoWrapper color={'#6A6ABA'} src="iteamstudio" rightExtended />
-    <LegoWrapper color={'#A26FB1'} src="onedaycat" leftExtended />
-    <LegoWrapper color={'#8572C2'} src="true" rightExtended />
-    <LegoWrapper color={'#6875D4'} src="nitto" />
-    <LegoWrapper color={'#5079E5'} src="youex" rightExtended />
+    <Fade top cascade>
+      <LegoWrapper id="1" color={'#DE6C90'} src="myAis" leftExtended />
+      <LegoWrapper id="2" color={'#9C649A'} src="nu_mobile" />
+      <LegoWrapper id="3" color={'#8466A7'} src="omisego" leftExtended />
+      <LegoWrapper id="4" color={'#6A6ABA'} src="iteamstudio" rightExtended />
+      <LegoWrapper id="5" color={'#A26FB1'} src="onedaycat" leftExtended />
+      <LegoWrapper id="6" color={'#8572C2'} src="true" rightExtended />
+      <LegoWrapper id="7" color={'#6875D4'} src="nitto" />
+      <LegoWrapper id="8" color={'#5079E5'} src="youex" rightExtended />
+    </Fade>
   </Container>
 )
 export default LegoBlocks
