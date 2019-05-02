@@ -40,7 +40,7 @@ const BoxModal = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 60%;
+  height: 70%;
   width: 100%;
   background-color: #fff;
   border-radius: 15px 15px 0 0;

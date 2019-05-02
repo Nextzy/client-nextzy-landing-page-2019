@@ -41,16 +41,15 @@ const BoxFlag = styled.div`
   width: 70%;
 `
 const OnMobile = (props): React.FC => {
-  const { useMap, setModal, setMap } = props
+  const { useMap, setModal, setMap, visibleMap } = props
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
   if (useMap !== useActiveMenu) {
     setMap(useActiveMenu)
   }
-
   const FunctionShowModal = () => {
     setTimeout(() => {
       setModal({ visible: true, map: useActiveMenu, isShowMap: true })
-    }, 200)
+    }, 100)
   }
   return (
     <>
@@ -58,7 +57,7 @@ const OnMobile = (props): React.FC => {
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="CONTACT" />
+              <SectionHeader title="CONTACT" onVisibleMap={visibleMap} />
             </Fade>
           </TextNEXTZY>
           <MenuAndContent {...props} useActiveMenu={useActiveMenu} setActiveMenu={setActiveMenu} />

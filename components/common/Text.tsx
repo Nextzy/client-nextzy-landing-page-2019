@@ -7,7 +7,7 @@ const HorizontalPrefixParagraph = styled.p`
   display: inline-block;
   position: relative;
   line-height: 0.3;
-  // font-size: 24px;
+  font-size: 24px;
   transition: 700ms all;
   :before {
     content: '';
@@ -18,11 +18,29 @@ const HorizontalPrefixParagraph = styled.p`
     right: 100%;
     margin-right: 1rem;
   }
+  ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 3.5vh` : `margin-top: 0`)}
 
   ${media.lessThan(`${Config.sizeMobile}px`)`
     margin-left: 8rem;
+   ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 20vh` : `margin-top: 0`)}
   `}
-  ${({ isVisibleMap }) => (isVisibleMap ? `font-size: 45px; margin-top: 6%` : `font-size: 24px; margin-top: 0`)}
+
+  ${media.lessThan(`${Config.mediaQuery.mobileL}px`)`
+  margin-left: 8rem;
+  ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 75vh` : `margin-top: 0`)}
+  `}
+
+  ${media.lessThan(`${Config.mediaQuery.mobileM}px`)`
+  margin-left: 6rem;
+  ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 60vh` : `margin-top: 0`)}
+  `}
+
+  ${media.lessThan(`${Config.mediaQuery.mobileS}px`)`
+  margin-left: 6rem;
+  ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 160vh` : `margin-top: 0`)}
+  `}
+}
+
 `
 interface SectionHeaderProps {
   title: string
