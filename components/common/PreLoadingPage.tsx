@@ -21,7 +21,7 @@ const PreLoadingPage = (): void => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
-    }, 500)
+    }, 2000)
   }, [])
 
   return (

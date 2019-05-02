@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
+import Config from '../../../constants/Constants'
 import Planet from '../Planet/index'
-// import { useSpring, animated } from 'react-spring'
-const Container = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  /* z-index: -1; */
-`
 const BoxPlanetBig = styled.div`
   position: absolute;
+  ${media.between(`${Config.mediaQuery.laptopL}px`, `${Config.mediaQuery.fourK}px`)`
+  right: -28rem;
+  bottom: 1rem;
+  `}
+  ${media.between(`${Config.mediaQuery.laptop}px`, `${Config.mediaQuery.laptopL}px`)`
+  right: -17rem;
+  bottom: 0;
+  `}
   right: -13rem;
   bottom: 6rem;
   width: 100%;
@@ -19,6 +20,9 @@ const BoxPlanetBig = styled.div`
 `
 const BoxPlanetBigSub = styled.div`
   margin: 0 auto;
+  ${media.between(`${Config.mediaQuery.laptopL}px`, `${Config.mediaQuery.fourK}px`)`
+  width: 80%;
+  `}
   width: 80%;
   float: right;
   z-index: 50;
@@ -27,18 +31,38 @@ const BoxPlanetSmall = styled.div`
   position: absolute;
   bottom: 4rem;
   left: -4rem;
+  ${media.between(`${Config.mediaQuery.laptopL}px`, `${Config.mediaQuery.fourK}px`)`
+  bottom: 10rem;
+  left: -3rem;
+  `}
+  ${media.between(`${Config.mediaQuery.laptop}px`, `${Config.mediaQuery.laptopL}px`)`
+  bottom: 8rem;
+  left: -3rem;
+  `}
   width: 100%;
   z-index: 50;
 `
 const BoxPlanetSmallSub = styled.div`
   margin: 0 auto;
   width: 35%;
+  ${media.between(`${Config.mediaQuery.laptopL}px`, `${Config.mediaQuery.fourK}px`)`
+  width: 25%;
+  `}
+  ${media.between(`${Config.mediaQuery.laptop}px`, `${Config.mediaQuery.laptopL}px`)`
+  width: 30%;
+  `}
   z-index: 50;
 `
 const BoxMediumTop = styled.div`
   position: absolute;
   top: -5em;
   left: -2rem;
+  ${media.between(`${Config.mediaQuery.laptopL}px`, `${Config.mediaQuery.fourK}px`)`
+  left:-7rem;
+  `}
+  ${media.between(`${Config.mediaQuery.laptop}px`, `${Config.mediaQuery.laptopL}px`)`
+  left:-5rem;
+  `}
   width: 100%;
   z-index: 50;
 `
@@ -49,16 +73,19 @@ const BoxMediumTopSub = styled.div`
 `
 
 const PageStart = (): React.FC => {
-  const [useOrderEarth, setOrderEarth] = useState({ state1: true, state2: false, state3: false })
+  const [useOrderEarth, setOrderEarth] = useState({ state1: false, state2: false, state3: false })
   const { state1, state2, state3 } = useOrderEarth
   useEffect(() => {
     // useLayoutEffect(() => {
     setTimeout(() => {
+      setOrderEarth({ state1: true, state2: false, state3: false })
+    }, 2100)
+    setTimeout(() => {
       setOrderEarth({ state1: true, state2: true, state3: false })
-      setTimeout(() => {
-        setOrderEarth({ state1: true, state2: true, state3: true })
-      }, 800)
-    }, 800)
+    }, 2500)
+    setTimeout(() => {
+      setOrderEarth({ state1: true, state2: true, state3: true })
+    }, 3000)
   }, [])
   return (
     <>

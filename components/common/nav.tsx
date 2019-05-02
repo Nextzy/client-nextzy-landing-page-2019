@@ -46,7 +46,7 @@ const NavBar = styled.nav`
     display: flex;
     padding: 0.5rem 0;
     ${media.greaterThan(`${Config.sizeMobile}px`)`
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 0.4rem;
   `}
     cursor: pointer;
   }

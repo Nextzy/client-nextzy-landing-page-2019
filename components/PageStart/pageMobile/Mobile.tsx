@@ -5,6 +5,8 @@ import StarFix from '../Stars/index'
 import ContainerAll from '../../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import PlanetAll from './PlanetAll'
+import media from 'styled-media-query'
+import Config from '../../../constants/Constants'
 const ContainerBackground = styled.div`
   position: absolute;
   width: 100%;
@@ -26,6 +28,14 @@ const TextNEXTZY = styled.div`
   text-align: center;
   display: inline-block;
   margin-top: 228px;
+  @media screen and (max-height: 800px) and (min-height: 600px) {
+    margin-top: 140px;
+  }
+  @media screen and (max-height: 599px) and (min-height: 250px) {
+    margin-top: 80px;
+    font-size: 20px;
+  }
+  z-index: 51;
   p {
     margin: 0;
   }
@@ -37,6 +47,10 @@ const BoxBtnPage = styled.div`
   position: relative;
   z-index: 51;
   font-size: 16px;
+  @media screen and (max-height: 599px) and (min-height: 250px) {
+    font-size: 13px;
+    margin-top: 1rem;
+  }
   color: #ffffff;
   letter-spacing: 0.5px;
   text-align: center;
@@ -45,12 +59,29 @@ const BoxBtnPage = styled.div`
     margin: 0;
   }
 `
+const BoxButtonStart = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${media.greaterThan(`${Config.mediaQuery.mobileL}px`)`
+  width: 50%;
+  `}
+  width: 70%;
+  margin: 0 auto;
+`
 const ButtonProducts = styled.button`
   font-size: 14px;
   color: #ffffff;
   letter-spacing: 1.25px;
   line-height: 16px;
   margin-top: 104px;
+  @media screen and (max-height: 800px) and (min-height: 600px) {
+    margin-top: 50px;
+  }
+  @media screen and (max-height: 599px) and (min-height: 250px) {
+    margin-top: 30px;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    font-size: 10px;
+  }
   padding: 0.8rem 3.5rem 0.8rem 3.5rem;
   border-radius: 25px;
   color: white;
@@ -80,6 +111,10 @@ const ButtonContact = styled.button`
   letter-spacing: 1.25px;
   line-height: 16px;
   margin-top: 12px;
+  @media screen and (max-height: 599px) and (min-height: 250px) {
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    font-size: 10px;
+  }
   padding: 0.8rem 3.5rem 0.8rem 3.5rem;
   border-radius: 25px;
   color: white;
@@ -127,10 +162,15 @@ const PageStartMobile = (props): React.FC => {
           </TextNEXTZY>
 
           <BoxBtnPage>
-            <p>We are pirates</p>
-            <p>We sail and hunt the best mobile and web solution.</p>
-            <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
-            <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+            <Fade right cascade>
+              <p>We are pirates</p>
+              <p>We sail and hunt the best mobile </p>
+              <p>and web solution.</p>
+              <BoxButtonStart>
+                <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
+                <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+              </BoxButtonStart>
+            </Fade>
           </BoxBtnPage>
         </ContainerPageStart>
 

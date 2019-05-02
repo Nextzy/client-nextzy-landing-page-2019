@@ -20,11 +20,13 @@ const ContainerBackground = styled.div`
 const TextNEXTZY = styled.div`
   position: relative;
   text-align: left;
-  font-size: 60px;
+  /* font-size: 60px; */
+  font-size: 3rem;
   color: #ffffff;
   letter-spacing: -0.5px;
   display: inline-block;
   font-weight: 10;
+  margin-top: 5rem;
   p {
     margin: 0;
     font-family: 'Montserrat-Medium';
@@ -32,12 +34,14 @@ const TextNEXTZY = styled.div`
 `
 const BoxBtnPage = styled.div`
   font-family: 'Montserrat-Regular';
-  margin-top: 3rem;
+  margin-top: 5rem;
+  padding-top: 5rem;
   display: inline-block;
   position: relative;
   text-align: left;
   z-index: 51;
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: 1rem;
   letter-spacing: 0.5;
   line-height: 1.5;
   color: #ffffff;
@@ -119,17 +123,21 @@ const PageStartWeb = (props): React.FC => {
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>
-            <Fade right cascade>
+            <Fade right cascade delay={2100}>
               <p>NEXTZY </p>
               <p>TECHNOLOGIES</p>
             </Fade>
           </TextNEXTZY>
 
           <BoxBtnPage>
-            <p>We are pirates</p>
-            <p>We sail and hunt the best mobile and web solution.</p>
-            <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
-            <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+            <Fade right cascade delay={2100}>
+              <p>We are pirates</p>
+              <p>We sail and hunt the best mobile and web solution.</p>
+              <div>
+                <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
+                <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+              </div>
+            </Fade>
           </BoxBtnPage>
         </ContainerPageStart>
 

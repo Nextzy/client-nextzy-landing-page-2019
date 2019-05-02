@@ -6,6 +6,7 @@ import Config from '../../constants/Constants'
 import { getWidthContext } from '../../utils/getWidthScreen'
 
 const Container = styled.div`
+  /* padding: 5rem 0 5rem 0; */
   background-color: #102131;
   color: white;
   height: 100vh;

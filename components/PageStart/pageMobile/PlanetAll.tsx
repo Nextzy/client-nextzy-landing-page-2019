@@ -1,16 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Planet from '../Planet/index'
+import media from 'styled-media-query'
+import Config from '../../../constants/Constants'
 const BoxPlanetBig = styled.div`
   position: absolute;
   right: -12rem;
   bottom: 0;
+  ${media.greaterThan(`${Config.mediaQuery.mobileL}px`)`
+  right: -12rem;
+  bottom: 2rem;
+  `}
+  ${media.between(`${Config.mediaQuery.mobileL}px`, `${Config.mediaQuery.tablet - 100}px`)`
+  right: -15rem;
+  bottom: 1rem;
+  `}
+  ${media.between(`${Config.mediaQuery.mobileL + 100}px`, `${Config.mediaQuery.tablet}px`)`
+  right: -18rem;
+  bottom: 1rem;
+  `}
   width: 100%;
   z-index: 50;
 `
 const BoxPlanetBigSub = styled.div`
   margin: 0 auto;
   width: 150%;
+  ${media.greaterThan(`${Config.mediaQuery.mobileL}px`)`
+  width: 130%;
+  `}
+  ${media.between(`${Config.mediaQuery.mobileL}px`, `${Config.mediaQuery.tablet}px`)`
+  width: 100%;
+  `}
   float: right;
   z-index: 50;
 `
@@ -18,11 +38,29 @@ const BoxMediumTop = styled.div`
   position: absolute;
   top: 2rem;
   left: -6.5rem;
+  ${media.greaterThan(`${Config.mediaQuery.mobileL}px`)`
+  top: 1rem;
+  left: -7rem;
+  `}
+  ${media.between(`${Config.mediaQuery.mobileL}px`, `${Config.mediaQuery.tablet - 100}px`)`
+  top: 0rem;
+  left: -10rem;
+  `}
+  ${media.between(`${Config.mediaQuery.mobileL + 100}px`, `${Config.mediaQuery.tablet}px`)`
+  top: 0rem;
+  left: -15rem;
+  `}
   width: 100%;
   z-index: 50;
 `
 const BoxMediumTopSub = styled.div`
   margin: 0 auto;
+  ${media.between(`${Config.mediaQuery.mobileL}px`, `${Config.mediaQuery.tablet - 100}px`)`
+  width: 60%;
+  `}
+  ${media.between(`${Config.mediaQuery.mobileL + 100}px`, `${Config.mediaQuery.tablet}px`)`
+  width: 40%;
+  `}
   width: 70%;
   z-index: 50;
 `

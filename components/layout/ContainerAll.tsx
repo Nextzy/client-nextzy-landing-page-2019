@@ -32,6 +32,9 @@ const BoxCenter = styled.div`
   width: 90vw;
 
   `}
+  ${media.between(`${Config.mediaQuery.laptop + 100}px`, `${Config.mediaQuery.fourK}px`)`
+  width: 980px;
+  `}
 `
 const ContainerAll = (props): React.FC => {
   const { children } = props
