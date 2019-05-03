@@ -166,7 +166,7 @@ const MenuListMobile = (props): React.FC => {
 const DescriptionHolder = styled.div`
   max-width: 40vw;
   ${media.lessThan(`${Config.sizeMobile}px`)`
-      width: 90vw;
+      max-width: 90vw;
   `}
 `
 
