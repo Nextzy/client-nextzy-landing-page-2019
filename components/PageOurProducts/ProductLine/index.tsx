@@ -11,6 +11,14 @@ const Line = styled.div`
     height: 70%;
     z-index: 1;
     user-select: none;
+
+    ${media.lessThan(`${Config.mediaQuery.tablet}px`)`
+      left: 5%;
+    `}
+
+    ${media.lessThan(`${Config.mediaQuery.mobileM}px`)`
+      left: 0;
+    `}
   }
   .a,
   .b,
