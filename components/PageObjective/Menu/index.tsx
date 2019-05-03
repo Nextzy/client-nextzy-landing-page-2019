@@ -161,7 +161,10 @@ const MenuListMobile = (props): React.FC => {
 }
 
 const DescriptionHolder = styled.div`
-  max-width: 40vw;
+  ${media.greaterThan(`${Config.mediaQuery.tablet}px`)`
+    max-width: 40vw;
+  `}
+
   ${media.lessThan(`${Config.sizeMobile}px`)`
       width: 400px;
   `}
