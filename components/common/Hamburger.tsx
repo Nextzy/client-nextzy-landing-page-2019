@@ -117,6 +117,10 @@ const DivBottom = styled.div`
   line-height: 16px;
   cursor: pointer;
   margin: 1rem;
+  a {
+    text-decoration: none;
+    color: #323c5a;
+  }
 `
 const BoxHandleClick = styled.div`
   position: absolute;
@@ -148,7 +152,9 @@ const Hamburger = (props): void => {
                   <a>BLOGS</a>
                 </Link>
               </DivMenu>
-              <DivBottom>CAREER</DivBottom>
+              <DivBottom>
+                <a href="https://www.blognone.com/node/64996">CAREER</a>
+              </DivBottom>
             </BoxSelectMenu>
           </Fade>
         </BoxRotate>

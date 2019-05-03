@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="420" height="100">
+  <defs>
+    <path id="prefix__header_dicut_mobile-a" d="M420 100H0V.044c116.37 63.055 257.231 99.95 409 99.95h11z"/>
+  </defs>
+  <use fill="#102131" fill-rule="evenodd" xlink:href="#prefix__header_dicut_mobile-a"/>
+</svg>
