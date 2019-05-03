@@ -32,9 +32,6 @@ const ScrollPage = ({ goto }): React.FC => {
     const { index } = destination
     setActive(index || 0)
   }
-  // const visibleMenu = (): void => {
-  //   setMenu(!useMenu)
-  // }
   return (
     <ContainerBackground>
       <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
@@ -58,7 +55,7 @@ const ScrollPage = ({ goto }): React.FC => {
           if (goto && fullpageApi && state.initialized && !state.destination) {
             //first load in query
             const currentLink = links.filter((link) => link.href === goto)[0]
-            fullpageApi.moveTo(currentLink.key + 1)
+            fullpageApi.moveTo(currentLink.key)
           }
           return (
             <>

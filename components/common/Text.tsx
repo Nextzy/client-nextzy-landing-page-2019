@@ -17,7 +17,16 @@ const HorizontalPrefixParagraph = styled.p`
     width: 5rem;
     right: 100%;
     margin-right: 1rem;
+    ${media.between(`${Config.mediaQuery.mobileS}px`, `${Config.mediaQuery.tablet}px`)`
+    width: 3rem;
+    right: 110%;
+    margin-right: 0;
+  `}
   }
+  ${media.between(`${Config.mediaQuery.mobileS}px`, `${Config.mediaQuery.tablet}px`)`
+    font-size: 20px;
+    line-height: 1;
+  `}
   ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 3.5vh` : `margin-top: 0`)}
 
   ${media.lessThan(`${Config.sizeMobile}px`)`

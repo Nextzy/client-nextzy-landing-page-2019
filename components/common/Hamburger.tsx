@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import Link from 'next/link'
 import media from 'styled-media-query'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
@@ -102,6 +103,10 @@ const DivMenu = styled.div`
   margin: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 0.7rem;
+  a {
+    text-decoration: none;
+    color: #323c5a;
+  }
 `
 const DivBottom = styled.div`
   opacity: 0.87;
@@ -138,7 +143,11 @@ const Hamburger = (props): void => {
         <BoxRotate>
           <Fade top cascade when={useMenu}>
             <BoxSelectMenu open={useMenu}>
-              <DivMenu>BLOGS</DivMenu>
+              <DivMenu>
+                <Link href="/medium">
+                  <a>BLOGS</a>
+                </Link>
+              </DivMenu>
               <DivBottom>CAREER</DivBottom>
             </BoxSelectMenu>
           </Fade>

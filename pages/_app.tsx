@@ -1,6 +1,7 @@
 import React from 'react'
 import App, { Container } from 'next/app'
 import PreLoadingPage from '../components/common/PreLoadingPage'
+import GlobalStyle from '../components/common/GlobalStyle'
 
 interface MyAppProp extends App {
   Component: any
@@ -20,6 +21,7 @@ class MyApp extends App<MyAppProp> {
     const { Component, pageProps } = this.props
     return (
       <Container>
+        <GlobalStyle />
         <PreLoadingPage />
         <Component {...pageProps} />
       </Container>
