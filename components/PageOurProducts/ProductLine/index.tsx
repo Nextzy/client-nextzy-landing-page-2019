@@ -1,5 +1,7 @@
 import React, { useState, Component, Fragment } from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
+import Config from '../../../constants/Constants'
 
 const Line = styled.div`
   svg {
@@ -41,7 +43,7 @@ const Line = styled.div`
     isolation: isolate;
   }
   .text-active {
-    font-size: 30px;
+    font-size: 25px;
     letter-spacing: 0.01em;
   }
   .text-active,
@@ -49,7 +51,7 @@ const Line = styled.div`
     font-family: Montserrat-Regular, Montserrat Regular;
   }
   .text-unactive {
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.01em;
   }
 
@@ -103,7 +105,7 @@ export const LineSpinner = (props): React.FC => {
         </g>
         {createSelect.map((item) => {
           const { fixselected, transformTextMobile, transformRotate, indicatorPosition } = item
-          const textTransform = `translate(36 ${transformTextMobile + setPositionText(useSelected)})`
+          const textTransform = `translate(32 ${transformTextMobile + setPositionText(useSelected)})`
           const indicatorTransform = indicatorPosition + setPositionIndicator(useSelected)
           return (
             <Fragment key={item.id}>

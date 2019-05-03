@@ -79,7 +79,7 @@ const DataTest = [
   {
     id: 3,
     rotate: 28,
-    indicatorPosition: 137,
+    indicatorPosition: 139,
     positionSVG: { cx: '721.4', cy: '265.02' },
     fixselected: 'third',
     transformTextMobile: 143.5,
@@ -95,7 +95,7 @@ const DataTest = [
   {
     id: 4,
     rotate: 0,
-    indicatorPosition: 197.5,
+    indicatorPosition: 197,
     positionSVG: { cx: '749.23', cy: '406.21' },
     fixselected: 'fourth',
     transformTextMobile: 205.5,
@@ -110,7 +110,7 @@ const DataTest = [
   {
     id: 5,
     rotate: -20,
-    indicatorPosition: 259,
+    indicatorPosition: 255,
     positionSVG: { cx: '716.17', cy: '535.86' },
     fixselected: 'fifth',
     transformTextMobile: 267.5,
@@ -126,7 +126,7 @@ const DataTest = [
   {
     id: 6,
     rotate: -40,
-    indicatorPosition: 317,
+    indicatorPosition: 313,
     positionSVG: { cx: '647.47', cy: '629.24' },
     fixselected: 'sixth',
     transformTextMobile: 325.5,
@@ -136,7 +136,7 @@ const DataTest = [
   {
     id: 7,
     rotate: -60,
-    indicatorPosition: 375,
+    indicatorPosition: 371,
     positionSVG: { cx: '565.99', cy: '685.43' },
     fixselected: 'seventh',
     transformTextMobile: 383.5,

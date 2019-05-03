@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import media from 'styled-media-query'
+import Config from '../../../constants/Constants'
 
 const ProductDeatil = styled.div`
   width: 70%;
@@ -35,6 +37,18 @@ const ProductImgfirst = styled.img`
     height: 300px;
     animation: slide-out-first 0.6s forwards;
     -webkit-animation: slide-out-first 0.6s forwards;
+
+    ${media.lessThan(`${Config.sizeMobile}px`)`
+      height: 550px;
+    `}
+
+    ${media.lessThan(`${Config.mediaQuery.mobileL}px`)`
+      height: 300px;
+    `}
+
+    ${media.lessThan(`${Config.mediaQuery.mobileS}px`)`
+      height: 200px;
+    `}
   }
 
   @keyframes slide-out-first {
@@ -67,6 +81,24 @@ const ProductImgSecond = styled.img`
     height: 250px;
     animation: slide-out-second 1.3s forwards;
     -webkit-animation: slide-out-second 1.3s forwards;
+
+    ${media.lessThan(`${Config.mediaQuery.tablet}px`)`
+      margin-top: 6rem;
+      margin-left: 14rem;
+      height: 450px;
+  `}
+
+  ${media.lessThan(`${Config.mediaQuery.mobileL}px`)`
+  margin-top: 4.5rem;
+  margin-left: 6rem;
+  height: 250px;
+  `}
+
+    ${media.lessThan(`${Config.mediaQuery.mobileS}px`)`
+      margin-top: 3rem;
+      margin-left: 3rem;
+      height: 180px;
+    `}
   }
 
   @keyframes slide-out-second {
