@@ -35,7 +35,7 @@ const Row = styled.div`
   }
   ${media.lessThan(`${Config.sizeMobile}px`)`
     color: white;
-    width: 400px;
+    width: 90vw;
   `}
 `
 
@@ -47,6 +47,9 @@ const RowWrapper = styled.div`
 
 const BottomLiner = styled.img`
   opacity: ${(props) => (props.selected ? 1 : 0.3)};
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+   width: 90vw;
+  `}
 `
 interface MenuProps {
   name: string
@@ -161,12 +164,9 @@ const MenuListMobile = (props): React.FC => {
 }
 
 const DescriptionHolder = styled.div`
-  ${media.greaterThan(`${Config.mediaQuery.tablet}px`)`
-    max-width: 40vw;
-  `}
-
+  max-width: 40vw;
   ${media.lessThan(`${Config.sizeMobile}px`)`
-      width: 400px;
+      width: 90vw;
   `}
 `
 

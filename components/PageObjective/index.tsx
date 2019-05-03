@@ -31,7 +31,10 @@ const ContainerPageObjective = styled.div`
   text-align: left;
   margin-top: 10rem;
   z-index: 50;
-  flex-direction: column;
+  ${media.greaterThan(`${Config.sizeMobile}px`)`
+    flex-direction: column;
+  `}
+
   ${media.lessThan(`${Config.sizeMobile}px`)`
       margin-top: 3rem;
   `}
