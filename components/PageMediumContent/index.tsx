@@ -4,7 +4,6 @@ import Fade from 'react-reveal/Fade'
 import Config from '../../constants/Constants'
 import ContainerAll from '../layout/ContainerAll'
 import { getWidthContext } from '../../utils/getWidthScreen'
-import SlideShowImage from './SlideShowImage'
 const Container = styled.div`
   /* padding: 5rem 0 5rem 0; */
   background-color: #102131;
@@ -114,7 +113,7 @@ const ArrowRight = styled.i`
     transform-origin: right top;
   }
 `
-const PageMedium = (props): React.FC => {
+const PageMediumContent = (props): React.FC => {
   const useScreen = useContext(getWidthContext)
   return (
     <Container>
@@ -139,9 +138,8 @@ const PageMedium = (props): React.FC => {
           </BoxBtnPage>
         </ContainerPageStart>
       </ContainerAll>
-      <SlideShowImage />
     </Container>
   )
 }
 
-export default PageMedium
+export default PageMediumContent
