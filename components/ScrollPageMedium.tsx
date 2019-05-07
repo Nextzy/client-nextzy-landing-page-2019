@@ -9,6 +9,7 @@ import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
 import PageMedium from '../components/PageMedium/index'
+import PageMediumContent from '../components/PageMediumContent/index'
 
 const ContainerBackground = styled.div`
   background-color: #102131;
@@ -51,9 +52,9 @@ const ScrollPage = ({ goto }): React.FC => {
                 <div className="section">
                   <PageMedium fullpageApi={useFullPageApi} />
                 </div>
-                {/* <div className="section">
-                  <PageObjective />
-                </div> */}
+                <div className="section">
+                  <PageMediumContent />
+                </div>
               </ReactFullpage.Wrapper>
             </>
           )
