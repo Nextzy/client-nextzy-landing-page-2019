@@ -92,17 +92,15 @@ const LegoWrapper = (props): React.FC => {
     }, 450 * order)
   }, [])
 
-  if (userShow) {
-    return (
-      <LegoDecorator>
-        <Bounce duration={800}>
-          <Lego {...props}>
-            <LegoSpan>{props.children}</LegoSpan>
-          </Lego>
-        </Bounce>
-      </LegoDecorator>
-    )
-  } else return <LegoNull />
+  return (
+    <LegoDecorator>
+      <Fade duration={800}>
+        <Lego {...props}>
+          <LegoSpan>{userShow ? props.children : null}</LegoSpan>
+        </Lego>
+      </Fade>
+    </LegoDecorator>
+  )
 }
 const LegoBlocks = (): React.FC => {
   const useScreen = useContext(getWidthContext)
@@ -121,21 +119,21 @@ const LegoBlocks = (): React.FC => {
           <LegoWrapper order="2" color={'#6062D0'}>
             Mobile Application Development
           </LegoWrapper>
-          <LegoWrapper order="3" thickBottomBorder color={'#9E5CAF'}>
+          <LegoWrapper order="2" thickBottomBorder color={'#9E5CAF'}>
             Web Service Development
           </LegoWrapper>
-          <LegoWrapper order="4" thickBottomBorder color={'#6C62CB'}>
+          <LegoWrapper order="3" thickBottomBorder color={'#6C62CB'}>
             Blockchain Development
           </LegoWrapper>
-          <LegoWrapper order="5" color={'#5065DB'}>
+          <LegoWrapper order="3" color={'#5065DB'}>
             UI and UX <br />
             Design
             <br /> Services
           </LegoWrapper>
-          <LegoWrapper order="6" color={'#835FBE'}>
+          <LegoWrapper order="4" color={'#835FBE'}>
             DevOps Services
           </LegoWrapper>
-          <LegoWrapper order="7" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
+          <LegoWrapper order="4" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
             QA Services
           </LegoWrapper>
         </Fade>
@@ -152,21 +150,21 @@ const LegoBlocks = (): React.FC => {
           <LegoWrapper order="2" thickBottomBorder color={'#AB5AA9'}>
             Mobile Application Development
           </LegoWrapper>
-          <LegoWrapper order="3" color={'#9E5CAF'}>
+          <LegoWrapper order="2" color={'#9E5CAF'}>
             Web Service Development
           </LegoWrapper>
-          <LegoWrapper order="4" thickBottomBorder color={'#6C62CB'}>
+          <LegoWrapper order="2" thickBottomBorder color={'#6C62CB'}>
             Blockchain Development
           </LegoWrapper>
-          <LegoWrapper order="5" color={'#5065DB'}>
+          <LegoWrapper order="2" color={'#5065DB'}>
             UI and UX <br />
             Design
             <br /> Services
           </LegoWrapper>
-          <LegoWrapper order="6" color={'#835FBE'}>
+          <LegoWrapper order="3" color={'#835FBE'}>
             DevOps Services
           </LegoWrapper>
-          <LegoWrapper order="7" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
+          <LegoWrapper order="3" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
             QA Services
           </LegoWrapper>
         </Fade>
