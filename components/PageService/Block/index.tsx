@@ -46,6 +46,7 @@ const Lego = styled.div`
   padding-bottom: 60px;
   text-align: left;
   vertical-align: bottom;
+  align-items: flex-end;
   border: 1px solid ${(props) => props.color};
   border-bottom: ${(props) => (props.thickBottomBorder ? '8px' : '1px')} solid ${(props) => props.color};
 
@@ -80,9 +81,7 @@ const LegoDecorator = styled.div`
   justify-self: flex-start;
 `
 
-const LegoSpan = styled.span`
-  align-self: flex-end;
-`
+const LegoMessage = styled.div``
 const LegoWrapper = (props): React.FC => {
   const [userShow, setShow] = useState(false)
   const { order } = props
@@ -94,11 +93,11 @@ const LegoWrapper = (props): React.FC => {
 
   return (
     <LegoDecorator>
-      <Fade duration={800}>
-        <Lego {...props}>
-          <LegoSpan>{userShow ? props.children : null}</LegoSpan>
-        </Lego>
-      </Fade>
+      <Lego {...props}>
+        <Fade top cascade duration={800} spy={userShow}>
+          <LegoMessage>{userShow ? props.children : null}</LegoMessage>
+        </Fade>
+      </Lego>
     </LegoDecorator>
   )
 }
