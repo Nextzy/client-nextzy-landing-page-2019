@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Bounce from 'react-reveal/Bounce'
+import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
 import media from 'styled-media-query'
 import Config from '../../../constants/Constants'
@@ -59,37 +59,31 @@ const LegoImg = styled.img`
 `
 const LegoWrapper = (props): React.FC => {
   const [userShow, setShow] = useState(false)
-  const { id } = props
+  const { order } = props
   useEffect(() => {
     setTimeout(() => {
       setShow(true)
-    }, 450 * id)
+    }, 450 * order)
   }, [])
 
-  if (userShow) {
-    return (
-      <LegoDecorator>
-        <Bounce duration={800}>
-          <Lego {...props}>
-            <LegoImg src={`static/images/logo/logo_${props.src}.svg`} />
-          </Lego>
-        </Bounce>
-      </LegoDecorator>
-    )
-  } else return <LegoNull />
+  return (
+    <LegoDecorator>
+      <Fade top cascade>
+        <Lego {...props}>{userShow ? <LegoImg src={`static/images/logo/logo_${props.src}.svg`} /> : null}</Lego>
+      </Fade>
+    </LegoDecorator>
+  )
 }
 const LegoBlocks = (): React.FC => (
   <Container>
-    <Fade top cascade>
-      <LegoWrapper id="1" color={'#DE6C90'} src="myAis" leftExtended />
-      <LegoWrapper id="2" color={'#9C649A'} src="nu_mobile" />
-      <LegoWrapper id="3" color={'#8466A7'} src="omisego" leftExtended />
-      <LegoWrapper id="4" color={'#6A6ABA'} src="iteamstudio" rightExtended />
-      <LegoWrapper id="5" color={'#A26FB1'} src="onedaycat" leftExtended />
-      <LegoWrapper id="6" color={'#8572C2'} src="true" rightExtended />
-      <LegoWrapper id="7" color={'#6875D4'} src="nitto" />
-      <LegoWrapper id="8" color={'#5079E5'} src="youex" rightExtended />
-    </Fade>
+    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended />
+    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" />
+    <LegoWrapper order="1" color={'#8466A7'} src="omisego" leftExtended />
+    <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended />
+    <LegoWrapper order="2" color={'#A26FB1'} src="onedaycat" leftExtended />
+    <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended />
+    <LegoWrapper order="2" color={'#6875D4'} src="nitto" />
+    <LegoWrapper order="2" color={'#5079E5'} src="youex" rightExtended />
   </Container>
 )
 export default LegoBlocks
