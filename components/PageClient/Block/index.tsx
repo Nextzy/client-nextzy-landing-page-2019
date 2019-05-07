@@ -23,6 +23,7 @@ const Lego = styled.div`
   padding: auto;
   vertical-align: bottom;
   justify-content: center;
+  align-items: center;
   border: 1px solid ${(props) => props.color};
 
   :before {
@@ -68,9 +69,13 @@ const LegoWrapper = (props): React.FC => {
 
   return (
     <LegoDecorator>
-      <Fade top cascade>
-        <Lego {...props}>{userShow ? <LegoImg src={`static/images/logo/logo_${props.src}.svg`} /> : null}</Lego>
-      </Fade>
+      <Lego {...props}>
+        {userShow ? (
+          <Fade top cascade>
+            <LegoImg src={`static/images/logo/logo_${props.src}.svg`} />
+          </Fade>
+        ) : null}
+      </Lego>
     </LegoDecorator>
   )
 }

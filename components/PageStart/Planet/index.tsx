@@ -70,7 +70,7 @@ const PlanetBigFunction = (props): React.FC => {
     var x = e.pageX - objPlanet.offsetLeft
     var y = e.pageY - objPlanet.offsetTop
     var position = closestEdge(x, y, objPlanet.clientWidth, objPlanet.clientHeight)
-    const { x, y } = randomPosition(position)
+    // const { x, y } = randomPosition(position)
     setPosition({ x: x || 0, y: y || 0 })
   }
   const mouseOut = (): void => {

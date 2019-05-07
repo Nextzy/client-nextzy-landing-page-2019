@@ -109,64 +109,60 @@ const LegoBlocks = (): React.FC => {
   if (useScreen <= Config.sizeMobile) {
     return (
       <Container>
-        <Fade top cascade>
-          <Prescription />
-          <LegoWrapper order="1" topLeftExtended color={'#AB5AA9'}>
-            Web Application Development
-          </LegoWrapper>
-          <LegoWrapper order="1" color={'rgb(0,0,0,0)'} />
-          <LegoWrapper order="2" color={'#6062D0'}>
-            Mobile Application Development
-          </LegoWrapper>
-          <LegoWrapper order="2" thickBottomBorder color={'#9E5CAF'}>
-            Web Service Development
-          </LegoWrapper>
-          <LegoWrapper order="3" thickBottomBorder color={'#6C62CB'}>
-            Blockchain Development
-          </LegoWrapper>
-          <LegoWrapper order="3" color={'#5065DB'}>
-            UI and UX <br />
-            Design
-            <br /> Services
-          </LegoWrapper>
-          <LegoWrapper order="4" color={'#835FBE'}>
-            DevOps Services
-          </LegoWrapper>
-          <LegoWrapper order="4" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
-            QA Services
-          </LegoWrapper>
-        </Fade>
+        <Prescription />
+        <LegoWrapper order="1" topLeftExtended color={'#AB5AA9'}>
+          Web Application Development
+        </LegoWrapper>
+        <LegoWrapper order="1" color={'rgb(0,0,0,0)'} />
+        <LegoWrapper order="2" color={'#6062D0'}>
+          Mobile Application Development
+        </LegoWrapper>
+        <LegoWrapper order="2" thickBottomBorder color={'#9E5CAF'}>
+          Web Service Development
+        </LegoWrapper>
+        <LegoWrapper order="3" thickBottomBorder color={'#6C62CB'}>
+          Blockchain Development
+        </LegoWrapper>
+        <LegoWrapper order="3" color={'#5065DB'}>
+          UI and UX <br />
+          Design
+          <br /> Services
+        </LegoWrapper>
+        <LegoWrapper order="4" color={'#835FBE'}>
+          DevOps Services
+        </LegoWrapper>
+        <LegoWrapper order="4" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
+          QA Services
+        </LegoWrapper>
       </Container>
     )
   } else {
     return (
       <Container>
-        <Fade top cascade>
-          <Prescription />
-          <LegoWrapper order="1" topLeftExtended color={'#6062D0'}>
-            Web Application Development
-          </LegoWrapper>
-          <LegoWrapper order="2" thickBottomBorder color={'#AB5AA9'}>
-            Mobile Application Development
-          </LegoWrapper>
-          <LegoWrapper order="2" color={'#9E5CAF'}>
-            Web Service Development
-          </LegoWrapper>
-          <LegoWrapper order="2" thickBottomBorder color={'#6C62CB'}>
-            Blockchain Development
-          </LegoWrapper>
-          <LegoWrapper order="2" color={'#5065DB'}>
-            UI and UX <br />
-            Design
-            <br /> Services
-          </LegoWrapper>
-          <LegoWrapper order="3" color={'#835FBE'}>
-            DevOps Services
-          </LegoWrapper>
-          <LegoWrapper order="3" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
-            QA Services
-          </LegoWrapper>
-        </Fade>
+        <Prescription />
+        <LegoWrapper order="1" topLeftExtended color={'#6062D0'}>
+          Web Application Development
+        </LegoWrapper>
+        <LegoWrapper order="2" thickBottomBorder color={'#AB5AA9'}>
+          Mobile Application Development
+        </LegoWrapper>
+        <LegoWrapper order="2" color={'#9E5CAF'}>
+          Web Service Development
+        </LegoWrapper>
+        <LegoWrapper order="2" thickBottomBorder color={'#6C62CB'}>
+          Blockchain Development
+        </LegoWrapper>
+        <LegoWrapper order="2" color={'#5065DB'}>
+          UI and UX <br />
+          Design
+          <br /> Services
+        </LegoWrapper>
+        <LegoWrapper order="3" color={'#835FBE'}>
+          DevOps Services
+        </LegoWrapper>
+        <LegoWrapper order="3" bottomRightExtended thickBottomBorder color={'#6F62CA'}>
+          QA Services
+        </LegoWrapper>
       </Container>
     )
   }
