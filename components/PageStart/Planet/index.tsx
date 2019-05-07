@@ -35,6 +35,32 @@ const PlanetBigFunction = (props): React.FC => {
         return 'bottom'
     }
   }
+  const randomPosition = (position): void => {
+    console.log('position', position)
+    let getX = 0
+    let getY = 0
+    let randomShort = Math.floor(Math.random() * 100)
+    let randomLong = Math.floor(Math.random() * 500)
+    switch (position) {
+      case 'left':
+        getX = randomShort
+        getY = randomLong
+        break
+      case 'right':
+        getX = -randomShort
+        getY = -randomLong
+        break
+      case 'top':
+        getX = randomLong
+        getY = randomShort
+        break
+      case 'bottom':
+        getX = -randomLong
+        getY = -randomShort
+        break
+    }
+    return { x: getX, y: getY }
+  }
   const mouseOver = function(e): void {
     // const mouseX = e.pageX
     // const mouseY = e.pageY
@@ -43,10 +69,10 @@ const PlanetBigFunction = (props): React.FC => {
     const objPlanet = refPlanet.current
     var x = e.pageX - objPlanet.offsetLeft
     var y = e.pageY - objPlanet.offsetTop
-    var edge = closestEdge(x, y, objPlanet.clientWidth, objPlanet.clientHeight)
-    console.log('edge', edge)
+    var position = closestEdge(x, y, objPlanet.clientWidth, objPlanet.clientHeight)
+    const { x, y } = randomPosition(position)
+    setPosition({ x: x || 0, y: y || 0 })
   }
-
   const mouseOut = (): void => {
     setPosition({ x: 0, y: 0 })
   }
