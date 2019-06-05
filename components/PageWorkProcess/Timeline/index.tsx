@@ -35,7 +35,7 @@ const Timeline = (props): React.FC => {
   const { DataProcess } = props
   return (
     <MainTimeline>
-      <Fade right cascade>
+      <Fade left cascade>
         <BoxTimelineScroll>
           <TimelineBox>
             <ProgressBar />

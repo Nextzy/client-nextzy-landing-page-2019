@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Bounce from 'react-reveal/Bounce'
 
 const Entry = styled.div`
   display: inline-block;
@@ -33,14 +32,16 @@ const NodeEntry = styled.div`
     top: -28px;
     margin-left: -6px;
   }
-  ${({ position, color }) =>
+  ${({ position, color, show }) =>
     position
       ? `::before {
     content: '';
     display: block;
     background: ${color};
     width: 1px;
-    height: 35px;
+    transition: height 2s;
+    // should slide up
+    height: ${show ? '35px;' : '0px;'}
     position: absolute;
     left: 50%;
     top: -13px;
@@ -51,10 +52,11 @@ const NodeEntry = styled.div`
     display: block;
     background: ${color};
     width: 1px;
-    height: 35px;
+    transition: height 2s;
+    height: ${show ? '35px;' : '0px;'}
     position: absolute;
     left: 50%;
-    top: -58px;
+    bottom: 24px;
     margin-left: -2px;
   }`}
 `
@@ -65,14 +67,17 @@ const BoxText = styled.div`
   left: 0;
   text-align: center;
   top: 1.5rem;
-  ${({ position }) =>
+  transition: width 2s;
+  ${({ position, show }) =>
     position
       ? ` 
-  top: 30px;
+  transition: top 2s;
+  top: ${show ? '30px' : '-32px'}
   margin-left:-1px;`
       : ` 
-  top: -105px;
-  margin-left:-1px;`}
+      transition: top 2s;
+      top: ${show ? '-105px' : '-52px'}
+      margin-left:-1px;`}
 `
 const CircleNumber = styled.div`
   background: ${({ color }) => color};
@@ -84,17 +89,17 @@ const TextDescription = styled.div`
   position: relative;
   ${({ position }) => (position ? ` top:1rem;` : ` top:-1rem;`)}
 `
-const CheckReturnText = (id, name, color): void => {
+const CheckReturnText = (id, name, color, userShow): void => {
   if (id % 2 === 0) {
     return (
-      <BoxText position={id % 2 === 0}>
+      <BoxText position={id % 2 === 0} show={userShow}>
         <CircleNumber color={color}>{id}</CircleNumber>
         <TextDescription position={id % 2 === 0}>{name}</TextDescription>
       </BoxText>
     )
   } else {
     return (
-      <BoxText position={id % 2 === 0}>
+      <BoxText position={id % 2 === 0} show={userShow}>
         <TextDescription position={id % 2 === 0}>{name}</TextDescription>
         <CircleNumber color={color}>{id}</CircleNumber>
       </BoxText>
@@ -112,20 +117,14 @@ const ItemTimeline = (props): React.FC => {
     }, 500 * id)
   }, [])
 
-  if (userShow) {
-    return (
-      <Entry position={id % 2 === 0}>
-        <Bounce top={id % 2 === 0 ? false : true} bottom={id % 2 === 0 ? true : false} cascade>
-          <AnimationNodeEntry>
-            <NodeEntry color={color} position={id % 2 === 0} />
-            {CheckReturnText(id, name, color)}
-          </AnimationNodeEntry>
-        </Bounce>
-      </Entry>
-    )
-  } else {
-    return null
-  }
+  return (
+    <Entry position={id % 2 === 0}>
+      <AnimationNodeEntry>
+        <NodeEntry color={color} position={id % 2 === 0} show={userShow} />
+        {CheckReturnText(id, name, color, userShow)}
+      </AnimationNodeEntry>
+    </Entry>
+  )
 }
 
 export default ItemTimeline

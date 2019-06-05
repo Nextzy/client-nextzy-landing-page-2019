@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Bounce from 'react-reveal/Bounce'
+import Fade from 'react-reveal/Fade'
 
-const ContainerNull = styled.div`
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-  padding: 60px 0 60px 0;
-`
 const ContainerBoxLeft = styled.div`
   position: relative;
   background-color: inherit;
@@ -21,7 +15,10 @@ const ContainerBoxLeft = styled.div`
     content: '';
     display: block;
     background: ${({ color }) => color};
-    width: 1px;
+    transition: width 2s;
+    ${({ show }) => `
+    width:${show ? '1px;' : '0px;'};
+    `}
     top: 0;
     height: 20px;
     right: 20px;
@@ -41,8 +38,11 @@ const ContainerBoxLeft = styled.div`
   }
   div {
     position: absolute;
+    transition: right 2s;
     color: white;
-    right: 20px;
+    ${({ show }) => `
+    right:${show ? '20px;' : '-4px;'};
+    `}
     top: 0;
   }
 `
@@ -59,7 +59,10 @@ const ContainerBoxRight = styled.div`
     content: '';
     display: block;
     background: ${({ color }) => color};
-    width: 1px;
+    transition: width 2s;
+    ${({ show }) => `
+    width:${show ? '1px;' : '0px;'};
+    `}
     top: 0;
     height: 20px;
     right: -20px;
@@ -80,11 +83,15 @@ const ContainerBoxRight = styled.div`
   div {
     position: absolute;
     color: white;
-    right: -30px;
+    transition: right 2s;
+    ${({ show }) => `
+    right:${show ? '-30px;' : '-4px;'};
+    `}
     top: 0;
   }
 `
 const CircleNumber = styled.div`
+  z-index: 2;
   background: ${({ color }) => color};
   padding: 5px 8px 5px 8px;
   border-radius: 15px;
@@ -101,22 +108,26 @@ const TextDescriptionRight = styled.div`
   margin-top: 0.3rem;
   width: 100px;
 `
-const CheckReturnText = (id, name, color): void => {
+const CheckReturnText = (id, name, color, userShow): void => {
   if (id % 2 === 0) {
     return (
-      <ContainerBoxLeft color={color}>
+      <ContainerBoxLeft color={color} show={userShow}>
         <div>
           <CircleNumber color={color}>{id}</CircleNumber>
-          <TextDescriptionLeft>{name}</TextDescriptionLeft>
+          <Fade right cascade>
+            <TextDescriptionLeft>{name}</TextDescriptionLeft>
+          </Fade>
         </div>
       </ContainerBoxLeft>
     )
   } else {
     return (
-      <ContainerBoxRight color={color}>
+      <ContainerBoxRight color={color} show={userShow}>
         <div>
           <CircleNumber color={color}>{id}</CircleNumber>
-          <TextDescriptionRight>{name}</TextDescriptionRight>
+          <Fade left cascade>
+            <TextDescriptionRight>{name}</TextDescriptionRight>
+          </Fade>
         </div>
       </ContainerBoxRight>
     )
@@ -131,16 +142,7 @@ const ItemTimeline = (props): React.FC => {
       setShow(true)
     }, 500 * id)
   }, [])
-
-  if (userShow) {
-    return (
-      <Bounce right={id % 2 === 0 ? false : true} left={id % 2 === 0 ? true : false}>
-        {CheckReturnText(id, name, color)}
-      </Bounce>
-    )
-  } else {
-    return <ContainerNull />
-  }
+  return CheckReturnText(id, name, color, userShow)
 }
 
 export default ItemTimeline

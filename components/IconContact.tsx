@@ -19,7 +19,6 @@ const BoxIconContact = styled.div`
     fill: #fff;
     &:hover {
       fill: #f7618b;
-      transform: scale(1.5);
     }
   }
 `
