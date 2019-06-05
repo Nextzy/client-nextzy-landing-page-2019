@@ -130,6 +130,22 @@ const BoxHandleClick = styled.div`
   left: 0;
   top: 0;
 `
+const Menu = (props): void => {
+  const { useMenu } = props
+  return (
+    <BoxSelectMenu open={useMenu}>
+      <DivMenu>
+        <Link href="/medium">
+          <a>BLOGS</a>
+        </Link>
+      </DivMenu>
+      <DivBottom>
+        <a href="https://www.blognone.com/node/64996">CAREER</a>
+      </DivBottom>
+    </BoxSelectMenu>
+  )
+}
+
 const Hamburger = (props): void => {
   const { useMenu, setMenu } = props
   const getScreenContext = useContext(getWidthContext)
@@ -142,23 +158,11 @@ const Hamburger = (props): void => {
       <IconHamburger setActive={useMenu} onClick={setVisibleMenu}>
         <span />
       </IconHamburger>
-
-      {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
-        <BoxRotate>
-          <Fade top cascade when={useMenu}>
-            <BoxSelectMenu open={useMenu}>
-              <DivMenu>
-                <Link href="/medium">
-                  <a>BLOGS</a>
-                </Link>
-              </DivMenu>
-              <DivBottom>
-                <a href="https://www.blognone.com/node/64996">CAREER</a>
-              </DivBottom>
-            </BoxSelectMenu>
-          </Fade>
-        </BoxRotate>
-      )}
+      <BoxRotate>
+        <Fade when={useMenu}>
+          <Menu useMenu={useMenu} />
+        </Fade>
+      </BoxRotate>
     </Container>
   )
 }
