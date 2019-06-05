@@ -75,8 +75,8 @@ const MenuAndContent = (props): React.FC => {
   return (
     <>
       <MenuSelectMap>
-        <Menu name="BANGKOK" menu={useActiveMenu} setMenu={setActiveMenu} />
-        <Menu name="CHIANGMAI" menu={useActiveMenu} setMenu={setActiveMenu} />
+        <Menu name="BANGKOK" menu={useActiveMenu} setMenu={setActiveMenu} setMap={setMap} />
+        <Menu name="CHIANGMAI" menu={useActiveMenu} setMenu={setActiveMenu} setMap={setMap} />
       </MenuSelectMap>
       <BoxContent>
         <BoxContentInSide>

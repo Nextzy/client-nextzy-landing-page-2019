@@ -43,9 +43,6 @@ const BoxFlag = styled.div`
 const OnMobile = (props): React.FC => {
   const { useMap, setModal, setMap, visibleMap } = props
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
-  if (useMap !== useActiveMenu) {
-    setMap(useActiveMenu)
-  }
   const FunctionShowModal = () => {
     setTimeout(() => {
       setModal({ visible: true, map: useActiveMenu, isShowMap: true })

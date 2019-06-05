@@ -23,10 +23,14 @@ const MenuSelectMapHr = styled.hr`
   background-image: linear-gradient(-90deg, #2a7aff, #f7618b);
 `
 const Menu = (props): React.FC => {
-  const { name, menu, setMenu } = props
+  const { name, menu, setMenu, setMap } = props
+  const setEntry = (name) => {
+    setMenu(name)
+    setMap(name)
+  }
   return (
     <Fade right cascade>
-      <ButtonMenu active={menu === name} onClick={() => setMenu(name)}>
+      <ButtonMenu active={menu === name} onClick={() => setEntry(name)}>
         {name}
         <MenuSelectMapHr active={menu === name} />
       </ButtonMenu>
