@@ -31,9 +31,9 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-left: 1px solid ${(props) => props.color};
-    height: 330px;
+    height: 210px;
     width: 210px;
-    margin-top: -60px;
+    margin-top: ${(props) => (props.top ? '-60px' : '60px')};
     margin-left: -1px;
   }
   :after {
@@ -41,9 +41,9 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-right: 1px solid ${(props) => props.color};
-    height: 330px;
+    height: 210px;
     width: 210px;
-    margin-top: -60px;
+    margin-top: ${(props) => (props.top ? '-60px' : '60px')};
   }
 `
 
@@ -81,10 +81,10 @@ const LegoWrapper = (props): React.FC => {
 }
 const LegoBlocks = (): React.FC => (
   <Container>
-    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended />
+    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top />
     <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" />
-    <LegoWrapper order="1" color={'#8466A7'} src="omisego" leftExtended />
-    <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended />
+    <LegoWrapper order="1" color={'#8466A7'} src="omisego" leftExtended top />
+    <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended top />
     <LegoWrapper order="2" color={'#A26FB1'} src="onedaycat" leftExtended />
     <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended />
     <LegoWrapper order="2" color={'#6875D4'} src="nitto" />
