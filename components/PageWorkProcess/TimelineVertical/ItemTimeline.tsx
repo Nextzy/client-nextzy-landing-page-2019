@@ -8,7 +8,7 @@ const ContainerBoxLeft = styled.div`
   width: 50%;
   text-align: right;
   font-family: 'Montserrat-Regular';
-  font-size: 10px;
+  font-size: 14px;
   color: #ffffff;
   padding: 60px 0 60px 0;
   &:before {
@@ -52,7 +52,7 @@ const ContainerBoxRight = styled.div`
   width: 50%;
   text-align: right;
   font-family: 'Montserrat-Regular';
-  font-size: 10px;
+  font-size: 14px;
   color: #ffffff;
   padding: 60px 0 60px 0;
   &:before {
@@ -140,7 +140,7 @@ const ItemTimeline = (props): React.FC => {
   useEffect(() => {
     setTimeout(() => {
       setShow(true)
-    }, 500 * id)
+    }, 250 * id)
   }, [])
   return CheckReturnText(id, name, color, userShow)
 }

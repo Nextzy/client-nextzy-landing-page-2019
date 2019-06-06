@@ -28,9 +28,17 @@ const TimelineBox = styled.div`
   /* overflow-x: scroll; */
   margin-top: 5rem;
   white-space: nowrap;
-  padding: 120px 0 100px 0;
+  padding: 100px 0 100px 0;
   position: relative;
 `
+const TimelineFlex = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  > * {
+    flex: 1;
+  }
+`
+
 const Timeline = (props): React.FC => {
   const { DataProcess } = props
   return (
@@ -39,9 +47,11 @@ const Timeline = (props): React.FC => {
         <BoxTimelineScroll>
           <TimelineBox>
             <ProgressBar />
-            {DataProcess.map((item, idx) => {
-              return <ItemTimeline data={item} id={idx + 1} key={idx + 1} />
-            })}
+            <TimelineFlex>
+              {DataProcess.map((item, idx) => {
+                return <ItemTimeline data={item} id={idx + 1} key={idx + 1} />
+              })}
+            </TimelineFlex>
           </TimelineBox>
         </BoxTimelineScroll>
       </Fade>

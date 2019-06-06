@@ -4,13 +4,13 @@ import styled from 'styled-components'
 const Entry = styled.div`
   display: inline-block;
   vertical-align: top;
-  padding: 13px;
+  padding: 13px 0px 13px 0px;
   text-align: center;
   position: relative;
   /* width: 80px; */
   width: 9%;
   font-family: 'Montserrat-Regular';
-  font-size: 10px;
+  font-size: 14px;
   color: #ffffff;
   letter-spacing: 0.13px;
   line-height: 20.73px;
@@ -25,7 +25,7 @@ const NodeEntry = styled.div`
     display: block;
     width: 10px;
     height: 10px;
-    border-radius: 6px;
+    border-radius: 16px;
     background: ${({ color }) => color};
     position: absolute;
     left: 50%;
@@ -87,6 +87,7 @@ const CircleNumber = styled.div`
 `
 const TextDescription = styled.div`
   position: relative;
+  margin-left: -10px;
   ${({ position }) => (position ? ` top:1rem;` : ` top:-1rem;`)}
 `
 const CheckReturnText = (id, name, color, userShow): void => {
@@ -114,7 +115,7 @@ const ItemTimeline = (props): React.FC => {
   useEffect(() => {
     setTimeout(() => {
       setShow(true)
-    }, 500 * id)
+    }, 250 * id)
   }, [])
 
   return (
