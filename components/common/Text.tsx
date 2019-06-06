@@ -14,7 +14,7 @@ const HorizontalPrefixParagraph = styled.p`
     position: absolute;
     border-bottom: 1px solid white;
     height: 5px;
-    width: 5rem;
+    width: 2rem;
     right: 100%;
     margin-right: 1rem;
     ${media.between(`${Config.mediaQuery.mobileS}px`, `${Config.mediaQuery.tablet}px`)`
@@ -30,22 +30,22 @@ const HorizontalPrefixParagraph = styled.p`
   ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 3.5vh` : `margin-top: 0`)}
 
   ${media.lessThan(`${Config.sizeMobile}px`)`
-    margin-left: 8rem;
+    margin-left: 4rem;
    ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 20vh` : `margin-top: 0`)}
   `}
 
   ${media.lessThan(`${Config.mediaQuery.mobileL}px`)`
-  margin-left: 8rem;
+  margin-left: 4rem;
   ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 75vh` : `margin-top: 0`)}
   `}
 
   ${media.lessThan(`${Config.mediaQuery.mobileM}px`)`
-  margin-left: 6rem;
+  margin-left: 4rem;
   ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 60vh` : `margin-top: 0`)}
   `}
 
   ${media.lessThan(`${Config.mediaQuery.mobileS}px`)`
-  margin-left: 6rem;
+  margin-left: 4rem;
   ${({ isVisibleMap }) => (isVisibleMap ? `margin-top: 160vh` : `margin-top: 0`)}
   `}
 }
@@ -78,10 +78,11 @@ export const Header = styled.div`
 
 export const Body = styled.p`
   font-size: 16px;
-  margin: 24px 0px 40px;
+  margin: 24px 60px 40px 0px;
   letter-spacing: 0.5px;
   line-height: 28px;
   ${media.lessThan(`${Config.sizeMobile}px`)`
+    margin: 24px 0px 40px 0px;
      font-size: 16px;
   `}
 `

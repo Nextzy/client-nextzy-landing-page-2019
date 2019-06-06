@@ -49,7 +49,12 @@ const Lego = styled.div`
   align-items: flex-end;
   border: 1px solid ${(props) => props.color};
   border-bottom: ${(props) => (props.thickBottomBorder ? '8px' : '1px')} solid ${(props) => props.color};
-
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+  width: 140px;
+  padding-left: 20px;
+  height: ${(props) => (props.thickBottomBorder ? '91px' : '98px')};
+  font-size: 16px;
+  `}
   :before {
     display: ${(props) => (props.topLeftExtended ? 'block' : 'none')};
     content: '';
@@ -59,6 +64,11 @@ const Lego = styled.div`
     width: 0px;
     margin-top: -3.5rem;
     margin-left: -26px;
+    ${media.lessThan(`${Config.sizeMobile}px`)`
+    margin-left: -21px;
+    height: 3rem;
+    margin-top: -5rem;
+  `}
   }
   :after {
     display: ${(props) => (props.bottomRightExtended ? 'block' : 'none')};
@@ -68,6 +78,11 @@ const Lego = styled.div`
     height: 7rem;
     width: 210px;
     margin-top: 198px;
+    ${media.lessThan(`${Config.sizeMobile}px`)`
+    height: 3rem;
+    width: 140px;
+    margin-top: 100px;
+  `}
   }
 `
 
@@ -110,7 +125,7 @@ const LegoBlocks = (): React.FC => {
     return (
       <Container>
         <Prescription />
-        <LegoWrapper order="1" topLeftExtended color={'#AB5AA9'}>
+        <LegoWrapper order="1" topLeftExtended thickBottomBorder color={'#AB5AA9'}>
           Web Application Development
         </LegoWrapper>
         <LegoWrapper order="1" color={'rgb(0,0,0,0)'} />
