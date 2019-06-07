@@ -7,12 +7,9 @@ import OnWeb from './pageWeb/Web'
 import OnMobile from './pageMobile/Mobile'
 import Config from '../../constants/Constants'
 const Container = styled.div`
-  padding: 3rem 0 0 0;
+ padding: 0 0 6rem 0;
   background-color: #102131;
   color: white;
-  ${media.greaterThan(`${Config.sizeMobile}px`)`
-  height:100vh;
-  `}
   width: 100%;
 `
 const BoxFooter = styled.div`

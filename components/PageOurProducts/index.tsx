@@ -35,7 +35,6 @@ const ContainerPageObjective = styled.div`
   width: 100%;
   display: flex;
   text-align: left;
-  margin-top: 2rem;
   z-index: 50;
   flex-direction: column;
 `

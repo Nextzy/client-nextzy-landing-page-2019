@@ -73,6 +73,8 @@ const BoxRotate = styled.div`
   right: -20px;
 `
 const BoxSelectMenu = styled.div`
+  transition:1s;
+  display: ${({open})=>open?'block':'none'};
   padding: 5px;
   background: white;
   color: gray;
@@ -160,7 +162,7 @@ const Hamburger = (props): void => {
       </IconHamburger>
       <BoxRotate>
         <Fade when={useMenu}>
-          <Menu useMenu={useMenu} />
+          <Menu useMenu={useMenu} appear={true} />
         </Fade>
       </BoxRotate>
     </Container>

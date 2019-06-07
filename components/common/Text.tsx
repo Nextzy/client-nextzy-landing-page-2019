@@ -78,7 +78,7 @@ export const Header = styled.div`
 
 export const Body = styled.p`
   font-size: 16px;
-  margin: 24px 60px 40px 0px;
+  margin: 24px 0 40px 0px;
   letter-spacing: 0.5px;
   line-height: 28px;
   ${media.lessThan(`${Config.sizeMobile}px`)`

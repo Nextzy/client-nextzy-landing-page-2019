@@ -9,8 +9,8 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  height: 843px;
   margin-top: 100px;
+  margin-bottom: 50px;
   ${media.lessThan(`${Config.sizeMobile}px`)`
      justify-content: center;
   `}
@@ -18,8 +18,8 @@ const Container = styled.div`
 
 const Lego = styled.div`
   display: flex;
-  width: 210px;
-  height: 210px;
+  width: 235px;
+  height: 235px;
   padding: auto;
   vertical-align: bottom;
   justify-content: center;
@@ -31,8 +31,8 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-left: 1px solid ${(props) => props.color};
-    height: 210px;
-    width: 210px;
+    height: 234px;
+    width: 234px;
     margin-top: ${(props) => (props.top ? '-60px' : '60px')};
     margin-left: -1px;
   }
@@ -41,8 +41,8 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-right: 1px solid ${(props) => props.color};
-    height: 210px;
-    width: 210px;
+    height: 236px;
+    width: 236px;
     margin-top: ${(props) => (props.top ? '-60px' : '60px')};
   }
 `
@@ -82,12 +82,12 @@ const LegoWrapper = (props): React.FC => {
 const LegoBlocks = (): React.FC => (
   <Container>
     <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top />
-    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" />
+    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" rightExtended top/>
     <LegoWrapper order="1" color={'#8466A7'} src="omisego" leftExtended top />
     <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended top />
     <LegoWrapper order="2" color={'#A26FB1'} src="onedaycat" leftExtended />
     <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended />
-    <LegoWrapper order="2" color={'#6875D4'} src="nitto" />
+    <LegoWrapper order="2" color={'#6875D4'} src="nitto" leftExtended/>
     <LegoWrapper order="2" color={'#5079E5'} src="youex" rightExtended />
   </Container>
 )

@@ -6,10 +6,9 @@ import { SectionHeader } from '../common/Text'
 import { Pair } from './Menu'
 import Config from '../../constants/Constants'
 const Container = styled.div`
-  padding: 5rem 0 5rem 0;
+  padding: 5rem 0 0 0;
   background-color: #102131;
   color: white;
-  height: 100vh;
   width: 100%;
   height: 200%;
 `
@@ -29,7 +28,6 @@ const ContainerPageObjective = styled.div`
   min-height: 100vh;
   display: flex;
   text-align: left;
-  margin-top: 10rem;
   z-index: 50;
   ${media.greaterThan(`${Config.sizeMobile}px`)`
     flex-direction: column;

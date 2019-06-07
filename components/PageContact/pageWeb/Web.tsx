@@ -10,7 +10,7 @@ const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */
   text-align: left;
-  font-family: Montserrat-Medium;
+  font-family: 'Montserrat-Medium';
   font-size: 2rem;
   color: #ffffff;
   letter-spacing: -0.5px;
@@ -18,14 +18,12 @@ const TextNEXTZY = styled.div`
   float: left;
 `
 const ContainerPageStart = styled.div`
-  height: 100%;
   width: 100%;
   display: flex;
   text-align: left;
   justify-content: top;
   z-index: 50;
   flex-direction: column;
-  padding-top: 7rem;
 `
 const BoxShowMapAndFooter = styled.div`
   position: absolute;

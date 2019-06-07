@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Header, Body, Highlight } from '../../common/Text'
+import { Header, Highlight } from '../../common/Text'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Config from '../../../constants/Constants'
@@ -12,6 +12,17 @@ const Container = styled.div`
   align-content: flex-start;
   ${media.lessThan(`${Config.sizeMobile}px`)`
      justify-content: center;
+  `}
+`
+
+export const Body = styled.p`
+  font-size: 16px;
+  margin: 24px 40px 0px 0px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+    margin: 24px 0px 40px 0px;
+     font-size: 16px;
   `}
 `
 
@@ -43,7 +54,7 @@ const Lego = styled.div`
   width: 210px;
   height: ${(props) => (props.thickBottomBorder ? '191px' : '198px')};
   padding-left: 25px;
-  padding-bottom: 60px;
+  padding-bottom: 37px;
   text-align: left;
   vertical-align: bottom;
   align-items: flex-end;
@@ -54,7 +65,7 @@ const Lego = styled.div`
   padding-left: 20px;
   height: ${(props) => (props.thickBottomBorder ? '91px' : '98px')};
   font-size: 16px;
-  `}
+  `};
   :before {
     display: ${(props) => (props.topLeftExtended ? 'block' : 'none')};
     content: '';
@@ -128,7 +139,7 @@ const LegoBlocks = (): React.FC => {
         <LegoWrapper order="1" topLeftExtended thickBottomBorder color={'#AB5AA9'}>
           Web Application Development
         </LegoWrapper>
-        <LegoWrapper order="1" color={'rgb(0,0,0,0)'} />
+        <LegoWrapper order="1" color={'rgb(0,0,0,0)'}  />
         <LegoWrapper order="2" color={'#6062D0'}>
           Mobile Application Development
         </LegoWrapper>
@@ -155,7 +166,7 @@ const LegoBlocks = (): React.FC => {
     return (
       <Container>
         <Prescription />
-        <LegoWrapper order="1" topLeftExtended color={'#6062D0'}>
+        <LegoWrapper order="1" topLeftExtended thickBottomBorder color={'#6062D0'}>
           Web Application Development
         </LegoWrapper>
         <LegoWrapper order="2" thickBottomBorder topLeftExtended color={'#AB5AA9'}>
