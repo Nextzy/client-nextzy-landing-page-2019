@@ -24,16 +24,18 @@ const Lego = styled.div`
   vertical-align: bottom;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${(props) => props.color};
+  border-top: ${(props) => (props.top? '1px':'0px')} solid ${(props) => props.color};
+  border-bottom: 1px solid ${(props) => props.color};
+  border-right: 1px solid ${(props) => props.color};
 
   :before {
     display: ${(props) => (props.leftExtended ? 'block' : 'none')};
     content: '';
     position: absolute;
     border-left: 1px solid ${(props) => props.color};
-    height: 234px;
+    height: 300px;
     width: 234px;
-    margin-top: ${(props) => (props.top ? '-60px' : '60px')};
+    margin-top: ${(props) => (props.top ? '-30px' : '32px')};
     margin-left: -1px;
   }
   :after {
@@ -41,9 +43,9 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-right: 1px solid ${(props) => props.color};
-    height: 236px;
+    height: 300px;
     width: 236px;
-    margin-top: ${(props) => (props.top ? '-60px' : '60px')};
+    margin-top: ${(props) => (props.top ? '-30px' : '32px')};
   }
 `
 
@@ -81,13 +83,13 @@ const LegoWrapper = (props): React.FC => {
 }
 const LegoBlocks = (): React.FC => (
   <Container>
-    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top />
-    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" rightExtended top/>
-    <LegoWrapper order="1" color={'#8466A7'} src="omisego" leftExtended top />
+    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top/>
+    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" rightExtended top outer/>
+    <LegoWrapper order="1" color={'#8466A7'} src="omisego" top />
     <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended top />
     <LegoWrapper order="2" color={'#A26FB1'} src="onedaycat" leftExtended />
-    <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended />
-    <LegoWrapper order="2" color={'#6875D4'} src="nitto" leftExtended/>
+    <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended outer/>
+    <LegoWrapper order="2" color={'#6875D4'} src="nitto" />
     <LegoWrapper order="2" color={'#5079E5'} src="youex" rightExtended />
   </Container>
 )
