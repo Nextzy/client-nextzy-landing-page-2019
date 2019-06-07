@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Head from '../components/head'
 // import GlobalStyle from '../components/common/GlobalStyle'
@@ -20,6 +20,7 @@ const Home = ({ goto }): React.FC => {
     </getWidthContext.Provider>
   )
 }
+
 
 Home.getInitialProps = async ({ query: { goto } }) => {
   return { goto }

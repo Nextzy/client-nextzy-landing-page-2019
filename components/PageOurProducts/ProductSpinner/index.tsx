@@ -7,9 +7,10 @@ const Circle = styled.div`
     right: 80%;
     top: 15%;
     height: 80%;
-    z-index: 1;
+    z-index: 100;
     user-select: none;
     transition: 500ms all;
+    transform-origin: 51.11% 50%;
     transform: rotate(${({ setRotate }) => setRotate || 0}deg);
   }
 

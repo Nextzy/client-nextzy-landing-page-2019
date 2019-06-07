@@ -82,7 +82,6 @@ const PlanetBigFunction = (props): React.FC => {
       setPosition={usePosition}
       // onMouseEnter={mouseOver}
       onMouseLeave={mouseOut}
-      onMouseOver={mouseOver}
     >
       <Bounce right>
         <PlanetImg {...props} />

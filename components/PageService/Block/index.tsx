@@ -60,13 +60,13 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-left: 1px solid ${(props) => props.color};
-    height: 7rem;
+    height: 10rem;
     width: 0px;
-    margin-top: -3.5rem;
+    margin-top: -5rem;
     margin-left: -26px;
     ${media.lessThan(`${Config.sizeMobile}px`)`
     margin-left: -21px;
-    height: 3rem;
+    height: 5rem;
     margin-top: -5rem;
   `}
   }
@@ -75,11 +75,11 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-right: 1px solid ${(props) => props.color};
-    height: 7rem;
+    height: 5rem;
     width: 210px;
-    margin-top: 198px;
+    margin-top: 108px;
     ${media.lessThan(`${Config.sizeMobile}px`)`
-    height: 3rem;
+    height: 5rem;
     width: 140px;
     margin-top: 100px;
   `}
@@ -158,7 +158,7 @@ const LegoBlocks = (): React.FC => {
         <LegoWrapper order="1" topLeftExtended color={'#6062D0'}>
           Web Application Development
         </LegoWrapper>
-        <LegoWrapper order="2" thickBottomBorder color={'#AB5AA9'}>
+        <LegoWrapper order="2" thickBottomBorder topLeftExtended color={'#AB5AA9'}>
           Mobile Application Development
         </LegoWrapper>
         <LegoWrapper order="2" color={'#9E5CAF'}>
@@ -167,12 +167,12 @@ const LegoBlocks = (): React.FC => {
         <LegoWrapper order="2" thickBottomBorder color={'#6C62CB'}>
           Blockchain Development
         </LegoWrapper>
-        <LegoWrapper order="2" color={'#5065DB'}>
+        <LegoWrapper order="2" color={'#5065DB'} bottomRightExtended>
           UI and UX <br />
           Design
           <br /> Services
         </LegoWrapper>
-        <LegoWrapper order="3" color={'#835FBE'}>
+        <LegoWrapper order="3" color={'#835FBE'} bottomLeftExtended>
           DevOps Services
         </LegoWrapper>
         <LegoWrapper order="3" bottomRightExtended thickBottomBorder color={'#6F62CA'}>

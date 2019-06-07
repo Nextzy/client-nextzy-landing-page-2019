@@ -8,7 +8,7 @@ const BoxIconContact = styled.div`
   color: white;
   transition: 500ms;
   right: 5rem;
-  bottom: 1rem;
+  bottom: 0rem;
   div {
     margin: 0.5rem 0 0.5rem 0;
   }

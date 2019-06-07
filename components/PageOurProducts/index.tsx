@@ -46,7 +46,7 @@ const ContainerObject = styled.div`
 const DataTest = [
   {
     id: 1,
-    rotate: 61,
+    rotate: 60,
     indicatorPosition: 23,
     positionSVG: { cx: '561.37', cy: '104.12' },
     fixselected: 'first',
@@ -62,7 +62,7 @@ const DataTest = [
   },
   {
     id: 2,
-    rotate: 48,
+    rotate: 40,
     indicatorPosition: 81,
     positionSVG: { cx: '647.47', cy: '162.74' },
     fixselected: 'second',
@@ -78,7 +78,7 @@ const DataTest = [
   },
   {
     id: 3,
-    rotate: 28,
+    rotate: 20,
     indicatorPosition: 139,
     positionSVG: { cx: '721.4', cy: '265.02' },
     fixselected: 'third',
@@ -162,13 +162,14 @@ const Home = (props): React.FC => {
 
   return (
     <Container>
+      
       <ContainerAll>
         <ContainerObject>
-          {useScreen && useScreen <= Config.sizeMobile ? (
-            <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-          ) : (
-            <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-          )}
+        {useScreen && useScreen <= Config.sizeMobile ? (
+        <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+      ) : (
+        <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+      )}
           <ContainerPageObjective>
             <TextNEXTZY>
               <Fade right cascade>

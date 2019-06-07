@@ -56,6 +56,10 @@ interface MenuProps {
   callback: object
 }
 
+const DescriptionSelected = styled.div`
+  display: ${({ selected }) => (selected ? 'block' : 'none')};
+`
+
 const getArrow = ({ props, useScreen }): string => {
   if (useScreen <= Config.sizeMobile) {
     return props.selected
@@ -99,6 +103,9 @@ const MenuMobile = (props): React.FC<MenuProps> => {
           </Swing>
         </Row>
         <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
+        {/**<DescriptionSelected selected>
+          <DescriptionPane activeMenu={activeMenu} />
+        </DescriptionSelected> */}
         {selected ? (
           <Fade duration={500} when={selected}>
             <DescriptionPane activeMenu={activeMenu} />
@@ -165,6 +172,7 @@ const MenuListMobile = (props): React.FC => {
 
 const DescriptionHolder = styled.div`
   max-width: 40vw;
+  transition:1s;
   ${media.lessThan(`${Config.sizeMobile}px`)`
       max-width: 90vw;
   `}
@@ -210,11 +218,11 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
       <DescriptionHolder>
         <Header>
           Develop <Highlight>quality software</Highlight> for customers
-        </Header>
+          </Header>
         <Body>
           Technology is a key to improve businesses. It accelerates their growth by leaps and bounds. We always choose
           the best technologies and deliver the best software to our customers.
-        </Body>
+          </Body>
         <OrderedList>
           <OrderedItem number="01" name="Cutting-Edge Technologies" />
           <OrderedItem number="02" name="Pixel Perfect Design" />
@@ -227,11 +235,11 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
       <DescriptionHolder>
         <Header>
           <Highlight>Empowering</Highlight> everyone in the team
-        </Header>
+          </Header>
         <Body>
           Quality software needs talented people. We, therefore, open our team members to the opportunities to develop
           themselves on top of software development skills.
-        </Body>
+          </Body>
       </DescriptionHolder>
     )
   } else if (activeMenu === 'objective-share') {
@@ -239,8 +247,10 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
       <DescriptionHolder>
         <Header>
           <Highlight>Share the expertise</Highlight> to create a community
-        </Header>
-        <Body>Better developer communities will positively affect our team members, both directly and indirectly.</Body>
+          </Header>
+        <Body>
+          Better developer communities will positively affect our team members, both directly and indirectly.
+          </Body>
       </DescriptionHolder>
     )
   } else {
@@ -251,7 +261,6 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
 const PairWrapper = styled.div`
   display: flex;
   margin-top: 3rem;
-
   ${media.lessThan(`${Config.sizeMobile}px`)`
     justify-content: center;
   `}

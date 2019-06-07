@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Config from '../../constants/Constants'
@@ -20,6 +20,7 @@ const BoxFooter = styled.div`
   letter-spacing: 0.4px;
   line-height: 16px;
 `
+
 const Footer = (): React.FC => {
   return <BoxFooter>© 2019 Nextzy Technologies Co., Ltd.</BoxFooter>
 }
