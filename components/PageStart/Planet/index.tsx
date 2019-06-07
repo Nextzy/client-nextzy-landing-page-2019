@@ -12,13 +12,14 @@ const MainPlanet = styled.div`
 
 const PlanetBigFunction = (props): React.FC => {
   const refPlanet = useRef()
+  const [useCount,setCount] = useState(0)
   const [usePosition, setPosition] = useState({ x: 0, y: 0 })
-  const distMetric = (x, y, x2, y2): void => {
+  /* const distMetric = (x, y, x2, y2): void => {
     var xDiff = x - x2
     var yDiff = y - y2
     return xDiff * xDiff + yDiff * yDiff
-  }
-  const closestEdge = (x, y, w, h): void => {
+  } */
+/*   const closestEdge = (x, y, w, h): void => {
     var topEdgeDist = distMetric(x, y, w / 2, 0)
     var bottomEdgeDist = distMetric(x, y, w / 2, h)
     var leftEdgeDist = distMetric(x, y, 0, h / 2)
@@ -34,13 +35,13 @@ const PlanetBigFunction = (props): React.FC => {
       case bottomEdgeDist:
         return 'bottom'
     }
-  }
-  const randomPosition = (position): void => {
+  } */
+  /* const randomPosition = (position): void => {
     console.log('position', position)
     let getX = 0
     let getY = 0
     let randomShort = Math.floor(Math.random() * 100)
-    let randomLong = Math.floor(Math.random() * 500)
+    let randomLong = Math.floor(Math.random() * 50)
     switch (position) {
       case 'left':
         getX = randomShort
@@ -60,31 +61,34 @@ const PlanetBigFunction = (props): React.FC => {
         break
     }
     return { x: getX, y: getY }
+  } */
+  const movePlanet = function(): void {
+    var x = -props.direction.x
+    var y = props.direction.y
+        setPosition({x:x,y:y})
   }
-  const mouseOver = function(e): void {
-    // const mouseX = e.pageX
-    // const mouseY = e.pageY
-    // setPosition({ x: mouseX, y: mouseY })
 
-    const objPlanet = refPlanet.current
-    var x = e.pageX - objPlanet.offsetLeft
-    var y = e.pageY - objPlanet.offsetTop
-    var position = closestEdge(x, y, objPlanet.clientWidth, objPlanet.clientHeight)
-    // const { x, y } = randomPosition(position)
-    setPosition({ x: x || 0, y: y || 0 })
+  const mouseOver = function(e): void {
+    movePlanet()
+    /* if(useCount<0){
+      clearInterval(movePlanet)
+    } */
   }
+
   const mouseOut = (): void => {
+    setCount(-1)
     setPosition({ x: 0, y: 0 })
   }
   return (
     <MainPlanet
       ref={refPlanet}
       setPosition={usePosition}
-      // onMouseEnter={mouseOver}
+      onMouseEnter={mouseOver}
       onMouseLeave={mouseOut}
     >
       <Bounce right>
-        <PlanetImg {...props} />
+        <PlanetImg {...props}
+         />
       </Bounce>
     </MainPlanet>
   )

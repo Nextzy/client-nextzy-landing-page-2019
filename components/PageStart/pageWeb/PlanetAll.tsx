@@ -16,7 +16,7 @@ const BoxPlanetBig = styled.div`
   right: -13rem;
   bottom: 6rem;
   width: 100%;
-  z-index: 50;
+  z-index: 200;
 `
 const BoxPlanetBigSub = styled.div`
   margin: 0 auto;
@@ -25,7 +25,7 @@ const BoxPlanetBigSub = styled.div`
   `}
   width: 80%;
   float: right;
-  z-index: 50;
+  z-index: 200;
 `
 const BoxPlanetSmall = styled.div`
   position: absolute;
@@ -40,7 +40,7 @@ const BoxPlanetSmall = styled.div`
   left: -3rem;
   `}
   width: 100%;
-  z-index: 50;
+  z-index: 250;
 `
 const BoxPlanetSmallSub = styled.div`
   margin: 0 auto;
@@ -51,7 +51,7 @@ const BoxPlanetSmallSub = styled.div`
   ${media.between(`${Config.mediaQuery.laptop}px`, `${Config.mediaQuery.laptopL}px`)`
   width: 30%;
   `}
-  z-index: 50;
+  z-index: 250;
 `
 const BoxMediumTop = styled.div`
   position: absolute;
@@ -64,12 +64,12 @@ const BoxMediumTop = styled.div`
   left:-5rem;
   `}
   width: 100%;
-  z-index: 50;
+  z-index: 250;
 `
 const BoxMediumTopSub = styled.div`
   margin: 0 auto;
   width: 30%;
-  z-index: 50;
+  z-index: 250;
 `
 
 const PageStart = (): React.FC => {
@@ -98,10 +98,11 @@ const PageStart = (): React.FC => {
               imgHole="/static/images/Planet/planet_center_hole.png"
               background="/static/images/Planet/asset_planet_halo_1.svg"
               effectSpin={'spinout'}
+              direction={{x:50,y:50}}
             />
           ) : null}
           <BoxPlanetSmall>
-            <BoxPlanetSmallSub>{state3 ? <Planet /> : null}</BoxPlanetSmallSub>
+            <BoxPlanetSmallSub>{state3 ? <Planet direction={{x:-20,y:90}}  effectSpin={'spinout'} /> : null}</BoxPlanetSmallSub>
           </BoxPlanetSmall>
         </BoxPlanetBigSub>
       </BoxPlanetBig>
@@ -114,6 +115,7 @@ const PageStart = (): React.FC => {
               imgHole="/static/images/Planet/asset_planet_top_line.png"
               background="/static/images/Planet/asset_planet_halo_2.svg"
               effectSpin={'spinin'}
+              direction={{x:50,y:150}}
             />
           ) : null}
         </BoxMediumTopSub>
