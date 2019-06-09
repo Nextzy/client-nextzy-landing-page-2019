@@ -12,6 +12,7 @@ const Container = styled.div`
   margin-top: 100px;
   margin-bottom: 50px;
   ${media.lessThan(`${Config.sizeMobile}px`)`
+  margin-top: 20px;
      justify-content: center;
   `}
 `
@@ -24,7 +25,12 @@ const Lego = styled.div`
   vertical-align: bottom;
   justify-content: center;
   align-items: center;
-  border-top: ${(props) => (props.top? '1px':'0px')} solid ${(props) => props.color};
+  border-top: ${(props) => (props.top ? '1px' : '0px')} solid ${(props) => props.color};
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+  border-left: 1px solid ${(props) => props.color};
+  width: 140px;
+  height: 140px;
+  `};
   border-bottom: 1px solid ${(props) => props.color};
   border-right: 1px solid ${(props) => props.color};
 
@@ -37,6 +43,9 @@ const Lego = styled.div`
     width: 234px;
     margin-top: ${(props) => (props.top ? '-30px' : '32px')};
     margin-left: -1px;
+    ${media.lessThan(`${Config.sizeMobile}px`)`
+    display: none;
+    `}
   }
   :after {
     display: ${(props) => (props.rightExtended ? 'block' : 'none')};
@@ -46,6 +55,9 @@ const Lego = styled.div`
     height: 300px;
     width: 236px;
     margin-top: ${(props) => (props.top ? '-30px' : '32px')};
+    ${media.lessThan(`${Config.sizeMobile}px`)`
+    display: none;
+    `}
   }
 `
 
@@ -59,12 +71,16 @@ const LegoNull = styled.div`
 const LegoImg = styled.img`
   align-self: center;
   justify-self: center;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+  max-width: 100px;
+  max-height: 100px;
+  `};
 `
 const LegoWrapper = (props): React.FC => {
   const [userShow, setShow] = useState(false)
   const { order } = props
-  useEffect(() => {
-    setTimeout(() => {
+  useEffect((): void => {
+    setTimeout((): void => {
       setShow(true)
     }, 450 * order)
   }, [])
@@ -83,12 +99,12 @@ const LegoWrapper = (props): React.FC => {
 }
 const LegoBlocks = (): React.FC => (
   <Container>
-    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top/>
-    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" rightExtended top outer/>
+    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top />
+    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" rightExtended top outer />
     <LegoWrapper order="1" color={'#8466A7'} src="omisego" top />
     <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended top />
     <LegoWrapper order="2" color={'#A26FB1'} src="onedaycat" leftExtended />
-    <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended outer/>
+    <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended outer />
     <LegoWrapper order="2" color={'#6875D4'} src="nitto" />
     <LegoWrapper order="2" color={'#5079E5'} src="youex" rightExtended />
   </Container>

@@ -10,7 +10,7 @@ const Container = styled.div`
   background-color: #102131;
   color: white;
   width: 100%;
-  height: 200%;
+  height: 100%;
 `
 const TextNEXTZY = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ const TextNEXTZY = styled.div`
 `
 const ContainerPageObjective = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   text-align: left;
   z-index: 50;

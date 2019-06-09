@@ -5,10 +5,11 @@ import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
 import LegoBlocks from './Block'
 const Container = styled.div`
-  padding: 5rem 0 0 0;
+  padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
   width: 100%;
+  height: 100%;
 `
 const TextNEXTZY = styled.div`
   position: relative;

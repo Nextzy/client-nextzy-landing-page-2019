@@ -22,7 +22,7 @@ const BoxContentInSide = styled.div`
 `
 const BoxContentMap = styled.div`
   margin-top: 5rem;
-  flex: 0.5;
+  flex: 0.8; //vertical
 `
 
 const Description = styled.div`

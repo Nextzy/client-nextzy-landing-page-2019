@@ -31,15 +31,22 @@ const ContainerPageStart = styled.div`
   z-index: 50;
   flex-direction: column;
 `
+const BackgroundImage = styled.img`
+  position: absolute;
+  right: 90%;
+  z-index: -4;
+  user-select: none;
+`
 
 const PageService = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
+        <BackgroundImage src="/static/images/Background/background_circle_2.svg" alt="backgroundja" />
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="Page Service" />
+              <SectionHeader title="PAGE SERVICE" />
             </Fade>
             <LegoBlocks />
           </TextNEXTZY>

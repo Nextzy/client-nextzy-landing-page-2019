@@ -161,18 +161,17 @@ const Home = (props): React.FC => {
 
   return (
     <Container>
-      
       <ContainerAll>
         <ContainerObject>
-        {useScreen && useScreen <= Config.sizeMobile ? (
-        <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-      ) : (
-        <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-      )}
+          {useScreen && useScreen <= Config.sizeMobile ? (
+            <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+          ) : (
+            <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+          )}
           <ContainerPageObjective>
             <TextNEXTZY>
               <Fade right cascade>
-                <SectionHeader title="Page Products" />
+                <SectionHeader title="PAGE PRODUCTS" />
                 {handleComponents()}
               </Fade>
             </TextNEXTZY>

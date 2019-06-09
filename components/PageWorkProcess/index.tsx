@@ -9,10 +9,11 @@ import TimelineVertical from './TimelineVertical/index'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
 const Container = styled.div`
-  padding: 0 0 7rem 0;
+  padding: 5rem 0 0 0;
   background-color: #102131;
   color: white;
   width: 100%;
+  height: 100%;
 `
 const TextNEXTZY = styled.div`
   position: relative;
