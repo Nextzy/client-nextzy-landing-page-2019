@@ -34,12 +34,6 @@ const BoxShowMap = styled.div`
   display: flex;
   flex-direction: column;
 `
-const BoxFlag = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 111px;
-  width: 70%;
-`
 const OnMobile = (props): React.FC => {
   const { useMap, setModal, setMap, visibleMap } = props
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
@@ -61,10 +55,7 @@ const OnMobile = (props): React.FC => {
         </ContainerPageStart>
       </ContainerAll>
       <BoxShowMap>
-        <Map map={useMap} />
-        <BoxFlag>
-          <Flag name="Nextzy Technologies" onClick={() => FunctionShowModal()} />
-        </BoxFlag>
+        <Map map={useMap} onFlag={FunctionShowModal} />
       </BoxShowMap>
     </>
   )

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import Config from '../constants/Constants'
 const BoxSlideActive = styled.div`
-  ${media.greaterThan(`${Config.sizeMobile}px`)`
+  ${media.greaterThan(`${Config.sizeTablet}px`)`
   z-index: 500;
   position: fixed;
   height: 100vh;

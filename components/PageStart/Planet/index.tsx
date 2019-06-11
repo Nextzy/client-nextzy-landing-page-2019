@@ -85,7 +85,7 @@ const PlanetBigFunction = (props): React.FC => {
   }
 
   const mouseOut = (): void => {
-    setCount(-1)
+    setCount(useCount+1)
     setPosition({
       x: 0,
       y: 0

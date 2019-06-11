@@ -1,8 +1,14 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 const ContainerFlag = styled.div`
+  position: absolute;
+  z-index:100;
   font-family: 'Montserrat-Regular';
+  left: ${(props) => props.position.x}px;
+  bottom: ${(props) => props.position.y}px;
   font-size: 16px;
+  height: 30%;
+  width: 30%;
   color: #ffffff;
   letter-spacing: 0.5px;
   text-align: left;
@@ -30,7 +36,7 @@ const BoxBtnMap = styled.div`
 `
 const ImgBtnMap = styled.img`
   animation: ${EarthFade} 1000ms infinite;
-  width: 30%;
+  width: 30%
 `
 const BoxBtnMapIn = styled.div`
   position: absolute;
@@ -46,9 +52,9 @@ const BoxBtnMapIn = styled.div`
   }
 `
 const Flag = (props): React.FC => {
-  const { name, onClick } = props
+  const { name, onClick, usePosition } = props
   return (
-    <ContainerFlag>
+    <ContainerFlag position={usePosition}>
       <BoxBtnMap onClick={onClick}>
         <ImgBtnMap src="/static/images/Planet/asset_planet_halo_1.svg" alt="Nextzy" />
         <BoxBtnMapIn>

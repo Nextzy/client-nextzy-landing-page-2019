@@ -98,11 +98,11 @@ const PageStart = (): React.FC => {
               imgHole="/static/images/Planet/planet_center_hole.png"
               background="/static/images/Planet/asset_planet_halo_1.svg"
               effectSpin={'spinout'}
-              direction={{x:50,y:50}}
+              direction={{ x: 50, y: 50 }}
             />
           ) : null}
           <BoxPlanetSmall>
-            <BoxPlanetSmallSub>{state3 ? <Planet direction={{x:-20,y:90}}  effectSpin={'spinout'} /> : null}</BoxPlanetSmallSub>
+            <BoxPlanetSmallSub>{state3 ? <Planet direction={{ x: -20, y: 90 }} effectSpin={'spinout'} /> : null}</BoxPlanetSmallSub>
           </BoxPlanetSmall>
         </BoxPlanetBigSub>
       </BoxPlanetBig>
@@ -115,7 +115,7 @@ const PageStart = (): React.FC => {
               imgHole="/static/images/Planet/asset_planet_top_line.png"
               background="/static/images/Planet/asset_planet_halo_2.svg"
               effectSpin={'spinin'}
-              direction={{x:50,y:150}}
+              direction={{ x: 50, y: 150 }}
             />
           ) : null}
         </BoxMediumTopSub>

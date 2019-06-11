@@ -5,12 +5,13 @@ const Circle = styled.div`
   svg {
     position: absolute;
     right: 80%;
-    top: 15%;
-    height: 80%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
     z-index: 100;
     user-select: none;
     transition: 500ms all;
-    transform-origin: 51.11% 50%;
+    transform-origin: 50% 50%;
     transform: rotate(${({ setRotate }) => setRotate || 0}deg);
   }
 
@@ -76,9 +77,9 @@ export const Spinner = (props): React.FC => {
   }
   return (
     <Circle setRotate={setPositionCircle(useSelected)}>
-      <svg id="Layer_1" data-name="Layer 1" viewBox="0 0 835 814">
+      <svg id="Layer_1" data-name="Layer 1" viewBox="0 0 814 814">
         <defs>
-          <mask id="mask" x="0" y="0" width="748" height="814" maskUnits="userSpaceOnUse">
+          <mask id="mask" x="0" y="0" width="814" height="814" maskUnits="userSpaceOnUse">
             <g transform="translate(-162.36 -193)">
               <g id="prefix_spinner_circle-c" data-name="prefix  spinner circle-c">
                 <path

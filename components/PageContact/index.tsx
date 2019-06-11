@@ -7,7 +7,7 @@ import OnWeb from './pageWeb/Web'
 import OnMobile from './pageMobile/Mobile'
 import Config from '../../constants/Constants'
 const Container = styled.div`
-  padding: 5rem 0 5rem 0;
+  padding: 6rem 0 0 0;
   background-color: #102131;
   color: white;
   height: 100%;

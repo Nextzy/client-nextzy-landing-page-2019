@@ -51,6 +51,17 @@ const BottomLiner = styled.img`
    width: 90vw;
   `}
 `
+
+const MenuSelectMapHr = styled.hr`
+  transition: width 0.5s ease, margin-left 0.5s ease;
+  opacity: ${(props) => (props.selected ? 1 : 0.3)};
+  border: 0;
+  height: 1px;
+  ${media.lessThan(`${Config.sizeMobile}px`)`
+   width: 90vw;
+  `}
+  background-image: linear-gradient(-90deg, #2a7aff, #f7618b);
+`
 interface MenuProps {
   name: string
   callback: object
@@ -102,7 +113,7 @@ const MenuMobile = (props): React.FC<MenuProps> => {
             <SuffixIcon src={src} />
           </Swing>
         </Row>
-        <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
+        <MenuSelectMapHr  {...props} />
         {/**<DescriptionSelected selected>
           <DescriptionPane activeMenu={activeMenu} />
         </DescriptionSelected> */}

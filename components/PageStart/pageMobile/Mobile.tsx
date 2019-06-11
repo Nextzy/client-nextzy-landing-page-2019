@@ -23,6 +23,9 @@ const TextNEXTZY = styled.div`
   font-family: 'Montserrat-Regular';
   position: relative;
   font-size: 34px;
+  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+  font-size: 40px;
+  `};
   color: #ffffff;
   letter-spacing: 0.25px;
   text-align: center;
@@ -46,7 +49,7 @@ const BoxBtnPage = styled.div`
   display: inline-block;
   position: relative;
   z-index: 51;
-  font-size: 16px;
+  font-size: 18px;
   @media screen and (max-height: 599px) and (min-height: 250px) {
     font-size: 13px;
     margin-top: 1rem;

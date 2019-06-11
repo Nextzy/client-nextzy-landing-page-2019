@@ -21,7 +21,7 @@ const TextNEXTZY = styled.div`
   position: relative;
   text-align: left;
   /* font-size: 60px; */
-  font-size: 3rem;
+  font-size: 4rem;
   color: #ffffff;
   letter-spacing: -0.5px;
   display: inline-block;
@@ -41,7 +41,7 @@ const BoxBtnPage = styled.div`
   text-align: left;
   z-index: 51;
   /* font-size: 18px; */
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.5;
   line-height: 1.5;
   color: #ffffff;

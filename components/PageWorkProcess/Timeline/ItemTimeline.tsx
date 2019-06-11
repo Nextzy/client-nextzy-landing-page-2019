@@ -25,7 +25,7 @@ const NodeEntry = styled.div`
     display: block;
     width: 10px;
     height: 10px;
-    border-radius: 16px;
+    border-radius: 6px;
     background: ${({ color }) => color};
     position: absolute;
     left: 50%;
@@ -81,7 +81,8 @@ const BoxText = styled.div`
 `
 const CircleNumber = styled.div`
   background: ${({ color }) => color};
-  padding: 0 8px 0 8px;
+  width: 20px;
+  height: 20px;
   border-radius: 15px;
   display: inline-block;
 `

@@ -8,13 +8,16 @@ import Config from '../../../constants/Constants'
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   align-content: flex-start;
+  justify-content: center;
   margin-top: 100px;
-  margin-bottom: 50px;
-  ${media.lessThan(`${Config.sizeMobile}px`)`
-  margin-top: 20px;
-     justify-content: center;
-  `}
+  ${media.lessThan(`${Config.sizeTablet}px`)`
+    margin-top: 20px;
+  `};
+  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+  margin: 2rem 5rem 0 5rem;
+  `};
 `
 
 const Lego = styled.div`
@@ -26,14 +29,20 @@ const Lego = styled.div`
   justify-content: center;
   align-items: center;
   border-top: ${(props) => (props.top ? '1px' : '0px')} solid ${(props) => props.color};
+  border-bottom: 1px solid ${(props) => props.color};
+  border-right: 1px solid ${(props) => props.color};
   ${media.lessThan(`${Config.sizeMobile}px`)`
   border-left: 1px solid ${(props) => props.color};
   width: 140px;
   height: 140px;
   `};
-  border-bottom: 1px solid ${(props) => props.color};
-  border-right: 1px solid ${(props) => props.color};
-
+  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+  border-left: 1px solid ${(props) => props.color};
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 260;
+  max-height: 260px;
+  `};
   :before {
     display: ${(props) => (props.leftExtended ? 'block' : 'none')};
     content: '';
@@ -43,7 +52,7 @@ const Lego = styled.div`
     width: 234px;
     margin-top: ${(props) => (props.top ? '-30px' : '32px')};
     margin-left: -1px;
-    ${media.lessThan(`${Config.sizeMobile}px`)`
+    ${media.lessThan(`${Config.sizeTablet}px`)`
     display: none;
     `}
   }
@@ -55,7 +64,7 @@ const Lego = styled.div`
     height: 300px;
     width: 236px;
     margin-top: ${(props) => (props.top ? '-30px' : '32px')};
-    ${media.lessThan(`${Config.sizeMobile}px`)`
+    ${media.lessThan(`${Config.sizeTablet}px`)`
     display: none;
     `}
   }
@@ -74,6 +83,10 @@ const LegoImg = styled.img`
   ${media.lessThan(`${Config.sizeMobile}px`)`
   max-width: 100px;
   max-height: 100px;
+  `};
+  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+  max-width: 180px;
+  max-height: 180px;
   `};
 `
 const LegoWrapper = (props): React.FC => {

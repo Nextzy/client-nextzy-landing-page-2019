@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../../common/Text'
@@ -31,12 +31,10 @@ const BoxShowMapAndFooter = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
 `
+
 const OnWeb = (props): React.FC => {
   const { setModal, useMap, setMap, visibleMap } = props
-
   return (
     <>
       <ContainerAll>
@@ -46,11 +44,11 @@ const OnWeb = (props): React.FC => {
               <SectionHeader title="CONTACT" onVisibleMap={visibleMap} />
             </Fade>
           </TextNEXTZY>
-          <MenuAndContent setMap={setMap} setModal={setModal} />
+          <MenuAndContent setMap={setMap} />
         </ContainerPageStart>
       </ContainerAll>
       <BoxShowMapAndFooter>
-        <Map map={useMap} />
+        <Map map={useMap} setModal={setModal} />
       </BoxShowMapAndFooter>
     </>
   )

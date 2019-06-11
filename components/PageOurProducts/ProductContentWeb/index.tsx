@@ -4,6 +4,7 @@ import Fade from 'react-reveal/Fade'
 
 const ProductDeatil = styled.div`
   width: 70%;
+  height: 80vh;
   float: right;
 `
 
@@ -116,7 +117,7 @@ const ProductImgSecond = styled.img`
 `
 
 const ProductContainer = styled.div`
-  height: 80%;
+  height: 100%;
 `
 export const ProductContentWeb = (props): React.FC => {
   const [activeDevice, setActive] = useState('first')

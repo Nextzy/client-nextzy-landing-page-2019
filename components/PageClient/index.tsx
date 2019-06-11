@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
 import LegoBlocks from './Block'
 const Container = styled.div`
-  padding: 5rem 0 5rem 0;
+  padding: 6rem 0 0 0;
   background-color: #102131;
   color: white;
   width: 100%;
@@ -15,7 +15,7 @@ const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */
   text-align: left;
-  font-family: 'Montserrat-Medium';
+  font-family: 'Montserrat-Regular';
   font-size: 2rem;
   color: #ffffff;
   letter-spacing: -0.5px;

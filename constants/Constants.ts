@@ -1,5 +1,6 @@
 const config = {
   sizeMobile: 768,
+  sizeTablet: 1025,
   mediaQuery: {
     mobileS: 320,
     mobileM: 375,

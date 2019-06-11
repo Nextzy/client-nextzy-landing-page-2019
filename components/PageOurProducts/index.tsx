@@ -15,14 +15,14 @@ const Container = styled.div`
   padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;
-  /* height: 100vh; */
+  height: 100%;
   width: 100%;
 `
 const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */
   text-align: left;
-  font-family: Montserrat-Medium;
+  font-family: Montserrat-Regular;
   font-size: 2rem;
   color: #ffffff;
   letter-spacing: -0.5px;
@@ -39,7 +39,7 @@ const ContainerPageObjective = styled.div`
   flex-direction: column;
 `
 const ContainerObject = styled.div`
-  min-height: 100vh;
+  min-height: 80vh;
 `
 
 const DataTest = [
@@ -136,7 +136,7 @@ const DataTest = [
     id: 7,
     rotate: -60,
     indicatorPosition: 371,
-    positionSVG: { cx: '565.99', cy: '685.43' },
+    positionSVG: { cx: '565.9', cy: '685.43' },
     fixselected: 'seventh',
     transformTextMobile: 383.5,
     transformText: 'translate(555 720) rotate(60)',

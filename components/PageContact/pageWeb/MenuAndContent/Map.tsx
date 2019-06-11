@@ -1,48 +1,45 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
+import Flag from './Flag'
+import { getWidthContext } from '../../../../utils/getWidthScreen'
 const ContainerMap = styled.div`
   position: relative;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-  }
-  img:nth-child(1) {
-    visibility: ${({ map }) => (map === 'BANGKOK' ? 'visible' : 'hidden')};
-  }
-  img:nth-child(2) {
-    visibility: ${({ map }) => (map === 'CHIANGMAI' ? 'visible' : 'hidden')};
-  }
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 100% 0%;
+  object-fit: cover;
+  background-image: url(${(props) => props.map === 'BANGKOK' ? '/static/images/Map/map-bkk.png' : '/static/images/Map/map-cnx.png'});
 `
 
 const Map = (props): React.FC => {
+  const ref = useRef(null)
+  const useScreen = useContext(getWidthContext)
+  const [usePosition, setPosition] = useState({ x: 0, y: 0 })
   const [useMapOut, setMapOut] = useState('')
-  const { map } = props
-
+  const { useMap, setModal } = props
   useEffect(() => {
-    if (useMapOut !== map) {
-      setTimeout(() => {
-        setMapOut(map)
-      }, 800)
+    return () => {
+      // cal position of flag
+      var x = ref.current.getBoundingClientRect().width
+      var y = ref.current.getBoundingClientRect().height
+      setPosition({ x: x * (5 / 10), y: y * (1 / 4) })
     }
-  }, [])
+  }, [useScreen, ref.current])
+  const { map } = props
   return (
     <>
-      <ContainerMap {...props} useMapOut={useMapOut}>
-        <Fade when={map === 'BANGKOK'}>
-          <img src="/static/images/Map/map-bkk.png" alt="map" />
-        </Fade>
-        <Fade when={map === 'CHIANGMAI'}>
-          <img src="/static/images/Map/map-cnx.png" alt="map" />
-        </Fade>
+      <ContainerMap {...props} map={map} ref={ref}>
       </ContainerMap>
+      <Flag
+        name="Nextzy Technologies"
+        usePosition={usePosition}
+        onClick={() => setModal({ visible: true, map: map, isShowMap: true })}
+      />
     </>
   )
 }

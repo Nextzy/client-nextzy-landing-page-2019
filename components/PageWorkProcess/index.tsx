@@ -9,7 +9,7 @@ import TimelineVertical from './TimelineVertical/index'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
 const Container = styled.div`
-  padding: 5rem 0 0 0;
+  padding: 6rem 0 0 0;
   background-color: #102131;
   color: white;
   width: 100%;
@@ -19,7 +19,7 @@ const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */
   text-align: left;
-  font-family: Montserrat-Medium;
+  font-family: Montserrat-Regular;
   font-size: 2rem;
   color: #ffffff;
   letter-spacing: -0.5px;
@@ -27,13 +27,13 @@ const TextNEXTZY = styled.div`
   float: left;
 `
 const TextDescription = styled.div`
-  padding-top: 2rem;
+  padding-top: 5rem;
   font-family: 'Montserrat-Regular';
   font-size: 16px;
   letter-spacing: 0.5px;
   line-height: 28px;
 `
-const ContainerPageSart = styled.div`
+const ContainerPageStart = styled.div`
   /* height: 100%; */
   width: 100%;
   display: flex;
@@ -58,7 +58,7 @@ const PageWorkProcess = (): React.FC => {
   const useScreen = useContext(getWidthContext)
   const handleComponents = (): void => {
     if (!useScreen || useScreen === 0) return null
-    if (useScreen <= Config.sizeMobile) {
+    if (useScreen <= Config.sizeTablet) {
       return <TimelineVertical DataProcess={DataProcess} />
     } else {
       return <Timeline DataProcess={DataProcess} />
@@ -67,7 +67,7 @@ const PageWorkProcess = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
-        <ContainerPageSart>
+        <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
               <SectionHeader title="HOW WE WORK (WORKING PROCESS)" />
@@ -79,7 +79,7 @@ const PageWorkProcess = (): React.FC => {
             origresses during development continuously.
           </TextDescription>
           {handleComponents()}
-        </ContainerPageSart>
+        </ContainerPageStart>
       </ContainerAll>
     </Container>
   )

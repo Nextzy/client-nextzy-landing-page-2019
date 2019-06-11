@@ -7,6 +7,7 @@ import Bounce from 'react-reveal/Bounce'
 import Fade from 'react-reveal/Fade'
 import { getWidthContext } from '../../../utils/getWidthScreen'
 const Container = styled.div`
+  margin-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -30,7 +31,6 @@ const PrescriptionContainer = styled.div`
   width: 711px;
   ${media.lessThan(`${Config.sizeMobile}px`)`
     width: calc(100vw - 4rem);
-    margin-bottom: 10vh;
   `}
 `
 
@@ -63,8 +63,12 @@ const Lego = styled.div`
   ${media.lessThan(`${Config.sizeMobile}px`)`
   width: 140px;
   padding-left: 20px;
-  height: ${(props) => (props.thickBottomBorder ? '91px' : '98px')};
+  height: ${(props) => (props.thickBottomBorder ? '116px' : '123px')};
   font-size: 16px;
+  `};
+  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+  width: 180px;
+  height: ${(props) => (props.thickBottomBorder ? '156px' : '163px')};
   `};
   :before {
     display: ${(props) => (props.topLeftExtended ? 'block' : 'none')};
@@ -79,7 +83,12 @@ const Lego = styled.div`
     margin-left: -21px;
     height: 5rem;
     margin-top: -5rem;
-  `}
+  `};
+  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+    margin-left: -26px;
+    height: 6.5rem;
+    margin-top: -5rem;
+  `};
   }
   :after {
     display: ${(props) => (props.bottomRightExtended ? 'block' : 'none')};
@@ -90,10 +99,15 @@ const Lego = styled.div`
     width: 210px;
     margin-top: 108px;
     ${media.lessThan(`${Config.sizeMobile}px`)`
-    height: 5rem;
+    height: 5px;
     width: 140px;
+    margin-top: 200px;
+  `};
+  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+    height: 5rem;
+    margin-left: 40px;
     margin-top: 100px;
-  `}
+  `};
   }
 `
 
@@ -131,15 +145,45 @@ const LegoBlocks = (): React.FC => {
   const useScreen = useContext(getWidthContext)
 
   if (!useScreen || useScreen === 0) return null
-
-  if (useScreen <= Config.sizeMobile) {
+  if (useScreen >= Config.sizeMobile && useScreen <= Config.sizeTablet) {
+    return (
+      <Container>
+        <Prescription />
+        <LegoWrapper order="1" topLeftExtended color={'#AB5AA9'}>
+          Web Application Development
+        </LegoWrapper>
+        <LegoWrapper order="1" thickBottomBorder color={'#9E5CAF'}>
+          Mobile Application Development
+        </LegoWrapper>
+        <LegoWrapper order="1" color={'rgb(0,0,0,0)'} />
+        <LegoWrapper order="2" thickBottomBorder color={'#835FBE'}>
+          Web Service Development
+        </LegoWrapper>
+        <LegoWrapper order="2" color={'#6F62CA'}>
+          Blockchain Development
+        </LegoWrapper>
+        <LegoWrapper order="2" thickBottomBorder color={'#6C62CB'}>
+          UI and UX <br />
+          Design
+          <br /> Services
+        </LegoWrapper>
+        <LegoWrapper order="2" color={'rgb(0,0,0,0)'} />
+        <LegoWrapper order="2" thickBottomBorder color={'#6062D0'}>
+          DevOps Services
+        </LegoWrapper>
+        <LegoWrapper order="2" bottomRightExtended color={'#5065DB'}>
+          QA Services
+        </LegoWrapper>
+      </Container>
+    )
+  } else if (useScreen < Config.sizeMobile) {
     return (
       <Container>
         <Prescription />
         <LegoWrapper order="1" topLeftExtended thickBottomBorder color={'#AB5AA9'}>
           Web Application Development
         </LegoWrapper>
-        <LegoWrapper order="1" color={'rgb(0,0,0,0)'}  />
+        <LegoWrapper order="1" color={'rgb(0,0,0,0)'} />
         <LegoWrapper order="2" color={'#6062D0'}>
           Mobile Application Development
         </LegoWrapper>

@@ -18,7 +18,7 @@ const MenuSelectMapHr = styled.hr`
   margin-top: 24px;
   margin-bottom: 25px;
   height: 1px;
-  width: 80%;
+  width: 50%;
   background-image: linear-gradient(-90deg, #2a7aff, #f7618b);
 `
 const Menu = (props): React.FC => {

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import Menu from './Menu'
 import Title from './Title'
-import Flag from './Flag'
+
 const MenuSelectMap = styled.div`
   position: absolute;
   right: 3rem;
@@ -22,7 +22,7 @@ const BoxContentInSide = styled.div`
 `
 const BoxContentMap = styled.div`
   margin-top: 5rem;
-  flex: 0.8; //vertical
+  flex: 0.5; //vertical
 `
 
 const Description = styled.div`
@@ -64,7 +64,7 @@ const ChangeContentDescription = (menu): void => {
 }
 const MenuAndContent = (props): React.FC => {
   const [useActiveMenu, setActiveMenu] = useState('BANGKOK')
-  const { useMap, setMap, setModal } = props
+  const { setMap } = props
   return (
     <>
       <MenuSelectMap>
@@ -81,12 +81,6 @@ const MenuAndContent = (props): React.FC => {
             <p>FAX: 02-664-0886</p>
           </Description>
         </BoxContentInSide>
-        <BoxContentMap>
-          <Flag
-            name="Nextzy Technologies"
-            onClick={() => setModal({ visible: true, map: useActiveMenu, isShowMap: true })}
-          />
-        </BoxContentMap>
       </BoxContent>
     </>
   )

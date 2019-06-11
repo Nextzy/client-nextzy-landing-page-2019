@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import Menu from './Menu'
 import Title from './Title'
-import Flag from './Flag'
+
 import { IconContactPageContact } from '../../../IconContact'
 const MenuSelectMap = styled.div`
   position: relative;

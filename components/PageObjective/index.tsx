@@ -6,7 +6,7 @@ import { SectionHeader } from '../common/Text'
 import { Pair } from './Menu'
 import Config from '../../constants/Constants'
 const Container = styled.div`
-  padding: 5rem 0 0 0;
+  padding: 6rem 0 0 0;
   background-color: #102131;
   color: white;
   width: 100%;
@@ -16,9 +16,9 @@ const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */
   text-align: left;
-  font-family: Montserrat-Medium;
+  font-family: Montserrat-Regular;
   font-size: 2rem;
-  color: #ffffff;
+  color: #ffffff; 
   letter-spacing: -0.5px;
   display: inline-block;
   float: left;
@@ -31,10 +31,6 @@ const ContainerPageObjective = styled.div`
   z-index: 50;
   ${media.greaterThan(`${Config.sizeMobile}px`)`
     flex-direction: column;
-  `}
-
-  ${media.lessThan(`${Config.sizeMobile}px`)`
-      margin-top: 3rem;
   `}
 `
 

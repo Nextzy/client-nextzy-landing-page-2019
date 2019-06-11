@@ -71,6 +71,9 @@ const BoxRotate = styled.div`
   position: absolute;
   top: 55px;
   right: -20px;
+  ${media.lessThan(`768px`)`
+  display:none;
+  `};
 `
 const BoxSelectMenu = styled.div`
   transition:1s;
