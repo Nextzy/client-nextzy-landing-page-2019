@@ -1,19 +1,16 @@
-import React, { useState, Component, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import styled from 'styled-components'
 
 const Circle = styled.div`
   svg {
+    margin: 6rem 5rem 0 0;
     position: absolute;
-    right: 80%;
+    left:-340px;
     top: 0%;
-    width: 100%;
-    height: 100%;
     z-index: 100;
     user-select: none;
     transition: 500ms all;
-    transform-origin: 50% 50%;
-    transform: rotate(${({ setRotate }) => setRotate || 0}deg);
-  }
+    transform:rotate(${({ setRotate }) => setRotate || 0}deg);
 
   .cls-1 {
     fill: #fff;
@@ -41,6 +38,7 @@ const Circle = styled.div`
   }
 
   .cls-7 {
+    position: absolute;
     font-size: 48px;
     fill: #d8d8d8;
     font-family: Montserrat-Regular, Montserrat Regular;
@@ -66,68 +64,75 @@ const Circle = styled.div`
 
 export const Spinner = (props): React.FC => {
   const { createSelect } = props
-  const [useSelected, setSelected] = useState('first')
+  const [useRotate, setRotated] = useState([])
+  const [useSelected, setSelected] = useState('third')
   const setSelect = (key): void => {
     setSelected(key)
     props.onSelectProduct(key)
   }
-  const setPositionCircle = (useSelected): void => {
-    const getRotate = createSelect.find((f) => f.fixselected === useSelected)
-    return getRotate.rotate
+  useEffect(() => {
+    createSelect.map((data, index) => {
+      const range = 180
+      const angle = (range / createSelect.length) * index
+      // cal x , y (0,0)===(331,331)
+      const angleRadian = angle * (Math.PI / 180)
+      const addX = 340 + (Math.cos(angleRadian) * 320)
+      const addY = 340 + (Math.sin(angleRadian) * 320)
+      let addedRotate = useRotate
+      addedRotate[index] = { name: data.fixselected, addX: addX, addY: addY, rotate: -angle }
+      setRotated(addedRotate)
+    })
+  }, [createSelect])
+
+  const setPositionCircle = (useSelected) => {
+    if (useRotate.length > 0) {
+      const getRotate = useRotate.find((f) => f.name === useSelected)
+      return getRotate.rotate
+    }
   }
+
   return (
-    <Circle setRotate={setPositionCircle(useSelected)}>
-      <svg id="Layer_1" data-name="Layer 1" viewBox="0 0 814 814">
+    <Circle setRotate={() => setPositionCircle(useSelected)}>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="680" height="680">
         <defs>
-          <mask id="mask" x="0" y="0" width="814" height="814" maskUnits="userSpaceOnUse">
-            <g transform="translate(-162.36 -193)">
-              <g id="prefix_spinner_circle-c" data-name="prefix  spinner circle-c">
-                <path
-                  id="prefix_spinner_circle-a"
-                  data-name="prefix  spinner circle-a"
-                  className="cls-1"
-                  d="M589.59,910.55c177.16,0,320.78-143.62,320.78-320.78S766.75,269,589.59,269,268.81,412.62,268.81,589.78,412.43,910.56,589.59,910.56Zm.28-1.55c-176.45,0-319.5-143-319.5-319.5S413.41,270,589.86,270s319.5,143,319.5,319.5S766.32,909,589.86,909Z"
-                />
-              </g>
-            </g>
-          </mask>
-          <linearGradient
-            id="linear-gradient"
-            x1="100.87"
-            y1="1200.68"
-            x2="101.71"
-            y2="1199.63"
-            gradientTransform="translate(76291 977539) rotate(180) scale(748 814)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0" stopColor="#f0618b" />
-            <stop offset="1" stopColor="#4a73b9" />
+          <path id="prefix__spinner_circle-a" d="M320.777 641.555C143.617 641.555 0 497.938 0 320.777 0 143.617 143.617 0 320.777 0s320.778 143.617 320.778 320.777-143.617 320.778-320.778 320.778zM320.5 640C496.955 640 640 496.955 640 320.5S496.955 1 320.5 1 1 144.045 1 320.5 144.045 640 320.5 640z" />
+          <linearGradient id="prefix__spinner_circle-b" x1="7.779%" x2="92.221%" y1="0%" y2="105.478%">
+            <stop offset="0%" stopColor="#F7618B" />
+            <stop offset="100%" stopColor="#2A7AFF" />
           </linearGradient>
         </defs>
-        <path
-          id="prefix_spinner_circle-a-2"
-          data-name="prefix  spinner circle-a"
-          className="cls-2"
-          d="M589.59,910.55c177.16,0,320.78-143.62,320.78-320.78S766.75,269,589.59,269,268.81,412.62,268.81,589.78,412.43,910.56,589.59,910.56Zm.28-1.55c-176.45,0-319.5-143-319.5-319.5S413.41,270,589.86,270s319.5,143,319.5,319.5S766.32,909,589.86,909Z"
-          transform="translate(-162.36 -193)"
-        />
-        <g className="cls-3">
-          <path className="cls-4" d="M910.36,193h-748v814h748Z" transform="translate(-162.36 -193)" />
+        <g fill="none" fillRule="evenodd" transform="matrix(-1 0 0 1 661 19)">
+          <mask id="prefix__spinner_circle-c" fill="#fff">
+            <use xlinkHref="#prefix__spinner_circle-a" />
+          </mask>
+          <use fill="#D8D8D8" opacity=".5" xlinkHref="#prefix__spinner_circle-a" />
+          <g fill="url(#prefix__spinner_circle-b)" mask="url(#prefix__spinner_circle-c)">
+            <path d="M0-76h748v814H0z" />
+          </g>
         </g>
-        {createSelect.map((item) => {
-          const { positionSVG, fixselected, transformText } = item
+        {createSelect.map((item, index) => {
+          let addX = 0
+          let addY = 0
+          let angle = 0
+          if (useRotate[index] !== undefined) {
+            angle = useRotate[index].rotate * -1
+            addX = useRotate[index].addX
+            addY = useRotate[index].addY
+          }
+          const { fixselected } = item
+          const tranfromText = 'translate(' + addX + ' ' + addY + ' ) rotate(' + angle + ')'
           return (
             <Fragment key={item.id}>
               <circle
                 className={useSelected === fixselected ? 'cls-active' : 'cls-5'}
-                cx={positionSVG.cx}
-                cy={positionSVG.cy}
+                cx={addX}
+                cy={addY}
                 r="8.16"
                 onClick={() => setSelect(fixselected)}
                 id={fixselected}
               />
               <g className={useSelected === fixselected ? '' : 'cls-6'} onClick={() => setSelect(fixselected)}>
-                <text className={useSelected === fixselected ? 'text-active' : 'cls-7'} transform={transformText}>
+                <text className={useSelected === fixselected ? 'text-active' : 'cls-7'} transform={tranfromText}>
                   0
                   <tspan className="cls-8" x="35" y="0">
                     {item.id}
@@ -140,4 +145,5 @@ export const Spinner = (props): React.FC => {
       </svg>
     </Circle>
   )
+
 }

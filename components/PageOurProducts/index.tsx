@@ -47,7 +47,7 @@ const DataTest = [
     id: 1,
     rotate: 60,
     indicatorPosition: 23,
-    positionSVG: { cx: '561.37', cy: '104.12' },
+    positionSVG: { cx: '651', cy: '331' },
     fixselected: 'first',
     transformTextMobile: 31.5,
     transformText: 'translate(590.63 92) rotate(-61)',
@@ -121,31 +121,11 @@ const DataTest = [
       devices: ['WEB', 'Back-end'],
       imgUrl: ['product_true_2.png', 'product_true_1.png']
     }
-  },
-  {
-    id: 6,
-    rotate: -40,
-    indicatorPosition: 313,
-    positionSVG: { cx: '647.47', cy: '629.24' },
-    fixselected: 'sixth',
-    transformTextMobile: 325.5,
-    transformText: 'translate(657 665) rotate(40)',
-    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
-  },
-  {
-    id: 7,
-    rotate: -60,
-    indicatorPosition: 371,
-    positionSVG: { cx: '565.9', cy: '685.43' },
-    fixselected: 'seventh',
-    transformTextMobile: 383.5,
-    transformText: 'translate(555 720) rotate(60)',
-    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
   }
 ]
 const Home = (props): React.FC => {
   const { indexActive } = props
-  const [activeProduct, setActive] = useState('first')
+  const [activeProduct, setActive] = useState('third')
   const handleSelectProduct = (key): void => {
     setActive(key)
   }
@@ -161,13 +141,13 @@ const Home = (props): React.FC => {
 
   return (
     <Container>
+      {useScreen && useScreen <= Config.sizeMobile ? (
+        <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+      ) : (
+          <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+        )}
       <ContainerAll>
         <ContainerObject>
-          {useScreen && useScreen <= Config.sizeMobile ? (
-            <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-          ) : (
-            <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
-          )}
           <ContainerPageObjective>
             <TextNEXTZY>
               <Fade right cascade>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="680" height="680">
+  <defs>
+    <path id="prefix__spinner_circle_mark-a" d="M320.777 641.555C143.617 641.555 0 497.938 0 320.777 0 143.617 143.617 0 320.777 0s320.778 143.617 320.778 320.777-143.617 320.778-320.778 320.778zM320.5 640C496.955 640 640 496.955 640 320.5S496.955 1 320.5 1 1 144.045 1 320.5 144.045 640 320.5 640z"/>
+    <linearGradient id="prefix__spinner_circle_mark-b" x1="7.779%" x2="92.221%" y1="0%" y2="105.478%">
+      <stop offset="0%" stop-color="#F7618B"/>
+      <stop offset="100%" stop-color="#2A7AFF"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#FFF" d="M0 0h680v680H0z"/>
+    <g transform="matrix(-1 0 0 1 661 19)">
+      <mask id="prefix__spinner_circle_mark-c" fill="#fff">
+        <use xlink:href="#prefix__spinner_circle_mark-a"/>
+      </mask>
+      <use fill="#D8D8D8" opacity=".5" xlink:href="#prefix__spinner_circle_mark-a"/>
+      <g fill="url(#prefix__spinner_circle_mark-b)" mask="url(#prefix__spinner_circle_mark-c)">
+        <path d="M0-76h748v814H0z"/>
+      </g>
+    </g>
+    <path fill="#D8D8D8" stroke="#979797" d="M340.5.5h1v679h-1z"/>
+    <path fill="#D8D8D8" stroke="#979797" d="M.5 340.5h679v1H.5z"/>
+    <path fill="#4A4A4A" d="M340.947 19L349 27.053l-.947.947L340 19.947 331.947 28l-.947-.947L339.053 19 331 10.947l.947-.947L340 18.053 348.053 10l.947.947L340.947 19z"/>
+    <text fill="#4A4A4A" font-family="Montserrat-Medium, Montserrat" font-size="18" font-weight="400" letter-spacing=".321">
+      <tspan x="293" y="56">x 331 y 10 </tspan>
+    </text>
+    <path fill="#4A4A4A" d="M340.947 340l8.053 8.053-.947.947-8.053-8.053-8.053 8.053-.947-.947 8.053-8.053-8.053-8.053.947-.947 8.053 8.053 8.053-8.053.947.947-8.053 8.053z"/>
+    <text fill="#4A4A4A" font-family="Montserrat-Medium, Montserrat" font-size="18" font-weight="400" letter-spacing=".321">
+      <tspan x="294" y="378">x 331 y 331 </tspan>
+    </text>
+    <text fill="#4A4A4A" font-family="Montserrat-Medium, Montserrat" font-size="18" font-weight="400" letter-spacing=".321">
+      <tspan x="31" y="378">x 11 y 331 </tspan>
+    </text>
+    <path fill="#4A4A4A" d="M340.947 660l8.053 8.053-.947.947-8.053-8.053-8.053 8.053-.947-.947 8.053-8.053-8.053-8.053.947-.947 8.053 8.053 8.053-8.053.947.947-8.053 8.053z"/>
+    <text fill="#4A4A4A" font-family="Montserrat-Medium, Montserrat" font-size="18" font-weight="400" letter-spacing=".321">
+      <tspan x="289" y="634">x 331 y 651 </tspan>
+    </text>
+    <path fill="#4A4A4A" d="M20.947 340L29 348.053l-.947.947L20 340.947 11.947 349l-.947-.947L19.053 340 11 331.947l.947-.947L20 339.053 28.053 331l.947.947L20.947 340z"/>
+    <text fill="#4A4A4A" font-family="Montserrat-Medium, Montserrat" font-size="18" font-weight="400" letter-spacing=".321">
+      <tspan x="570" y="378">x 651 y 331 </tspan>
+    </text>
+    <path fill="#4A4A4A" d="M660.947 340l8.053 8.053-.947.947-8.053-8.053-8.053 8.053-.947-.947 8.053-8.053-8.053-8.053.947-.947 8.053 8.053 8.053-8.053.947.947-8.053 8.053z"/>
+  </g>
+</svg>
