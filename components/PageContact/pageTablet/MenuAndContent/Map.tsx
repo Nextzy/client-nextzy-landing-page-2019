@@ -17,10 +17,13 @@ const ContainerMap = styled.div`
 svg {
     user-select: none;
     transition: all 1s ease-in-out;
+    justify-content:flex-end;
   }
-  position: relative;
+  flex-direction: column-reverse;
+  display: flex;
+  position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   .cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#162332;}.cls-4{fill:#21274a;}.cls-5{fill:#2f4968;}
@@ -58,6 +61,7 @@ const Map = (props): React.FC => {
   return (
     <>
       <ContainerMap {...props}>
+
         <svg xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 288 150"
         >
@@ -66,10 +70,10 @@ const Map = (props): React.FC => {
               <rect class="cls-1" width="288" height="150" />
             </clipPath>
           </defs>
-          <linearGradient id="my-cool-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop stop-color="#102131" offset="0" stopOpacity="0"/>
-            <stop stop-color="#102131" offset="90%" stopOpacity="0.5"/>
-            <stop stop-color="#102131" offset="100%" stopOpacity="1"/>
+          <linearGradient id="my-cool-gradient" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop stop-color="#102131" offset="0" stopOpacity="0" />
+            <stop stop-color="#102131" offset="90%" stopOpacity="0.5" />
+            <stop stop-color="#102131" offset="100%" stopOpacity="1" />
           </linearGradient>
           <title>BKK - Desktop</title>
           {map === 'BANGKOK' ? (<g id="Layer_2" data-name="Layer 2">

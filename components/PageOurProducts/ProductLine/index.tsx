@@ -9,7 +9,7 @@ const Line = styled.div`
     left: 0;
     top: 20%;
     height: 70%;
-    z-index: 1;
+    z-index: 100;
     user-select: none;
 
     ${media.lessThan(`${Config.mediaQuery.tablet}px`)`
@@ -69,8 +69,8 @@ const Line = styled.div`
 `
 
 export const LineSpinner = (props): React.FC => {
-  const { createSelect } = props
-  const [useSelected, setSelected] = useState('first')
+  const { createSelect, activeProduct } = props
+  const [useSelected, setSelected] = useState(activeProduct)
   const setSelect = (key): void => {
     setSelected(key)
     props.onSelectProduct(key)

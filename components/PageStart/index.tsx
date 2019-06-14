@@ -18,7 +18,7 @@ const PageStart = (props): React.FC => {
   const useScreen = useContext(getWidthContext)
   const handleComponents = (): void => {
     if (!useScreen || useScreen === 0) return null
-    if (useScreen <= Config.sizeMobile) {
+    if (useScreen <= Config.sizeTablet) {
       return <PageMobile {...props} />
     } else {
       return <PageWeb {...props} />

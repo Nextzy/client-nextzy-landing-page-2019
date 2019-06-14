@@ -45,12 +45,9 @@ const ContainerObject = styled.div`
 const DataTest = [
   {
     id: 1,
-    rotate: 60,
     indicatorPosition: 23,
-    positionSVG: { cx: '651', cy: '331' },
     fixselected: 'first',
     transformTextMobile: 31.5,
-    transformText: 'translate(590.63 92) rotate(-61)',
     menu: {
       title: 'MY AIS',
       descrition:
@@ -61,12 +58,9 @@ const DataTest = [
   },
   {
     id: 2,
-    rotate: 40,
     indicatorPosition: 81,
-    positionSVG: { cx: '647.47', cy: '162.74' },
     fixselected: 'second',
     transformTextMobile: 87.5,
-    transformText: 'translate(684.55 160.29) rotate(-48)',
     menu: {
       title: 'MY CHANNEL',
       descrition:
@@ -77,12 +71,9 @@ const DataTest = [
   },
   {
     id: 3,
-    rotate: 20,
     indicatorPosition: 139,
-    positionSVG: { cx: '721.4', cy: '265.02' },
     fixselected: 'third',
     transformTextMobile: 143.5,
-    transformText: 'translate(755 275) rotate(-28)',
     menu: {
       title: 'NU MOBILE',
       descrition:
@@ -93,12 +84,9 @@ const DataTest = [
   },
   {
     id: 4,
-    rotate: 0,
     indicatorPosition: 197,
-    positionSVG: { cx: '749.23', cy: '406.21' },
     fixselected: 'fourth',
     transformTextMobile: 205.5,
-    transformText: 'translate(768 425) rotate(0)',
     menu: {
       title: 'YOUEX',
       descrition: 'An application that will help you make friends and will not be lonely anymore.',
@@ -108,12 +96,9 @@ const DataTest = [
   },
   {
     id: 5,
-    rotate: -20,
     indicatorPosition: 255,
-    positionSVG: { cx: '716.17', cy: '535.86' },
     fixselected: 'fifth',
     transformTextMobile: 267.5,
-    transformText: 'translate(735 565) rotate(20)',
     menu: {
       title: 'TRUE MONEY WALLET CAMPAIGN',
       descrition:
@@ -121,11 +106,28 @@ const DataTest = [
       devices: ['WEB', 'Back-end'],
       imgUrl: ['product_true_2.png', 'product_true_1.png']
     }
+  },
+  {
+    id: 6,
+    indicatorPosition: 313,
+    fixselected: 'sixth',
+    transformTextMobile: 325.5,
+    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
+  },
+  {
+    id: 7,
+    indicatorPosition: 371,
+    fixselected: 'seventh',
+    transformTextMobile: 383.5,
+    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
   }
 ]
 const Home = (props): React.FC => {
   const { indexActive } = props
-  const [activeProduct, setActive] = useState('third')
+  const [activeProduct, setActive] = useState(() => {
+    const middle = Math.round(DataTest.length / 2)
+    return DataTest[middle-1].fixselected
+  })
   const handleSelectProduct = (key): void => {
     setActive(key)
   }
@@ -142,9 +144,9 @@ const Home = (props): React.FC => {
   return (
     <Container>
       {useScreen && useScreen <= Config.sizeMobile ? (
-        <LineSpinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+        <LineSpinner onSelectProduct={handleSelectProduct} activeProduct={activeProduct} createSelect={DataTest} />
       ) : (
-          <Spinner onSelectProduct={handleSelectProduct} createSelect={DataTest} />
+          <Spinner onSelectProduct={handleSelectProduct} activeProduct={activeProduct} createSelect={DataTest} />
         )}
       <ContainerAll>
         <ContainerObject>

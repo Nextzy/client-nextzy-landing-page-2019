@@ -36,13 +36,14 @@ const BoxCenter = styled.div`
   `}
 `
 const ContainerAll = (props): React.FC => {
-  const { children } = props
+  const { children, bg } = props
   return (
     <Container>
       {/* <BoxLeft />
       <BoxCenter>{children}</BoxCenter>
       <BoxRight /> */}
       <BoxCenter>{children}</BoxCenter>
+      {bg}
     </Container>
   )
 }

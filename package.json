@@ -1,19 +1,22 @@
 {
   "name": "client-nextzy-landing-page-2019",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "now-build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "export": "next export"
   },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.13",
     "@zeit/next-typescript": "^1.1.1",
+    "animejs": "^3.0.1",
+    "express": "^4.17.1",
     "fullpage.js": "^3.0.4",
     "install": "^0.12.2",
     "next": "^8.0.3",
     "react": "^16.8.4",
+    "react-anime": "^2.2.0",
     "react-dom": "^16.8.4",
     "react-google-maps": "^9.4.5",
     "react-page-scroller": "^1.5.1",

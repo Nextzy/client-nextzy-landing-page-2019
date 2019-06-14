@@ -79,12 +79,12 @@ const Lego = styled.div`
     width: 0px;
     margin-top: -5rem;
     margin-left: -26px;
-    ${media.lessThan(`${Config.sizeMobile}px`)`
+    ${media.lessThan(`${Config.sizeMobile+1}px`)`
     margin-left: -21px;
     height: 5rem;
     margin-top: -5rem;
   `};
-  ${media.between(`${Config.sizeMobile}px`, `${Config.sizeTablet}px`)`
+  ${media.between(`${Config.sizeMobile+1}px`, `${Config.sizeTablet}px`)`
     margin-left: -26px;
     height: 6.5rem;
     margin-top: -5rem;

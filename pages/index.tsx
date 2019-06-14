@@ -21,7 +21,6 @@ const Home = ({ goto }): React.FC => {
   )
 }
 
-
 Home.getInitialProps = async ({ query: { goto } }) => {
   return { goto }
 }

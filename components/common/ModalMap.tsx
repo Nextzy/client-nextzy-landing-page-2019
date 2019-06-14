@@ -17,7 +17,7 @@ const VisibleBackground = styled.div`
   width: 100%;
   height: 100%;
   opacity: 1;
-  // background-color: rgba(0, 0, 0, 0.7);
+   background-color: rgba(0, 0, 0, 0.7);
   @keyframes fadein {
     from {
       opacity: 0;

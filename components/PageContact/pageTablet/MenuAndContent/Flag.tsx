@@ -20,7 +20,10 @@ const ContainerMap = styled.div`
   svg {
     user-select: none;
     transition: 500ms all;
+    justify-content:flex-end;
   }
+  flex-direction: column-reverse;
+  display: flex;
   position: relative;
   left: 0;
   bottom: 0;

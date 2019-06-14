@@ -29,6 +29,7 @@ const BoxBtnPage = styled.div`
   line-height: 1.5;
   color: #ffffff;
   button {
+    user-select:none;
     font-size: 14px;
     color: #ffffff;
     letter-spacing: 1.25px;
@@ -143,7 +144,7 @@ export const ProductContentWeb = (props): React.FC => {
               {menu.devices.map((device, i) => {
                 return (
                   <BoxBtnPage key={i}>
-                    <button>{device}</button>
+                    <button disabled>{device}</button>
                   </BoxBtnPage>
                 )
               })}

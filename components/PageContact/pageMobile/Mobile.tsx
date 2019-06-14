@@ -5,7 +5,6 @@ import { SectionHeader } from '../../common/Text'
 import MenuAndContent from '../pageMobile/MenuAndContent/index'
 import Map from '../pageMobile/MenuAndContent/Map'
 import ContainerAll from '../../layout/ContainerAll'
-import Flag from './MenuAndContent/Flag'
 const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */

@@ -1,20 +1,8 @@
-import React from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
-const ContainerFlag = styled.div`
-  position: absolute;
-  z-index: 100;
-  font-family: 'Montserrat-Regular';
-  font-size: 14px;
-  color: #ffffff;
-  left: ${(props) => props.position.x}px;
-  bottom: ${(props) => props.position.y}px;
-  letter-spacing: 0.5px;
-  text-align: left;
-  line-height: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-`
+import Fade from 'react-reveal/Fade'
+import { getWidthContext } from '../../../../utils/getWidthScreen'
+
 const EarthFade = keyframes`
   from {
       opacity: 1;
@@ -26,39 +14,72 @@ const EarthFade = keyframes`
       opacity: 1;
     }
 `
-const BoxBtnMap = styled.div`
-  position: relative;
-`
-const ImgBtnMap = styled.img`
-  animation: ${EarthFade} 1000ms infinite;
-  width: 30%;
-`
-const BoxBtnMapIn = styled.div`
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  img {
-    margin:auto 0 auto 2rem;
-    width: 15%;
+
+const ContainerMap = styled.div`
+  z-index:25;
+  svg {
+    user-select: none;
+    transition: 500ms all;
   }
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: 100% 0%;
+  object-fit: cover;
+  transition: background-image 1s ease-in-out;
+  .cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#162332;}.cls-4{fill:#21274a;}.cls-5{fill:#2f4968;}
+  .cls-active {
+    fill: #f7618b;
+  }
+  .cls-9 {
+    animation: ${EarthFade} 2000ms infinite;
+  }
+  .cls-10 {
+    animation: ${EarthFade} 1000ms infinite;
+  }
+  .textSVG {
+    position: absolute;
+    font-size: 3px;
+    fill:#ffffff;
+    font-family: Montserrat-Regular, Montserrat Regular;
+    letter-spacing: 0em;
+  }
+  .btn {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+  }
+  .flag-1{fill:#bcbec0;}
+  .flag-2{fill:#fff;}
+  .flag-3{fill:#f7618b;}
+  .flag-4{fill:#9face6;}
 `
+
 const Flag = (props): React.FC => {
-  const { name, onClick, usePosition } = props
+  const { useMap, setModal } = props
+  const { map } = props
   return (
-    <ContainerFlag position={usePosition}>
-      <BoxBtnMap onClick={onClick}>
-        <ImgBtnMap src="/static/images/Planet/asset_planet_halo_1.svg" alt="Nextzy" />
-        <BoxBtnMapIn>
-          <img src="/static/images/Map/flag.png" alt="Nextzy" />
-        </BoxBtnMapIn>
-      </BoxBtnMap>
-      {name}
-    </ContainerFlag>
+    <ContainerMap>
+      <svg xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 84 85.2">
+        <defs>
+          <style></style>
+          <clipPath id="clip-path">
+            <rect class="cls-1" width="84" height="85.2" />
+          </clipPath>
+        </defs>
+        <g>
+          <text>
+            <tspan className="textSVG" x="173" y="105" onClick={() => setModal({ visible: true, map: map, isShowMap: true })}>
+              Nextzy Technologies
+              </tspan>
+          </text>
+        </g>
+      </svg>
+    </ContainerMap>
   )
 }
 
