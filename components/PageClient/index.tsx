@@ -36,7 +36,7 @@ const PageClient = (): React.FC => {
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="PAGE CLIENT" />
+              <SectionHeader title="OUR HAPPY CLIENT" />
             </Fade>
             <LegoBlocks />
           </TextNEXTZY>

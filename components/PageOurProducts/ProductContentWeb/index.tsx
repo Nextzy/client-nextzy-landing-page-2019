@@ -27,21 +27,20 @@ const BoxBtnPage = styled.div`
   font-size: 18px;
   letter-spacing: 0.5;
   line-height: 1.5;
-  color: #ffffff;
+  color: #d8d8d8;
   button {
     user-select:none;
     font-size: 14px;
-    color: #ffffff;
+    color: #d8d8d8;
     letter-spacing: 1.25px;
     line-height: 16px;
     margin-top: 24px;
-    padding: 0.8rem 2.5rem 0.8rem 2.5rem;
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
     margin-right: 16px;
     border-radius: 25px;
     color: white;
     background-color: transparent;
-    border: 0px solid transparent;
-    box-shadow: inset 0 0 0 2px #fff;
+    border: 1px solid #d8d8d8;
   }
   @media (max-width: 720px) {
     display: none;

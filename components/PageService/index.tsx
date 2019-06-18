@@ -45,7 +45,7 @@ const PageService = (): React.FC => {
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="PAGE OWN SERVICE" />
+              <SectionHeader title="OUR SERVICES" />
             </Fade>
             <LegoBlocks />
           </TextNEXTZY>

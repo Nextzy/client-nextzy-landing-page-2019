@@ -49,11 +49,10 @@ const DataTest = [
     fixselected: 'first',
     transformTextMobile: 31.5,
     menu: {
-      title: 'MY AIS',
-      descrition:
-        'An application that answers all your needs with convenient access to all AIS services 24 hours a day. The super convenient new way to make your digital life easier than ever with AIS services you can manage it whenever wherever you like!',
-      devices: ['WEB', 'IOS', 'ANDROID'],
-      imgUrl: ['product_myais_1.png', 'product_myais_2.png']
+      title: 'YOUEX',
+      descrition: 'An application that will help you make friends and will not be lonely anymore.',
+      devices: ['ANDROID'],
+      imgUrl: ['product_you_ex_2.png', 'product_you_ex_1.png']
     }
   },
   {
@@ -88,11 +87,13 @@ const DataTest = [
     fixselected: 'fourth',
     transformTextMobile: 205.5,
     menu: {
-      title: 'YOUEX',
-      descrition: 'An application that will help you make friends and will not be lonely anymore.',
-      devices: ['ANDROID'],
-      imgUrl: ['product_you_ex_2.png', 'product_you_ex_1.png']
+      title: 'MY AIS',
+      descrition:
+        'An application that answers all your needs with convenient access to all AIS services 24 hours a day. The super convenient new way to make your digital life easier than ever with AIS services you can manage it whenever wherever you like!',
+      devices: ['WEB', 'IOS', 'ANDROID'],
+      imgUrl: ['product_myais_1.png', 'product_myais_2.png']
     }
+
   },
   {
     id: 5,
@@ -153,7 +154,7 @@ const Home = (props): React.FC => {
           <ContainerPageObjective>
             <TextNEXTZY>
               <Fade right cascade>
-                <SectionHeader title="PAGE PRODUCTS" />
+                <SectionHeader title="OUR PRODUCTS" />
                 {handleComponents()}
               </Fade>
             </TextNEXTZY>
