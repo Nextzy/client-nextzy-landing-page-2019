@@ -107,20 +107,6 @@ const DataTest = [
       devices: ['WEB', 'Back-end'],
       imgUrl: ['product_true_2.png', 'product_true_1.png']
     }
-  },
-  {
-    id: 6,
-    indicatorPosition: 313,
-    fixselected: 'sixth',
-    transformTextMobile: 325.5,
-    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
-  },
-  {
-    id: 7,
-    indicatorPosition: 371,
-    fixselected: 'seventh',
-    transformTextMobile: 383.5,
-    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
   }
 ]
 const Home = (props): React.FC => {
