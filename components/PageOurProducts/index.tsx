@@ -61,11 +61,11 @@ const DataTest = [
     fixselected: 'second',
     transformTextMobile: 87.5,
     menu: {
-      title: 'MY CHANNEL',
+      title: 'NU MOBILE',
       descrition:
-        'An application for AIS Shop stuff for use in providing services such as a product information viewing and an after-sales service.',
+        'An application for accessing all services of NU Mobile. The brand new telecommunication corp with a new mobile SIM.',
       devices: ['WEB', 'IOS', 'ANDROID', 'Back-end'],
-      imgUrl: ['product_channel_2.png', 'product_channel_1.png']
+      imgUrl: ['product_nu_2.png', 'product_nu_1.png']
     }
   },
   {
@@ -74,11 +74,11 @@ const DataTest = [
     fixselected: 'third',
     transformTextMobile: 143.5,
     menu: {
-      title: 'NU MOBILE',
+      title: 'MY CHANNEL',
       descrition:
-        'An application for accessing all services of NU Mobile. The brand new telecommunication corp with a new mobile SIM.',
+        'An application for AIS Shop stuff for use in providing services such as a product information viewing and an after-sales service.',
       devices: ['WEB', 'IOS', 'ANDROID', 'Back-end'],
-      imgUrl: ['product_nu_2.png', 'product_nu_1.png']
+      imgUrl: ['product_channel_2.png', 'product_channel_1.png']
     }
   },
   {
@@ -113,7 +113,7 @@ const Home = (props): React.FC => {
   const { indexActive } = props
   const [activeProduct, setActive] = useState(() => {
     const middle = Math.round(DataTest.length / 2)
-    return DataTest[middle-1].fixselected
+    return DataTest[middle - 1].fixselected
   })
   const handleSelectProduct = (key): void => {
     setActive(key)

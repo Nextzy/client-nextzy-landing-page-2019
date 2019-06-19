@@ -43,7 +43,7 @@ const Prescription = (): React.FC => {
         We provide a <Highlight>full range</Highlight> of software design and development services
       </Header>
       <Body>
-        From the first step of Business Analysis, System Analysis, User Interface Design, Development, Testing, Release,
+        From the first step of Business Analysis, Systems Analysis, User Interface Design, Development, Testing, Release,
         Deploy and Maintenance, so that the software can work effectively with talented people including fresh and fast
         development processes.
       </Body>

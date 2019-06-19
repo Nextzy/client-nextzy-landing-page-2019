@@ -77,7 +77,7 @@ const BoxRotate = styled.div`
 `
 const BoxSelectMenu = styled.div`
   transition:1s;
-  display: ${({open})=>open?'block':'none'};
+  display: ${({ open }) => open ? 'block' : 'none'};
   padding: 5px;
   background: white;
   color: gray;
@@ -140,12 +140,12 @@ const Menu = (props): void => {
   return (
     <BoxSelectMenu open={useMenu}>
       <DivMenu>
-        <Link href="/medium">
+        <Link href="#">
           <a>BLOGS</a>
         </Link>
       </DivMenu>
       <DivBottom>
-        <a href="https://www.blognone.com/node/64996">CAREER</a>
+        <a href="https://www.blognone.com/node/64996" target="_blank" >CAREER</a>
       </DivBottom>
     </BoxSelectMenu>
   )

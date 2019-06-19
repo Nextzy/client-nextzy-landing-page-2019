@@ -7,11 +7,10 @@ const Line = styled.div`
   svg {
     position: absolute;
     left: 0;
-    top: 20%;
-    height: 70%;
+    top: 10rem;
     z-index: 100;
+    height: 40rem;
     user-select: none;
-
     ${media.lessThan(`${Config.mediaQuery.tablet}px`)`
       left: 5%;
     `}

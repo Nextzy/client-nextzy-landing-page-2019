@@ -76,7 +76,7 @@ const PageWorkProcess = (): React.FC => {
           <TextDescription data-lax-preset="eager">
             To deliver the best software our customers. We, therefore, pay attention to the process of software
             development to meet the requirement of customers rapidly. You could see the sequence of operations and
-            origresses during development continuously.
+            progresses during development continuously.
           </TextDescription>
           {handleComponents()}
         </ContainerPageStart>
