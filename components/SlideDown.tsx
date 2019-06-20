@@ -86,9 +86,9 @@ const BoxText = styled.div`
   left: 3.5rem;
 `
 const SlideDownWeb = (props): React.FC => {
-  const { indexActive, fullpageApi } = props
+  const { indexActive, goToPage } = props
   return (
-    <BoxSlideActive indexActive={indexActive} onClick={() => fullpageApi.moveTo(2)}>
+    <BoxSlideActive indexActive={indexActive} onClick={() => goToPage(2)}>
       <BoxIcon>
         <BoxArrow />
       </BoxIcon>
