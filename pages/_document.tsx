@@ -40,7 +40,7 @@ export default class extends Document {
           <meta name="format-detection" content="telephone=no" />
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQvDHx-wwqQCB71fmSOI_sgNPd2fR3iTM" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
-          <script src="/static/script/scrolloverflow.min.js" />
+          <script src="https://cdn.bootcss.com/fullPage.js/3.0.5/vendors/scrolloverflow.min.js"></script>
         </Head>
         <body>
           <Main />

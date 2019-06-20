@@ -108,13 +108,13 @@ const Nav = (props): React.FC => {
               }}
             >
               {/* <ImgLogo src="/static/images/logo/logo_nextzy_white.svg" /> */}
-              <svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" width="114" height="24">
+              <svg width="114" height="24">
                 <defs>
                   <path id="prefix__logo_nextzy_white-a" d="M0 0h114v24H0z" />
                 </defs>
                 <g fill="none" fillRule="evenodd">
                   <mask id="prefix__logo_nextzy_white-b" fill="#fff">
-                    <use xlinkHref="#prefix__logo_nextzy_white-a" />
+                    <use href="#prefix__logo_nextzy_white-a" />
                   </mask>
                   <path
                     fill="#FFF"

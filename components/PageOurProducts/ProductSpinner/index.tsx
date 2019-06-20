@@ -116,9 +116,9 @@ export const Spinner = (props): React.FC => {
         </defs>
         <g fill="none" fillRule="evenodd">
           <mask id="prefix__spinner_circle-c" fill="#fff">
-            <use xlinkHref="#prefix__spinner_circle-a" />
+            <use href="#prefix__spinner_circle-a" />
           </mask>
-          <use fill="#D8D8D8" opacity=".5" transform="matrix(-1 0 0 1 999.555 0)" xlinkHref="#prefix__spinner_circle-a" />
+          <use fill="#D8D8D8" opacity=".5" transform="matrix(-1 0 0 1 999.555 0)" href="#prefix__spinner_circle-a" />
           <g fill="url(#prefix__spinner_circle-b)" mask="url(#prefix__spinner_circle-c)">
             <path d="M874 93H126v814h748z" />
           </g>

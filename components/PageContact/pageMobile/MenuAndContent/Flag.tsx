@@ -63,12 +63,11 @@ const Flag = (props): React.FC => {
   const { map } = props
   return (
     <ContainerMap>
-      <svg xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 84 85.2">
+      <svg viewBox="0 0 84 85.2">
         <defs>
           <style></style>
           <clipPath id="clip-path">
-            <rect class="cls-1" width="84" height="85.2" />
+            <rect className="cls-1" width="84" height="85.2" />
           </clipPath>
         </defs>
         <g>

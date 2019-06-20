@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import ShootingStar from '../ShootingStar/index'
 import StarFix from '../Stars/index'
@@ -47,6 +47,7 @@ const BoxBtnPage = styled.div`
   color: #ffffff;
 `
 const ButtonProducts = styled.button`
+  z-index: 1000;
   font-size: 14px;
   color: #ffffff;
   letter-spacing: 1.25px;
@@ -67,7 +68,7 @@ const ButtonProducts = styled.button`
   &:hover {
     background-image: linear-gradient(-136deg, #f7618b 0%, #f7618b 100%);
   }
-  &:focus {
+  &:focus-within {
     background-image: linear-gradient(-136deg, #632738 0%, #632738 100%);
     outline: 0;
   }
@@ -77,6 +78,7 @@ const ButtonProducts = styled.button`
 `
 
 const ButtonContact = styled.button`
+  z-index: 1000;
   font-size: 14px;
   color: #ffffff;
   letter-spacing: 1.25px;
@@ -96,7 +98,7 @@ const ButtonContact = styled.button`
     background-image: linear-gradient(-136deg, #f7618b 0%, #f7618b 100%);
     box-shadow: inset 0 0 0 2px #f7618b;
   }
-  &:focus {
+  &:focus-within {
     box-shadow: inset 0 0 0 2px #f7618b;
     background-image: linear-gradient(-136deg, #632738 0%, #632738 100%);
     outline: 0;
@@ -116,7 +118,16 @@ const ContainerPageStart = styled.div`
   flex-direction: column;
 `
 const PageStartWeb = (props): React.FC => {
+  const refProduct = useRef(null)
+  const refContact = useRef(null)
   const { fullpageApi } = props
+  const moveTo = (e) => {
+    fullpageApi.moveTo(e.target.value)
+    setTimeout(() => {
+      refProduct.current.blur()
+      refContact.current.blur()
+    }, 2000)
+  }
   return (
     <>
       <ContainerBackground />
@@ -134,8 +145,12 @@ const PageStartWeb = (props): React.FC => {
               <p>We are pirates</p>
               <p>We sail and hunt the best mobile and web solution.</p>
               <div>
-                <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
-                <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+                <ButtonProducts onClick={moveTo} value="4" ref={refProduct}>
+                  PRODUCTS
+                </ButtonProducts>
+                <ButtonContact onClick={moveTo} value="7" ref={refContact}>
+                  CONTACT
+                </ButtonContact>
               </div>
             </Fade>
           </BoxBtnPage>

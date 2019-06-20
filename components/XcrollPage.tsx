@@ -55,7 +55,7 @@ const ScrollPage = ({ goto }): React.FC => {
           if (goto && fullpageApi && state.initialized && !state.destination) {
             //first load in query
             const currentLink = links.filter((link) => link.href === goto)[0]
-            fullpageApi.moveTo(currentLink.key)
+            fullpageApi.moveTo(currentLink.key + 1)
           }
           return (
             <>

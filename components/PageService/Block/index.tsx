@@ -134,7 +134,7 @@ const LegoWrapper = (props): React.FC => {
   }, [])
 
   return (
-    <LegoDecorator order>
+    <LegoDecorator>
       <Lego {...props}>
         <Fade top cascade duration={800} spy={userShow}>
           <LegoMessage>{userShow ? props.children : null}</LegoMessage>
