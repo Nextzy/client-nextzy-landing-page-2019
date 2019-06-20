@@ -126,7 +126,7 @@ const PageStartWeb = (props): React.FC => {
     setTimeout(() => {
       refProduct.current.blur()
       refContact.current.blur()
-    }, 2000)
+    }, 200)
   }
   return (
     <>
@@ -134,14 +134,14 @@ const PageStartWeb = (props): React.FC => {
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>
-            <Fade right cascade delay={2100}>
+            <Fade right cascade delay={200}>
               <p>NEXTZY </p>
               <p>TECHNOLOGIES</p>
             </Fade>
           </TextNEXTZY>
 
           <BoxBtnPage>
-            <Fade right cascade delay={2100}>
+            <Fade right cascade delay={200}>
               <p>We are pirates</p>
               <p>We sail and hunt the best mobile and web solution.</p>
               <div>

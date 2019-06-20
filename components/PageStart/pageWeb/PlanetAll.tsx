@@ -79,13 +79,13 @@ const PageStart = (): React.FC => {
     // useLayoutEffect(() => {
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: false, state3: false })
-    }, 2100)
+    }, 100)
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: true, state3: false })
-    }, 2500)
+    }, 500)
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: true, state3: true })
-    }, 3000)
+    }, 1000)
   }, [])
   return (
     <>

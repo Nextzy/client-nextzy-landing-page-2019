@@ -22,7 +22,7 @@ class MyApp extends App<MyAppProp> {
     return (
       <Container>
         <GlobalStyle />
-        <PreLoadingPage />
+        {/* <PreLoadingPage /> */}
         <Component {...pageProps} />
       </Container>
     )

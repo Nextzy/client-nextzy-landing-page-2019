@@ -45,6 +45,8 @@ const ScrollPage = ({ goto }): React.FC => {
         <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} useModal={useModal} setModal={setModal} />
       ) : null}
       <ReactFullpage
+        scrollingSpeed={300}
+        fitToSectionDelay={0}
         onLeave={onLeave}
         scrollOverflow={true}
         render={({ state, fullpageApi }) => {
