@@ -71,7 +71,7 @@ const PageStart = (): React.FC => {
   useEffect(() => {
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: true })
-    }, 800)
+    }, 0)
   }, [])
   return (
     <>

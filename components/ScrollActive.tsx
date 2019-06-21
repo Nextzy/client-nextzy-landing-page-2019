@@ -20,24 +20,24 @@ const BoxSlideActive = styled.div`
     /* border: 1px solid #fff; */
     box-shadow: inset 0 0 0 1px #fff;
   }
-  div:nth-child(${({ indexActive }) => indexActive + 1}) {
+  div:nth-child(${({ indexActive }) => indexActive}) {
     background-image: linear-gradient(-136deg, #f7618b 0%, #2a7aff 100%);
     box-shadow: inset 0 0 0 1px transparent;
   }
   `}
 `
 const SlideDown = styled.div``
-const createItemActive = (countPage, fullpageApi): void => {
+const createItemActive = (countPage, goToPage): void => {
   let dataActive = []
   for (let i = 0; i < countPage; i++) {
-    dataActive.push(<div key={i + 1} onClick={() => fullpageApi.moveTo(i + 1)} />)
+    dataActive.push(<div key={i} onClick={() => goToPage(i)} />)
   }
   return dataActive
 }
 const ScrollActive = (props): React.FC => {
-  const { indexActive, fullpageApi, countPage } = props
+  const { indexActive, goToPage, countPage } = props
   if (countPage) {
-    return <BoxSlideActive indexActive={indexActive}>{createItemActive(countPage, fullpageApi)}</BoxSlideActive>
+    return <BoxSlideActive indexActive={indexActive}>{createItemActive(countPage, goToPage)}</BoxSlideActive>
   }
   return null
 }

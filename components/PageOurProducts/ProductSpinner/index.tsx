@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 const Circle = styled.div`
   svg {
-
     position: absolute;
     left: -500px;
     top: 0%;

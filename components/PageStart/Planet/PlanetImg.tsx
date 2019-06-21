@@ -19,6 +19,7 @@ const EarthFade = keyframes`
 `
 const ImgPlanetBlinkOut = styled.img`
   width: 100%;
+  will-change: opacity;
   animation: ${EarthFade} 3000ms infinite;
 `
 const ImgPlanetNotBG = styled.img`
@@ -47,6 +48,7 @@ const PlanetImgHole = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: opacity;
   @keyframes EarthSpin {
     from {
       transform: rotate(0deg);

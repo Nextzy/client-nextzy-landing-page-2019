@@ -21,7 +21,7 @@ const ContainerMap = styled.div`
     user-select: none;
     transition: 500ms all;
   }
-  position: relative;
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;

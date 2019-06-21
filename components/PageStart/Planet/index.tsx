@@ -8,6 +8,7 @@ import PlanetImg from './PlanetImg'
 const MainPlanet = styled.div`
   position: relative;
   transition: 5000ms;
+  will-change:transition;
   left: ${(props) => props.setPosition.y}px;
   top: ${(props) => props.setPosition.x}px;
   z-index: 50;

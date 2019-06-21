@@ -151,7 +151,7 @@ const ContainerPageStart = styled.div`
   flex-direction: column;
 `
 const PageStartMobile = (props): React.FC => {
-  const { fullpageApi } = props
+  const { goToPage } = props
   return (
     <>
       <ContainerBackground />
@@ -170,8 +170,8 @@ const PageStartMobile = (props): React.FC => {
               <p>We sail and hunt the best mobile </p>
               <p>and web solution.</p>
               <BoxButtonStart>
-                <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
-                <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+                <ButtonProducts onClick={() => goToPage(4)}>PRODUCTS</ButtonProducts>
+                <ButtonContact onClick={() => goToPage(7)}>CONTACT</ButtonContact>
               </BoxButtonStart>
             </Fade>
           </BoxBtnPage>

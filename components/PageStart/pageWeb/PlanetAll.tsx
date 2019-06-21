@@ -25,7 +25,7 @@ const BoxPlanetBigSub = styled.div`
   `}
   width: 80%;
   float: right;
-  z-index: 200;
+  z-index: 200;Planet
 `
 const BoxPlanetSmall = styled.div`
   position: absolute;
@@ -72,20 +72,20 @@ const BoxMediumTopSub = styled.div`
   z-index: 250;
 `
 
-const PageStart = (): React.FC => {
+const PageStart = (): React.FCPlanet => {
   const [useOrderEarth, setOrderEarth] = useState({ state1: false, state2: false, state3: false })
   const { state1, state2, state3 } = useOrderEarth
   useEffect(() => {
     // useLayoutEffect(() => {
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: false, state3: false })
-    }, 2100)
+    }, 100)
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: true, state3: false })
-    }, 2500)
+    }, 500)
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: true, state3: true })
-    }, 3000)
+    }, 300)
   }, [])
   return (
     <>

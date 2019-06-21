@@ -64,10 +64,10 @@ const CloseButton = styled.a`
   }
 `
 const MenuScreenMobile = (props): void => {
-  const { useMenu, setMenu, fullpageApi, indexActive } = props
+  const { useMenu, setMenu, goToPage, indexActive } = props
   const funcLinkMenu = (key = 1): void => {
     addPath(key)
-    fullpageApi.moveTo(key + 1)
+    goToPage(key + 1)
     setMenu(!useMenu)
   }
   return (

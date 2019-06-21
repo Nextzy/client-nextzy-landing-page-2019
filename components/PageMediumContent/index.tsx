@@ -129,7 +129,6 @@ const PageMediumContent = (props): React.FC => {
               <p>We sail and hunt the best mobile and web solution.</p>
               <TopButtonMedium>
                 <ButtonMedium
-                //  onClick={() => fullpageApi.moveTo(7)}
                 >
                   GO TO OUR MEDIUM <ArrowRight />
                 </ButtonMedium>

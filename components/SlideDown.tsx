@@ -174,9 +174,9 @@ const BoxArrowMobile = styled.div`
   }
 `
 const SlideDownMobile = (props): React.FC => {
-  const { indexActive, fullpageApi } = props
+  const { indexActive, goToPage } = props
   return (
-    <BoxSlideActiveMobile indexActive={indexActive} onClick={() => fullpageApi.moveTo(2)}>
+    <BoxSlideActiveMobile indexActive={indexActive} onClick={() => goToPage(2)}>
       <BoxIconMobile indexActive={indexActive}>
         <BoxArrowMobile />
       </BoxIconMobile>
@@ -184,7 +184,7 @@ const SlideDownMobile = (props): React.FC => {
   )
 }
 const SlideDown = (props): void => {
-  const { indexActive, fullpageApi } = props
+  const { indexActive, goToPage } = props
   const useScreen = useContext(getWidthContext)
   if (useScreen && useScreen <= Config.sizeMobile) {
     return <SlideDownMobile {...props} />

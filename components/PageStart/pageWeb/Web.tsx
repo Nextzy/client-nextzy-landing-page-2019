@@ -120,13 +120,13 @@ const ContainerPageStart = styled.div`
 const PageStartWeb = (props): React.FC => {
   const refProduct = useRef(null)
   const refContact = useRef(null)
-  const { fullpageApi } = props
+  const { goToPage } = props
   const moveTo = (e) => {
-    fullpageApi.moveTo(e.target.value)
+    goToPage(e.target.value)
     setTimeout(() => {
       refProduct.current.blur()
       refContact.current.blur()
-    }, 2000)
+    }, 100)
   }
   return (
     <>
@@ -134,21 +134,21 @@ const PageStartWeb = (props): React.FC => {
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>
-            <Fade right cascade delay={2100}>
+            <Fade right cascade>
               <p>NEXTZY </p>
               <p>TECHNOLOGIES</p>
             </Fade>
           </TextNEXTZY>
 
           <BoxBtnPage>
-            <Fade right cascade delay={2100}>
+            <Fade right cascade>
               <p>We are pirates</p>
               <p>We sail and hunt the best mobile and web solution.</p>
               <div>
-                <ButtonProducts onClick={moveTo} value="4" ref={refProduct}>
+                <ButtonProducts onClick={moveTo} value="3" ref={refProduct}>
                   PRODUCTS
                 </ButtonProducts>
-                <ButtonContact onClick={moveTo} value="7" ref={refContact}>
+                <ButtonContact onClick={moveTo} value="6" ref={refContact}>
                   CONTACT
                 </ButtonContact>
               </div>
@@ -156,7 +156,7 @@ const PageStartWeb = (props): React.FC => {
           </BoxBtnPage>
         </ContainerPageStart>
 
-        <PlanetAll />
+       {/*  <PlanetAll /> */}
       </ContainerAll>
       <ShootingStar />
       <StarFix />

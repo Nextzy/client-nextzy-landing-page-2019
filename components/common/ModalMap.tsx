@@ -83,11 +83,9 @@ const office = {
 }
 
 const ModalMap = (props): React.FC => {
-  const { useModal, setModal, fullpageApi } = props
+  const { useModal, setModal } = props
   const { visible, map, isShowMap } = useModal
   const [useModalOut, setModalOut] = useState(false)
-  fullpageApi.setAllowScrolling(useModalOut)
-
   const mapLat = map === 'BANGKOK' ? office.bangkok.lat : office.chiangmai.lat
   const mapLng = map === 'BANGKOK' ? office.bangkok.lng : office.chiangmai.lng
   const mapKey = map === 'BANGKOK' ? office.bangkok.key : office.chiangmai.key

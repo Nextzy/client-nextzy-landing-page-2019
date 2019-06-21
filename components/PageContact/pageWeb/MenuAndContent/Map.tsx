@@ -18,7 +18,7 @@ svg {
     user-select: none;
     transition: all 1s ease-in-out;
   }
-  position: relative;
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;

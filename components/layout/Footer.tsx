@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import Config from '../../constants/Constants'
 const BoxFooter = styled.div`
+  bottom: 0;
+    position: absolute;
   width: 100%;
   text-align: center;
   background: #1f2b44;

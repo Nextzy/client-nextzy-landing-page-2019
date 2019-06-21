@@ -93,7 +93,7 @@ const ImgLogo = styled.img`
   cursor: pointer;
 `
 const Nav = (props): React.FC => {
-  const { fullpageApi, indexActive } = props
+  const { goToPage, indexActive } = props
   const getScreenContext = useContext(getWidthContext)
   return (
     <Container>
@@ -104,7 +104,7 @@ const Nav = (props): React.FC => {
             <li
               onClick={() => {
                 Router.replace('/', '/')
-                fullpageApi.moveTo(1)
+                goToPage(0)
               }}
             >
               {/* <ImgLogo src="/static/images/logo/logo_nextzy_white.svg" /> */}
@@ -134,10 +134,10 @@ const Nav = (props): React.FC => {
                         key={key}
                         onClick={() => {
                           addPath(key)
-                          fullpageApi.moveTo(key + 1)
+                          goToPage(key)
                         }}
                       >
-                        <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
+                        <HoverLink indexActive={indexActive-1 === key}>{label}</HoverLink>
                       </li>
                     ) : null
                   )}

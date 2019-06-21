@@ -8,7 +8,7 @@ const BoxIconContact = styled.div`
   color: white;
   transition: 680ms 100ms ease-in-out;
   right: 5rem;
-  bottom: ${({ indexActive }) => (indexActive === 6 ? `4rem` : `0rem`)};
+  bottom: ${({ indexActive }) => (indexActive === 7 ? `4rem` : `0rem`)};
   div {
     margin: 0.5rem 0 0.5rem 0;
   }

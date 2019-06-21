@@ -8,6 +8,7 @@ import OnTablet from './pageTablet/Tablet'
 import OnMobile from './pageMobile/Mobile'
 import Config from '../../constants/Constants'
 const Container = styled.div`
+  position: relative;
   padding: 6rem 0 0 0;
   background-color: #102131;
   color: white;
@@ -15,7 +16,7 @@ const Container = styled.div`
   width: 100%;
 `
 const BoxFooter = styled.div`
-  position: absolute;
+
   bottom: 0;
   left: 0;
   width: 100%;

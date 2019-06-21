@@ -129,9 +129,7 @@ const PageMedium = (props): React.FC => {
             <Fade right cascade delay={2100}>
               <p>We sail and hunt the best mobile and web solution.</p>
               <TopButtonMedium>
-                <ButtonMedium
-                //  onClick={() => fullpageApi.moveTo(7)}
-                >
+                <ButtonMedium>
                   GO TO OUR MEDIUM <ArrowRight />
                 </ButtonMedium>
               </TopButtonMedium>

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react'
+import React, { useState, useContext } from 'react'
 import PageStart from './PageStart'
 import PageObjective from './PageObjective'
 import PageService from './PageService'
@@ -21,23 +21,21 @@ const ContainerBackground = styled.div`
   background-color: #102131;
 `
 const ScrollPage = ({ goto }): React.FC => {
-  const reactPageRef = useRef(null)
+  let reactPage = null
   const [useActive, setActive] = useState(0)
-  const [usePageScroll, setPageScroll] = useState(1)
-  const [useCountPage, setCountPage] = useState(0)
   const [useModal, setModal] = useState({ visible: false, map: '', isShowMap: false })
   const [useMenu, setMenu] = useState(false)
   const { visible, isShowMap } = useModal
   const getScreenContext = useContext(getWidthContext)
   const goToPage = (pageNumber) => {
-    reactPageRef.goToPage(pageNumber)
+    reactPage.goToPage(pageNumber)
   }
   const pageOnChange = (number): void => {
-    setPageScroll(number)
+    setActive(number)
   }
   return (
     <ContainerBackground>
-      <ScrollActive indexActive={useActive} goToPage={goToPage} countPage={useCountPage} />
+      <ScrollActive indexActive={useActive} goToPage={goToPage} countPage={7} />
       <SlideDown indexActive={useActive} goToPage={goToPage} />
       <Nav indexActive={useActive} goToPage={goToPage} useMenu={useMenu} setMenu={setMenu} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
@@ -47,7 +45,7 @@ const ScrollPage = ({ goto }): React.FC => {
       {visible ? (
         <ModalMap indexActive={useActive} goToPage={goToPage} useModal={useModal} setModal={setModal} />
       ) : null}
-      <ReactPageScroller ref={reactPageRef} pageOnChange={pageOnChange} animationTimer={500}>
+      <ReactPageScroller ref={(c) => (reactPage = c)} pageOnChange={pageOnChange} animationTimer={300}>
         <div className="section">
           <PageStart goToPage={goToPage} />
         </div>
