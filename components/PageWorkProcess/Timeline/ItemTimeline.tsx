@@ -67,7 +67,7 @@ const BoxText = styled.div`
   left: 0;
   text-align: center;
   top: 1.5rem;
-  transition: width 2s;
+  transition: width 1s;
   ${({ position, show }) =>
     position
       ? ` 
@@ -116,7 +116,7 @@ const ItemTimeline = (props): React.FC => {
   useEffect(() => {
     setTimeout(() => {
       setShow(true)
-    }, 250 * id)
+    }, 100 * id)
   }, [])
 
   return (

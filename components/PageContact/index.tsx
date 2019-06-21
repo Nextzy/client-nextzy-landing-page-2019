@@ -9,17 +9,20 @@ import OnMobile from './pageMobile/Mobile'
 import Config from '../../constants/Constants'
 const Container = styled.div`
   position: relative;
-  padding: 6rem 0 0 0;
+
   background-color: #102131;
   color: white;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 `
 const BoxFooter = styled.div`
-
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+`
+const Content = styled.div`
+    padding: 6rem 0 0 0;
 `
 const PageContact = (props): React.FC => {
   const [useMap, setMap] = useState('BANGKOK')
@@ -36,7 +39,9 @@ const PageContact = (props): React.FC => {
   }
   return (
     <Container>
-      {handleComponents()}
+      <Content>
+        {handleComponents()}
+      </Content>
       <BoxFooter>
         <Footer />
       </BoxFooter>

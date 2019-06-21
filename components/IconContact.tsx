@@ -6,7 +6,7 @@ const BoxIconContact = styled.div`
   position: fixed;
   z-index: 500;
   color: white;
-  transition: 680ms 100ms ease-in-out;
+  transition: 100ms 100ms ease-in-out;
   right: 5rem;
   bottom: ${({ indexActive }) => (indexActive === 7 ? `4rem` : `0rem`)};
   div {
