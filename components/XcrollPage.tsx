@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react'
+import loadable from 'react-loadable'
 import PageStart from './PageStart'
+
 import PageObjective from './PageObjective'
 import PageService from './PageService'
 import PageClient from './PageClient'
@@ -16,7 +18,10 @@ import ModalMap from './common/ModalMap'
 import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
-
+/* const PageObjective = loadable({
+  loading: () => (null),
+  loader: () => import('./PageObjective')
+}) */
 const ContainerBackground = styled.div`
   background-color: #102131;
 `
@@ -46,6 +51,7 @@ const ScrollPage = ({ goto }): React.FC => {
       ) : null}
       <ReactFullpage
         scrollingSpeed={300}
+        lazyLoading={true}
         fitToSectionDelay={0}
         onLeave={onLeave}
         scrollOverflow={true}
@@ -75,7 +81,7 @@ const ScrollPage = ({ goto }): React.FC => {
                   <PageOurProduct indexActive={useActive} />
                 </div>
                 <div className="section">
-                  <PageClient />
+                  <PageClient indexActive={useActive} />
                 </div>
                 <div className="section">
                   <PageWorkProcess />

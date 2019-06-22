@@ -96,7 +96,7 @@ const PlanetBig = (props): React.FC => {
   if (imgShadow) {
     return (
       <Planet ref={planetRef}>
-        <ImgPlanetBlinkOut src={PlanetBackground} />
+        <ImgPlanetBlinkOut src={PlanetBackground} alt="blink" />
         <PlanetImgCore effectSpin={effectSpin}>
           <ImgPlanetCore src={imgCore} alt="bg" />
         </PlanetImgCore>
@@ -111,7 +111,7 @@ const PlanetBig = (props): React.FC => {
   } else {
     return (
       <Planet ref={planetRef}>
-        <ImgPlanetNotBG src={PlanetCore} />
+        <ImgPlanetNotBG src={PlanetCore} alt="planet-raw" />
       </Planet>
     )
   }

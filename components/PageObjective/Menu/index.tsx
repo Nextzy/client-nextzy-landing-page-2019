@@ -91,10 +91,10 @@ const MenuWeb = (props): React.FC<MenuProps> => {
         <Row {...props}>
           {props.name}
           <Swing when={props.selected}>
-            <SuffixIcon src={src} />
+            <SuffixIcon src={``} data-src={src} alt="icon" />
           </Swing>
         </Row>
-        <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
+        <BottomLiner {...props} src={``} data-src="/static/images/Divider/Color.svg" alt="line" />
       </RowWrapper>
     </>
   )
@@ -110,7 +110,7 @@ const MenuMobile = (props): React.FC<MenuProps> => {
         <Row {...props}>
           {name}
           <Swing when={selected}>
-            <SuffixIcon src={src} />
+            <SuffixIcon src={``} data-src={src} alt="icon" />
           </Swing>
         </Row>
         <MenuSelectMapHr  {...props} />
@@ -217,7 +217,7 @@ const OrderedItem = (props): React.FC<OrderedItemProps> => {
   return (
     <OrderedItemContainer>
       <div>{props.number}</div>
-      <OrderedItemDivider src="/static/images/Divider/Color.svg" />
+      <OrderedItemDivider data-src="/static/images/Divider/Color.svg" alt="divider" />
       <div>{props.name}</div>
     </OrderedItemContainer>
   )

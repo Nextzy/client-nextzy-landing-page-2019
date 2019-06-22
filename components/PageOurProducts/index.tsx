@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import loadable from 'react-loadable'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
@@ -10,8 +11,13 @@ import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
+/* const Spinner = loadable({
+  loader: () => import('./ProductSpinner'),
+  loading() { return (<div>loading</div>) }
+}) */
 
 const Container = styled.div`
+  position: relative;
   padding: 5rem 0 5rem 0;
   background-color: #102131;
   color: white;

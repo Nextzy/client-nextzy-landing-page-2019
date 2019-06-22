@@ -91,35 +91,34 @@ const LegoImg = styled.img`
 `
 const LegoWrapper = (props): React.FC => {
   const [userShow, setShow] = useState(false)
-  const { order } = props
+  const { order, indexActive } = props
   useEffect((): void => {
     setTimeout((): void => {
       setShow(true)
     }, 450 * order)
   }, [])
-
   return (
     <LegoDecorator>
       <Lego {...props}>
         {userShow ? (
           <Fade top cascade>
-            <LegoImg src={`static/images/logo/logo_${props.src}.svg`} />
+            <LegoImg src={`static/images/logo/logo_${props.src}.svg`} alt="logo" />
           </Fade>
         ) : null}
       </Lego>
     </LegoDecorator>
   )
 }
-const LegoBlocks = (): React.FC => (
+const LegoBlocks = (props): React.FC => (
   <Container>
-    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top />
-    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" rightExtended top outer />
-    <LegoWrapper order="1" color={'#8466A7'} src="omisego" top />
-    <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended top />
-    <LegoWrapper order="2" color={'#A26FB1'} src="onedaycat" leftExtended />
-    <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended outer />
-    <LegoWrapper order="2" color={'#6875D4'} src="nitto" />
-    <LegoWrapper order="2" color={'#5079E5'} src="youex" rightExtended />
+    <LegoWrapper order="1" color={'#DE6C90'} src="myAis" leftExtended top {...props} />
+    <LegoWrapper order="1" color={'#9C649A'} src="nu_mobile" rightExtended top outer {...props} />
+    <LegoWrapper order="1" color={'#8466A7'} src="omisego" top {...props} />
+    <LegoWrapper order="1" color={'#6A6ABA'} src="iteamstudio" rightExtended top {...props} />
+    <LegoWrapper order="2" color={'#A26FB1'} src="onedaycat" leftExtended {...props} />
+    <LegoWrapper order="2" color={'#8572C2'} src="true" rightExtended outer {...props} />
+    <LegoWrapper order="2" color={'#6875D4'} src="nitto" {...props} />
+    <LegoWrapper order="2" color={'#5079E5'} src="youex" rightExtended {...props} />
   </Container>
 )
 export default LegoBlocks

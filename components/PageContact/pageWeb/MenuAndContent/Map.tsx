@@ -52,10 +52,7 @@ const Map = (props): React.FC => {
   const { map } = props
   return (
     <ContainerMap {...props}>
-      <svg
-        width={widthContext}
-        viewBox="0 0 288 150"
-      >
+      <svg width={widthContext} viewBox="0 0 288 150">
         <defs>
           <clipPath id="clip-path">
             <rect className="cls-1" width="288" height="150" />

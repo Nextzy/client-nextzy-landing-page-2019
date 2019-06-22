@@ -146,8 +146,8 @@ export const ProductContentMobile = (props): React.FC => {
               </Fade>
               {menu.imgUrl && menu.imgUrl.length > 0 && (
                 <ImgContainer>
-                  <ProductImgfirst className="slide-out" src={`/static/images/Products/${menu.imgUrl[0]}`} />
-                  <ProductImgSecond className="slide-out" src={`/static/images/Products/${menu.imgUrl[1]}`} />
+                  <ProductImgfirst className="slide-out" src={`/static/images/Products/${menu.imgUrl[0]}`} alt="product-1" />
+                  <ProductImgSecond className="slide-out" src={`/static/images/Products/${menu.imgUrl[1]}`} alt="product-2" />
                 </ImgContainer>
               )}
             </ProductContainer>

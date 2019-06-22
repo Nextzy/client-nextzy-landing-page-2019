@@ -134,14 +134,14 @@ const PageStartWeb = (props): React.FC => {
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>
-            <Fade right cascade delay={200}>
+            <Fade right cascade>
               <p>NEXTZY </p>
               <p>TECHNOLOGIES</p>
             </Fade>
           </TextNEXTZY>
 
           <BoxBtnPage>
-            <Fade right cascade delay={200}>
+            <Fade right cascade>
               <p>We are pirates</p>
               <p>We sail and hunt the best mobile and web solution.</p>
               <div>

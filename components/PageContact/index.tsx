@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
-import media from 'styled-media-query'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Footer from '../layout/Footer'
 import OnWeb from './pageWeb/Web'
@@ -8,9 +7,10 @@ import OnTablet from './pageTablet/Tablet'
 import OnMobile from './pageMobile/Mobile'
 import Config from '../../constants/Constants'
 const Container = styled.div`
-  padding: 6rem 0 0 0;
+  position: relative;
   background-color: #102131;
   color: white;
+  min-height: 100vh;
   height: 100%;
   width: 100%;
 `
@@ -19,6 +19,9 @@ const BoxFooter = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
+`
+const Content = styled.div`
+  padding: 6rem 0 0 0;
 `
 const PageContact = (props): React.FC => {
   const [useMap, setMap] = useState('BANGKOK')
@@ -35,7 +38,9 @@ const PageContact = (props): React.FC => {
   }
   return (
     <Container>
-      {handleComponents()}
+      <Content>
+        {handleComponents()}
+      </Content>
       <BoxFooter>
         <Footer />
       </BoxFooter>

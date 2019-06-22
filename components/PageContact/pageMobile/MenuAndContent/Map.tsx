@@ -1,8 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { getWidthContext } from '../../../../utils/getWidthScreen'
 import styled, { keyframes } from 'styled-components'
-import Fade from 'react-reveal/Fade'
-import Flag from './Flag'
 
 const Light = keyframes`
   from {
@@ -26,7 +24,6 @@ const ContainerMap = styled.div`
   background-size: cover;
   background-position: 100% center;
   object-fit: cover;
-  background-image: url(${(props) => props.map === 'BANGKOK' ? '/static/images/Map/map-bkk.png' : '/static/images/Map/map-cnx.png'});
   .cls-1{fill:none;}
   .cls-2{clip-path:url(#clip-path);}
   .cls-3{fill:#162332;}

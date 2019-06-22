@@ -1,7 +1,4 @@
-import React, {
-  useState,
-  useRef
-} from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import Bounce from 'react-reveal/Bounce'
 import PlanetImg from './PlanetImg'
@@ -29,7 +26,7 @@ const PlanetBigFunction = (props): React.FC => {
     })
   }
 
-  const mouseOver = function(e): void {
+  const mouseOver = function (e): void {
     movePlanet()
   }
 
