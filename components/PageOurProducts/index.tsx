@@ -9,7 +9,6 @@ import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
-import _ from 'lodash'
 /* const Spinner = loadable({
   loader: () => import('./ProductSpinner'),
   loading() { return (<div>loading</div>) }
