@@ -29,7 +29,7 @@ const BoxBtnPage = styled.div`
   line-height: 1.5;
   color: #d8d8d8;
   button {
-    user-select:none;
+    user-select: none;
     font-size: 14px;
     color: #d8d8d8;
     letter-spacing: 1.25px;

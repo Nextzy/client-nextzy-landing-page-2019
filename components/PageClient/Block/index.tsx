@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
 import media from 'styled-media-query'
 import Config from '../../../constants/Constants'
@@ -72,10 +71,10 @@ const Lego = styled.div`
 
 const LegoDecorator = styled.div``
 
-const LegoNull = styled.div`
+/* const LegoNull = styled.div`
   min-height: 210px;
   width: 210px;
-`
+` */
 
 const LegoImg = styled.img`
   align-self: center;
@@ -91,7 +90,7 @@ const LegoImg = styled.img`
 `
 const LegoWrapper = (props): React.FC => {
   const [userShow, setShow] = useState(false)
-  const { order, indexActive } = props
+  const { order } = props
   useEffect((): void => {
     setTimeout((): void => {
       setShow(true)
@@ -101,8 +100,8 @@ const LegoWrapper = (props): React.FC => {
     <LegoDecorator>
       <Lego {...props}>
         {userShow ? (
-          <Fade top cascade>
-            <LegoImg src={`static/images/logo/logo_${props.src}.svg`} alt="logo" />
+          <Fade top cascade spy>
+            <LegoImg data-src={`static/images/logo/logo_${props.src}.svg`} alt="logo" />
           </Fade>
         ) : null}
       </Lego>

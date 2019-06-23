@@ -76,6 +76,7 @@ export const Spinner = (props): React.FC => {
     props.onSelectProduct(key)
   }
   useEffect(() => {
+    setSelected(activeProduct)
     createSelect.map((data, index) => {
       const range = 180
       const anglePerItem = (range / createSelect.length)
@@ -94,7 +95,11 @@ export const Spinner = (props): React.FC => {
       addedRotate[index] = { name: data.fixselected, addX: addX, addY: addY, textX: textX, textY: textY, btnX: btnX, btnY: btnY, rotate: -angle }
       setRotated(addedRotate)
     })
-  }, [createSelect])
+  }, [createSelect, activeProduct])
+
+  const handleScroll = (e) => {
+    console.log(e)
+  }
 
   const setPositionCircle = (useSelected) => {
     if (useRotate.length > 0) {

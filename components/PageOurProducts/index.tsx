@@ -1,16 +1,15 @@
-import React, { useState, useContext } from 'react'
-import loadable from 'react-loadable'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
-import { Product } from './ProductsMenu'
 import { ProductContentWeb } from './ProductContentWeb'
 import { ProductContentMobile } from './ProductContentMobile'
 import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
+import _ from 'lodash'
 /* const Spinner = loadable({
   loader: () => import('./ProductSpinner'),
   loading() { return (<div>loading</div>) }
@@ -18,10 +17,10 @@ import Config from '../../constants/Constants'
 
 const Container = styled.div`
   position: relative;
-  padding: 5rem 0 5rem 0;
+  padding: 6rem 0 0 0;
   background-color: #102131;
   color: white;
-  height: 100%;
+  min-height: 88vh;
   width: 100%;
 `
 const TextNEXTZY = styled.div`
@@ -116,11 +115,77 @@ const DataTest = [
   }
 ]
 const Home = (props): React.FC => {
-  const { indexActive } = props
+  const { indexActive, fullpageApi } = props
+
   const [activeProduct, setActive] = useState(() => {
     const middle = Math.round(DataTest.length / 2)
     return DataTest[middle - 1].fixselected
   })
+  const downHandler = ({ key }) => {
+    if (key === 'ArrowDown' && indexActive === 3) {
+      let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
+      if (nextIndex < 5) { setActive(DataTest[nextIndex].fixselected) }
+      else {
+        fullpageApi.moveSectionDown()
+      }
+    } else if (key === 'ArrowUp' && indexActive === 3) {
+      let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
+      if (nextIndex > -1) { setActive(DataTest[nextIndex].fixselected) } else {
+        fullpageApi.moveSectionUp()
+      }
+    }
+  }
+  let stack = 0
+  const scrollHandler = (e) => {
+    if (stack === 5) { //stack speed
+      stack = 0
+      if (e.deltaY > 0 && indexActive === 3) { //scroll down & current page
+        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
+        if (nextIndex < DataTest.length) { setActive(DataTest[nextIndex].fixselected) }
+        else {
+          fullpageApi.moveSectionDown()
+        }
+      } else if (e.deltaY < 0 && indexActive === 3) { //scroll up & current page
+        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
+        if (nextIndex > -1) { setActive(DataTest[nextIndex].fixselected) }
+        else {
+          fullpageApi.moveSectionUp()
+        }
+      }
+    }
+    stack++
+  }
+  useEffect(() => {
+    if (fullpageApi && fullpageApi['setAllowScrolling']) {
+      if (indexActive === 3) {
+        window.addEventListener('keydown', downHandler)
+        window.addEventListener('wheel', scrollHandler)
+        // Remove event listeners on cleanup
+        if (activeProduct === 'fifth') {
+          fullpageApi['setAllowScrolling'](true, 'down')
+          fullpageApi['setAllowScrolling'](false, 'up')
+          fullpageApi['setKeyboardScrolling'](true, 'down')
+          fullpageApi['setKeyboardScrolling'](false, 'up')
+        } else if (activeProduct === 'first') {
+          fullpageApi['setAllowScrolling'](true, 'up')
+          fullpageApi['setAllowScrolling'](false, 'down')
+          fullpageApi['setKeyboardScrolling'](true, 'up')
+          fullpageApi['setKeyboardScrolling'](false, 'down')
+        } else {
+          fullpageApi['setAllowScrolling'](false)
+          fullpageApi['setKeyboardScrolling'](false)
+        }
+      } else {
+        fullpageApi['setAllowScrolling'](true)
+        fullpageApi['setKeyboardScrolling'](true)
+      }
+    }
+    return () => {
+      window.removeEventListener('keydown', downHandler)
+      window.removeEventListener('wheel', scrollHandler)
+    }
+  }, [indexActive, activeProduct])
+
   const handleSelectProduct = (key): void => {
     setActive(key)
   }
@@ -133,7 +198,6 @@ const Home = (props): React.FC => {
       return <ProductContentWeb activeProduct={activeProduct} productData={DataTest} />
     }
   }
-
   return (
     <Container>
       {useScreen && useScreen <= Config.sizeMobile ? (

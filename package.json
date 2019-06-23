@@ -14,6 +14,7 @@
     "express": "^4.17.1",
     "fullpage.js": "^3.0.4",
     "install": "^0.12.2",
+    "loadash": "^1.0.0",
     "next": "^8.0.3",
     "react": "^16.8.4",
     "react-anime": "^2.2.0",

@@ -125,26 +125,30 @@ const Nav = (props): React.FC => {
                 </g>
               </svg>
             </li>
-            <UlRight>
-              {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
-                <>
-                  {links.map(({ key, label, show }) =>
-                    show ? (
-                      <li
-                        key={key}
-                        onClick={() => {
-                          addPath(key)
-                          fullpageApi.moveTo(key + 1)
-                        }}
-                      >
-                        <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
-                      </li>
-                    ) : null
-                  )}
-                </>
-              )}
-              <Hamburger {...props} />
-            </UlRight>
+            <li>
+              <UlRight>
+                {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
+                  <>
+                    {links.map(({ key, label, show }) =>
+                      show ? (
+                        <li
+                          key={key}
+                          onClick={() => {
+                            addPath(key)
+                            fullpageApi.moveTo(key + 1)
+                          }}
+                        >
+                          <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
+                        </li>
+                      ) : null
+                    )}
+                  </>
+                )}
+                <li>
+                  <Hamburger {...props} />
+                </li>
+              </UlRight>
+            </li>
           </ul>
         </ContainerAll>
       </NavBar>

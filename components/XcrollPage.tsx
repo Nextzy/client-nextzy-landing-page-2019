@@ -66,31 +66,29 @@ const ScrollPage = ({ goto }): React.FC => {
             fullpageApi.moveTo(currentLink.key + 1)
           }
           return (
-            <>
-              <ReactFullpage.Wrapper>
-                <div className="section">
-                  <PageStart fullpageApi={useFullPageApi} />
-                </div>
-                <div className="section">
-                  <PageObjective />
-                </div>
-                <div className="section">
-                  <PageService />
-                </div>
-                <div className="section">
-                  <PageOurProduct indexActive={useActive} />
-                </div>
-                <div className="section">
-                  <PageClient indexActive={useActive} />
-                </div>
-                <div className="section">
-                  <PageWorkProcess />
-                </div>
-                <div className="section">
-                  <PageContact setModal={setModal} visibleMap={isShowMap} />
-                </div>
-              </ReactFullpage.Wrapper>
-            </>
+            <ReactFullpage.Wrapper>
+              <div className="section">
+                <PageStart fullpageApi={useFullPageApi} />
+              </div>
+              <div className="section">
+                <PageObjective />
+              </div>
+              <div className="section">
+                <PageService />
+              </div>
+              <div className="section">
+                <PageOurProduct indexActive={useActive} fullpageApi={useFullPageApi} />
+              </div>
+              <div className="section">
+                <PageClient indexActive={useActive} />
+              </div>
+              <div className="section">
+                <PageWorkProcess />
+              </div>
+              <div className="section">
+                <PageContact setModal={setModal} visibleMap={isShowMap} />
+              </div>
+            </ReactFullpage.Wrapper>
           )
         }}
       />

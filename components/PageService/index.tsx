@@ -41,7 +41,7 @@ const PageService = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
-        <BackgroundImage src="/static/images/Background/background_circle_1.svg" alt="backgroundja" />
+        <BackgroundImage data-src="/static/images/Background/background_circle_1.svg" alt="backgroundja" />
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
