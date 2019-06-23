@@ -79,7 +79,7 @@ const PageStart = (): React.FC => {
         <BoxPlanetBigSub>
           {state2 ? (
             <Planet
-              imgCore="/static/images/Planet/planet_center_core.png"
+              imgCore="/static/images/Planet/planet_center_core.webp"
               imgShadow="/static/images/Planet/planet_center_shadow.png"
               imgHole="/static/images/Planet/planet_center_hole.png"
               background="/static/images/Planet/asset_planet_halo_1.svg"

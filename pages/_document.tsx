@@ -38,9 +38,10 @@ export default class extends Document {
           <meta name="HandheldFriendly" content="True" />
           <meta name="MobileOptimized" content="640" />
           <meta name="format-detection" content="telephone=no" />
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQvDHx-wwqQCB71fmSOI_sgNPd2fR3iTM" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
-          <script src="https://cdn.bootcss.com/fullPage.js/3.0.5/vendors/scrolloverflow.min.js"></script>
+          <link rel="preload" href="/static/fonts/Montserrat/Montserrat-Regular.ttf" as="font" />
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQvDHx-wwqQCB71fmSOI_sgNPd2fR3iTM" defer />
+          <script src="https://cdn.bootcss.com/fullPage.js/3.0.5/vendors/scrolloverflow.min.js" defer></script>
         </Head>
         <body>
           <main>

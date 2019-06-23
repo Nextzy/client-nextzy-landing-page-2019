@@ -98,7 +98,6 @@ const DataTest = [
       devices: ['WEB', 'IOS', 'ANDROID'],
       imgUrl: ['product_myais_1.png', 'product_myais_2.png']
     }
-
   },
   {
     id: 5,

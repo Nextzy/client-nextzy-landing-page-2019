@@ -93,8 +93,8 @@ const PageStart = (): React.FC => {
         <BoxPlanetBigSub>
           {state2 ? (
             <Planet
-              imgCore="/static/images/Planet/planet_center_core.png"
-              imgShadow="/static/images/Planet/planet_center_shadow.png"
+              imgCore="/static/images/Planet/planet_center_core.webp"
+              imgShadow="/static/images/Planet/planet_center_shadow.webp"
               imgHole="/static/images/Planet/planet_center_hole.png"
               background="/static/images/Planet/asset_planet_halo_1.svg"
               effectSpin={'spinout'}
@@ -110,8 +110,8 @@ const PageStart = (): React.FC => {
         <BoxMediumTopSub>
           {state1 ? (
             <Planet
-              imgCore="/static/images/Planet/asset_planet_top_core.png"
-              imgShadow="/static/images/Planet/asset_planet_top_shadow.png"
+              imgCore="/static/images/Planet/asset_planet_top_core.webp"
+              imgShadow="/static/images/Planet/asset_planet_top_shadow.webp"
               imgHole="/static/images/Planet/asset_planet_top_line.png"
               background="/static/images/Planet/asset_planet_halo_2.svg"
               effectSpin={'spinin'}

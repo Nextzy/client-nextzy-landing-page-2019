@@ -43,8 +43,8 @@ const ContainerMap = styled.div`
   }
   .textSVG {
     position: absolute;
-    font-size: 0.2em;
-    font-size-adjust: 0.1;
+    font-size: 0.2rem;
+    /* font-size-adjust: 0.1; */
     fill:#ffffff;
     font-family: Montserrat-Regular, Montserrat Regular;
     letter-spacing: 0em;
