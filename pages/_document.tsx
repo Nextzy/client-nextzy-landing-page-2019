@@ -43,7 +43,9 @@ export default class extends Document {
           <script src="https://cdn.bootcss.com/fullPage.js/3.0.5/vendors/scrolloverflow.min.js"></script>
         </Head>
         <body>
-          <Main />
+          <main>
+            <Main />
+          </main>
           <NextScript />
         </body>
       </html>

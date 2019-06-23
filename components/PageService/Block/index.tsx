@@ -30,7 +30,7 @@ export const Body = styled.p`
 const PrescriptionContainer = styled.div`
   width: 711px;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   ${media.lessThan(`${Config.sizeMobile}px`)`
     width: calc(100vw - 4rem);
   `}
