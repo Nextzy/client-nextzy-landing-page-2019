@@ -1,4 +1,4 @@
-import React, { useState, Component, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Config from '../../../constants/Constants'
@@ -74,6 +74,10 @@ export const LineSpinner = (props): React.FC => {
     setSelected(key)
     props.onSelectProduct(key)
   }
+  useEffect(() => {
+    setSelected(activeProduct)
+  }, [activeProduct])
+
   const setPositionText = (useSelected): void => {
     const getRotate = createSelect.find((f) => f.fixselected === useSelected)
     const transformRotate = 205.5 - getRotate.transformTextMobile

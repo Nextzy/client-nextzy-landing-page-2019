@@ -9,6 +9,7 @@ import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
+import _ from 'lodash'
 /* const Spinner = loadable({
   loader: () => import('./ProductSpinner'),
   loading() { return (<div>loading</div>) }
@@ -115,19 +116,19 @@ const DataTest = [
 ]
 const Home = (props): React.FC => {
   const { indexActive, fullpageApi } = props
-
+  const [useIsCurrent, setIsCurrent] = useState(false)
   const [activeProduct, setActive] = useState(() => {
     const middle = Math.round(DataTest.length / 2)
     return DataTest[middle - 1].fixselected
   })
   const downHandler = ({ key }) => {
-    if (key === 'ArrowDown' && indexActive === 3) {
+    if (key === 'ArrowDown' && indexActive === 3 && useIsCurrent) {
       let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
       if (nextIndex < 5) { setActive(DataTest[nextIndex].fixselected) }
       else {
         fullpageApi.moveSectionDown()
       }
-    } else if (key === 'ArrowUp' && indexActive === 3) {
+    } else if (key === 'ArrowUp' && indexActive === 3 && useIsCurrent) {
       let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
       if (nextIndex > -1) { setActive(DataTest[nextIndex].fixselected) } else {
         fullpageApi.moveSectionUp()
@@ -135,28 +136,30 @@ const Home = (props): React.FC => {
     }
   }
   let stack = 0
-  const scrollHandler = (e) => {
-    if (stack === 5) { //stack speed
-      stack = 0
-      if (e.deltaY > 0 && indexActive === 3) { //scroll down & current page
-        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
-        if (nextIndex < DataTest.length) { setActive(DataTest[nextIndex].fixselected) }
-        else {
-          fullpageApi.moveSectionDown()
-        }
-      } else if (e.deltaY < 0 && indexActive === 3) { //scroll up & current page
-        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
-        if (nextIndex > -1) { setActive(DataTest[nextIndex].fixselected) }
-        else {
-          fullpageApi.moveSectionUp()
-        }
+  const scrollHandler = _.debounce((e) => {
+    /*     if (stack === 8) { //stack speed
+          stack = 0 */
+    if (e.deltaY > 0 && indexActive === 3 && useIsCurrent) { //scroll down & current page
+      let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
+      if (nextIndex < DataTest.length) { setActive(DataTest[nextIndex].fixselected) }
+      else {
+        fullpageApi.moveSectionDown()
+      }
+    } else if (e.deltaY < 0 && indexActive === 3 && useIsCurrent) { //scroll up & current page
+      let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
+      if (nextIndex > -1) { setActive(DataTest[nextIndex].fixselected) }
+      else {
+        fullpageApi.moveSectionUp()
       }
     }
-    stack++
-  }
+    /*    } else {
+         stack++
+       } */
+  }, 500)
   useEffect(() => {
     if (fullpageApi && fullpageApi['setAllowScrolling']) {
       if (indexActive === 3) {
+        setIsCurrent(true)
         window.addEventListener('keydown', downHandler)
         window.addEventListener('wheel', scrollHandler)
         // Remove event listeners on cleanup
@@ -175,6 +178,7 @@ const Home = (props): React.FC => {
           fullpageApi['setKeyboardScrolling'](false)
         }
       } else {
+        setIsCurrent(false)
         fullpageApi['setAllowScrolling'](true)
         fullpageApi['setKeyboardScrolling'](true)
       }
@@ -183,7 +187,7 @@ const Home = (props): React.FC => {
       window.removeEventListener('keydown', downHandler)
       window.removeEventListener('wheel', scrollHandler)
     }
-  }, [indexActive, activeProduct])
+  }, [indexActive, activeProduct, useIsCurrent])
 
   const handleSelectProduct = (key): void => {
     setActive(key)
