@@ -45,7 +45,7 @@ const PageObjective = (): React.FunctionComponent<{}> => {
   return (
     <Container>
       <ContainerAll>
-      <BackgroundImage data-src="/static/images/Background/background_circle_1.svg" alt="backgroundja" />
+      <BackgroundImage data-src="/${process.env.PATH_IMG}static/images/Background/background_circle_1.svg" alt="backgroundja" />
         <ContainerPageObjective>
           <TextNEXTZY>
             <SectionHeader title="OUR OBJECTIVE" />

@@ -9,13 +9,13 @@ const GlobalStyle = (): React.FC => {
         @font-face {
           font-family: 'Montserrat-Medium';
           font-display: swap;
-          src: url('/static/fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+          src: url('/${process.env.PATH_IMG}static/fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
         }
 
         @font-face {
           font-family: 'Montserrat-Regular';
           font-display: swap;
-          src: url('/static/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+          src: url('/${process.env.PATH_IMG}static/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
         }
       `}
     </style>

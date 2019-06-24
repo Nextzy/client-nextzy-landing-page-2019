@@ -13,7 +13,7 @@ const ContainerBackground = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  background-image: url(/static/images/Background/background_galaxy.svg);
+  background-image: url(/${process.env.PATH_IMG}static/images/Background/background_galaxy.svg);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;

@@ -89,7 +89,7 @@ const PlanetBig = (props): React.FC => {
   const planetRef = useRef()
   const { imgCore, imgShadow, imgHole, background, effectSpin } = props
   const PlanetBackground = background
-  const PlanetCore = imgCore || '/static/images/Planet/asset_planet_3.png'
+  const PlanetCore = imgCore || `/${process.env.PATH_IMG}static/images/Planet/asset_planet_3.png`
   // useEffect(() => {
   //   console.log('window', planetRef.current.offsetWidth, planetRef.current.offsetHeight)
   // }, [])

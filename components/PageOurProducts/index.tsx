@@ -135,18 +135,26 @@ const Home = (props): React.FC => {
     }
   }
   let stack = 0
-  const scrollHandler = _.debounce((e) => {
+  const scrollHandler = (e) => {
     /*     if (stack === 8) { //stack speed
           stack = 0 */
     if (e.deltaY > 0 && indexActive === 3 && useIsCurrent) { //scroll down & current page
       let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
-      if (nextIndex < DataTest.length) { setActive(DataTest[nextIndex].fixselected) }
+      if (nextIndex < DataTest.length) {
+        setTimeout(() => {
+          setActive(DataTest[nextIndex].fixselected)
+        }, 100);
+      }
       else {
         fullpageApi.moveSectionDown()
       }
     } else if (e.deltaY < 0 && indexActive === 3 && useIsCurrent) { //scroll up & current page
       let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
-      if (nextIndex > -1) { setActive(DataTest[nextIndex].fixselected) }
+      if (nextIndex > -1) {
+        setTimeout(() => {
+          setActive(DataTest[nextIndex].fixselected)
+        }, 100);
+      }
       else {
         fullpageApi.moveSectionUp()
       }
@@ -154,7 +162,7 @@ const Home = (props): React.FC => {
     /*    } else {
          stack++
        } */
-  }, 500)
+  }
   useEffect(() => {
     if (fullpageApi && fullpageApi['setAllowScrolling']) {
       if (indexActive === 3) {

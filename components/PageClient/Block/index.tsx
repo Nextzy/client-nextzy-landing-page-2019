@@ -101,7 +101,7 @@ const LegoWrapper = (props): React.FC => {
       <Lego {...props}>
         {userShow ? (
           <Fade top cascade spy>
-            <LegoImg data-src={`static/images/logo/logo_${props.src}.svg`} alt="logo" />
+            <LegoImg data-src={`${process.env.PATH_IMG}static/images/logo/logo_${props.src}.svg`} alt="logo" />
           </Fade>
         ) : null}
       </Lego>

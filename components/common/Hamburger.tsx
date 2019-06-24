@@ -140,9 +140,7 @@ const Menu = (props): void => {
   return (
     <BoxSelectMenu open={useMenu}>
       <DivMenu>
-        <Link href="#" rel="noopener noreferrer">
-          <a>BLOGS</a>
-        </Link>
+          <a href="#" rel="noopener noreferrer">BLOGS</a>
       </DivMenu>
       <DivBottom>
         <a href="https://www.blognone.com/node/64996" target="_blank" rel="noopener noreferrer">

@@ -107,7 +107,7 @@ const Nav = (props): React.FC => {
                 fullpageApi.moveTo(1)
               }}
             >
-              {/* <ImgLogo src="/static/images/logo/logo_nextzy_white.svg" /> */}
+              {/* <ImgLogo src="/${process.env.PATH_IMG}static/images/logo/logo_nextzy_white.svg" /> */}
               <svg width="114" height="24">
                 <defs>
                   <path id="prefix__logo_nextzy_white-a" d="M0 0h114v24H0z" />

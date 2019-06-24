@@ -74,12 +74,12 @@ const DescriptionSelected = styled.div`
 const getArrow = ({ props, useScreen }): string => {
   if (useScreen <= Config.sizeMobile) {
     return props.selected
-      ? '/static/images/Icon/collapse/ic_collapse_down_white.svg'
-      : '/static/images/Icon/collapse/ic_collapse_up_white.svg'
+      ? `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_down_white.svg`
+      : `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_up_white.svg`
   }
   return props.selected
-    ? '/static/images/Icon/collapse/ic_collapse_right_white.svg'
-    : '/static/images/Icon/collapse/ic_collapse_right_gray.svg'
+    ? `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_right_white.svg`
+    : `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_right_gray.svg`
 }
 
 const MenuWeb = (props): React.FC<MenuProps> => {
@@ -93,7 +93,7 @@ const MenuWeb = (props): React.FC<MenuProps> => {
           <SuffixIcon src={``} data-src={src} alt="icon" />
         </Swing>
       </Row>
-      <BottomLiner {...props} src={``} data-src="/static/images/Divider/Color.svg" alt="line" />
+      <BottomLiner {...props} src={``} data-src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="line" />
     </RowWrapper>
   )
 }
@@ -215,7 +215,7 @@ const OrderedItem = (props): React.FC<OrderedItemProps> => {
   return (
     <OrderedItemContainer>
       <div>{props.number}</div>
-      <OrderedItemDivider data-src="/static/images/Divider/Color.svg" alt="divider" />
+      <OrderedItemDivider data-src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="divider" />
       <div>{props.name}</div>
     </OrderedItemContainer>
   )
