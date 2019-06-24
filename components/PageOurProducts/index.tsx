@@ -120,6 +120,13 @@ const Home = (props): React.FC => {
     const middle = Math.round(DataTest.length / 2)
     return DataTest[middle - 1].fixselected
   })
+  let initialY = null
+
+  function startTouch(e) {
+    initialY = e.touches[0].clientY
+  };
+
+
   const downHandler = ({ key }) => {
     if (key === 'ArrowDown' && indexActive === 3 && useIsCurrent) {
       let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
@@ -134,10 +141,7 @@ const Home = (props): React.FC => {
       }
     }
   }
-  let stack = 0
   const scrollHandler = (e) => {
-    /*     if (stack === 8) { //stack speed
-          stack = 0 */
     if (e.deltaY > 0 && indexActive === 3 && useIsCurrent) { //scroll down & current page
       let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
       if (nextIndex < DataTest.length) {
@@ -159,17 +163,41 @@ const Home = (props): React.FC => {
         fullpageApi.moveSectionUp()
       }
     }
-    /*    } else {
-         stack++
-       } */
   }
+
+  const touchHandler = (e) => {
+    let currentY = e.changedTouches[0].clientY
+    let diffY = initialY - currentY
+    if (diffY >= 0 && indexActive === 3 && useIsCurrent) { //scroll down & current page
+      let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
+      if (nextIndex < DataTest.length) {
+        setTimeout(() => {
+          setActive(DataTest[nextIndex].fixselected)
+        }, 300)
+      }
+    } else if (diffY < 0 && indexActive === 3 && useIsCurrent) { //scroll up & current page
+      let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
+      if (nextIndex > -1) {
+        setTimeout(() => {
+          setActive(DataTest[nextIndex].fixselected)
+        }, 300)
+      }
+    }
+    initialY = null
+    e.preventDefault()
+  }
+  const useScreen = useContext(getWidthContext)
   useEffect(() => {
     if (fullpageApi && fullpageApi['setAllowScrolling']) {
       if (indexActive === 3) {
         setIsCurrent(true)
-        window.addEventListener('keydown', downHandler)
-        window.addEventListener('wheel', scrollHandler)
-        // Remove event listeners on cleanup
+        if (useScreen <= Config.sizeTablet) {
+          window.addEventListener('touchstart', startTouch, false)
+          window.addEventListener('touchend', touchHandler, false)
+        } else {
+          window.addEventListener('keydown', downHandler)
+          window.addEventListener('wheel', scrollHandler)
+        }
         if (activeProduct === 'fifth') {
           fullpageApi['setAllowScrolling'](true, 'down')
           fullpageApi['setAllowScrolling'](false, 'up')
@@ -191,15 +219,20 @@ const Home = (props): React.FC => {
       }
     }
     return () => {
-      window.removeEventListener('keydown', downHandler)
-      window.removeEventListener('wheel', scrollHandler)
+      if (useScreen <= Config.sizeTablet) {
+        window.removeEventListener('touchstart', startTouch, false)
+        window.removeEventListener('touchend', touchHandler, false)
+      } else {
+        window.removeEventListener('keydown', downHandler)
+        window.removeEventListener('wheel', scrollHandler)
+      }
     }
   }, [indexActive, activeProduct, useIsCurrent])
 
   const handleSelectProduct = (key): void => {
     setActive(key)
   }
-  const useScreen = useContext(getWidthContext)
+
 
   const handleComponents = (): void => {
     if (useScreen <= Config.sizeMobile) {

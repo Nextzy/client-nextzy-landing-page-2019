@@ -93,8 +93,8 @@ const PageStart = (): React.FC => {
         <BoxPlanetBigSub>
           {state2 ? (
             <Planet
-              imgCore={`/${process.env.PATH_IMG}static/images/Planet/planet_center_core.webp`}
-              imgShadow={`/${process.env.PATH_IMG}static/images/Planet/planet_center_shadow.webp`}
+              imgCore={`/${process.env.PATH_IMG}static/images/Planet/planet_center_core.png`}
+              imgShadow={`/${process.env.PATH_IMG}static/images/Planet/planet_center_shadow.png`}
               imgHole={`/${process.env.PATH_IMG}static/images/Planet/planet_center_hole.png`}
               background={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_halo_1.svg`}
               effectSpin={'spinout'}
@@ -110,8 +110,8 @@ const PageStart = (): React.FC => {
         <BoxMediumTopSub>
           {state1 ? (
             <Planet
-              imgCore={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_core.webp`}
-              imgShadow={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_shadow.webp`}
+              imgCore={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_core.png`}
+              imgShadow={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_shadow.png`}
               imgHole={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_line.png`}
               background={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_halo_2.svg`}
               effectSpin={'spinin'}
