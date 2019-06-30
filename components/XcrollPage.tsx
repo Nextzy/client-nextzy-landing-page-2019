@@ -25,6 +25,11 @@ import Config from '../constants/Constants'
 const ContainerBackground = styled.div`
   background-color: #102131;
 `
+
+const pluginWrapper = () => {
+  require('fullpage.js/vendors/scrolloverflow')
+};
+
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
@@ -52,6 +57,8 @@ const ScrollPage = ({ goto }): React.FC => {
       <ReactFullpage
         scrollingSpeed={300}
         lazyLoading={true}
+        touchSensitivity={30}
+        scrollHorizontally={true}
         fitToSectionDelay={0}
         onLeave={onLeave}
         scrollOverflow={true}

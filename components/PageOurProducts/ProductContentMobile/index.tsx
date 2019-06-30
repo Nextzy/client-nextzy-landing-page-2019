@@ -27,7 +27,7 @@ const ImgContainer = styled.div`
 const ProductImgfirst = styled.img`
   object-fit: contain;
   display: block;
-  height: 40vh;
+  height: 35vh;
   position:absolute;
   transform: translateX(-70%);
   webkit-transform: translateX(-70%);
@@ -75,7 +75,7 @@ const ProductImgSecond = styled.img`
   z-index: -5;
   object-fit: contain;
   display: block;
-  height: 40vh;
+  height: 32vh;
   position:absolute;  
   transform: translateX(-70%);
   webkit-transform: translateX(-70%);

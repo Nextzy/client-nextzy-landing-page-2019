@@ -9,7 +9,7 @@ const Line = styled.div`
     left: 0;
     top: 10rem;
     z-index: 100;
-    height: 40rem;
+    height: 80vh;
     user-select: none;
     ${media.lessThan(`${Config.mediaQuery.tablet}px`)`
       left: 5%;

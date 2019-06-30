@@ -111,6 +111,7 @@ const DataTest = [
 const Home = (props): React.FC => {
   const { indexActive, fullpageApi } = props
   const [useIsCurrent, setIsCurrent] = useState(false)
+  const [useIsBottom, setIsBottom] = useState(true)
   const [activeProduct, setActive] = useState(Math.round(DataTest.length / 2) - 1)
   /*   const downHandler = ({ key }) => {
       if (key === 'ArrowDown' && indexActive === 3 && useIsCurrent) {
