@@ -4,12 +4,11 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 const ContainerModal = styled.div`
   position: absolute;
   left: 0;
-  top: 0;
+  bottm: 0;
   display: block;
   width: 100%;
   height: 100%;
   z-index: 1000;
-  display: block;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
 const VisibleBackground = styled.div`
@@ -40,7 +39,7 @@ const BoxModal = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 75%;
+  height: 80vh;
   width: 100%;
   background-color: #fff;
   border-radius: 15px 15px 0 0;
