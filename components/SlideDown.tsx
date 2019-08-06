@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-scroll'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
 const BoxSlideActive = styled.div`
@@ -88,12 +89,14 @@ const BoxText = styled.div`
 const SlideDownWeb = (props): React.FC => {
   const { indexActive, fullpageApi } = props
   return (
-    <BoxSlideActive indexActive={indexActive} onClick={() => fullpageApi.moveTo(2)}>
-      <BoxIcon>
-        <BoxArrow />
-      </BoxIcon>
-      <BoxText>SCROLL DOWN</BoxText>
-    </BoxSlideActive>
+    <Link to={'section2'} smooth={true} duration={500} activeClass="active">
+      <BoxSlideActive indexActive={indexActive}>
+        <BoxIcon>
+          <BoxArrow />
+        </BoxIcon>
+        <BoxText>SCROLL DOWN</BoxText>
+      </BoxSlideActive>
+    </Link>
   )
 }
 const BoxSlideActiveMobile = styled.div`
@@ -174,17 +177,17 @@ const BoxArrowMobile = styled.div`
   }
 `
 const SlideDownMobile = (props): React.FC => {
-  const { indexActive, fullpageApi } = props
   return (
-    <BoxSlideActiveMobile indexActive={indexActive} onClick={() => fullpageApi.moveTo(2)}>
-      <BoxIconMobile indexActive={indexActive}>
-        <BoxArrowMobile />
-      </BoxIconMobile>
-    </BoxSlideActiveMobile>
+    <Link to={'section2'} smooth={true} duration={500}>
+      <BoxSlideActiveMobile indexActive={indexActive}>
+        <BoxIconMobile indexActive={indexActive}>
+          <BoxArrowMobile />
+        </BoxIconMobile>
+      </BoxSlideActiveMobile>
+    </Link>
   )
 }
 const SlideDown = (props): void => {
-  const { indexActive, fullpageApi } = props
   const useScreen = useContext(getWidthContext)
   if (useScreen && useScreen <= Config.sizeMobile) {
     return <SlideDownMobile {...props} />

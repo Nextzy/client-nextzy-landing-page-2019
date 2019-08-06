@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import PageStart from './PageStart'
 import PageObjective from './PageObjective'
 import PageService from './PageService'
@@ -31,15 +32,12 @@ const ScrollPage = ({ goto }): React.FC => {
   const [useMenu, setMenu] = useState(false)
   const { visible, isShowMap } = useModal
   const getScreenContext = useContext(getWidthContext)
-  const onLeave = (origin, destination, direction): void => {
-    const { index } = destination
-    setActive(index || 0)
-  }
+
   return (
     <ContainerBackground>
-      <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
-      <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
-      <Nav indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
+      <ScrollActive indexActive={useActive} countPage={useCountPage} />
+      <SlideDown indexActive={useActive} />
+      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}
@@ -47,13 +45,24 @@ const ScrollPage = ({ goto }): React.FC => {
       {visible ? (
         <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} useModal={useModal} setModal={setModal} />
       ) : null}
-      <PageStart fullpageApi={useFullPageApi} />
-      <PageObjective />
-      <PageService />
-      <PageOurProduct indexActive={useActive} fullpageApi={useFullPageApi} />
-      <PageClient indexActive={useActive} />
-      <PageWorkProcess />
-      <PageContact setModal={setModal} visibleMap={isShowMap} />
+      <Element name="section1">
+        <PageStart fullpageApi={useFullPageApi} />
+      </Element>
+      <Element name="section2">
+        <PageService />
+      </Element>
+      <Element name="section3">
+        <PageOurProduct indexActive={useActive} fullpageApi={useFullPageApi} />
+      </Element>
+      <Element name="section4">
+        <PageClient indexActive={useActive} />
+      </Element>
+      <Element name="section5">
+        <PageWorkProcess />
+      </Element>
+      <Element name="section6">
+        <PageContact setModal={setModal} visibleMap={isShowMap} />
+      </Element>
     </ContainerBackground>
   )
 }
