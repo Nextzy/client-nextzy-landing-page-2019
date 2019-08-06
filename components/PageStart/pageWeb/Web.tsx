@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import ShootingStar from '../ShootingStar/index'
 import StarFix from '../Stars/index'
@@ -121,13 +122,13 @@ const PageStartWeb = (props): React.FC => {
   const refProduct = useRef(null)
   const refContact = useRef(null)
   const { fullpageApi } = props
-  const moveTo = (e) => {
+  /*   const moveTo = (e) => {
     fullpageApi.moveTo(e.target.value)
     setTimeout(() => {
       refProduct.current.blur()
       refContact.current.blur()
     }, 200)
-  }
+  } */
   return (
     <>
       <ContainerBackground />
@@ -145,12 +146,12 @@ const PageStartWeb = (props): React.FC => {
               <p>We are pirates</p>
               <p>We sail and hunt the best mobile and web solution.</p>
               <div>
-                <ButtonProducts onClick={moveTo} value="4" ref={refProduct}>
-                  PRODUCTS
-                </ButtonProducts>
-                <ButtonContact onClick={moveTo} value="7" ref={refContact}>
-                  CONTACT
-                </ButtonContact>
+                <Link to="section3" smooth={true} duration={500}>
+                  <ButtonProducts ref={refProduct}>PRODUCTS</ButtonProducts>
+                </Link>
+                <Link to="section6" smooth={true} duration={500}>
+                  <ButtonContact ref={refContact}>CONTACT</ButtonContact>
+                </Link>
               </div>
             </Fade>
           </BoxBtnPage>

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import ContainerAll from '../layout/ContainerAll'
 import Hamburger from './Hamburger'
-import { addPath } from '../../utils/decorate-url'
 import Router from 'next/router'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
@@ -94,7 +93,7 @@ const ImgLogo = styled.img`
   cursor: pointer;
 `
 const Nav = (props): React.FC => {
-  const { fullpageApi, indexActive } = props
+  const { indexActive } = props
   const getScreenContext = useContext(getWidthContext)
   return (
     <Container>
@@ -129,8 +128,8 @@ const Nav = (props): React.FC => {
                   <>
                     {links.map(({ key, label, show }) =>
                       show ? (
-                        <Link to={`section${key}`} smooth={true} duration={500}>
-                          <li key={key}>
+                        <Link to={`section${key}`} smooth={true} duration={500} key={key}>
+                          <li >
                             <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
                           </li>
                         </Link>

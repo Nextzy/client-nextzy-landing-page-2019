@@ -12,7 +12,7 @@ import Nav, { links } from './common/nav'
 import ScrollActive from './ScrollActive'
 import SlideDown from './SlideDown'
 import IconContact from './IconContact'
-import ModalMap from './common/ModalMap'
+
 import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
@@ -28,9 +28,7 @@ const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useCountPage, setCountPage] = useState(0)
-  const [useModal, setModal] = useState({ visible: false, map: '', isShowMap: false })
   const [useMenu, setMenu] = useState(false)
-  const { visible, isShowMap } = useModal
   const getScreenContext = useContext(getWidthContext)
 
   return (
@@ -42,11 +40,9 @@ const ScrollPage = ({ goto }): React.FC => {
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}
       <IconContact indexActive={useActive} />
-      {visible ? (
-        <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} useModal={useModal} setModal={setModal} />
-      ) : null}
+
       <Element name="section1">
-        <PageStart fullpageApi={useFullPageApi} />
+        <PageStart />
       </Element>
       <Element name="section2">
         <PageService />
@@ -60,8 +56,9 @@ const ScrollPage = ({ goto }): React.FC => {
       <Element name="section5">
         <PageWorkProcess />
       </Element>
+     {/*  {visible ? <ModalMap indexActive={useActive} useModal={useModal} setModal={setModal} /> : null} */}
       <Element name="section6">
-        <PageContact setModal={setModal} visibleMap={isShowMap} />
+        <PageContact />
       </Element>
     </ContainerBackground>
   )

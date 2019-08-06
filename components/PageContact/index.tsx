@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
+import ModalMap from '../common/ModalMap'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Footer from '../layout/Footer'
 import OnWeb from './pageWeb/Web'
@@ -25,22 +26,23 @@ const Content = styled.div`
 `
 const PageContact = (props): React.FC => {
   const [useMap, setMap] = useState('BANGKOK')
+  const [useModal, setModal] = useState({ visible: false, map: '', isShowMap: false })
+  const { visible, isShowMap } = useModal
   const useScreen = useContext(getWidthContext)
   const handleComponents = (): void => {
     if (!useScreen || useScreen === 0) return null
     if (useScreen <= Config.mediaQuery.mobileL) {
-      return <OnMobile {...props} useMap={useMap} setMap={setMap} />
+      return <OnMobile setModal={setModal} useMap={useMap} setMap={setMap} visibleMap={visible} />
     } else if (useScreen <= Config.mediaQuery.laptop) {
-      return <OnTablet {...props} useMap={useMap} setMap={setMap} />
+      return <OnTablet setModal={setModal} useMap={useMap} setMap={setMap} visibleMap={visible} />
     } else {
-      return <OnWeb {...props} useMap={useMap} setMap={setMap} />
+      return <OnWeb setModal={setModal} useMap={useMap} setMap={setMap} visibleMap={visible} />
     }
   }
   return (
     <Container>
-      <Content>
-        {handleComponents()}
-      </Content>
+      {visible ? <ModalMap useModal={useModal} setModal={setModal} /> : null}
+      <Content>{handleComponents()}</Content>
       <BoxFooter>
         <Footer />
       </BoxFooter>
