@@ -87,7 +87,7 @@ const BoxText = styled.div`
   left: 3.5rem;
 `
 const SlideDownWeb = (props): React.FC => {
-  const { indexActive, fullpageApi } = props
+  const { indexActive } = props
   return (
     <Link to={'section2'} smooth={true} duration={500} activeClass="active">
       <BoxSlideActive indexActive={indexActive}>
@@ -176,7 +176,7 @@ const BoxArrowMobile = styled.div`
     transform: rotate(45deg);
   }
 `
-const SlideDownMobile = (props): React.FC => {
+const SlideDownMobile = ({ indexActive }): React.FC => {
   return (
     <Link to={'section2'} smooth={true} duration={500}>
       <BoxSlideActiveMobile indexActive={indexActive}>

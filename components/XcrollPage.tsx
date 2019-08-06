@@ -56,7 +56,6 @@ const ScrollPage = ({ goto }): React.FC => {
       <Element name="section5">
         <PageWorkProcess />
       </Element>
-     {/*  {visible ? <ModalMap indexActive={useActive} useModal={useModal} setModal={setModal} /> : null} */}
       <Element name="section6">
         <PageContact />
       </Element>

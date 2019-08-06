@@ -198,7 +198,7 @@ const Home = (props): React.FC => {
   }
   return (
     <Container>
-      {useScreen && useScreen <= Config.sizeMobile ? (
+      {useScreen && useScreen <= Config.sizeTablet ? (
         <LineSpinner setActive={setActive} activeProduct={activeProduct} data={DataTest} />
       ) : (
           <Spinner setActive={setActive} activeProduct={activeProduct} data={DataTest} />
