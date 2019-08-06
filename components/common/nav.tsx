@@ -65,7 +65,7 @@ const BackgroundNav = styled.div`
   background-color: #1F2B44;`
       : `opacity: 1;`}
 `
-const HoverLink = styled.div`
+const HoverLink = styled(Link)`
   color: white;
   text-decoration: none;
   transition: 200ms;
@@ -93,8 +93,11 @@ const ImgLogo = styled.img`
   cursor: pointer;
 `
 const Nav = (props): React.FC => {
-  const { indexActive } = props
+  const { indexActive, setActive } = props
   const getScreenContext = useContext(getWidthContext)
+  const handleSetActive = (to) => {
+    setActive(parseInt(to[to.length - 1]))
+  }
   return (
     <Container>
       <NavBar>
@@ -103,7 +106,15 @@ const Nav = (props): React.FC => {
           <ul>
             <li>
               {/* <ImgLogo src="/${process.env.PATH_IMG}static/images/logo/logo_nextzy_white.svg" /> */}
-              <Link to="section1" smooth={true} duration={500}>
+              <Link
+                to="section0"
+                smooth={true}
+                duration={500}
+                spy={true}
+                activeClass="active"
+                onSetActive={handleSetActive}
+                indexActive={indexActive === 0}
+              >
                 <svg width="114" height="24">
                   <defs>
                     <path id="prefix__logo_nextzy_white-a" d="M0 0h114v24H0z" />
@@ -128,11 +139,19 @@ const Nav = (props): React.FC => {
                   <>
                     {links.map(({ key, label, show }) =>
                       show ? (
-                        <Link to={`section${key}`} smooth={true} duration={500} key={key}>
-                          <li >
-                            <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
-                          </li>
-                        </Link>
+                        <li key={key}>
+                          <HoverLink
+                            to={`section${key}`}
+                            smooth={true}
+                            duration={500}
+                            spy={true}
+                            activeClass="active"
+                            onSetActive={handleSetActive}
+                            indexActive={indexActive === key}
+                          >
+                            {label}
+                          </HoverLink>
+                        </li>
                       ) : null
                     )}
                   </>

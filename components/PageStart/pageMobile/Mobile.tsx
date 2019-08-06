@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import ShootingStar from '../ShootingStar/index'
 import StarFix from '../Stars/index'
@@ -170,8 +171,12 @@ const PageStartMobile = (props): React.FC => {
               <p>We sail and hunt the best mobile </p>
               <p>and web solution.</p>
               <BoxButtonStart>
-                <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
-                <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+                <Link to="section1" smooth={true} duration={500}>
+                  <ButtonProducts>PRODUCTS</ButtonProducts>
+                </Link>
+                <Link to="section6" smooth={true} duration={500}>
+                  <ButtonContact>CONTACT</ButtonContact>
+                </Link>
               </BoxButtonStart>
             </Fade>
           </BoxBtnPage>

@@ -35,14 +35,17 @@ const ScrollPage = ({ goto }): React.FC => {
     <ContainerBackground>
       <ScrollActive indexActive={useActive} countPage={useCountPage} />
       <SlideDown indexActive={useActive} />
-      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu} />
+      <Nav indexActive={useActive} setActive={setActive} useMenu={useMenu} setMenu={setMenu} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}
       <IconContact indexActive={useActive} />
 
-      <Element name="section1">
+      <Element name="section0">
         <PageStart />
+      </Element>
+      <Element name="section1">
+        <PageObjective />
       </Element>
       <Element name="section2">
         <PageService />

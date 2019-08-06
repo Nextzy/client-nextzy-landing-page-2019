@@ -89,7 +89,7 @@ const BoxText = styled.div`
 const SlideDownWeb = (props): React.FC => {
   const { indexActive } = props
   return (
-    <Link to={'section2'} smooth={true} duration={500} activeClass="active">
+    <Link to={'section1'} smooth={true} duration={500} activeClass="active">
       <BoxSlideActive indexActive={indexActive}>
         <BoxIcon>
           <BoxArrow />
@@ -178,7 +178,7 @@ const BoxArrowMobile = styled.div`
 `
 const SlideDownMobile = ({ indexActive }): React.FC => {
   return (
-    <Link to={'section2'} smooth={true} duration={500}>
+    <Link to={'section1'} smooth={true} duration={500}>
       <BoxSlideActiveMobile indexActive={indexActive}>
         <BoxIconMobile indexActive={indexActive}>
           <BoxArrowMobile />

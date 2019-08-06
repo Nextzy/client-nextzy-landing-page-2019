@@ -9,7 +9,7 @@ const Container = styled.div`
   background-color: #102131;
   color: white;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `
 const TextNEXTZY = styled.div`
   position: relative;
