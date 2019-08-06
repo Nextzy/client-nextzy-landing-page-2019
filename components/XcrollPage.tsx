@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react'
-import loadable from 'react-loadable'
 import PageStart from './PageStart'
-
 import PageObjective from './PageObjective'
 import PageService from './PageService'
 import PageClient from './PageClient'
@@ -9,7 +7,6 @@ import PageOurProduct from './PageOurProducts'
 import PageWorkProcess from './PageWorkProcess'
 import PageContact from './PageContact'
 import styled from 'styled-components'
-import ReactFullpage from '@fullpage/react-fullpage'
 import Nav, { links } from './common/nav'
 import ScrollActive from './ScrollActive'
 import SlideDown from './SlideDown'
@@ -18,17 +15,13 @@ import ModalMap from './common/ModalMap'
 import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
-/* const PageObjective = loadable({
-  loading: () => (null),
-  loader: () => import('./PageObjective')
-}) */
 const ContainerBackground = styled.div`
   background-color: #102131;
 `
 
 const pluginWrapper = () => {
   require('fullpage.js/vendors/scrolloverflow')
-};
+}
 
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
@@ -54,51 +47,13 @@ const ScrollPage = ({ goto }): React.FC => {
       {visible ? (
         <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} useModal={useModal} setModal={setModal} />
       ) : null}
-      <ReactFullpage
-        scrollingSpeed={300}
-        lazyLoading={true}
-        touchSensitivity={30}
-        scrollHorizontally={true}
-        fitToSectionDelay={0}
-        onLeave={onLeave}
-        scrollOverflow={true}
-        render={({ state, fullpageApi }) => {
-          const { sectionCount } = state
-          setFullPageApi(fullpageApi)
-          setCountPage(sectionCount || 0)
-
-          if (goto && fullpageApi && state.initialized && !state.destination) {
-            //first load in query
-            const currentLink = links.filter((link) => link.href === goto)[0]
-            fullpageApi.moveTo(currentLink.key + 1)
-          }
-          return (
-            <ReactFullpage.Wrapper>
-              <div className="section">
-                <PageStart fullpageApi={useFullPageApi} />
-              </div>
-              <div className="section">
-                <PageObjective />
-              </div>
-              <div className="section">
-                <PageService />
-              </div>
-              <div className="section">
-                <PageOurProduct indexActive={useActive} fullpageApi={useFullPageApi} />
-              </div>
-              <div className="section">
-                <PageClient indexActive={useActive} />
-              </div>
-              <div className="section">
-                <PageWorkProcess />
-              </div>
-              <div className="section">
-                <PageContact setModal={setModal} visibleMap={isShowMap} />
-              </div>
-            </ReactFullpage.Wrapper>
-          )
-        }}
-      />
+      <PageStart fullpageApi={useFullPageApi} />
+      <PageObjective />
+      <PageService />
+      <PageOurProduct indexActive={useActive} fullpageApi={useFullPageApi} />
+      <PageClient indexActive={useActive} />
+      <PageWorkProcess />
+      <PageContact setModal={setModal} visibleMap={isShowMap} />
     </ContainerBackground>
   )
 }

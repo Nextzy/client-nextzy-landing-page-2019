@@ -90,10 +90,10 @@ const MenuWeb = (props): React.FC<MenuProps> => {
       <Row {...props} key={props.name}>
         {props.name}
         <Swing when={props.selected}>
-          <SuffixIcon src={``} data-src={src} alt="icon" />
+          <SuffixIcon src={``} src={src} alt="icon" />
         </Swing>
       </Row>
-      <BottomLiner {...props} src={``} data-src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="line" />
+      <BottomLiner {...props} src={``} src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="line" />
     </RowWrapper>
   )
 }
@@ -108,7 +108,7 @@ const MenuMobile = (props): React.FC<MenuProps> => {
         <Row {...props}>
           {name}
           <Swing when={selected}>
-            <SuffixIcon src={``} data-src={src} alt="icon" />
+            <SuffixIcon src={``} src={src} alt="icon" />
           </Swing>
         </Row>
         <MenuSelectMapHr  {...props} />
@@ -215,7 +215,7 @@ const OrderedItem = (props): React.FC<OrderedItemProps> => {
   return (
     <OrderedItemContainer>
       <div>{props.number}</div>
-      <OrderedItemDivider data-src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="divider" />
+      <OrderedItemDivider src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="divider" />
       <div>{props.name}</div>
     </OrderedItemContainer>
   )

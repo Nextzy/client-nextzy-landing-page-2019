@@ -19,7 +19,7 @@ const TextNEXTZY = styled.div`
   text-align: left;
   font-family: Montserrat-Regular;
   font-size: 2rem;
-  color: #ffffff; 
+  color: #ffffff;
   letter-spacing: -0.5px;
   display: inline-block;
   float: left;
@@ -45,7 +45,10 @@ const PageObjective = (): React.FunctionComponent<{}> => {
   return (
     <Container>
       <ContainerAll>
-        <BackgroundImage data-src={`/${process.env.PATH_IMG}static/images/Background/background_circle_1.svg`} alt="backgroundja" />
+        <BackgroundImage
+          src={`/${process.env.PATH_IMG}static/images/Background/background_circle_1.svg`}
+          alt="backgroundja"
+        />
         <ContainerPageObjective>
           <TextNEXTZY>
             <SectionHeader title="OUR OBJECTIVE" />

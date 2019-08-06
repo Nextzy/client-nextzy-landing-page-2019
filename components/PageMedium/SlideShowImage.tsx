@@ -33,7 +33,7 @@ const SlideShowImage = (props): React.FC => {
 
   return (
     <BoxSlideImage>
-      <BackgroundCover src={``} data-src="/${process.env.PATH_IMG}static/images/PicMedium/pictest.jpg" alt="medium" />
+      <BackgroundCover src={``} src="/${process.env.PATH_IMG}static/images/PicMedium/pictest.jpg" alt="medium" />
       <CurveBottom>
         {useScreen <= Config.sizeMobile ? (
           <svg xmlns="http://www.w3.org/2000/svg" href="http://www.w3.org/1999/xlink" width="420" height="100">
