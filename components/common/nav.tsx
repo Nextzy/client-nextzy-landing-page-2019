@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import ContainerAll from '../layout/ContainerAll'
 import Hamburger from './Hamburger'
-import Router from 'next/router'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
 
@@ -65,7 +64,7 @@ const BackgroundNav = styled.div`
   background-color: #1F2B44;`
       : `opacity: 1;`}
 `
-const HoverLink = styled(Link)`
+const HoverLink = styled.div`
   color: white;
   text-decoration: none;
   transition: 200ms;
@@ -104,17 +103,14 @@ const Nav = (props): React.FC => {
         <BackgroundNav active={indexActive !== 0} />
         <ContainerAll>
           <ul>
-            <li>
-              {/* <ImgLogo src="/${process.env.PATH_IMG}static/images/logo/logo_nextzy_white.svg" /> */}
-              <Link
-                to="section0"
-                smooth={true}
-                duration={500}
-                spy={true}
-                activeClass="active"
-                onSetActive={handleSetActive}
-                indexActive={indexActive === 0}
-              >
+            <Link
+              to="section0"
+              smooth={true}
+              duration={500}
+              spy={true}
+              onSetActive={handleSetActive}
+            >
+              <li>
                 <svg width="114" height="24">
                   <defs>
                     <path id="prefix__logo_nextzy_white-a" d="M0 0h114v24H0z" />
@@ -131,8 +127,8 @@ const Nav = (props): React.FC => {
                     />
                   </g>
                 </svg>
-              </Link>
-            </li>
+              </li>
+            </Link>
             <li>
               <UlRight>
                 {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
@@ -140,17 +136,16 @@ const Nav = (props): React.FC => {
                     {links.map(({ key, label, show }) =>
                       show ? (
                         <li key={key}>
-                          <HoverLink
+                          <Link
                             to={`section${key}`}
                             smooth={true}
                             duration={500}
                             spy={true}
                             activeClass="active"
                             onSetActive={handleSetActive}
-                            indexActive={indexActive === key}
                           >
-                            {label}
-                          </HoverLink>
+                            <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
+                          </Link>
                         </li>
                       ) : null
                     )}

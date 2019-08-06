@@ -27,13 +27,21 @@ const pluginWrapper = () => {
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
-  const [useCountPage, setCountPage] = useState(0)
   const [useMenu, setMenu] = useState(false)
   const getScreenContext = useContext(getWidthContext)
 
+  useEffect(() => {
+    Events.scrollEvent.register('end', (to) => {
+      console.log(to)
+    })
+    scrollSpy.update()
+    return () => {
+      Events.scrollEvent.remove('end')
+    }
+  }, [])
   return (
     <ContainerBackground>
-      <ScrollActive indexActive={useActive} countPage={useCountPage} />
+      <ScrollActive indexActive={useActive} setActive={setActive} />
       <SlideDown indexActive={useActive} />
       <Nav indexActive={useActive} setActive={setActive} useMenu={useMenu} setMenu={setMenu} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
