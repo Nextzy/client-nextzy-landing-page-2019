@@ -49,10 +49,10 @@ const ScrollPage = ({ goto }): React.FC => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                <div className="section">
+                <div className="">
                   <PageMedium fullpageApi={useFullPageApi} />
                 </div>
-                <div className="section">
+                <div className="">
                   <PageMediumContent />
                 </div>
               </ReactFullpage.Wrapper>

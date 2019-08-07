@@ -29,45 +29,48 @@ const ScrollPage = ({ goto }): React.FC => {
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useMenu, setMenu] = useState(false)
   const getScreenContext = useContext(getWidthContext)
-
   useEffect(() => {
-    Events.scrollEvent.register('end', (to) => {
-      console.log(to)
-    })
-    scrollSpy.update()
-    return () => {
-      Events.scrollEvent.remove('end')
+    const onTouchStart = async () => {
+      const current = await parseInt(scroller.getActiveLink())
+      console.log(useActive, current)
+      if (useActive !== current) {
+        setActive(current)
+      }
     }
-  }, [])
+    document.addEventListener('scroll', onTouchStart)
+    return () => {
+      document.removeEventListener('scroll', onTouchStart)
+    }
+  }, [useActive])
   return (
     <ContainerBackground>
-      <ScrollActive indexActive={useActive} setActive={setActive} />
+      <ScrollActive indexActive={useActive} />
       <SlideDown indexActive={useActive} />
-      <Nav indexActive={useActive} setActive={setActive} useMenu={useMenu} setMenu={setMenu} />
+      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}
       <IconContact indexActive={useActive} />
 
-      <Element name="section0">
+      <Element name="0">
         <PageStart />
       </Element>
-      <Element name="section1">
+      <Element name="1">
         <PageObjective />
       </Element>
-      <Element name="section2">
+      <Element name="2">
         <PageService />
       </Element>
-      <Element name="section3">
+      <Element name="3">
         <PageOurProduct indexActive={useActive} fullpageApi={useFullPageApi} />
       </Element>
-      <Element name="section4">
+      <Element name="4">
         <PageClient indexActive={useActive} />
       </Element>
-      <Element name="section5">
+      <Element name="5">
         <PageWorkProcess />
       </Element>
-      <Element name="section6">
+      <Element name="6">
         <PageContact />
       </Element>
     </ContainerBackground>

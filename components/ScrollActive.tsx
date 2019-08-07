@@ -33,7 +33,7 @@ const DotSlide = styled.div`
 
 const createItemActive = (indexActive): void => {
   let dataActive = [1, 2, 4, 5, 6].map((i) => (
-    <Link key={i} to={`section${i}`} smooth={true} duration={500}>
+    <Link key={i} to={`${i}`} smooth={true} duration={500}>
       <DotSlide selected={indexActive === i} />
     </Link>
   ))

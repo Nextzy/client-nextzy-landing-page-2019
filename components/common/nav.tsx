@@ -92,24 +92,15 @@ const ImgLogo = styled.img`
   cursor: pointer;
 `
 const Nav = (props): React.FC => {
-  const { indexActive, setActive } = props
+  const { indexActive } = props
   const getScreenContext = useContext(getWidthContext)
-  const handleSetActive = (to) => {
-    setActive(parseInt(to[to.length - 1]))
-  }
   return (
     <Container>
       <NavBar>
         <BackgroundNav active={indexActive !== 0} />
         <ContainerAll>
           <ul>
-            <Link
-              to="section0"
-              smooth={true}
-              duration={500}
-              spy={true}
-              onSetActive={handleSetActive}
-            >
+            <Link to="0" smooth={true} duration={500} spy={true}>
               <li>
                 <svg width="114" height="24">
                   <defs>
@@ -136,15 +127,8 @@ const Nav = (props): React.FC => {
                     {links.map(({ key, label, show }) =>
                       show ? (
                         <li key={key}>
-                          <Link
-                            to={`section${key}`}
-                            smooth={true}
-                            duration={500}
-                            spy={true}
-                            activeClass="active"
-                            onSetActive={handleSetActive}
-                          >
-                            <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
+                          <Link to={key} smooth={true} duration={500} spy={true}>
+                            <HoverLink indexActive={indexActive == key}>{label}</HoverLink>
                           </Link>
                         </li>
                       ) : null

@@ -146,10 +146,10 @@ const PageStartWeb = (props): React.FC => {
               <p>We are pirates</p>
               <p>We sail and hunt the best mobile and web solution.</p>
               <div>
-                <Link to="section1" smooth={true} duration={500}>
+                <Link to="1" smooth={true} duration={500}>
                   <ButtonProducts ref={refProduct}>PRODUCTS</ButtonProducts>
                 </Link>
-                <Link to="section6" smooth={true} duration={500}>
+                <Link to="6" smooth={true} duration={500}>
                   <ButtonContact ref={refContact}>CONTACT</ButtonContact>
                 </Link>
               </div>

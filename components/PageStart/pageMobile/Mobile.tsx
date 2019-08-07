@@ -171,10 +171,10 @@ const PageStartMobile = (props): React.FC => {
               <p>We sail and hunt the best mobile </p>
               <p>and web solution.</p>
               <BoxButtonStart>
-                <Link to="section1" smooth={true} duration={500}>
+                <Link to="1" smooth={true} duration={500}>
                   <ButtonProducts>PRODUCTS</ButtonProducts>
                 </Link>
-                <Link to="section6" smooth={true} duration={500}>
+                <Link to="6" smooth={true} duration={500}>
                   <ButtonContact>CONTACT</ButtonContact>
                 </Link>
               </BoxButtonStart>
