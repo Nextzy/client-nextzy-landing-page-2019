@@ -92,15 +92,18 @@ const ImgLogo = styled.img`
   cursor: pointer;
 `
 const Nav = (props): React.FC => {
-  const { indexActive } = props
+  const { indexActive, setActive } = props
   const getScreenContext = useContext(getWidthContext)
+  const handleSetActive = (page) => {
+    setActive(parseInt(page))
+  }
   return (
     <Container>
       <NavBar>
         <BackgroundNav active={indexActive !== 0} />
         <ContainerAll>
           <ul>
-            <Link to="0" smooth={true} duration={500} spy={true}>
+            <Link to="0" smooth={true} duration={500} spy={true} activeClass="active" onSetActive={handleSetActive}>
               <li>
                 <svg width="114" height="24">
                   <defs>
@@ -124,15 +127,20 @@ const Nav = (props): React.FC => {
               <UlRight>
                 {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
                   <>
-                    {links.map(({ key, label, show }) =>
-                      show ? (
-                        <li key={key}>
-                          <Link to={key.toString()} smooth={true} duration={500} spy={true}>
-                            <HoverLink indexActive={indexActive == key}>{label}</HoverLink>
-                          </Link>
-                        </li>
-                      ) : null
-                    )}
+                    {links.map(({ key, label, show }) => (
+                      <li key={key}>
+                        <Link
+                          to={key.toString()}
+                          smooth={true}
+                          duration={500}
+                          spy={true}
+                          activeClass="active"
+                          onSetActive={handleSetActive}
+                        >
+                          {show && <HoverLink indexActive={indexActive == key}>{label}</HoverLink>}
+                        </Link>
+                      </li>
+                    ))}
                   </>
                 )}
                 <li>

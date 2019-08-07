@@ -28,7 +28,7 @@ const ScrollPage = ({ goto }): React.FC => {
     <ContainerBackground>
       <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
       <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
-      <Nav indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
+      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu} setActive={setActive} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}

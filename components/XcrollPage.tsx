@@ -29,7 +29,7 @@ const ScrollPage = ({ goto }): React.FC => {
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useMenu, setMenu] = useState(false)
   const getScreenContext = useContext(getWidthContext)
-  useEffect(() => {
+  /*   useEffect(() => {
     const onTouchStart = async () => {
       const current = await parseInt(scroller.getActiveLink())
       console.log(useActive, current)
@@ -41,12 +41,12 @@ const ScrollPage = ({ goto }): React.FC => {
     return () => {
       document.removeEventListener('scroll', onTouchStart)
     }
-  }, [useActive])
+  }, [useActive]) */
   return (
     <ContainerBackground>
-      <ScrollActive indexActive={useActive} />
+      {/* <ScrollActive indexActive={useActive} /> */}
       <SlideDown indexActive={useActive} />
-      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu} />
+      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu}  setActive={setActive} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}

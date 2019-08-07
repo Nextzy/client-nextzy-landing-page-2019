@@ -29,8 +29,8 @@ const BoxSlideActive = styled.div`
       bottom: 4rem;
     }
   }
-  ${({ indexActive }) =>
-    indexActive === 0
+   ${({ indexActive }) =>
+    indexActive !== 6
       ? `
   bottom: 5rem;
   animation: AnimationArrow 1s infinite ease-in;
@@ -40,7 +40,7 @@ const BoxSlideActive = styled.div`
       
       bottom: 150%;
 
-  `}
+  `} 
 `
 const BoxIcon = styled.div`
   position: absolute;
@@ -88,8 +88,10 @@ const BoxText = styled.div`
 `
 const SlideDownWeb = (props): React.FC => {
   const { indexActive } = props
+  const nextPage = indexActive + 1
+  console.log(nextPage)
   return (
-    <Link to={'1'} smooth={true} duration={500} activeClass="active">
+    <Link to={nextPage.toString()} smooth={true} duration={500} activeClass="active">
       <BoxSlideActive indexActive={indexActive}>
         <BoxIcon>
           <BoxArrow />
