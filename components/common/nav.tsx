@@ -127,7 +127,7 @@ const Nav = (props): React.FC => {
                     {links.map(({ key, label, show }) =>
                       show ? (
                         <li key={key}>
-                          <Link to={key} smooth={true} duration={500} spy={true}>
+                          <Link to={key.toString()} smooth={true} duration={500} spy={true}>
                             <HoverLink indexActive={indexActive == key}>{label}</HoverLink>
                           </Link>
                         </li>
