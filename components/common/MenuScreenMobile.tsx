@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-scroll'
 import { links } from './nav'
 import { addPath } from '../../utils/decorate-url'
 const ContainerMenuMobile = styled.div`
@@ -67,7 +68,6 @@ const MenuScreenMobile = (props): void => {
   const { useMenu, setMenu, fullpageApi, indexActive } = props
   const funcLinkMenu = (key = 1): void => {
     addPath(key)
-    fullpageApi.moveTo(key + 1)
     setMenu(!useMenu)
   }
   return (
@@ -76,9 +76,11 @@ const MenuScreenMobile = (props): void => {
       <BoxMenu>
         {links.map(({ key, label }) => {
           return (
-            <SelectMenu key={key} indexActive={indexActive === key} onClick={() => funcLinkMenu(key)}>
-              {label}
-            </SelectMenu>
+            <Link to={key.toString()}>
+              <SelectMenu key={key} indexActive={indexActive === key} onClick={() => funcLinkMenu(key)}>
+                {label}
+              </SelectMenu>
+            </Link>
           )
         })}
         <SelectMenu>BLOGS</SelectMenu>
