@@ -77,13 +77,13 @@ const HoverLink = styled.div`
     color: #f7618b;
     transform: scale(1.1);
   }
-  ${({ indexActive }) =>
+  /* ${({ indexActive }) =>
     indexActive
       ? `transition: 500ms;
     color: #F7618B;
     transform: scale(1.1);    
     `
-      : ''}
+      : ''} */
 `
 const UlRight = styled.ul`
   text-align: right;
@@ -94,16 +94,21 @@ const ImgLogo = styled.img`
 const Nav = (props): React.FC => {
   const { indexActive, setActive } = props
   const getScreenContext = useContext(getWidthContext)
-  const handleSetActive = (page) => {
+   const handleSetActive = (page) => {
     setActive(parseInt(page))
-  }
+  } 
   return (
     <Container>
       <NavBar>
         <BackgroundNav active={indexActive !== 0} />
         <ContainerAll>
           <ul>
-            <Link to="0" smooth={true} duration={500} spy={true} activeClass="active" onSetActive={handleSetActive}>
+            <Link
+              to="0"
+              smooth={true}
+              duration={500}
+              spy={true}  activeClass="active" onSetActive={handleSetActive} 
+            >
               <li>
                 <svg width="114" height="24">
                   <defs>

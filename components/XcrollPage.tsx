@@ -16,6 +16,7 @@ import IconContact from './IconContact'
 import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
+
 const ContainerBackground = styled.div`
   background-color: #102131;
 `
@@ -29,24 +30,11 @@ const ScrollPage = ({ goto }): React.FC => {
   const [useFullPageApi, setFullPageApi] = useState({})
   const [useMenu, setMenu] = useState(false)
   const getScreenContext = useContext(getWidthContext)
-  /*   useEffect(() => {
-    const onTouchStart = async () => {
-      const current = await parseInt(scroller.getActiveLink())
-      console.log(useActive, current)
-      if (useActive !== current) {
-        setActive(current)
-      }
-    }
-    document.addEventListener('scroll', onTouchStart)
-    return () => {
-      document.removeEventListener('scroll', onTouchStart)
-    }
-  }, [useActive]) */
   return (
     <ContainerBackground>
       {/* <ScrollActive indexActive={useActive} /> */}
       <SlideDown indexActive={useActive} />
-      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu}  setActive={setActive} />
+      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu} setActive={setActive} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}
