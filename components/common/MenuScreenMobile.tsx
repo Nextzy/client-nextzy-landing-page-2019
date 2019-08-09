@@ -76,15 +76,19 @@ const MenuScreenMobile = (props): void => {
       <BoxMenu>
         {links.map(({ key, label }) => {
           return (
-            <Link to={key.toString()}>
+            <Link to={key.toString()} key={key}>
               <SelectMenu key={key} indexActive={indexActive === key} onClick={() => funcLinkMenu(key)}>
                 {label}
               </SelectMenu>
             </Link>
           )
         })}
-        <SelectMenu>BLOGS</SelectMenu>
-        <SelectMenuBottom>CAREER</SelectMenuBottom>
+        <a href="https://blog.nextzy.me" target="_blank" rel="noopener noreferrer">
+          <SelectMenu>BLOGS</SelectMenu>
+        </a>
+        <a href="https://www.blognone.com/node/64996" target="_blank" rel="noopener noreferrer">
+          <SelectMenuBottom>CAREER</SelectMenuBottom>
+        </a>
       </BoxMenu>
     </ContainerMenuMobile>
   )
