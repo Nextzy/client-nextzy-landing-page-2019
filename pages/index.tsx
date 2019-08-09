@@ -19,7 +19,12 @@ const Home = ({ goto }): React.FC => {
     <getWidthContext.Provider value={getWidth}>
       <Container>
         {/* <GlobalStyle /> */}
-        <Head title="NEXTZY TECHNOLOGIES" />
+        <Head
+          title="NEXTZY TECHNOLOGIES"
+          description="We are pirates. We sail and hunt the best mobile and web solution."
+          url="https://www.nextzy.me"
+          ogImage="https://www.nextzy.me/static/images/og_image.jpg"
+        />
         <ScrollPage goto={goto} />
       </Container>
     </getWidthContext.Provider>
