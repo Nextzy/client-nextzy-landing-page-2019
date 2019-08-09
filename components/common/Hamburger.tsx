@@ -140,7 +140,7 @@ const Menu = (props): void => {
   return (
     <BoxSelectMenu open={useMenu}>
       <DivMenu>
-        <a href="https://blog.nextzy.me" rel="noopener noreferrer" target="_blank">
+        <a href="https://blog.nextzy.me" target="_blank" rel="noopener noreferrer">
           BLOGS
         </a>
       </DivMenu>
