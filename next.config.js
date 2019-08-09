@@ -5,7 +5,7 @@ const Dotenv = require('dotenv-webpack')
 const withTypescript = require('@zeit/next-typescript')
 
 module.exports = withTypescript({
-  target: 'serverless',
+  target: 'server',
   webpack: (config) => {
     config.plugins = config.plugins || []
     config.plugins = [
