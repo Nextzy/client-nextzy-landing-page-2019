@@ -12,7 +12,6 @@ const ProductDeatil = styled.div`
 
 const Title = styled.div`
   color: #2a7aff;
-  padding-bottom: 1rem;
 `
 const ContentDetail = styled.div`
   font-size: 16px;
@@ -21,33 +20,35 @@ const ContentDetail = styled.div`
 `
 
 const ImgContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-left: 4rem;
+  position: relative;
+  right: 10%;
 `
 
 const ProductImgfirst = styled.img`
-  margin-left: -3rem;
-  margin-top: 2rem;
-  position: absolute;
+  object-fit: contain;
+  display: block;
+  height: 35vh;
+  position:absolute;
   transform: translateX(-70%);
   webkit-transform: translateX(-70%);
 
   &.slide-out {
-    height: 300px;
     animation: slide-out-first 0.6s forwards;
     -webkit-animation: slide-out-first 0.6s forwards;
 
     ${media.lessThan(`${Config.sizeMobile}px`)`
-      height: 550px;
+      margin-left:3rem;
+      margin-top: 2rem;
     `}
 
     ${media.lessThan(`${Config.mediaQuery.mobileL}px`)`
-      height: 300px;
+    margin-left:3rem;
+      margin-top: 2rem;
     `}
 
     ${media.lessThan(`${Config.mediaQuery.mobileS}px`)`
-      height: 200px;
+    margin-left:3rem;
+      margin-top: 2rem;
     `}
   }
 
@@ -71,33 +72,31 @@ const ProductImgfirst = styled.img`
 `
 
 const ProductImgSecond = styled.img`
-  z-index: -1;
+  z-index: -5;
+  object-fit: contain;
+  display: block;
+  height: 32vh;
+  position:absolute;  
   transform: translateX(-70%);
   webkit-transform: translateX(-70%);
 
   &.slide-out {
-    margin-top: 4.5rem;
-    margin-left: 6rem;
-    height: 250px;
     animation: slide-out-second 1.3s forwards;
     -webkit-animation: slide-out-second 1.3s forwards;
 
     ${media.lessThan(`${Config.mediaQuery.tablet}px`)`
       margin-top: 6rem;
       margin-left: 14rem;
-      height: 450px;
   `}
 
   ${media.lessThan(`${Config.mediaQuery.mobileL}px`)`
-  margin-top: 4.5rem;
-  margin-left: 6rem;
-  height: 250px;
+      margin-top: 3rem;
+      margin-left: 10rem;
   `}
 
     ${media.lessThan(`${Config.mediaQuery.mobileS}px`)`
       margin-top: 3rem;
       margin-left: 3rem;
-      height: 180px;
     `}
   }
 
@@ -124,36 +123,24 @@ const ProductContainer = styled.div`
   height: 80%;
 `
 export const ProductContentMobile = (props): React.FC => {
-  const [activeDevice, setActive] = useState('first')
   const { activeProduct, productData } = props
-
-  const onSelectDevice = (key): void => {
-    setActive(key)
-  }
-
+  const { menu } = productData[activeProduct]
   return (
     <ProductDeatil>
-      {productData.map((product) => {
-        const { menu, fixselected } = product
-        return (
-          activeProduct === fixselected && (
-            <ProductContainer key={product.id}>
-              <Fade right cascade distance={'10%'}>
-                <Title> {menu.title} </Title>
-              </Fade>
-              <Fade right cascade distance={'20%'}>
-                <ContentDetail>{menu.descrition} </ContentDetail>
-              </Fade>
-              {menu.imgUrl && menu.imgUrl.length > 0 && (
-                <ImgContainer>
-                  <ProductImgfirst className="slide-out" src={`/static/images/Products/${menu.imgUrl[0]}`} />
-                  <ProductImgSecond className="slide-out" src={`/static/images/Products/${menu.imgUrl[1]}`} />
-                </ImgContainer>
-              )}
-            </ProductContainer>
-          )
-        )
-      })}
+      <ProductContainer key={activeProduct}>
+        <Fade right cascade distance={'10%'}>
+          <Title> {menu.title} </Title>
+        </Fade>
+        <Fade right cascade distance={'20%'}>
+          <ContentDetail>{menu.descrition} </ContentDetail>
+        </Fade>
+        {menu.imgUrl && menu.imgUrl.length > 0 && (
+          <ImgContainer>
+            <ProductImgfirst className="slide-out" src={`/${process.env.PATH_IMG}static/images/Products/${menu.imgUrl[0]}`} alt="product-1" />
+            <ProductImgSecond className="slide-out" src={`/${process.env.PATH_IMG}static/images/Products/${menu.imgUrl[1]}`} alt="product-2" />
+          </ImgContainer>
+        )}
+      </ProductContainer>
     </ProductDeatil>
   )
 }

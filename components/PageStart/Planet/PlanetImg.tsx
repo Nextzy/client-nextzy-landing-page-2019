@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import styled, { keyframes } from 'styled-components'
 const Planet = styled.div`
   position: relative;
@@ -89,14 +89,14 @@ const PlanetBig = (props): React.FC => {
   const planetRef = useRef()
   const { imgCore, imgShadow, imgHole, background, effectSpin } = props
   const PlanetBackground = background
-  const PlanetCore = imgCore || '/static/images/Planet/asset_planet_3.png'
+  const PlanetCore = imgCore || `/${process.env.PATH_IMG}static/images/Planet/asset_planet_3.png`
   // useEffect(() => {
   //   console.log('window', planetRef.current.offsetWidth, planetRef.current.offsetHeight)
   // }, [])
   if (imgShadow) {
     return (
       <Planet ref={planetRef}>
-        <ImgPlanetBlinkOut src={PlanetBackground} />
+        <ImgPlanetBlinkOut src={PlanetBackground} alt="blink" />
         <PlanetImgCore effectSpin={effectSpin}>
           <ImgPlanetCore src={imgCore} alt="bg" />
         </PlanetImgCore>
@@ -111,7 +111,7 @@ const PlanetBig = (props): React.FC => {
   } else {
     return (
       <Planet ref={planetRef}>
-        <ImgPlanetNotBG src={PlanetCore} />
+        <ImgPlanetNotBG src={PlanetCore} alt="planet-raw" />
       </Planet>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Config from '../constants/Constants'
@@ -13,31 +14,35 @@ const BoxSlideActive = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  div {
+  `}
+`
+const DotSlide = styled.div`
+  ${media.greaterThan(`${Config.sizeTablet}px`)`
     margin: 0 0 1rem 0;
     border-radius: 50%;
     padding: 0.4rem;
-    /* border: 1px solid #fff; */
     box-shadow: inset 0 0 0 1px #fff;
-  }
-  div:nth-child(${({ indexActive }) => indexActive + 1}) {
+    ${({ selected }) =>
+      selected &&
+      `
     background-image: linear-gradient(-136deg, #f7618b 0%, #2a7aff 100%);
-    box-shadow: inset 0 0 0 1px transparent;
-  }
+    box-shadow: inset 0 0 0 1px transparent;    
+    `}
   `}
 `
-const SlideDown = styled.div``
-const createItemActive = (countPage, fullpageApi): void => {
-  let dataActive = []
-  for (let i = 0; i < countPage; i++) {
-    dataActive.push(<div key={i + 1} onClick={() => fullpageApi.moveTo(i + 1)} />)
-  }
+
+const createItemActive = (indexActive): void => {
+  let dataActive = [1, 2, 4, 5, 6].map((i) => (
+    <Link key={i} to={`${i}`} smooth={true} duration={500}>
+      <DotSlide selected={indexActive === i} />
+    </Link>
+  ))
   return dataActive
 }
 const ScrollActive = (props): React.FC => {
-  const { indexActive, fullpageApi, countPage } = props
-  if (countPage) {
-    return <BoxSlideActive indexActive={indexActive}>{createItemActive(countPage, fullpageApi)}</BoxSlideActive>
+  const { indexActive } = props
+  if (indexActive !== 0) {
+    return <BoxSlideActive indexActive={indexActive}>{createItemActive(indexActive)}</BoxSlideActive>
   }
   return null
 }

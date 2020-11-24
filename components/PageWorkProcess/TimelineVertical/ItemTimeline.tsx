@@ -100,11 +100,15 @@ const ContainerBoxRight = styled.div`
 const CircleNumber = styled.div`
   z-index: 2;
   background: ${({ color }) => color};
-  padding: 5px 9px 5px 1px;
-  width: 15px;
-  height: 15px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 15px;
-  display: inline-block;
+
 `
 const TextDescriptionLeft = styled.div`
   margin-right: 1rem;

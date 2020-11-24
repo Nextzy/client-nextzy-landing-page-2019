@@ -79,13 +79,13 @@ const PageStart = (): React.FC => {
     // useLayoutEffect(() => {
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: false, state3: false })
-    }, 2100)
+    }, 100)
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: true, state3: false })
-    }, 2500)
+    }, 500)
     setTimeout(() => {
       setOrderEarth({ state1: true, state2: true, state3: true })
-    }, 3000)
+    }, 1000)
   }, [])
   return (
     <>
@@ -93,10 +93,10 @@ const PageStart = (): React.FC => {
         <BoxPlanetBigSub>
           {state2 ? (
             <Planet
-              imgCore="/static/images/Planet/planet_center_core.png"
-              imgShadow="/static/images/Planet/planet_center_shadow.png"
-              imgHole="/static/images/Planet/planet_center_hole.png"
-              background="/static/images/Planet/asset_planet_halo_1.svg"
+              imgCore={`/${process.env.PATH_IMG}static/images/Planet/planet_center_core.png`}
+              imgShadow={`/${process.env.PATH_IMG}static/images/Planet/planet_center_shadow.png`}
+              imgHole={`/${process.env.PATH_IMG}static/images/Planet/planet_center_hole.png`}
+              background={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_halo_1.svg`}
               effectSpin={'spinout'}
               direction={{ x: 50, y: 50 }}
             />
@@ -110,10 +110,10 @@ const PageStart = (): React.FC => {
         <BoxMediumTopSub>
           {state1 ? (
             <Planet
-              imgCore="/static/images/Planet/asset_planet_top_core.png"
-              imgShadow="/static/images/Planet/asset_planet_top_shadow.png"
-              imgHole="/static/images/Planet/asset_planet_top_line.png"
-              background="/static/images/Planet/asset_planet_halo_2.svg"
+              imgCore={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_core.png`}
+              imgShadow={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_shadow.png`}
+              imgHole={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_top_line.png`}
+              background={`/${process.env.PATH_IMG}static/images/Planet/asset_planet_halo_2.svg`}
               effectSpin={'spinin'}
               direction={{ x: 50, y: 150 }}
             />

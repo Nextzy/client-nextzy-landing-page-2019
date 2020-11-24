@@ -4,6 +4,7 @@ import media from 'styled-media-query'
 import ContainerAll from '../layout/ContainerAll'
 import { SectionHeader } from '../common/Text'
 import { Pair } from './Menu'
+import loadable from 'react-loadable'
 import Config from '../../constants/Constants'
 const Container = styled.div`
   padding: 6rem 0 0 0;
@@ -18,7 +19,7 @@ const TextNEXTZY = styled.div`
   text-align: left;
   font-family: Montserrat-Regular;
   font-size: 2rem;
-  color: #ffffff; 
+  color: #ffffff;
   letter-spacing: -0.5px;
   display: inline-block;
   float: left;
@@ -40,12 +41,14 @@ const BackgroundImage = styled.img`
   z-index: -4;
   user-select: none;
 `
-
 const PageObjective = (): React.FunctionComponent<{}> => {
   return (
     <Container>
       <ContainerAll>
-        <BackgroundImage src="/static/images/Background/background_circle_1.svg" alt="backgroundja" />
+        <BackgroundImage
+          src={`/${process.env.PATH_IMG}static/images/Background/background_circle_1.svg`}
+          alt="backgroundja"
+        />
         <ContainerPageObjective>
           <TextNEXTZY>
             <SectionHeader title="OUR OBJECTIVE" />

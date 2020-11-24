@@ -114,9 +114,12 @@ const ItemTimeline = (props): React.FC => {
   const { name, color } = props.data
 
   useEffect(() => {
-    setTimeout(() => {
+    const showDot = setTimeout(() => {
       setShow(true)
     }, 250 * id)
+    return () => {
+      clearTimeout(showDot)
+    }
   }, [])
 
   return (

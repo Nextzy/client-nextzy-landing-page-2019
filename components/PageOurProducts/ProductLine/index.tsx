@@ -1,4 +1,4 @@
-import React, { useState, Component, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Config from '../../../constants/Constants'
@@ -7,11 +7,10 @@ const Line = styled.div`
   svg {
     position: absolute;
     left: 0;
-    top: 20%;
-    height: 70%;
+    top: 10rem;
     z-index: 100;
+    height: 80vh;
     user-select: none;
-
     ${media.lessThan(`${Config.mediaQuery.tablet}px`)`
       left: 5%;
     `}
@@ -34,58 +33,38 @@ const Line = styled.div`
   .d {
     fill: url(#b);
   }
-  .indicator-active,
-  .text-active {
-    fill: #f7618b;
-  }
-  .indicator-unactive {
+  .node {
     fill: #7a6666;
   }
-
-  .indicator-active,
-  .indicator-unactive {
-    transition: 500ms all;
+  .node.active {
+    fill: #f7618b;
   }
-  .f,
-  .text-active {
-    isolation: isolate;
-  }
-  .text-active {
-    font-size: 25px;
-    letter-spacing: 0.01em;
-  }
-  .text-active,
-  .text-unactive {
-    font-family: Montserrat-Regular, Montserrat Regular;
-  }
-  .text-unactive {
+  .text {
+    position: absolute;
     font-size: 18px;
-    letter-spacing: 0.01em;
+    fill: #d8d8d8;
+    font-family: Montserrat-Regular, Montserrat Regular;
+    letter-spacing: 0em;
+    transition: all 0.2s ease-in-out;
   }
-
+  .text.active {
+    font-size: 24px;
+    fill: #f7618b;
+    font-family: Montserrat-Regular, Montserrat Regular;
+    transition: all 0.2s ease-in;
+  }
+  .btn {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+  }
   text {
     transition: 500ms all;
   }
 `
 
 export const LineSpinner = (props): React.FC => {
-  const { createSelect, activeProduct } = props
-  const [useSelected, setSelected] = useState(activeProduct)
-  const setSelect = (key): void => {
-    setSelected(key)
-    props.onSelectProduct(key)
-  }
-  const setPositionText = (useSelected): void => {
-    const getRotate = createSelect.find((f) => f.fixselected === useSelected)
-    const transformRotate = 205.5 - getRotate.transformTextMobile
-    return transformRotate
-  }
+  const { data, activeProduct, setActive } = props
 
-  const setPositionIndicator = (useSelected): void => {
-    const getRotate = createSelect.find((f) => f.fixselected === useSelected)
-    const transformIndicator = 197 - getRotate.indicatorPosition
-    return transformIndicator
-  }
 
   return (
     <Line>
@@ -111,26 +90,32 @@ export const LineSpinner = (props): React.FC => {
         <g className="c">
           <rect className="d" x="7.5" width="1" height="396" />
         </g>
-        {createSelect.map((item) => {
+        {data.map((item, index) => {
           const { fixselected, transformTextMobile, transformRotate, indicatorPosition } = item
-          const textTransform = `translate(32 ${transformTextMobile + setPositionText(useSelected)})`
-          const indicatorTransform = indicatorPosition + setPositionIndicator(useSelected)
           return (
             <Fragment key={item.id}>
               <circle
-                className={fixselected === 'fourth' ? 'indicator-active' : 'indicator-unactive'}
+                className={`node ${index === activeProduct && 'active'}`}
                 cx="8"
-                cy={indicatorPosition}
-                r={fixselected === 'fourth' ? 8 : 5}
+                cy={60 + (index * 60)}
+                r={activeProduct === index ? 8 : 5}
               />
               <g className="f">
                 <text
-                  className={useSelected === fixselected ? 'text-active' : 'text-unactive'}
-                  transform={textTransform}
-                  onClick={() => setSelect(fixselected)}
+                  className={`text ${index === activeProduct && 'active'}`}
+                  x="16"
+                  y={70 + (index * 60)}
                 >
-                  0{item.id}
+                  0{index + 1}
                 </text>
+                <rect
+                  className="btn"
+                  width={80}
+                  height={200}
+                  x={-4}
+                  y={30 + (index * 60)}
+                  onClick={() => setActive(index)}
+                />
               </g>
             </Fragment>
           )

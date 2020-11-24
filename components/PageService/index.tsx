@@ -41,11 +41,11 @@ const PageService = (): React.FC => {
   return (
     <Container>
       <ContainerAll>
-        <BackgroundImage src="/static/images/Background/background_circle_1.svg" alt="backgroundja" />
+        <BackgroundImage src={`/${process.env.PATH_IMG}static/images/Background/background_circle_1.svg`} alt="backgroundja" />
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="PAGE OWN SERVICE" />
+              <SectionHeader title="OUR SERVICES" />
             </Fade>
             <LegoBlocks />
           </TextNEXTZY>

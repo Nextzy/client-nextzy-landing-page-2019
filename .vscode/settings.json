@@ -1,4 +1,7 @@
 {
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "typescript.validate.enable": false
+  "typescript.validate.enable": false,
+  "cSpell.words": [
+    "truetype"
+  ]
 }

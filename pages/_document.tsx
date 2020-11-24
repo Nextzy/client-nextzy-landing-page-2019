@@ -29,21 +29,24 @@ export default class extends Document {
 
   render(): void {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <meta
             name="viewport"
-            content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+            content="width=device-width,initial-scale=1.0,minimum-scale=1.0" //,maximum-scale=1.0,user-scalable=no
           />
           <meta name="HandheldFriendly" content="True" />
           <meta name="MobileOptimized" content="640" />
           <meta name="format-detection" content="telephone=no" />
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQvDHx-wwqQCB71fmSOI_sgNPd2fR3iTM" />
-          <link rel="shortcut icon" href="/static/favicon.ico" />
-          <script src="/static/script/scrolloverflow.min.js" />
+          <link rel="shortcut icon" href={`/${process.env.PATH_IMG}static/favicon.ico`} />
+          <link rel="preload" href={`/${process.env.PATH_IMG}static/fonts/Montserrat/Montserrat-Regular.ttf`} as="font" />
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQvDHx-wwqQCB71fmSOI_sgNPd2fR3iTM" defer />
+          <script src="https://cdn.bootcss.com/fullPage.js/3.0.5/vendors/scrolloverflow.min.js" defer></script>
         </Head>
         <body>
-          <Main />
+          <main>
+            <Main />
+          </main>
           <NextScript />
         </body>
       </html>

@@ -1,12 +1,14 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../../common/Text'
 import MenuAndContent from './MenuAndContent/index'
-import Map from './MenuAndContent/Map'
+import Map from './MenuAndContent/Map' 
 import Flag from './MenuAndContent/Flag'
 import ContainerAll from '../../layout/ContainerAll'
-
+/* const Map = dynamic(() => import('./MenuAndContent/Map'))
+const Flag = dynamic(() => import('./MenuAndContent/Flag')) */
 const TextNEXTZY = styled.div`
   position: relative;
   /* width: 100%; */

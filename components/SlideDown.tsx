@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-scroll'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
 const BoxSlideActive = styled.div`
@@ -39,7 +40,7 @@ const BoxSlideActive = styled.div`
       
       bottom: 150%;
 
-  `}
+  `};
 `
 const BoxIcon = styled.div`
   position: absolute;
@@ -86,14 +87,16 @@ const BoxText = styled.div`
   left: 3.5rem;
 `
 const SlideDownWeb = (props): React.FC => {
-  const { indexActive, fullpageApi } = props
+  const { indexActive } = props
   return (
-    <BoxSlideActive indexActive={indexActive} onClick={() => fullpageApi.moveTo(2)}>
-      <BoxIcon>
-        <BoxArrow />
-      </BoxIcon>
-      <BoxText>SCROLL DOWN</BoxText>
-    </BoxSlideActive>
+    <Link to={'1'} smooth={true} duration={500} activeClass="active">
+      <BoxSlideActive indexActive={indexActive}>
+        <BoxIcon>
+          <BoxArrow />
+        </BoxIcon>
+        <BoxText>SCROLL DOWN</BoxText>
+      </BoxSlideActive>
+    </Link>
   )
 }
 const BoxSlideActiveMobile = styled.div`
@@ -173,18 +176,18 @@ const BoxArrowMobile = styled.div`
     transform: rotate(45deg);
   }
 `
-const SlideDownMobile = (props): React.FC => {
-  const { indexActive, fullpageApi } = props
+const SlideDownMobile = ({ indexActive }): React.FC => {
   return (
-    <BoxSlideActiveMobile indexActive={indexActive} onClick={() => fullpageApi.moveTo(2)}>
-      <BoxIconMobile indexActive={indexActive}>
-        <BoxArrowMobile />
-      </BoxIconMobile>
-    </BoxSlideActiveMobile>
+    <Link to={'1'} smooth={true} duration={500}>
+      <BoxSlideActiveMobile indexActive={indexActive}>
+        <BoxIconMobile indexActive={indexActive}>
+          <BoxArrowMobile />
+        </BoxIconMobile>
+      </BoxSlideActiveMobile>
+    </Link>
   )
 }
 const SlideDown = (props): void => {
-  const { indexActive, fullpageApi } = props
   const useScreen = useContext(getWidthContext)
   if (useScreen && useScreen <= Config.sizeMobile) {
     return <SlideDownMobile {...props} />

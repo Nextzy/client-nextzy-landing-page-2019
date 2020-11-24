@@ -49,8 +49,8 @@ const ChangeContentDescription = (menu): void => {
         <Fade right cascade>
           <Title name="CHIANGMAI BRANCH ADDRESS" />
           <Description>
-            <p>17 / 1 Cube No.7 Sirimangkalajarn Lane 7</p>
-            <p>Suthep, Muang, Chiang Mai 50200, Thailand.</p>
+            <p>233/4, Huaykaew Rd, Su Thep</p>
+            <p>Mueang Chiang Mai, Chiang Mai 50200, Thailand.</p>
           </Description>
         </Fade>
       )
