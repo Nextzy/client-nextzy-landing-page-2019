@@ -1,21 +1,26 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import ContainerAll from '../layout/ContainerAll'
 import Fade from 'react-reveal/Fade'
 import { SectionHeader } from '../common/Text'
-import { Product } from './ProductsMenu'
 import { ProductContentWeb } from './ProductContentWeb'
 import { ProductContentMobile } from './ProductContentMobile'
 import { Spinner } from './ProductSpinner'
 import { LineSpinner } from './ProductLine'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
+import _ from 'lodash'
+/* const Spinner = loadable({
+  loader: () => import('./ProductSpinner'),
+  loading() { return (<div>loading</div>) }
+}) */
 
 const Container = styled.div`
-  padding: 5rem 0 5rem 0;
+  position: relative;
+  padding: 6rem 0 0 0;
   background-color: #102131;
   color: white;
-  height: 100%;
+  min-height: 88vh;
   width: 100%;
 `
 const TextNEXTZY = styled.div`
@@ -46,34 +51,18 @@ const DataTest = [
   {
     id: 1,
     indicatorPosition: 23,
-    fixselected: 'first',
     transformTextMobile: 31.5,
     menu: {
-      title: 'MY AIS',
-      descrition:
-        'An application that answers all your needs with convenient access to all AIS services 24 hours a day. The super convenient new way to make your digital life easier than ever with AIS services you can manage it whenever wherever you like!',
-      devices: ['WEB', 'IOS', 'ANDROID'],
-      imgUrl: ['product_myais_1.png', 'product_myais_2.png']
+      title: 'YOUEX',
+      descrition: 'An application that will help you make friends and will not be lonely anymore.',
+      devices: ['ANDROID'],
+      imgUrl: ['product_you_ex_2.png', 'product_you_ex_1.png']
     }
   },
   {
     id: 2,
     indicatorPosition: 81,
-    fixselected: 'second',
     transformTextMobile: 87.5,
-    menu: {
-      title: 'MY CHANNEL',
-      descrition:
-        'An application for AIS Shop stuff for use in providing services such as a product information viewing and an after-sales service.',
-      devices: ['WEB', 'IOS', 'ANDROID', 'Back-end'],
-      imgUrl: ['product_channel_2.png', 'product_channel_1.png']
-    }
-  },
-  {
-    id: 3,
-    indicatorPosition: 139,
-    fixselected: 'third',
-    transformTextMobile: 143.5,
     menu: {
       title: 'NU MOBILE',
       descrition:
@@ -83,21 +72,32 @@ const DataTest = [
     }
   },
   {
+    id: 3,
+    indicatorPosition: 139,
+    transformTextMobile: 143.5,
+    menu: {
+      title: 'MY CHANNEL',
+      descrition:
+        'An application for AIS Shop stuff for use in providing services such as a product information viewing and an after-sales service.',
+      devices: ['WEB', 'IOS', 'ANDROID', 'Back-end'],
+      imgUrl: ['product_channel_2.png', 'product_channel_1.png']
+    }
+  },
+  {
     id: 4,
     indicatorPosition: 197,
-    fixselected: 'fourth',
     transformTextMobile: 205.5,
     menu: {
-      title: 'YOUEX',
-      descrition: 'An application that will help you make friends and will not be lonely anymore.',
-      devices: ['ANDROID'],
-      imgUrl: ['product_you_ex_2.png', 'product_you_ex_1.png']
+      title: 'MY AIS',
+      descrition:
+        'An application that answers all your needs with convenient access to all AIS services 24 hours a day. The super convenient new way to make your digital life easier than ever with AIS services you can manage it whenever wherever you like!',
+      devices: ['WEB', 'IOS', 'ANDROID'],
+      imgUrl: ['product_myais_1.png', 'product_myais_2.png']
     }
   },
   {
     id: 5,
     indicatorPosition: 255,
-    fixselected: 'fifth',
     transformTextMobile: 267.5,
     menu: {
       title: 'TRUE MONEY WALLET CAMPAIGN',
@@ -106,32 +106,88 @@ const DataTest = [
       devices: ['WEB', 'Back-end'],
       imgUrl: ['product_true_2.png', 'product_true_1.png']
     }
-  },
-  {
-    id: 6,
-    indicatorPosition: 313,
-    fixselected: 'sixth',
-    transformTextMobile: 325.5,
-    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
-  },
-  {
-    id: 7,
-    indicatorPosition: 371,
-    fixselected: 'seventh',
-    transformTextMobile: 383.5,
-    menu: { title: 'MY AIS Application', descrition: 'An', devices: ['WEB', 'IOS', 'ANDROID'] }
   }
 ]
 const Home = (props): React.FC => {
-  const { indexActive } = props
-  const [activeProduct, setActive] = useState(() => {
-    const middle = Math.round(DataTest.length / 2)
-    return DataTest[middle-1].fixselected
-  })
-  const handleSelectProduct = (key): void => {
-    setActive(key)
-  }
+  const { indexActive, fullpageApi } = props
+  const [useIsCurrent, setIsCurrent] = useState(false)
+  const [useIsBottom, setIsBottom] = useState(true)
+  const [activeProduct, setActive] = useState(Math.round(DataTest.length / 2) - 1)
+  /*   const downHandler = ({ key }) => {
+      if (key === 'ArrowDown' && indexActive === 3 && useIsCurrent) {
+        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
+        if (nextIndex < 5) { setActive(DataTest[nextIndex].fixselected) }
+        else {
+          fullpageApi.moveSectionDown()
+        }
+      } else if (key === 'ArrowUp' && indexActive === 3 && useIsCurrent) {
+        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
+        if (nextIndex > -1) { setActive(DataTest[nextIndex].fixselected) } else {
+          fullpageApi.moveSectionUp()
+        }
+      }
+    }
+    const scrollHandler = (e) => {
+      if (e.deltaY > 0 && indexActive === 3 && useIsCurrent) { //scroll down & current page
+        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) + 1
+        if (nextIndex < DataTest.length) {
+          setTimeout(() => {
+            setActive(DataTest[nextIndex].fixselected)
+          }, 100);
+        }
+        else {
+          fullpageApi.moveSectionDown()
+        }
+      } else if (e.deltaY < 0 && indexActive === 3 && useIsCurrent) { //scroll up & current page
+        let nextIndex = DataTest.findIndex((el) => el.fixselected === activeProduct) - 1
+        if (nextIndex > -1) {
+          setTimeout(() => {
+            setActive(DataTest[nextIndex].fixselected)
+          }, 100);
+        }
+        else {
+          fullpageApi.moveSectionUp()
+        }
+      }
+    } */
+
   const useScreen = useContext(getWidthContext)
+  /*   useEffect(() => {
+      if (useScreen >= Config.sizeTablet) {
+        if (fullpageApi && fullpageApi['setAllowScrolling']) {
+          if (indexActive === 3) {
+            setIsCurrent(true)
+            window.addEventListener('keydown', downHandler)
+            window.addEventListener('wheel', scrollHandler)
+            if (activeProduct === 'fifth') {
+              fullpageApi['setAllowScrolling'](true, 'down')
+              fullpageApi['setAllowScrolling'](false, 'up')
+              fullpageApi['setKeyboardScrolling'](true, 'down')
+              fullpageApi['setKeyboardScrolling'](false, 'up')
+            } else if (activeProduct === 'first') {
+              fullpageApi['setAllowScrolling'](true, 'up')
+              fullpageApi['setAllowScrolling'](false, 'down')
+              fullpageApi['setKeyboardScrolling'](true, 'up')
+              fullpageApi['setKeyboardScrolling'](false, 'down')
+            } else {
+              fullpageApi['setAllowScrolling'](false)
+              fullpageApi['setKeyboardScrolling'](false)
+            }
+          } else {
+            setIsCurrent(false)
+            fullpageApi['setAllowScrolling'](true)
+            fullpageApi['setKeyboardScrolling'](true)
+          }
+        }
+      }
+      return () => {
+        if (useScreen >= Config.sizeTablet) {
+          window.removeEventListener('keydown', downHandler)
+          window.removeEventListener('wheel', scrollHandler)
+        }
+      }
+    }, [indexActive, activeProduct, useIsCurrent]) */
+
 
   const handleComponents = (): void => {
     if (useScreen <= Config.sizeMobile) {
@@ -140,20 +196,20 @@ const Home = (props): React.FC => {
       return <ProductContentWeb activeProduct={activeProduct} productData={DataTest} />
     }
   }
-
   return (
     <Container>
-      {useScreen && useScreen <= Config.sizeMobile ? (
-        <LineSpinner onSelectProduct={handleSelectProduct} activeProduct={activeProduct} createSelect={DataTest} />
+      {useScreen && useScreen <= Config.sizeTablet ? (
+        <LineSpinner setActive={setActive} activeProduct={activeProduct} data={DataTest} />
       ) : (
-          <Spinner onSelectProduct={handleSelectProduct} activeProduct={activeProduct} createSelect={DataTest} />
-        )}
+          <Spinner setActive={setActive} activeProduct={activeProduct} data={DataTest} />
+        )
+      }
       <ContainerAll>
         <ContainerObject>
           <ContainerPageObjective>
             <TextNEXTZY>
               <Fade right cascade>
-                <SectionHeader title="PAGE PRODUCTS" />
+                <SectionHeader title="OUR PRODUCTS" />
                 {handleComponents()}
               </Fade>
             </TextNEXTZY>

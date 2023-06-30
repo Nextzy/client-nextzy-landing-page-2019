@@ -27,21 +27,20 @@ const BoxBtnPage = styled.div`
   font-size: 18px;
   letter-spacing: 0.5;
   line-height: 1.5;
-  color: #ffffff;
+  color: #d8d8d8;
   button {
-    user-select:none;
+    user-select: none;
     font-size: 14px;
-    color: #ffffff;
+    color: #d8d8d8;
     letter-spacing: 1.25px;
     line-height: 16px;
     margin-top: 24px;
-    padding: 0.8rem 2.5rem 0.8rem 2.5rem;
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
     margin-right: 16px;
     border-radius: 25px;
     color: white;
     background-color: transparent;
-    border: 0px solid transparent;
-    box-shadow: inset 0 0 0 2px #fff;
+    border: 1px solid #d8d8d8;
   }
   @media (max-width: 720px) {
     display: none;
@@ -49,19 +48,23 @@ const BoxBtnPage = styled.div`
 `
 
 const ImgContainer = styled.div`
+  padding: 2rem;
   display: flex;
+  height: 60%;
   justify-content: center;
+  margin: auto 0;
 `
 
 const ProductImgfirst = styled.img`
-  margin-left: -3rem;
-  margin-top: 56px;
+  object-fit: contain;
+  display: block;
+  height: 55vh;
+  margin-left: -5rem;
   position: absolute;
   transform: translateX(-70%);
   webkit-transform: translateX(-70%);
 
   &.slide-out {
-    height: 519.51px;
     animation: slide-out-first 0.6s forwards;
     -webkit-animation: slide-out-first 0.6s forwards;
   }
@@ -86,14 +89,14 @@ const ProductImgfirst = styled.img`
 `
 
 const ProductImgSecond = styled.img`
-  z-index: -1;
-  transform: translateX(-70%);
+  z-index: -5;
+  height: 50vh;
+  margin-top: 1.5rem;
+  margin-left: 6rem;
+  object-fit: contain;
+  position: absolute;
   webkit-transform: translateX(-70%);
-
   &.slide-out {
-    margin-top: 114.61px;
-    margin-left: 16rem;
-    height: 435.08px;
     animation: slide-out-second 1.3s forwards;
     -webkit-animation: slide-out-second 1.3s forwards;
   }
@@ -121,43 +124,33 @@ const ProductContainer = styled.div`
   height: 100%;
 `
 export const ProductContentWeb = (props): React.FC => {
-  const [activeDevice, setActive] = useState('first')
   const { activeProduct, productData } = props
-
-  const onSelectDevice = (key): void => {
-    setActive(key)
-  }
-
+  const { menu } = productData[activeProduct]
   return (
     <ProductDeatil>
-      {productData.map((product) => {
-        const { menu, fixselected } = product
-        return (
-          activeProduct === fixselected && (
-            <ProductContainer key={product.id}>
-              <Fade right cascade distance={'10%'}>
-                <Title> {menu.title} </Title>
-              </Fade>
-              <Fade right cascade distance={'20%'}>
-                <ContentDetail>{menu.descrition} </ContentDetail>
-              </Fade>
-              {menu.devices.map((device, i) => {
-                return (
-                  <BoxBtnPage key={i}>
-                    <button disabled>{device}</button>
-                  </BoxBtnPage>
-                )
-              })}
-              {menu.imgUrl && menu.imgUrl.length > 0 && (
-                <ImgContainer>
-                  <ProductImgfirst className="slide-out" src={`/static/images/Products/${menu.imgUrl[0]}`} />
-                  <ProductImgSecond className="slide-out" src={`/static/images/Products/${menu.imgUrl[1]}`} />
-                </ImgContainer>
-              )}
-            </ProductContainer>
-          )
+      <ProductContainer key={activeProduct}>
+        <Fade right cascade distance={'10%'}>
+          <Title> {menu.title} </Title>
+        </Fade>
+        <Fade right cascade distance={'20%'}>
+          <ContentDetail>{menu.descrition} </ContentDetail>
+        </Fade>
+        {menu.devices.map((device, i) => (
+          <BoxBtnPage key={i}>
+            <button disabled>{device}</button>
+          </BoxBtnPage>
         )
-      })}
+        )
+        }
+        {
+          menu.imgUrl && menu.imgUrl.length > 0 && (
+            <ImgContainer>
+              <ProductImgfirst className="slide-out" src={`/${process.env.PATH_IMG}static/images/Products/${menu.imgUrl[0]}`} alt="product-1" />
+              <ProductImgSecond className="slide-out" src={`/${process.env.PATH_IMG}static/images/Products/${menu.imgUrl[1]}`} alt="product-2" />
+            </ImgContainer>
+          )
+        }
+      </ProductContainer>
     </ProductDeatil>
   )
 }

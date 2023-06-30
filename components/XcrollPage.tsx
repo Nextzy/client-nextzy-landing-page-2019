@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import PageStart from './PageStart'
 import PageObjective from './PageObjective'
 import PageService from './PageService'
@@ -7,12 +8,11 @@ import PageOurProduct from './PageOurProducts'
 import PageWorkProcess from './PageWorkProcess'
 import PageContact from './PageContact'
 import styled from 'styled-components'
-import ReactFullpage from '@fullpage/react-fullpage'
 import Nav, { links } from './common/nav'
 import ScrollActive from './ScrollActive'
 import SlideDown from './SlideDown'
 import IconContact from './IconContact'
-import ModalMap from './common/ModalMap'
+
 import MenuScreenMobile from './common/MenuScreenMobile'
 import { getWidthContext } from '../utils/getWidthScreen'
 import Config from '../constants/Constants'
@@ -20,72 +20,47 @@ import Config from '../constants/Constants'
 const ContainerBackground = styled.div`
   background-color: #102131;
 `
+
+const pluginWrapper = () => {
+  require('fullpage.js/vendors/scrolloverflow')
+}
+
 const ScrollPage = ({ goto }): React.FC => {
   const [useActive, setActive] = useState(0)
   const [useFullPageApi, setFullPageApi] = useState({})
-  const [useCountPage, setCountPage] = useState(0)
-  const [useModal, setModal] = useState({ visible: false, map: '', isShowMap: false })
   const [useMenu, setMenu] = useState(false)
-  const { visible, isShowMap } = useModal
   const getScreenContext = useContext(getWidthContext)
-  const onLeave = (origin, destination, direction): void => {
-    const { index } = destination
-    setActive(index || 0)
-  }
   return (
     <ContainerBackground>
-      <ScrollActive indexActive={useActive} fullpageApi={useFullPageApi} countPage={useCountPage} />
-      <SlideDown indexActive={useActive} fullpageApi={useFullPageApi} />
-      <Nav indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
+      {/* <ScrollActive indexActive={useActive} /> */}
+      <SlideDown indexActive={useActive} />
+      <Nav indexActive={useActive} useMenu={useMenu} setMenu={setMenu} setActive={setActive} />
       {getScreenContext && getScreenContext <= Config.sizeMobile ? (
         <MenuScreenMobile indexActive={useActive} fullpageApi={useFullPageApi} useMenu={useMenu} setMenu={setMenu} />
       ) : null}
       <IconContact indexActive={useActive} />
-      {visible ? (
-        <ModalMap indexActive={useActive} fullpageApi={useFullPageApi} useModal={useModal} setModal={setModal} />
-      ) : null}
-      <ReactFullpage
-        onLeave={onLeave}
-        scrollOverflow={true}
-        render={({ state, fullpageApi }) => {
-          const { sectionCount } = state
-          setFullPageApi(fullpageApi)
-          setCountPage(sectionCount || 0)
 
-          if (goto && fullpageApi && state.initialized && !state.destination) {
-            //first load in query
-            const currentLink = links.filter((link) => link.href === goto)[0]
-            fullpageApi.moveTo(currentLink.key)
-          }
-          return (
-            <>
-              <ReactFullpage.Wrapper>
-                <div className="section">
-                  <PageStart fullpageApi={useFullPageApi} />
-                </div>
-                <div className="section">
-                  <PageObjective />
-                </div>
-                <div className="section">
-                  <PageService />
-                </div>
-                <div className="section">
-                  <PageOurProduct indexActive={useActive} />
-                </div>
-                <div className="section">
-                  <PageClient />
-                </div>
-                <div className="section">
-                  <PageWorkProcess />
-                </div>
-                <div className="section">
-                  <PageContact setModal={setModal} visibleMap={isShowMap} />
-                </div>
-              </ReactFullpage.Wrapper>
-            </>
-          )
-        }}
-      />
+      <Element name="0">
+        <PageStart />
+      </Element>
+      <Element name="1">
+        <PageObjective />
+      </Element>
+      <Element name="2">
+        <PageService />
+      </Element>
+      <Element name="3">
+        <PageOurProduct indexActive={useActive} fullpageApi={useFullPageApi} />
+      </Element>
+      <Element name="4">
+        <PageClient indexActive={useActive} />
+      </Element>
+      <Element name="5">
+        <PageWorkProcess />
+      </Element>
+      <Element name="6">
+        <PageContact />
+      </Element>
     </ContainerBackground>
   )
 }

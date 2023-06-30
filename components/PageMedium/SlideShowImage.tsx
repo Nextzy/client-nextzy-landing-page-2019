@@ -33,24 +33,24 @@ const SlideShowImage = (props): React.FC => {
 
   return (
     <BoxSlideImage>
-      <BackgroundCover src="/static/images/PicMedium/pictest.jpg" alt="medium" />
+      <BackgroundCover src={``} src="/${process.env.PATH_IMG}static/images/PicMedium/pictest.jpg" alt="medium" />
       <CurveBottom>
         {useScreen <= Config.sizeMobile ? (
-          <svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" width="420" height="100">
+          <svg xmlns="http://www.w3.org/2000/svg" href="http://www.w3.org/1999/xlink" width="420" height="100">
             <defs>
               <path id="prefix__header_dicut_mobile-a" d="M420 100H0V.044c116.37 63.055 257.231 99.95 409 99.95h11z" />
             </defs>
-            <use fill="#102131" fillRule="evenodd" xlinkHref="#prefix__header_dicut_mobile-a" />
+            <use fill="#102131" fillRule="evenodd" href="#prefix__header_dicut_mobile-a" />
           </svg>
         ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" width="1470" height="389">
+          <svg xmlns="http://www.w3.org/2000/svg" href="http://www.w3.org/1999/xlink" width="1470" height="389">
             <defs>
               <path
                 id="prefix__header_dicut-a"
                 d="M.064 0C297.895 240.038 712.934 388.966 1172 388.966c87.786 0 176.31.032 265.07.003 2.644 0 5.287-.002 7.93-.003 8.55-.003 16.874-.063 25-.176v.21H0V0h.064z"
               />
             </defs>
-            <use fill="#102131" fillRule="evenodd" xlinkHref="#prefix__header_dicut-a" />
+            <use fill="#102131" fillRule="evenodd" href="#prefix__header_dicut-a" />
           </svg>
         )}
       </CurveBottom>

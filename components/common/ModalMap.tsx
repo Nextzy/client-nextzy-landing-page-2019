@@ -4,12 +4,11 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 const ContainerModal = styled.div`
   position: absolute;
   left: 0;
-  top: 0;
+  bottm: 0;
   display: block;
   width: 100%;
   height: 100%;
   z-index: 1000;
-  display: block;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
 const VisibleBackground = styled.div`
@@ -17,7 +16,7 @@ const VisibleBackground = styled.div`
   width: 100%;
   height: 100%;
   opacity: 1;
-   background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   @keyframes fadein {
     from {
       opacity: 0;
@@ -40,7 +39,7 @@ const BoxModal = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 75%;
+  height: 80vh;
   width: 100%;
   background-color: #fff;
   border-radius: 15px 15px 0 0;
@@ -78,15 +77,14 @@ const office = {
     lat: 18.795211,
     lng: 98.9724383,
     key: 'Cube No.7',
-    address: '17 / 1 Cube No.7 Sirimangkalajarn Lane 7\nSuthep, Muang, Chiang Mai 50200, Thailand.'
+    address: '233/4, Huaykaew Rd, Su Thep\nMueang Chiang Mai, Chiang Mai 50200, Thailand.'
   }
 }
 
 const ModalMap = (props): React.FC => {
-  const { useModal, setModal, fullpageApi } = props
+  const { useModal, setModal } = props
   const { visible, map, isShowMap } = useModal
   const [useModalOut, setModalOut] = useState(false)
-  fullpageApi.setAllowScrolling(useModalOut)
 
   const mapLat = map === 'BANGKOK' ? office.bangkok.lat : office.chiangmai.lat
   const mapLng = map === 'BANGKOK' ? office.bangkok.lng : office.chiangmai.lng

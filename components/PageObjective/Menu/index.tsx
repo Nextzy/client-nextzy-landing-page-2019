@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Fade from 'react-reveal/Fade'
@@ -74,29 +74,27 @@ const DescriptionSelected = styled.div`
 const getArrow = ({ props, useScreen }): string => {
   if (useScreen <= Config.sizeMobile) {
     return props.selected
-      ? '/static/images/Icon/collapse/ic_collapse_down_white.svg'
-      : '/static/images/Icon/collapse/ic_collapse_up_white.svg'
+      ? `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_down_white.svg`
+      : `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_up_white.svg`
   }
   return props.selected
-    ? '/static/images/Icon/collapse/ic_collapse_right_white.svg'
-    : '/static/images/Icon/collapse/ic_collapse_right_gray.svg'
+    ? `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_right_white.svg`
+    : `/${process.env.PATH_IMG}static/images/Icon/collapse/ic_collapse_right_gray.svg`
 }
 
 const MenuWeb = (props): React.FC<MenuProps> => {
   const useScreen = useContext(getWidthContext)
   const src = getArrow({ props, useScreen })
   return (
-    <>
-      <RowWrapper>
-        <Row {...props}>
-          {props.name}
-          <Swing when={props.selected}>
-            <SuffixIcon src={src} />
-          </Swing>
-        </Row>
-        <BottomLiner {...props} src="/static/images/Divider/Color.svg" />
-      </RowWrapper>
-    </>
+    <RowWrapper>
+      <Row {...props} key={props.name}>
+        {props.name}
+        <Swing when={props.selected}>
+          <SuffixIcon src={``} src={src} alt="icon" />
+        </Swing>
+      </Row>
+      <BottomLiner {...props} src={``} src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="line" />
+    </RowWrapper>
   )
 }
 
@@ -110,7 +108,7 @@ const MenuMobile = (props): React.FC<MenuProps> => {
         <Row {...props}>
           {name}
           <Swing when={selected}>
-            <SuffixIcon src={src} />
+            <SuffixIcon src={``} src={src} alt="icon" />
           </Swing>
         </Row>
         <MenuSelectMapHr  {...props} />
@@ -217,7 +215,7 @@ const OrderedItem = (props): React.FC<OrderedItemProps> => {
   return (
     <OrderedItemContainer>
       <div>{props.number}</div>
-      <OrderedItemDivider src="/static/images/Divider/Color.svg" />
+      <OrderedItemDivider src={`/${process.env.PATH_IMG}static/images/Divider/Color.svg`} alt="divider" />
       <div>{props.name}</div>
     </OrderedItemContainer>
   )
@@ -227,7 +225,7 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
   if (activeMenu === 'objective-develop') {
     return (
       <DescriptionHolder>
-        <Header>
+        <Header key="dev">
           Develop <Highlight>quality software</Highlight> for customers
           </Header>
         <Body>
@@ -244,7 +242,7 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
   } else if (activeMenu === 'objective-empowering') {
     return (
       <DescriptionHolder>
-        <Header>
+        <Header key="emp">
           <Highlight>Empowering</Highlight> everyone in the team
           </Header>
         <Body>
@@ -256,7 +254,7 @@ const DescriptionPane = ({ activeMenu }): React.FC => {
   } else if (activeMenu === 'objective-share') {
     return (
       <DescriptionHolder>
-        <Header>
+        <Header key="share">
           <Highlight>Share the expertise</Highlight> to create a community
           </Header>
         <Body>

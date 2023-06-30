@@ -29,6 +29,8 @@ export const Body = styled.p`
 
 const PrescriptionContainer = styled.div`
   width: 711px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   ${media.lessThan(`${Config.sizeMobile}px`)`
     width: calc(100vw - 4rem);
   `}
@@ -41,7 +43,7 @@ const Prescription = (): React.FC => {
         We provide a <Highlight>full range</Highlight> of software design and development services
       </Header>
       <Body>
-        From the first step of Business Analysis, System Analysis, User Interface Design, Development, Testing, Release,
+        From the first step of Business Analysis, Systems Analysis, User Interface Design, Development, Testing, Release,
         Deploy and Maintenance, so that the software can work effectively with talented people including fresh and fast
         development processes.
       </Body>
@@ -75,16 +77,16 @@ const Lego = styled.div`
     content: '';
     position: absolute;
     border-left: 1px solid ${(props) => props.color};
-    height: 10rem;
+    height: 9rem;
     width: 0px;
     margin-top: -5rem;
     margin-left: -26px;
-    ${media.lessThan(`${Config.sizeMobile+1}px`)`
+    ${media.lessThan(`${Config.sizeMobile + 1}px`)`
     margin-left: -21px;
     height: 5rem;
     margin-top: -5rem;
   `};
-  ${media.between(`${Config.sizeMobile+1}px`, `${Config.sizeTablet}px`)`
+  ${media.between(`${Config.sizeMobile + 1}px`, `${Config.sizeTablet}px`)`
     margin-left: -26px;
     height: 6.5rem;
     margin-top: -5rem;
@@ -117,7 +119,7 @@ const LegoNull = styled.div`
 `
 
 const LegoDecorator = styled.div`
-  align-self: flex-start;
+  align-self: flex-end;
   justify-self: flex-start;
 `
 

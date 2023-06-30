@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import ContainerAll from '../layout/ContainerAll'
 import Hamburger from './Hamburger'
-import { addPath } from '../../utils/decorate-url'
-import Router from 'next/router'
 import { getWidthContext } from '../../utils/getWidthScreen'
 import Config from '../../constants/Constants'
 
@@ -78,13 +77,13 @@ const HoverLink = styled.div`
     color: #f7618b;
     transform: scale(1.1);
   }
-  ${({ indexActive }) =>
+  /* ${({ indexActive }) =>
     indexActive
       ? `transition: 500ms;
     color: #F7618B;
     transform: scale(1.1);    
     `
-      : ''}
+      : ''} */
 `
 const UlRight = styled.ul`
   text-align: right;
@@ -93,58 +92,62 @@ const ImgLogo = styled.img`
   cursor: pointer;
 `
 const Nav = (props): React.FC => {
-  const { fullpageApi, indexActive } = props
+  const { indexActive, setActive } = props
   const getScreenContext = useContext(getWidthContext)
+  const handleSetActive = (page) => {
+    setActive(parseInt(page))
+  }
   return (
     <Container>
       <NavBar>
         <BackgroundNav active={indexActive !== 0} />
         <ContainerAll>
           <ul>
-            <li
-              onClick={() => {
-                Router.replace('/', '/')
-                fullpageApi.moveTo(1)
-              }}
-            >
-              {/* <ImgLogo src="/static/images/logo/logo_nextzy_white.svg" /> */}
-              <svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" width="114" height="24">
-                <defs>
-                  <path id="prefix__logo_nextzy_white-a" d="M0 0h114v24H0z" />
-                </defs>
-                <g fill="none" fillRule="evenodd">
-                  <mask id="prefix__logo_nextzy_white-b" fill="#fff">
-                    <use xlinkHref="#prefix__logo_nextzy_white-a" />
-                  </mask>
-                  <path
-                    fill="#FFF"
-                    fillRule="nonzero"
-                    d="M106.236 1c-1.891 2.34-3.84 4.567-5.731 6.906L94.83 1H49.377c-1.95 2.34-3.955 4.567-5.904 6.906L37.683 1H17.566v14.37c-1.146-2.117-2.407-4.345-3.783-6.294L8.165 1H1v22h5.617v-6.628c0-3.564-.057-6.683-.286-9.635h.172c1.26 2.562 3.095 5.402 4.7 7.741L16.992 23h20.692l5.846-6.906L49.377 23h6.935L46.97 12.028l5.79-6.85h6.878V23h6.133V5.177h17.367L70.241 20.271V23h23.672v-4.122H78.437v-.11L90.76 4.285l6.65 8.02V23h6.247V12.306L113 1h-6.764zM34.187 18.934H23.641V14.09h8.597v3.62l4.815-5.681-4.815-5.681v3.62h-8.597V5.066h10.546l5.847 6.906-5.847 6.962z"
-                    mask="url(#prefix__logo_nextzy_white-b)"
-                  />
-                </g>
-              </svg>
-            </li>
-            <UlRight>
-              {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
-                <>
-                  {links.map(({ key, label, show }) =>
-                    show ? (
-                      <li
-                        key={key}
-                        onClick={() => {
-                          addPath(key)
-                          fullpageApi.moveTo(key + 1)
-                        }}
-                      >
-                        <HoverLink indexActive={indexActive === key}>{label}</HoverLink>
+            <Link to="0" smooth={true} duration={500} spy={true} activeClass="active" onSetActive={handleSetActive}>
+              <li>
+                <svg width="114" height="24">
+                  <defs>
+                    <path id="prefix__logo_nextzy_white-a" d="M0 0h114v24H0z" />
+                  </defs>
+                  <g fill="none" fillRule="evenodd">
+                    <mask id="prefix__logo_nextzy_white-b" fill="#fff">
+                      <use href="#prefix__logo_nextzy_white-a" />
+                    </mask>
+                    <path
+                      fill="#FFF"
+                      fillRule="nonzero"
+                      d="M106.236 1c-1.891 2.34-3.84 4.567-5.731 6.906L94.83 1H49.377c-1.95 2.34-3.955 4.567-5.904 6.906L37.683 1H17.566v14.37c-1.146-2.117-2.407-4.345-3.783-6.294L8.165 1H1v22h5.617v-6.628c0-3.564-.057-6.683-.286-9.635h.172c1.26 2.562 3.095 5.402 4.7 7.741L16.992 23h20.692l5.846-6.906L49.377 23h6.935L46.97 12.028l5.79-6.85h6.878V23h6.133V5.177h17.367L70.241 20.271V23h23.672v-4.122H78.437v-.11L90.76 4.285l6.65 8.02V23h6.247V12.306L113 1h-6.764zM34.187 18.934H23.641V14.09h8.597v3.62l4.815-5.681-4.815-5.681v3.62h-8.597V5.066h10.546l5.847 6.906-5.847 6.962z"
+                      mask="url(#prefix__logo_nextzy_white-b)"
+                    />
+                  </g>
+                </svg>
+              </li>
+            </Link>
+            <li>
+              <UlRight>
+                {getScreenContext && getScreenContext <= Config.sizeMobile ? null : (
+                  <>
+                    {links.map(({ key, label, show }) => (
+                      <li key={key}>
+                        <Link
+                          to={key.toString()}
+                          smooth={true}
+                          duration={500}
+                          spy={true}
+                          activeClass="active"
+                          onSetActive={handleSetActive}
+                        >
+                          {show && <HoverLink indexActive={indexActive == key}>{label}</HoverLink>}
+                        </Link>
                       </li>
-                    ) : null
-                  )}
-                </>
-              )}
-              <Hamburger {...props} />
-            </UlRight>
+                    ))}
+                  </>
+                )}
+                <li>
+                  <Hamburger {...props} />
+                </li>
+              </UlRight>
+            </li>
           </ul>
         </ContainerAll>
       </NavBar>

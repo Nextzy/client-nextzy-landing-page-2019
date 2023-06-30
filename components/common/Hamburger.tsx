@@ -76,8 +76,8 @@ const BoxRotate = styled.div`
   `};
 `
 const BoxSelectMenu = styled.div`
-  transition:1s;
-  display: ${({open})=>open?'block':'none'};
+  transition: 1s;
+  display: ${({ open }) => (open ? 'block' : 'none')};
   padding: 5px;
   background: white;
   color: gray;
@@ -140,12 +140,14 @@ const Menu = (props): void => {
   return (
     <BoxSelectMenu open={useMenu}>
       <DivMenu>
-        <Link href="/medium">
-          <a>BLOGS</a>
-        </Link>
+        <a href="https://blog.nextzy.me" target="_blank" rel="noopener noreferrer">
+          BLOGS
+        </a>
       </DivMenu>
       <DivBottom>
-        <a href="https://www.blognone.com/node/64996">CAREER</a>
+        <a href="https://career.nextzy.com" target="_blank" rel="noopener noreferrer">
+          CAREER
+        </a>
       </DivBottom>
     </BoxSelectMenu>
   )

@@ -9,7 +9,7 @@ const Container = styled.div`
   background-color: #102131;
   color: white;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `
 const TextNEXTZY = styled.div`
   position: relative;
@@ -29,16 +29,17 @@ const ContainerPageStart = styled.div`
   justify-content: center;
   z-index: 50;
 `
-const PageClient = (): React.FC => {
+const PageClient = (props): React.FC => {
+  const { indexActive } = props
   return (
     <Container>
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>
             <Fade right cascade>
-              <SectionHeader title="PAGE CLIENT" />
+              <SectionHeader title="OUR HAPPY CLIENT" />
             </Fade>
-            <LegoBlocks />
+            <LegoBlocks indexActive={indexActive} />
           </TextNEXTZY>
         </ContainerPageStart>
       </ContainerAll>

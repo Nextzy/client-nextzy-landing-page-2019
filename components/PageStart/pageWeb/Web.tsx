@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import ShootingStar from '../ShootingStar/index'
 import StarFix from '../Stars/index'
@@ -11,7 +12,7 @@ const ContainerBackground = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  background-image: url(/static/images/Background/background_galaxy.svg);
+  background-image: url(/${process.env.PATH_IMG}static/images/Background/background_galaxy.svg);
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -47,6 +48,7 @@ const BoxBtnPage = styled.div`
   color: #ffffff;
 `
 const ButtonProducts = styled.button`
+  z-index: 1000;
   font-size: 14px;
   color: #ffffff;
   letter-spacing: 1.25px;
@@ -67,7 +69,7 @@ const ButtonProducts = styled.button`
   &:hover {
     background-image: linear-gradient(-136deg, #f7618b 0%, #f7618b 100%);
   }
-  &:focus {
+  &:focus-within {
     background-image: linear-gradient(-136deg, #632738 0%, #632738 100%);
     outline: 0;
   }
@@ -77,6 +79,7 @@ const ButtonProducts = styled.button`
 `
 
 const ButtonContact = styled.button`
+  z-index: 1000;
   font-size: 14px;
   color: #ffffff;
   letter-spacing: 1.25px;
@@ -96,7 +99,7 @@ const ButtonContact = styled.button`
     background-image: linear-gradient(-136deg, #f7618b 0%, #f7618b 100%);
     box-shadow: inset 0 0 0 2px #f7618b;
   }
-  &:focus {
+  &:focus-within {
     box-shadow: inset 0 0 0 2px #f7618b;
     background-image: linear-gradient(-136deg, #632738 0%, #632738 100%);
     outline: 0;
@@ -116,26 +119,39 @@ const ContainerPageStart = styled.div`
   flex-direction: column;
 `
 const PageStartWeb = (props): React.FC => {
+  const refProduct = useRef(null)
+  const refContact = useRef(null)
   const { fullpageApi } = props
+  /*   const moveTo = (e) => {
+    fullpageApi.moveTo(e.target.value)
+    setTimeout(() => {
+      refProduct.current.blur()
+      refContact.current.blur()
+    }, 200)
+  } */
   return (
     <>
       <ContainerBackground />
       <ContainerAll>
         <ContainerPageStart>
           <TextNEXTZY>
-            <Fade right cascade delay={2100}>
+            <Fade right cascade>
               <p>NEXTZY </p>
               <p>TECHNOLOGIES</p>
             </Fade>
           </TextNEXTZY>
 
           <BoxBtnPage>
-            <Fade right cascade delay={2100}>
+            <Fade right cascade>
               <p>We are pirates</p>
               <p>We sail and hunt the best mobile and web solution.</p>
               <div>
-                <ButtonProducts onClick={() => fullpageApi.moveTo(4)}>PRODUCTS</ButtonProducts>
-                <ButtonContact onClick={() => fullpageApi.moveTo(7)}>CONTACT</ButtonContact>
+                <Link to="1" smooth={true} duration={500}>
+                  <ButtonProducts ref={refProduct}>PRODUCTS</ButtonProducts>
+                </Link>
+                <Link to="6" smooth={true} duration={500}>
+                  <ButtonContact ref={refContact}>CONTACT</ButtonContact>
+                </Link>
               </div>
             </Fade>
           </BoxBtnPage>

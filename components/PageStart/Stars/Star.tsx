@@ -42,7 +42,7 @@ const BoxStar = styled.div`
 const Star = (props): React.FC => {
   return (
     <BoxStar {...props}>
-      <img src="/static/images/Star/asset_star.png" alt="star" />
+      <img src={`/${process.env.PATH_IMG}static/images/Star/asset_star.png`} alt="star" />
     </BoxStar>
   )
 }
