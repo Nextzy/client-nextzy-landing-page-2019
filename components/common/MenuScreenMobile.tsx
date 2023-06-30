@@ -86,7 +86,7 @@ const MenuScreenMobile = (props): void => {
         <a href="https://blog.nextzy.me" target="_blank" rel="noopener noreferrer">
           <SelectMenu>BLOGS</SelectMenu>
         </a>
-        <a href="https://www.blognone.com/node/64996" target="_blank" rel="noopener noreferrer">
+        <a href="https://career.nextzy.com" target="_blank" rel="noopener noreferrer">
           <SelectMenuBottom>CAREER</SelectMenuBottom>
         </a>
       </BoxMenu>

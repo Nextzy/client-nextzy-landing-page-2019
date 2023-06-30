@@ -145,7 +145,7 @@ const Menu = (props): void => {
         </a>
       </DivMenu>
       <DivBottom>
-        <a href="https://www.blognone.com/node/64996" target="_blank" rel="noopener noreferrer">
+        <a href="https://career.nextzy.com" target="_blank" rel="noopener noreferrer">
           CAREER
         </a>
       </DivBottom>
